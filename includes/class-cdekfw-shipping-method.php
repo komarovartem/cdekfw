@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * WC_Shipping_Flat_Rate class.
+ * CDEKFW_Shipping_Method class.
  */
 class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
@@ -26,14 +26,13 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @param int $instance_id Shipping method instance ID.
 	 */
 	public function __construct( $instance_id = 0 ) {
-		$this->id                 = 'cdek';
+		$this->id                 = 'cdek_shipping';
 		$this->instance_id        = absint( $instance_id );
 		$this->method_title       = __( 'CDEK', 'cdek-for-woocommerce' );
 		$this->method_description = __( 'Lets you charge a fixed rate for shipping.', 'cdek-for-woocommerce' );
 		$this->supports           = array(
 			'shipping-zones',
 			'instance-settings',
-			'instance-settings-modal',
 		);
 		$this->init();
 
@@ -146,6 +145,9 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @param array $package Package of items from cart.
 	 */
 	public function calculate_shipping( $package = array() ) {
+
+		$auth = $this->get_auth_token();
+
 		$rate = array(
 			'id'      => $this->get_rate_id(),
 			'label'   => $this->title,
@@ -283,5 +285,10 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		}
 
 		return $value;
+	}
+
+
+	public function get_auth_token() {
+
 	}
 }
