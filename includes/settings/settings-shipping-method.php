@@ -7,83 +7,71 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$cost_desc = __( 'Enter a cost (excl. tax) or sum, e.g. <code>10.00 * [qty]</code>.', 'woocommerce' ) . '<br/><br/>' . __( 'Use <code>[qty]</code> for the number of items, <br/><code>[cost]</code> for the total cost of items, and <code>[fee percent="10" min_fee="20" max_fee=""]</code> for percentage based fees.', 'woocommerce' );
-
 $settings = array(
-	'title'      => array(
-		'title'       => __( 'Method title', 'woocommerce' ),
+	'title'              => array(
+		'title'       => __( 'Method title', 'cdek-for-woocommerce' ),
 		'type'        => 'text',
-		'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-		'default'     => __( 'Flat rate', 'woocommerce' ),
-		'desc_tip'    => true,
+		'description' => __( 'This controls the title which the user sees during checkout.', 'cdek-for-woocommerce' ),
+		'default'     => __( 'CDEK', 'cdek-for-woocommerce' ),
 	),
-	'tax_status' => array(
-		'title'   => __( 'Tax status', 'woocommerce' ),
+	'tax_status'         => array(
+		'title'   => __( 'Tax status', 'cdek-for-woocommerce' ),
 		'type'    => 'select',
 		'class'   => 'wc-enhanced-select',
 		'default' => 'taxable',
 		'options' => array(
-			'taxable' => __( 'Taxable', 'woocommerce' ),
-			'none'    => _x( 'None', 'Tax status', 'woocommerce' ),
+			'taxable' => __( 'Taxable', 'cdek-for-woocommerce' ),
+			'none'    => _x( 'None', 'Tax status', 'cdek-for-woocommerce' ),
 		),
 	),
-	'cost'       => array(
-		'title'             => __( 'Cost', 'woocommerce' ),
-		'type'              => 'text',
-		'placeholder'       => '',
-		'description'       => $cost_desc,
-		'default'           => '0',
-		'desc_tip'          => true,
-		'sanitize_callback' => array( $this, 'sanitize_cost' ),
-	),
-);
-
-$shipping_classes = WC()->shipping()->get_shipping_classes();
-
-if ( ! empty( $shipping_classes ) ) {
-	$settings['class_costs'] = array(
-		'title'       => __( 'Shipping class costs', 'woocommerce' ),
-		'type'        => 'title',
-		'default'     => '',
-		/* translators: %s: URL for link. */
-		'description' => sprintf( __( 'These costs can optionally be added based on the <a href="%s">product shipping class</a>.', 'woocommerce' ), admin_url( 'admin.php?page=wc-settings&tab=shipping&section=classes' ) ),
-	);
-	foreach ( $shipping_classes as $shipping_class ) {
-		if ( ! isset( $shipping_class->term_id ) ) {
-			continue;
-		}
-		$settings[ 'class_cost_' . $shipping_class->term_id ] = array(
-			/* translators: %s: shipping class name */
-			'title'             => sprintf( __( '"%s" shipping class cost', 'woocommerce' ), esc_html( $shipping_class->name ) ),
-			'type'              => 'text',
-			'placeholder'       => __( 'N/A', 'woocommerce' ),
-			'description'       => $cost_desc,
-			'default'           => $this->get_option( 'class_cost_' . $shipping_class->slug ), // Before 2.5.0, we used slug here which caused issues with long setting names.
-			'desc_tip'          => true,
-			'sanitize_callback' => array( $this, 'sanitize_cost' ),
-		);
-	}
-
-	$settings['no_class_cost'] = array(
-		'title'             => __( 'No shipping class cost', 'woocommerce' ),
-		'type'              => 'text',
-		'placeholder'       => __( 'N/A', 'woocommerce' ),
-		'description'       => $cost_desc,
-		'default'           => '',
-		'desc_tip'          => true,
-		'sanitize_callback' => array( $this, 'sanitize_cost' ),
-	);
-
-	$settings['type'] = array(
-		'title'   => __( 'Calculation type', 'woocommerce' ),
+	'tariff'             => array(
+		'title'   => __( 'Tariff', 'cdek-for-woocommerce' ),
 		'type'    => 'select',
 		'class'   => 'wc-enhanced-select',
-		'default' => 'class',
+		'default' => 'taxable',
 		'options' => array(
-			'class' => __( 'Per class: Charge shipping for each shipping class individually', 'woocommerce' ),
-			'order' => __( 'Per order: Charge shipping for the most expensive shipping class', 'woocommerce' ),
+			// Экспресс-доставка за/из-за границы документов и писем.
+			7   => 'Международный экспресс документы дверь-дверь (до 5 кг)',
+			// Экспресс-доставка за/из-за границы грузов и посылок до 30 кг.
+			8   => 'Международный экспресс грузы дверь-дверь (до 30 кг)',
+			// Услуга экономичной доставки товаров по России для компаний, осуществляющих дистанционную торговлю.
+			136 => 'Посылка склад-склад (до 30 кг)',
+			137 => 'Посылка склад-дверь (до 30 кг)',
+			138 => 'Посылка дверь-склад (до 30 кг)',
+			139 => 'Посылка дверь-дверь (до 30 кг)',
+			// Экспресс-доставка за/из-за границы грузов и посылок до 30 кг.
+			178 => 'Международный экспресс грузы склад-склад (до 30 кг)',
+			179 => 'Международный экспресс грузы склад-дверь (до 30 кг)',
+			180 => 'Международный экспресс грузы дверь-склад (до 30 кг)',
+			// Экспресс-доставка за/из-за границы документов и писем.
+			181 => 'Международный экспресс документы склад-склад (до 5 кг)',
+			182 => 'Международный экспресс документы склад-дверь (до 5 кг)',
+			183 => 'Международный экспресс документы дверь-склад (до 5 кг)',
+			// Услуга экономичной наземной доставки товаров по России для компаний, осуществляющих дистанционную торговлю.
+			// Услуга действует по направлениям из Москвы в подразделения СДЭК, находящиеся за Уралом и в Крым.
+			231 => 'Экономичная посылка дверь-дверь (до 50 кг)',
+			232 => 'Экономичная посылка дверь-склад (до 50 кг)',
+			233 => 'Экономичная посылка склад-дверь (до 50 кг)',
+			234 => 'Экономичная посылка склад-склад (до 50 кг)',
+			// Сервис по доставке товаров из-за рубежа в Россию, Украину, Казахстан, Киргизию, Узбекистан с услугами по таможенному оформлению.
+			291 => 'CDEK Express склад-склад',
+			293 => 'CDEK Express дверь-дверь',
+			294 => 'CDEK Express склад-дверь',
+			295 => 'CDEK Express дверь-склад',
 		),
-	);
-}
+	),
+	'show_delivery_time' => array(
+		'title' => __( 'Show delivery time', 'cdek-for-woocommerce' ),
+		'type'  => 'checkbox',
+	),
+	'add_delivery_time'  => array(
+		'title' => __( 'Additional Time for Delivery', 'cdek-for-woocommerce' ),
+		'type'  => 'number',
+	),
+	'add_cost'           => array(
+		'title' => __( 'Additional Cost', 'cdek-for-woocommerce' ),
+		'type'  => 'number',
+	),
+);
 
 return $settings;

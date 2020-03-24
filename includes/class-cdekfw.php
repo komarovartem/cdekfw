@@ -29,7 +29,14 @@ class CDEKFW {
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'woocommerce_shipping_init', array( $this, 'init_method' ) );
 		add_filter( 'woocommerce_shipping_methods', array( $this, 'register_method' ) );
-		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
+		add_filter(
+			'plugin_action_links_' . plugin_basename( CDEK_PLUGIN_FILE ),
+			array(
+				$this,
+				'plugin_action_links',
+			)
+		);
+		add_filter( 'auto_update_plugin', array( $this, 'auto_update_plugin' ), 10, 2 );
 	}
 
 	/**
@@ -56,7 +63,7 @@ class CDEKFW {
 	 * @return array
 	 */
 	public function register_method( $methods ) {
-		$methods['cdek'] = 'CDEKFW_Shipping_Method';
+		$methods['cdek_shipping'] = 'CDEKFW_Shipping_Method';
 
 		return $methods;
 	}
@@ -85,10 +92,11 @@ class CDEKFW {
 	}
 
 	/**
-	 * Add plugin partials
+	 * Add all partials
 	 */
 	public function includes() {
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-admin.php';
+		include_once CDEK_ABSPATH . 'includes/class-cdekfw-client.php';
 	}
 
 	/**
@@ -109,119 +117,19 @@ class CDEKFW {
 	}
 
 	/**
-	 * Get client credentials for requests
+	 * Auto update plugin
 	 *
-	 * If no credentials are set use test data
+	 * @param bool   $should_update If should update.
+	 * @param object $plugin Plugin data.
 	 *
-	 * @return array
+	 * @return bool
 	 */
-	public static function get_client_credentials() {
-		if ( get_option( 'cdek_account' ) ) {
-			return array(
-				'account'  => get_option( 'cdek_account' ),
-				'password' => get_option( 'cdek_password' ),
-				'api_url'  => 'http://api.cdek.ru/v2/',
-			);
-		} else {
-			return array(
-				'account'  => 'z9GRRu7FxmO53CQ9cFfI6qiy32wpfTkd',
-				'password' => 'w24JTCv4MnAcuRTx0oHjHLDtyt3I6IBq',
-				'api_url'  => 'http://api.edu.cdek.ru/v2/',
-			);
-		}
-	}
-
-	/**
-	 * Get client auth token
-	 *
-	 * @return string
-	 */
-	public static function get_client_auth_token() {
-		$client     = self::get_client_credentials();
-		$hash       = 'cdek_auth_token_' . md5( $client['account'] );
-		$auth_token = get_transient( $hash );
-
-		if ( ! $auth_token ) {
-			$parameters = array(
-				'grant_type'    => 'client_credentials',
-				'client_id'     => $client['account'],
-				'client_secret' => $client['password'],
-			);
-
-			$request         = add_query_arg( $parameters, $client['api_url'] . 'oauth/token?parameters' );
-			$remote_response = wp_remote_post( $request, array( 'timeout' => 15 ) );
-
-			if ( ! $remote_response ) {
-				return false;
-			}
-
-			$response_code = wp_remote_retrieve_response_code( $remote_response );
-
-			if ( 200 !== $response_code ) {
-				return false;
-			}
-
-			$response_body = json_decode( wp_remote_retrieve_body( $remote_response ), true );
-
-			if ( ! isset( $response_body['access_token'] ) ) {
-				return false;
-			}
-
-			$auth_token = $response_body['access_token'];
-
-
-			set_transient( $hash, $auth_token, $response_body['expires_in'] );
+	public function auto_update_plugin( $should_update, $plugin ) {
+		if ( 'cdek-for-woocommerce/cdek-for-woocommerce.php' === $plugin->plugin ) {
+			return true;
 		}
 
-		return $auth_token;
-	}
-
-	/**
-	 * Connect to Post API and get body for requested URL
-	 *
-	 * @param string $url API url.
-	 * @param string $method Type.
-	 * @param array  $body Request body.
-	 *
-	 * @return bool|mixed|null
-	 */
-	public static function get_data_from_api( $url, $method = 'POST', $body = array() ) {
-
-		$client            = self::get_client_credentials();
-		$client_auth_token = self::get_client_auth_token();
-
-		$remote_response = wp_remote_request(
-			$client['api_url'] . $url,
-			array(
-				'headers' => array(
-					'Authorization'        => 'Bearer ' . $client_auth_token,
-					'X-User-Authorization' => 'Basic ' . $key,
-					'Accept'               => 'application/json;charset=UTF-8',
-					'Content-Type'         => 'application/json',
-				),
-				'method'  => $method,
-				'body'    => wp_json_encode( $body, JSON_UNESCAPED_UNICODE ),
-				'timeout' => 100, // must be that big for huge requests like getting PVZ list.
-			)
-		);
-
-		self::log_it( esc_html__( 'Making request to get:', 'cdek-for-woocommerce' ) . ' ' . $url );
-
-		if ( is_wp_error( $remote_response ) ) {
-			self::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $remote_response->get_error_message() . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
-
-			return false;
-		}
-
-		$response_code = wp_remote_retrieve_response_code( $remote_response );
-
-		if ( 200 !== $response_code ) {
-			self::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $response_code . ' ' . wp_remote_retrieve_body( $remote_response ) . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
-
-			return false;
-		}
-
-		return json_decode( wp_remote_retrieve_body( $remote_response ), true );
+		return $should_update;
 	}
 
 	/**
@@ -235,7 +143,3 @@ class CDEKFW {
 		$logger->{$type}( $message, array( 'source' => 'cdek' ) );
 	}
 }
-
-//add_action( 'wp_footer', function () {
-//	CDEKFW::get_client_auth_token();
-//} );
