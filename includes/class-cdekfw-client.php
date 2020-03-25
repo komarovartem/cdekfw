@@ -15,6 +15,54 @@ defined( 'ABSPATH' ) || exit;
  */
 class CDEKFW_Client {
 	/**
+	 * Calculate shipping rate
+	 *
+	 * @param array $args Shipping params.
+	 *
+	 * @return bool|mixed|null
+	 */
+	public static function calculate_rate( $args ) {
+		$client = self::get_client_credentials();
+		$date   = current_time( 'mysql' );
+
+		$args = array_merge(
+			$args,
+			array(
+				'version'     => '1.0',
+				'currency'    => get_woocommerce_currency(),
+				'authLogin'   => $client['account'],
+				'secure'      => md5( $date . '&' . $client['password'] ),
+				'dateExecute' => $date,
+			)
+		);
+
+		return self::get_data_from_api( 'calculator/calculate_tarifflist.php', $args );
+	}
+
+	/**
+	 * Get delivery points
+	 *
+	 * @return array|bool
+	 */
+	public static function get_pvz_list() {
+		$postcode        = WC()->customer->get_shipping_postcode();
+		$is_cod          = 'allowed_cod';
+		$delivery_points = array();
+
+		$items = self::get_data_from_api( 'v2/deliverypoints?postal_code=' . $postcode, array(), 'GET' );
+
+		if ( ! $items ) {
+			return false;
+		}
+
+		foreach ( $items as $item ) {
+			$delivery_points[ $item['code'] ] = $item['location']['adress'];
+		}
+
+		return $delivery_points;
+	}
+
+	/**
 	 * Get client credentials for requests
 	 *
 	 * If no credentials are set use test data
@@ -45,7 +93,7 @@ class CDEKFW_Client {
 	public static function get_client_auth_token() {
 		$client     = self::get_client_credentials();
 		$hash       = 'cdek_auth_token_' . md5( $client['account'] );
-		$auth_token = get_transient( $hash . '2' );
+		$auth_token = get_transient( $hash );
 
 		if ( ! $auth_token ) {
 			$parameters = array(
@@ -71,7 +119,6 @@ class CDEKFW_Client {
 			}
 
 			$response_code = wp_remote_retrieve_response_code( $remote_response );
-
 
 			if ( 200 !== $response_code ) {
 				return false;
@@ -106,7 +153,7 @@ class CDEKFW_Client {
 		$client_auth_token = self::get_client_auth_token();
 
 		if ( ! $client_auth_token ) {
-			self::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ' . $url );
+			CDEKFW::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ' . $url );
 
 			return false;
 		}
@@ -125,10 +172,10 @@ class CDEKFW_Client {
 			)
 		);
 
-		self::log_it( esc_html__( 'Making request to get:', 'cdek-for-woocommerce' ) . ' ' . $url );
+		CDEKFW::log_it( esc_html__( 'Making request to get:', 'cdek-for-woocommerce' ) . ' ' . $url );
 
 		if ( is_wp_error( $remote_response ) ) {
-			self::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $remote_response->get_error_message() . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+			CDEKFW::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $remote_response->get_error_message() . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 			return false;
 		}
@@ -136,18 +183,26 @@ class CDEKFW_Client {
 		$response_code = wp_remote_retrieve_response_code( $remote_response );
 
 		if ( 200 !== $response_code ) {
-			self::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $response_code . ' ' . wp_remote_retrieve_body( $remote_response ) . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+			CDEKFW::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $response_code . ' ' . wp_remote_retrieve_body( $remote_response ) . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 			return false;
 		}
 
-		return json_decode( wp_remote_retrieve_body( $remote_response ), true );
+		$response_body = json_decode( wp_remote_retrieve_body( $remote_response ), true );
+
+		if ( isset( $response_body['error'] ) ) {
+			CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . '<br> Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+
+			return false;
+		}
+
+		return $response_body;
 	}
 }
 
 
 function cdek_test() {
-	$client = CDEKFW::get_client_credentials();
+	$client = CDEKFW_Client::get_client_credentials();
 	$date   = current_time( 'mysql' );
 
 	$args = array(
@@ -170,10 +225,10 @@ function cdek_test() {
 		'dateExecute'          => $date,
 	);
 
-//	 $res = CDEKFW::get_data_from_api( 'calculator/calculate_tarifflist.php', $args );
-	$data = CDEKFW::get_data_from_api( 'v2/deliverypoints?postal_code=675000', array(), 'GET' );
+	// $res = CDEKFW::get_data_from_api( 'calculator/calculate_tarifflist.php', $args );
+	// $data = CDEKFW::get_data_from_api( 'v2/deliverypoints?postal_code=675000', array(), 'GET' );
 
 	// CDEKFW::get_client_auth_token();
 }
 
-add_action( 'wp_footer', 'cdek_test' );
+// add_action( 'wp_footer', 'cdek_test' );

@@ -22,7 +22,7 @@ class CDEKFW_Admin {
 		add_filter( 'woocommerce_get_sections_shipping', array( $this, 'settings_page' ) );
 		add_filter( 'woocommerce_get_settings_shipping', array( $this, 'settings' ), 10, 2 );
 		add_action( 'wp_ajax_cdek_sync_pvz', array( $this, 'ajax_sync_pvz' ) );
-		add_action( 'init', array( $this, 'auto_sync_pvz' ) );
+//		add_action( 'init', array( $this, 'auto_sync_pvz' ) );
 	}
 
 	/**
@@ -60,7 +60,7 @@ class CDEKFW_Admin {
 	 * @param array $data Field control attributes.
 	 */
 	public function add_sync_pvz_button( $data ) {
-		include 'settings/control-pvz-button.php';
+		include 'controls/control-pvz-button.php';
 	}
 
 	/**

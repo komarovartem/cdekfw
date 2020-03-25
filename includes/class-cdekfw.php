@@ -97,6 +97,7 @@ class CDEKFW {
 	public function includes() {
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-admin.php';
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-client.php';
+		include_once CDEK_ABSPATH . 'includes/class-cdekfw-pvz-shipping.php';
 	}
 
 	/**
@@ -110,7 +111,7 @@ class CDEKFW {
 		return array_merge(
 			array(
 				'settings' => '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping&section=cdek' ) . '">' . esc_html__( 'Settings', 'cdek-for-woocommerce' ) . '</a>',
-				'docs'     => '<a href="https://yumecommerce.com/pochta/docs/" target="_blank">' . esc_html__( 'Documentation', 'cdek-for-woocommerce' ) . '</a>',
+				'docs'     => '<a href="" target="_blank">' . esc_html__( 'Documentation', 'cdek-for-woocommerce' ) . '</a>',
 			),
 			$links
 		);
