@@ -148,8 +148,14 @@ class CDEKFW_Client {
 	 * @return bool|mixed|null
 	 */
 	public static function get_data_from_api( $url, $body = array(), $method = 'POST' ) {
+		$client = self::get_client_credentials();
+		$hash   = self::get_request_hash( $client['account'], $url, $body );
+		$cache  = get_transient( $hash );
 
-		$client            = self::get_client_credentials();
+		if ( $cache ) {
+			return $cache;
+		}
+
 		$client_auth_token = self::get_client_auth_token();
 
 		if ( ! $client_auth_token ) {
@@ -167,7 +173,7 @@ class CDEKFW_Client {
 					'Content-Type'  => 'application/json',
 				),
 				'method'  => $method,
-				'body'    => wp_json_encode( $body, JSON_UNESCAPED_UNICODE ),
+				'body'    => $body ? wp_json_encode( $body, JSON_UNESCAPED_UNICODE ) : '',
 				'timeout' => 100, // must be that big for huge requests like getting PVZ list.
 			)
 		);
@@ -196,39 +202,49 @@ class CDEKFW_Client {
 			return false;
 		}
 
+		set_transient( $hash, $response_body, DAY_IN_SECONDS );
+
 		return $response_body;
+	}
+
+	/**
+	 * Get hash by removing time relevant data
+	 *
+	 * @param string $account Account ID.
+	 * @param string $url Request url.
+	 * @param array  $body Request body.
+	 *
+	 * @return string
+	 */
+	public static function get_request_hash( $account, $url, $body ) {
+		unset( $body['authLogin'] );
+		unset( $body['secure'] );
+		unset( $body['dateExecute'] );
+
+		return 'cdek' . md5( $account . $url . wp_json_encode( $body ) );
 	}
 }
 
 
 function cdek_test() {
-	$client = CDEKFW_Client::get_client_credentials();
-	$date   = current_time( 'mysql' );
 
-	$args = array(
-		'version'              => '1.0',
-		'receiverCityPostCode' => '675000',
-		'senderCityPostCode'   => '101000',
-		'goods'                => array(
-			array(
-				'weight' => 1,
-				'length' => 10,
-				'width'  => 20,
-				'height' => 10,
+	// $data = CDEKFW_Client::get_data_from_api( 'v2/deliverypoints?postal_code=675000', array(), 'GET' );
+	$client_auth_token = CDEKFW_Client::get_client_auth_token();
+
+	$remote_response = wp_remote_request(
+		'http://api.edu.cdek.ru/v2/deliverypoints?postal_code=675000',
+		array(
+			'timeout' => 30,
+			'headers' => array(
+				'Content-Type'  => 'application/json',
+				'Authorization' => 'Bearer ' . $client_auth_token,
 			),
-		),
-		'tariffId'             => 1,
-		'currency'             => get_woocommerce_currency(),
-		'services'             => array(),
-		'authLogin'            => $client['account'],
-		'secure'               => md5( $date . '&' . $client['password'] ),
-		'dateExecute'          => $date,
+			'body'    => '',
+			'method'  => 'GET',
+		)
 	);
 
-	// $res = CDEKFW::get_data_from_api( 'calculator/calculate_tarifflist.php', $args );
-	// $data = CDEKFW::get_data_from_api( 'v2/deliverypoints?postal_code=675000', array(), 'GET' );
-
-	// CDEKFW::get_client_auth_token();
+	var_dump( $remote_response );
 }
 
 // add_action( 'wp_footer', 'cdek_test' );

@@ -7,27 +7,28 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$test_warning = __( 'If field is empty, test account data will be used.', 'cdek-for-woocommerce' );
+
 return array(
 	array(
 		'title' => __( 'CDEK', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'If account and password is not filled in the plugin will work in test mode.', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
 		'title' => __( 'Account', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Client ID', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Client ID', 'cdek-for-woocommerce' ) . ' ' . $test_warning,
 		'type'  => 'text',
 		'id'    => 'cdek_account',
 	),
 	array(
 		'title' => __( 'Secure password', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'секретный ключ клиента', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'секретный ключ клиента.', 'cdek-for-woocommerce' ) . ' ' . $test_warning,
 		'type'  => 'text',
 		'id'    => 'cdek_password',
 	),
 	array(
 		'title' => __( 'Индекс', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Индекс города отправителя', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Индекс города отправителя. Если поле не заполнено индекс 101000 будет использован по умолчанию', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_sender_post_code',
 	),

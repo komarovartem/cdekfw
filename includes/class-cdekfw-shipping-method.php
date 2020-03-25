@@ -49,6 +49,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @param array $package Package of items from cart.
 	 */
 	public function calculate_shipping( $package = array() ) {
+		$label         = $this->title;
 		$from         = get_option( 'cdek_sender_post_code', 101000 );
 		$country_code = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
 		$postcode     = wc_format_postcode( $package['destination']['postcode'], $country_code );
@@ -61,7 +62,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 		$args = array(
 			'receiverCityPostCode' => intval( $postcode ),
-			'senderCityPostCode'   => $from,
+			'senderCityPostCode'   => $from ? $from : 101000,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => intval( $this->tariff ),
 			'services'             => array(),
@@ -85,12 +86,15 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			if ( $this->add_delivery_time ) {
 				$delivery_time += $this->add_delivery_time;
 			}
+
+			/* translators: %s: Delivery time */
+			$label .= ' (' . sprintf( _n( '%s day', '%s days', $delivery_time, 'cdek-for-woocommerce' ), number_format_i18n( $delivery_time ) ) . ')';
 		}
 
 		$this->add_rate(
 			array(
 				'id'      => $this->get_rate_id(),
-				'label'   => $this->title,
+				'label'   => $label,
 				'cost'    => $cost,
 				'package' => $package,
 			)
