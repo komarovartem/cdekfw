@@ -78,6 +78,15 @@ return array(
 		'id'    => 'cdek_pvz',
 	),
 	array(
+		'title'             => __( 'Yandex Maps JavaScript API', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Set the API key for Yandex Maps if you want to let customers to choose ECOM delivery points on the map.', 'russian-post-and-ems-pro-for-woocommerce' ),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_yandex_api',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
 		'type' => 'sectionend',
 	),
 );

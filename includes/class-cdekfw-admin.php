@@ -22,7 +22,7 @@ class CDEKFW_Admin {
 		add_filter( 'woocommerce_get_sections_shipping', array( $this, 'settings_page' ) );
 		add_filter( 'woocommerce_get_settings_shipping', array( $this, 'settings' ), 10, 2 );
 		add_action( 'wp_ajax_cdek_sync_pvz', array( $this, 'ajax_sync_pvz' ) );
-//		add_action( 'init', array( $this, 'auto_sync_pvz' ) );
+		// add_action( 'init', array( $this, 'auto_sync_pvz' ) );
 	}
 
 	/**
@@ -81,67 +81,57 @@ class CDEKFW_Admin {
 	 * Get new updated version for delivery points from API
 	 */
 	public function sync_pvz() {
-		if ( ! $data = CDEKFW::get_data_from_api( 'v2/deliverypoints', array(), 'GET' ) ) {
+		$data = CDEKFW_Client::get_data_from_api( 'v2/deliverypoints', array(), 'GET' );
+
+		if ( ! $data ) {
 			return false;
 		}
 
 		if ( ! $file = fopen( CDEK_ABSPATH . 'includes/lists/pvz.txt', 'w+' ) ) {
 			CDEKFW::log_it( __( 'Cannot open file for delivery points.', 'cdek-for-woocommerce' ), 'error' );
+
 			return false;
 		}
 
-		self::debugging_deliver_points( $data, 1 );
+		self::debugging_deliver_points( $data, false );
 
-//		// get list of all address skip possibly missing fields like corpus and etc.
-//		foreach ( $data as $pvz ) {
-//			$address                = implode(
-//				', ',
-//				array_filter(
-//					array(
-//						@$pvz['address']['location'], // @codingStandardsIgnoreLine
-//						@$pvz['address']['street'], // @codingStandardsIgnoreLine
-//						@$pvz['address']['house'] . @$pvz['address']['letter'], // @codingStandardsIgnoreLine
-//						@$pvz['address']['building'], // @codingStandardsIgnoreLine
-//						@$pvz['address']['room'], // @codingStandardsIgnoreLine
-//						@$pvz['address']['corpus'], // @codingStandardsIgnoreLine
-//					)
-//				)
-//			);
-//			$index                  = $pvz['location']['index'];
-//			$state                  = RPAEFW_PRO_Helper::match_region_name_with_number( $pvz['address']['region'] );
-//			$city                   = str_replace( array( 'г. ', 'д. ', 'п. ', 'г ' ), '', $pvz['address']['place'] );
-//			$coordinates            = $pvz['latitude'] . ',' . $pvz['longitude'];
-//			$card_payment           = intval( $pvz['card-payment'] );
-//			$cash_payment           = intval( $pvz['cash-payment'] );
-//			$contents_checking      = intval( $pvz['contents-checking'] );
-//			$functionality_checking = intval( $pvz['functionality-checking'] );
-//			$with_fitting           = intval( $pvz['with-fitting'] );
-//			$brand_name             = @$pvz['brand-name']; // @codingStandardsIgnoreLine
-//
-//			if ( $address ) {
-//				fwrite(
-//					$file,
-//					implode(
-//						"\t",
-//						array(
-//							$index,
-//							$state,
-//							$city,
-//							$address,
-//							$coordinates,
-//							$card_payment,
-//							$cash_payment,
-//							$contents_checking,
-//							$functionality_checking,
-//							$with_fitting,
-//							$brand_name,
-//						)
-//					) . "\t\n"
-//				);
-//			}
-//		}
-//
-//		fclose( $file );
+		foreach ( $data as $pvz ) {
+			$code             = $pvz['code'];
+			$type             = $pvz['type'];
+			$region_code      = $pvz['location']['region_code'];
+			$city_code        = $pvz['location']['city_code'];
+			$city             = $pvz['location']['city'];
+			$address          = $pvz['location']['adress'];
+			$coordinates      = $pvz['location']['latitude'] . ',' . $pvz['location']['longitude'];
+			$take_only        = intval( $pvz['take_only'] );
+			$is_dressing_room = intval( $pvz['is_dressing_room'] );
+			$have_cashless    = intval( $pvz['have_cashless'] );
+			$allowed_cod      = intval( $pvz['allowed_cod'] );
+
+			if ( $address ) {
+				fwrite(
+					$file,
+					implode(
+						"\t",
+						array(
+							$code,
+							$type,
+							$region_code,
+							$city_code,
+							$city,
+							$address,
+							$coordinates,
+							$take_only,
+							$is_dressing_room,
+							$have_cashless,
+							$allowed_cod,
+						)
+					) . "\t\n"
+				);
+			}
+		}
+
+		fclose( $file );
 
 		return true;
 	}
@@ -150,10 +140,10 @@ class CDEKFW_Admin {
 	 * Auto update delivery point each day
 	 */
 	public function auto_sync_pvz() {
-		$pvz_has_updated = get_transient( 'rpaefw_auto_sync_pvz' );
+		$pvz_has_updated = get_transient( 'cdekfw_auto_sync_pvz' );
 		if ( ! $pvz_has_updated ) {
 			$sync_pvz = $this->sync_pvz();
-			set_transient( 'rpaefw_auto_sync_pvz', $sync_pvz, DAY_IN_SECONDS );
+			set_transient( 'cdekfw_auto_sync_pvz', $sync_pvz, DAY_IN_SECONDS );
 		}
 	}
 

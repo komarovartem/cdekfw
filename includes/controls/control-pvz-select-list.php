@@ -4,7 +4,7 @@
 	</label>
 	<select name="cdekfw-pvz-code" id="cdekfw-pvz-code" data-noresults="<?php esc_attr_e( 'Address is not found', 'cdek-for-woocommerce' ); ?>">
 		<?php foreach ( $pvz as $pvz_code => $address ) : ?>
-			<option value="<?php echo esc_attr( $pvz_code ); ?>" <?php selected( $pvz_code, $selected_pvz ); ?>><?php echo esc_attr( $address ); ?></option>
+			<option value="<?php echo esc_attr( $pvz_code ); ?>|<?php echo esc_attr( $address ); ?>" <?php selected( $pvz_code, $selected_pvz ); ?>><?php echo esc_attr( $address ); ?></option>
 		<?php endforeach; ?>
 	</select>
 </p>
@@ -33,5 +33,5 @@
 			});
 		})();
 	</script>
-<?php
+	<?php
 endif;

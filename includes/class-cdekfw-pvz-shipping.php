@@ -11,19 +11,18 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Delivery points for CDEK methods
  *
- * @class CDEKFW_Pvz_Shipping
+ * @class CDEKFW_PVZ_Shipping
  */
-class CDEKFW_Pvz_Shipping {
+class CDEKFW_PVZ_Shipping {
 	/**
 	 * Class constructor.
 	 */
 	public function __construct() {
-		// add_action( 'woocommerce_admin_order_data_after_shipping_address', array( $this, 'display_ekom_in_admin_order' ) );
 		add_action( 'woocommerce_after_shipping_rate', array( $this, 'add_pvz_select' ), 10, 2 );
-		// add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'save_ekom_to_order_meta' ) );
-		// add_action( 'woocommerce_email_order_meta', array( $this, 'display_ekom_in_email' ), 10, 4 );
-		// add_action( 'woocommerce_order_details_after_order_table', array( $this, 'display_ekom_in_order_details' ) );
-		// add_action( 'wp_footer', array( $this, 'print_map' ) );
+		add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'save_pvz_to_order_meta' ) );
+		add_action( 'woocommerce_admin_order_data_after_shipping_address', array( $this, 'display_pvz_after_shipping_address' ) );
+		add_action( 'woocommerce_email_order_meta', array( $this, 'display_pvz_in_email' ), 10, 4 );
+		add_action( 'woocommerce_order_details_after_order_table', array( $this, 'display_pvz_in_order_details' ) );
 	}
 
 	/**
@@ -43,7 +42,7 @@ class CDEKFW_Pvz_Shipping {
 		$method_settings = get_option( 'woocommerce_cdek_shipping_' . $method->instance_id . '_settings' );
 		$type            = intval( $method_settings['tariff'] );
 
-		// Only tariff shipping goes to warehouse.
+		// Only if tariff shipping goes to warehouse.
 		if ( ! in_array(
 			$type,
 			array( 5, 10, 12, 15, 17, 62, 63, 120, 123, 126, 136, 138, 178, 180, 181, 183, 232, 234, 243, 247, 291, 295 ),
@@ -78,6 +77,65 @@ class CDEKFW_Pvz_Shipping {
 
 		return $pvz_code;
 	}
+
+	/**
+	 * Save PVZ for order
+	 *
+	 * @param int $order_id Order ID.
+	 */
+	public function save_pvz_to_order_meta( $order_id ) {
+		$pvz = ! empty( $_REQUEST['cdekfw-pvz-code'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['cdekfw-pvz-code'] ) ) : null; // @codingStandardsIgnoreLine -- Nonce already verified in WC_Checkout::process_checkout()
+
+		if ( ! $pvz ) {
+			return;
+		}
+
+		$pvz = explode( '|', $pvz );
+
+		$pvz_data = array(
+			'code'    => $pvz[0],
+			'address' => $pvz[1],
+		);
+
+		update_post_meta( $order_id, '_cdekfw_pvz', $pvz_data );
+	}
+
+	/**
+	 * Display info about PVZ in admin order details
+	 *
+	 * @param int $order Order ID.
+	 */
+	public function display_pvz_after_shipping_address( $order ) {
+		$pvz = get_post_meta( $order->get_id(), '_cdekfw_pvz', true );
+		if ( $pvz ) {
+			echo '<div style="float: left;width: 100%;margin: 10px 0;"><strong>ПВЗ: </strong>' . esc_attr( $pvz['code'] ) . ', ' . esc_attr( $pvz['address'] ) . '</div>';
+		}
+	}
+
+	/**
+	 * Display info about PVZ delivery points in customer email
+	 *
+	 * @param int $order Order ID.
+	 */
+	public function display_pvz_in_email( $order ) {
+		$pvz = get_post_meta( $order->get_id(), '_cdekfw_pvz', true );
+		if ( $pvz ) {
+			?>
+			<h2><?php esc_html_e( 'Delivery Point', 'cdekfw-for-woocommerce' ); ?></h2>
+			<p><?php echo esc_html( $pvz['address'] ); ?></p>
+			<br>
+			<?php
+		}
+	}
+
+	/**
+	 * Display info about PVZ in order details
+	 *
+	 * @param int $order Order ID.
+	 */
+	public function display_pvz_in_order_details( $order ) {
+		$this->display_pvz_in_email( $order );
+	}
 }
 
-new CDEKFW_Pvz_Shipping();
+new CDEKFW_PVZ_Shipping();
