@@ -92,7 +92,7 @@ class CDEKFW_Client {
 	 */
 	public static function get_client_auth_token() {
 		$client     = self::get_client_credentials();
-		$hash       = 'cdek_auth_token_' . md5( $client['account'] );
+		$hash       = 'cdek_cache_auth_token_' . md5( $client['account'] );
 		$auth_token = get_transient( $hash );
 
 		if ( ! $auth_token ) {
@@ -221,7 +221,7 @@ class CDEKFW_Client {
 		unset( $body['secure'] );
 		unset( $body['dateExecute'] );
 
-		return 'cdek' . md5( $account . $url . wp_json_encode( $body ) );
+		return 'cdek_cache_' . md5( $account . $url . wp_json_encode( $body ) );
 	}
 }
 

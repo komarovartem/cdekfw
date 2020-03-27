@@ -45,7 +45,7 @@ class CDEKFW_PVZ_Shipping {
 		// Only if tariff shipping goes to warehouse.
 		if ( ! in_array(
 			$type,
-			array( 5, 10, 12, 15, 17, 62, 63, 120, 123, 126, 136, 138, 178, 180, 181, 183, 232, 234, 243, 247, 291, 295 ),
+			self::get_warehouse_tariffs(),
 			true
 		) ) {
 			return;
@@ -135,6 +135,15 @@ class CDEKFW_PVZ_Shipping {
 	 */
 	public function display_pvz_in_order_details( $order ) {
 		$this->display_pvz_in_email( $order );
+	}
+
+	/**
+	 * All tariffs related to warehouses
+	 *
+	 * @return array
+	 */
+	public static function get_warehouse_tariffs() {
+		return array( 5, 10, 12, 15, 17, 62, 63, 120, 123, 126, 136, 138, 178, 180, 181, 183, 232, 234, 243, 247, 291, 295 );
 	}
 }
 

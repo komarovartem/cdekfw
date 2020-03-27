@@ -89,4 +89,57 @@ return array(
 	array(
 		'type' => 'sectionend',
 	),
+	array(
+		'title' => __( 'Sender', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Для заказов типа "доставка"', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	array(
+		'title'             => __( 'Company Name', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_company',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'title'             => __( 'Name', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'ФИО контактного лица', 'cdek-for-woocommerce' ),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_name',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'title'             => __( 'Name', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'ФИО контактного лица', 'cdek-for-woocommerce' ),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_name',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'title'             => __( 'Email', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_email',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'title'             => __( 'Phone', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Должен передаваться в международном формате: код страны (для России +7) и сам номер (10 и более цифр)', 'cdek-for-woocommerce' ),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_email',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'type' => 'sectionend',
+	),
 );
