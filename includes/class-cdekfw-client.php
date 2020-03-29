@@ -46,8 +46,15 @@ class CDEKFW_Client {
 	 */
 	public static function get_pvz_list() {
 		$postcode        = WC()->customer->get_shipping_postcode();
+		$state           = WC()->customer->get_shipping_state();
+		$city            = WC()->customer->get_shipping_city();
+		$country         = WC()->customer->get_shipping_country();
 		$is_cod          = 'allowed_cod';
 		$delivery_points = array();
+
+		if ( CDEKFW::is_pro_active() && $state && $city ) {
+			$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+		}
 
 		$items = self::get_data_from_api( 'v2/deliverypoints?postal_code=' . $postcode, array(), 'GET' );
 
@@ -56,7 +63,14 @@ class CDEKFW_Client {
 		}
 
 		foreach ( $items as $item ) {
-			$delivery_points[ $item['code'] ] = $item['location']['adress'];
+			if ( isset( $item['location']['adress'] ) && isset( $item['location']['latitude'] ) ) {
+				$delivery_points[] = array(
+					'code'        => $item['code'],
+					'name'        => $item['name'],
+					'address'     => $item['location']['adress'],
+					'coordinates' => $item['location']['latitude'] . ',' . $item['location']['longitude'],
+				);
+			}
 		}
 
 		return $delivery_points;
@@ -227,24 +241,7 @@ class CDEKFW_Client {
 
 
 function cdek_test() {
-
-	// $data = CDEKFW_Client::get_data_from_api( 'v2/deliverypoints?postal_code=675000', array(), 'GET' );
-	$client_auth_token = CDEKFW_Client::get_client_auth_token();
-
-	$remote_response = wp_remote_request(
-		'http://api.edu.cdek.ru/v2/deliverypoints?postal_code=675000',
-		array(
-			'timeout' => 30,
-			'headers' => array(
-				'Content-Type'  => 'application/json',
-				'Authorization' => 'Bearer ' . $client_auth_token,
-			),
-			'body'    => '',
-			'method'  => 'GET',
-		)
-	);
-
-	var_dump( $remote_response );
+	var_dump();
 }
 
 // add_action( 'wp_footer', 'cdek_test' );

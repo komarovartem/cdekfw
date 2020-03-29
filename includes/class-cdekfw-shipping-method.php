@@ -49,12 +49,18 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @param array $package Package of items from cart.
 	 */
 	public function calculate_shipping( $package = array() ) {
-		$label         = $this->title;
+		$label        = $this->title;
 		$from         = get_option( 'cdek_sender_post_code', 101000 );
 		$country_code = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
 		$postcode     = wc_format_postcode( $package['destination']['postcode'], $country_code );
 		$state        = $package['destination']['state'];
 		$city         = $package['destination']['city'];
+
+		if ( CDEKFW::is_pro_active() && $state && $city ) {
+			$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+		}
+
+//		$label .=  $state . $city . $postcode;
 
 		if ( ! $postcode ) {
 			return;
@@ -109,7 +115,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @return array
 	 */
 	public function get_goods_dimensions( $package ) {
-		$defaults = $this->get_default_dimensions();
+		$defaults = CDEKFW_Helper::get_default_dimensions();
 		$goods    = array();
 
 		foreach ( $package['contents'] as $item_id => $item_values ) {
@@ -117,14 +123,14 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				continue;
 			}
 
-			$weight = wc_get_weight( $item_values['data']->get_weight(), 'kg' );
+			$weight = $item_values['data']->get_weight();
 			$length = wc_get_dimension( $item_values['data']->get_length(), 'cm' );
 			$width  = wc_get_dimension( $item_values['data']->get_width(), 'cm' );
 			$height = wc_get_dimension( $item_values['data']->get_height(), 'cm' );
 
 			for ( $i = 0; $i < $item_values['quantity']; $i ++ ) {
 				$goods[] = array(
-					'weight' => $weight ? $weight : $defaults['weight'],
+					'weight' => $weight ? $weight : wc_get_weight( $defaults['weight'], 'kg' ),
 					'length' => $length ? $length : $defaults['length'],
 					'width'  => $width ? $width : $defaults['width'],
 					'height' => $height ? $height : $defaults['height'],
@@ -133,29 +139,5 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		}
 
 		return $goods;
-	}
-
-	/**
-	 * Get default weight and dimensions based on basic settings
-	 *
-	 * @return array
-	 */
-	public function get_default_dimensions() {
-		$dimensions = array(
-			'weight' => 0.3,
-			'length' => 10,
-			'width'  => 10,
-			'height' => 10,
-		);
-
-		foreach ( $dimensions as $k => $v ) {
-			$option = get_option( 'cdek_dimensions_pack_' . $k, $v );
-			if ( $option ) {
-				$dimensions[ $k ] = $option;
-			}
-		}
-
-		return $dimensions;
-
 	}
 }

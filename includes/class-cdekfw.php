@@ -38,6 +38,7 @@ class CDEKFW {
 			)
 		);
 		add_filter( 'auto_update_plugin', array( $this, 'auto_update_plugin' ), 10, 2 );
+		add_action( 'woocommerce_debug_tools', array( $this, 'add_debug_tools' ) );
 	}
 
 	/**
@@ -62,6 +63,8 @@ class CDEKFW {
 				'1.0.0',
 				true
 			);
+
+			wp_enqueue_style( 'cdekfw', plugin_dir_url( CDEK_PLUGIN_FILE ) . '/assets/css/style.css', array(), '1.0.0' );
 		}
 	}
 
@@ -94,7 +97,7 @@ class CDEKFW {
 	 * @return bool
 	 */
 	public static function is_pro_active() {
-		if ( in_array( 'cdek-for-woocommerce/cdek-pro-for-woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+		if ( in_array( 'cdek-pro-for-woocommerce/cdek-pro-for-woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 			return true;
 		}
 
@@ -114,6 +117,7 @@ class CDEKFW {
 	 * Add all partials
 	 */
 	public function includes() {
+		include_once CDEK_ABSPATH . 'includes/class-cdekfw-helper.php';
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-admin.php';
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-client.php';
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-pvz-shipping.php';
@@ -150,6 +154,36 @@ class CDEKFW {
 		}
 
 		return $should_update;
+	}
+
+	/**
+	 * Add debug tools
+	 *
+	 * @param array $tools List of available tools.
+	 *
+	 * @return array
+	 */
+	public function add_debug_tools( $tools ) {
+		$tools['cdekfw_clear_transients'] = array(
+			'name'     => __( 'CDEK transients', 'cdek-for-woocommerce' ),
+			'button'   => __( 'Clear transients', 'cdek-for-woocommerce' ),
+			'desc'     => __( 'This tool will clear the request transients cache.', 'cdek-for-woocommerce' ),
+			'callback' => array( $this, 'clear_transients' ),
+		);
+		return $tools;
+	}
+
+	/**
+	 * Callback to clear transients
+	 *
+	 * @return string
+	 */
+	public function clear_transients() {
+		global $wpdb;
+
+		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '%_cdek_cache__%'" );
+
+		return __( 'Transients cleared', 'cdek-for-woocommerce' );
 	}
 
 	/**

@@ -36,33 +36,33 @@ return array(
 		'type' => 'sectionend',
 	),
 	array(
-		'title' => __( 'Габаритные характеристики упаковки одного товара по умолчанию', 'cdek-for-woocommerce' ),
+		'title' => __( 'Габаритные характеристики одного товара по умолчанию', 'cdek-for-woocommerce' ),
 		'desc'  => __( 'Данные значения будут браться в расчет при условии отсутствия габаритных характеристик в карточке товара', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
-		'title' => __( 'Вес упаковки', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'в килограммах', 'cdek-for-woocommerce' ),
+		'title' => __( 'Вес', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'в граммах', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
-		'id'    => 'cdek_dimensions_pack_weight',
+		'id'    => 'cdek_dimensions_item_weight',
 	),
 	array(
-		'title' => __( 'Длина упаковки', 'cdek-for-woocommerce' ),
+		'title' => __( 'Длина', 'cdek-for-woocommerce' ),
 		'desc'  => __( 'в сантиметрах', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
-		'id'    => 'cdek_dimensions_pack_length',
+		'id'    => 'cdek_dimensions_item_length',
 	),
 	array(
-		'title' => __( 'Ширина упаковки', 'cdek-for-woocommerce' ),
+		'title' => __( 'Ширина', 'cdek-for-woocommerce' ),
 		'desc'  => __( 'в сантиметрах', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
-		'id'    => 'cdek_dimensions_pack_width',
+		'id'    => 'cdek_dimensions_item_width',
 	),
 	array(
-		'title' => __( 'Высота упаковки', 'cdek-for-woocommerce' ),
+		'title' => __( 'Высота', 'cdek-for-woocommerce' ),
 		'desc'  => __( 'в сантиметрах', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
-		'id'    => 'cdek_dimensions_pack_height',
+		'id'    => 'cdek_dimensions_item_height',
 	),
 	array(
 		'type' => 'sectionend',
@@ -79,7 +79,7 @@ return array(
 	),
 	array(
 		'title'             => __( 'Yandex Maps JavaScript API', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Set the API key for Yandex Maps if you want to let customers to choose ECOM delivery points on the map.', 'russian-post-and-ems-pro-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Set the API key for Yandex Maps if you want to let customers to choose delivery points on the map.', 'cdek-for-woocommerce' ),
 		'type'              => 'text',
 		'id'                => 'cdek_pro_yandex_api',
 		'custom_attributes' => array(
@@ -91,7 +91,7 @@ return array(
 	),
 	array(
 		'title' => __( 'Sender', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Для заказов типа "доставка"', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Для регистрации заказов в ИС СДЭК на доставку товаров до покупателей. Только для договора типа "доставка". Может быть создан любым клиентом с договором (но доступны тарифы только для обычной доставки).', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
@@ -99,15 +99,6 @@ return array(
 		'desc'              => CDEKFW::only_in_pro_ver_text(),
 		'type'              => 'text',
 		'id'                => 'cdek_pro_sender_company',
-		'custom_attributes' => array(
-			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
-		),
-	),
-	array(
-		'title'             => __( 'Name', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'ФИО контактного лица', 'cdek-for-woocommerce' ),
-		'type'              => 'text',
-		'id'                => 'cdek_pro_sender_name',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
 		),
@@ -134,7 +125,23 @@ return array(
 		'title'             => __( 'Phone', 'cdek-for-woocommerce' ),
 		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Должен передаваться в международном формате: код страны (для России +7) и сам номер (10 и более цифр)', 'cdek-for-woocommerce' ),
 		'type'              => 'text',
-		'id'                => 'cdek_pro_sender_email',
+		'id'                => 'cdek_pro_sender_phone',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'type' => 'sectionend',
+	),
+	array(
+		'title' => __( 'Other', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	array(
+		'title'             => __( 'Vat Rate', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Значения - 0, 10, 18, 20 и т.п.', 'cdek-for-woocommerce' ),
+		'type'              => 'number',
+		'id'                => 'cdek_pro_vat_rate',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
 		),
