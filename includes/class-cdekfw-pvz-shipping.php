@@ -121,7 +121,7 @@ class CDEKFW_PVZ_Shipping {
 		$pvz = get_post_meta( $order->get_id(), '_cdekfw_pvz', true );
 		if ( $pvz ) {
 			?>
-			<h2><?php esc_html_e( 'Delivery Point', 'cdekfw-for-woocommerce' ); ?></h2>
+			<h2><?php esc_html_e( 'Delivery Point', 'cdek-for-woocommerce' ); ?></h2>
 			<p><?php echo esc_html( $pvz['address'] ); ?></p>
 			<br>
 			<?php

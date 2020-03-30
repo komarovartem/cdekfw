@@ -49,26 +49,27 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @param array $package Package of items from cart.
 	 */
 	public function calculate_shipping( $package = array() ) {
-		$label        = $this->title;
-		$from         = get_option( 'cdek_sender_post_code', 101000 );
-		$country_code = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
-		$postcode     = wc_format_postcode( $package['destination']['postcode'], $country_code );
-		$state        = $package['destination']['state'];
-		$city         = $package['destination']['city'];
+		$label         = $this->title;
+		$from_postcode = get_option( 'cdek_sender_post_code', 101000 );
+		$to_country    = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
+		$to_postcode   = wc_format_postcode( $package['destination']['postcode'], $to_country );
+		$state         = $package['destination']['state'];
+		$city          = $package['destination']['city'];
 
-		if ( CDEKFW::is_pro_active() && $state && $city ) {
-			$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+		if ( CDEKFW::is_pro_active() && $state && $city && 'RU' === $to_country ) {
+			$to_postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
 		}
 
-//		$label .=  $state . $city . $postcode;
+		// $label .=  $state . $city . $postcode;
 
-		if ( ! $postcode ) {
+		if ( ! $to_postcode ) {
 			return;
 		}
 
 		$args = array(
-			'receiverCityPostCode' => intval( $postcode ),
-			'senderCityPostCode'   => $from ? $from : 101000,
+			'receiverCityPostCode' => $to_postcode,
+			'receiverCountryCode'  => $to_country,
+			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => intval( $this->tariff ),
 			'services'             => array(),
@@ -123,7 +124,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				continue;
 			}
 
-			$weight = $item_values['data']->get_weight();
+			$weight = wc_get_weight( $item_values['data']->get_weight(), 'kg' );
 			$length = wc_get_dimension( $item_values['data']->get_length(), 'cm' );
 			$width  = wc_get_dimension( $item_values['data']->get_width(), 'cm' );
 			$height = wc_get_dimension( $item_values['data']->get_height(), 'cm' );

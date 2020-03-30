@@ -2,14 +2,14 @@
 /**
  * CDEK client
  *
- * @package CDEK
+ * @package CDEK/Client
  * @since   1.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Client API API connection
+ * Client API connection
  *
  * @class CDEKFW_Client
  */
@@ -56,7 +56,12 @@ class CDEKFW_Client {
 			$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
 		}
 
-		$items = self::get_data_from_api( 'v2/deliverypoints?postal_code=' . $postcode, array(), 'GET' );
+		$args = array(
+			'postal_code'  => $postcode,
+			'country_code' => $country,
+		);
+
+		$items = self::get_data_from_api( add_query_arg($args, 'v2/deliverypoints'), array(), 'GET' );
 
 		if ( ! $items ) {
 			return false;
@@ -74,6 +79,25 @@ class CDEKFW_Client {
 		}
 
 		return $delivery_points;
+	}
+
+	/**
+	 * Get new updated version for delivery points from API
+	 *
+	 * @return bool
+	 */
+	public static function retrieve_all_pvz() {
+		$data = self::get_data_from_api( 'v2/deliverypoints', array(), 'GET' );
+
+		if ( ! $data ) {
+			return false;
+		}
+
+		$file_all = fopen( CDEK_ABSPATH . 'includes/lists/pvz-all.json', 'w+' );
+		fwrite( $file_all, json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
+		fclose( $file_all );
+
+		return true;
 	}
 
 	/**
