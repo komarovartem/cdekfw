@@ -40,7 +40,12 @@ class CDEKFW_PVZ_Shipping {
 		}
 
 		$method_settings = get_option( 'woocommerce_cdek_shipping_' . $method->instance_id . '_settings' );
-		$type            = intval( $method_settings['tariff'] );
+
+		if ( ! $method_settings ) {
+			return;
+        }
+
+		$type = intval( $method_settings['tariff'] );
 
 		// Only if tariff shipping goes to warehouse.
 		if ( ! in_array(
@@ -121,9 +126,9 @@ class CDEKFW_PVZ_Shipping {
 		$pvz = get_post_meta( $order->get_id(), '_cdekfw_pvz', true );
 		if ( $pvz ) {
 			?>
-			<h2><?php esc_html_e( 'Delivery Point', 'cdek-for-woocommerce' ); ?></h2>
-			<p><?php echo esc_html( $pvz['address'] ); ?></p>
-			<br>
+            <h2><?php esc_html_e( 'Delivery Point', 'cdek-for-woocommerce' ); ?></h2>
+            <p><?php echo esc_html( $pvz['address'] ); ?></p>
+            <br>
 			<?php
 		}
 	}
