@@ -30,13 +30,7 @@ class CDEKFW {
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
 		add_action( 'woocommerce_shipping_init', array( $this, 'init_method' ) );
 		add_filter( 'woocommerce_shipping_methods', array( $this, 'register_method' ) );
-		add_filter(
-			'plugin_action_links_' . plugin_basename( CDEK_PLUGIN_FILE ),
-			array(
-				$this,
-				'plugin_action_links',
-			)
-		);
+		add_filter( 'plugin_action_links_' . plugin_basename( CDEK_PLUGIN_FILE ), array( $this, 'plugin_action_links' ) );
 		add_filter( 'auto_update_plugin', array( $this, 'auto_update_plugin' ), 10, 2 );
 		add_action( 'woocommerce_debug_tools', array( $this, 'add_debug_tools' ) );
 	}
@@ -131,13 +125,17 @@ class CDEKFW {
 	 * @return array
 	 */
 	public function plugin_action_links( $links ) {
-		return array_merge(
-			array(
-				'settings' => '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping&section=cdek' ) . '">' . esc_html__( 'Settings', 'cdek-for-woocommerce' ) . '</a>',
-				'docs'     => '<a href="" target="_blank">' . esc_html__( 'Documentation', 'cdek-for-woocommerce' ) . '</a>',
-			),
-			$links
-		);
+		$settings = array( 'settings' => '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping&section=cdek' ) . '">' . esc_html__( 'Settings', 'cdek-for-woocommerce' ) . '</a>' );
+
+		$links = $settings + $links;
+
+		if ( self::is_pro_active() ) {
+			return $links;
+		}
+
+		$links['pro'] = '<a href="https://woocommerce.com/products/cdek-pro-for-woocommerce/" target="_blank" style="color: #96588a">' . esc_html__( 'Buy PRO version', 'cdek-for-woocommerce' ) . '</a>';
+
+		return $links;
 	}
 
 	/**
@@ -170,6 +168,7 @@ class CDEKFW {
 			'desc'     => __( 'This tool will clear the request transients cache.', 'cdek-for-woocommerce' ),
 			'callback' => array( $this, 'clear_transients' ),
 		);
+
 		return $tools;
 	}
 

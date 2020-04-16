@@ -61,7 +61,7 @@ class CDEKFW_Client {
 			'country_code' => $country,
 		);
 
-		$items = self::get_data_from_api( add_query_arg($args, 'v2/deliverypoints'), array(), 'GET' );
+		$items = self::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET' );
 
 		if ( ! $items ) {
 			return false;
@@ -94,6 +94,33 @@ class CDEKFW_Client {
 		}
 
 		$file_all = fopen( CDEK_ABSPATH . 'includes/lists/pvz-all.json', 'w+' );
+		fwrite( $file_all, json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
+		fclose( $file_all );
+
+		return true;
+	}
+
+	/**
+	 * Get new updated version for delivery points from API
+	 *
+	 * @return bool
+	 */
+	public static function retrieve_all_city_codes() {
+		$url  = add_query_arg(
+			array(
+				'country_codes' => array( 'RU' ),
+				'size'          => 99999,
+				'page'          => 0,
+			),
+			'v2/location/cities'
+		);
+		$data = self::get_data_from_api( $url, array(), 'GET' );
+
+		if ( ! $data ) {
+			return false;
+		}
+
+		$file_all = fopen( CDEK_ABSPATH . 'includes/lists/cities-ru.json', 'w+' );
 		fwrite( $file_all, json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
 		fclose( $file_all );
 
@@ -224,10 +251,10 @@ class CDEKFW_Client {
 			return false;
 		}
 
-		$response_code = wp_remote_retrieve_response_code( $remote_response );
+		$response_code = intval( wp_remote_retrieve_response_code( $remote_response ) );
 
-		if ( 200 !== $response_code ) {
-			CDEKFW::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $response_code . ' ' . wp_remote_retrieve_body( $remote_response ) . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+		if ( ! in_array( $response_code, array( 200, 202 ), true ) ) {
+			CDEKFW::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . esc_html__( 'response status code:', 'cdek-for-woocommerce' ) . ' ' . $response_code . ' ' . wp_remote_retrieve_body( $remote_response ) . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 			return false;
 		}
@@ -235,7 +262,7 @@ class CDEKFW_Client {
 		$response_body = json_decode( wp_remote_retrieve_body( $remote_response ), true );
 
 		if ( isset( $response_body['error'] ) ) {
-			CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . '<br> Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+			CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 			return false;
 		}
@@ -265,7 +292,8 @@ class CDEKFW_Client {
 
 
 function cdek_test() {
-	var_dump();
+//	CDEKFW_Client::retrieve_all_city_codes();
 }
 
-// add_action( 'wp_footer', 'cdek_test' );
+
+add_action( 'wp_footer', 'cdek_test' );

@@ -60,8 +60,6 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			$to_postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
 		}
 
-		// $label .=  $state . $city . $postcode;
-
 		if ( ! $to_postcode ) {
 			return;
 		}
@@ -69,6 +67,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$args = array(
 			'receiverCityPostCode' => $to_postcode,
 			'receiverCountryCode'  => $to_country,
+			'receiverCity'         => $city,
 			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => intval( $this->tariff ),

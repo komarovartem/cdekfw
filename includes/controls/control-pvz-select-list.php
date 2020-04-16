@@ -8,7 +8,7 @@
 
 ?>
 
-<p class="cdekfw-pvz-block">
+<div class="cdekfw-pvz-block">
 	<label for="cdekfw-pvz-code">
 		<?php esc_html_e( 'Pick-up point', 'cdek-for-woocommerce' ); ?>
 	</label>
@@ -18,6 +18,6 @@
 			<option value="<?php echo esc_attr( $item['code'] ); ?>|<?php echo esc_attr( $item['address'] ); ?>" <?php selected( $item['code'] . '|' . $item['address'], $selected_pvz ); ?>><?php echo esc_attr( $item['address'] ); ?></option>
 		<?php endforeach; ?>
 	</select>
-</p>
+</div>
 
 <?php do_action( 'cdek_pvz_block_after', $pvz ); ?>
