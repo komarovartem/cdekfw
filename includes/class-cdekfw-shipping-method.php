@@ -64,6 +64,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			return;
 		}
 
+		// https://confluence.cdek.ru/pages/viewpage.action?pageId=15616129#id-%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8(v1.5)-4.14Calculator%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.
 		$args = array(
 			'receiverCityPostCode' => $to_postcode,
 			'receiverCountryCode'  => $to_country,
@@ -77,6 +78,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$shipping_rate = CDEKFW_Client::calculate_rate( $args );
 
 		if ( ! $shipping_rate ) {
+			$this->maybe_print_error();
 			return;
 		}
 
@@ -139,5 +141,23 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		}
 
 		return $goods;
+	}
+
+	/**
+	 * Print human error only for admin to easy debug errors
+	 */
+	public function maybe_print_error() {
+		if ( ! current_user_can( 'administrator' ) ) {
+			return;
+		}
+
+		$this->add_rate(
+			array(
+				'id'        => $this->get_rate_id(),
+				'label'     => $this->title . '. ' . __( 'Error during calculation. This message and method is visible only for site Administrator for debugging purpose.', 'cdek-for-woocommerce' ),
+				'cost'      => 0,
+				'meta_data' => array( 'cdek_error' => true ),
+			)
+		);
 	}
 }

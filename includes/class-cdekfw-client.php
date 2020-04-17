@@ -128,6 +128,29 @@ class CDEKFW_Client {
 	}
 
 	/**
+	 * Get new updated version for delivery points from API
+	 *
+	 * @return bool
+	 */
+	public static function retrieve_all_region_codes() {
+		$url  = add_query_arg(
+			array(),
+			'v2/location/regions'
+		);
+		$data = self::get_data_from_api( $url, array(), 'GET' );
+
+		if ( ! $data ) {
+			return false;
+		}
+
+		$file_all = fopen( CDEK_ABSPATH . 'includes/lists/regions.json', 'w+' );
+		fwrite( $file_all, json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
+		fclose( $file_all );
+
+		return true;
+	}
+
+	/**
 	 * Get client credentials for requests
 	 *
 	 * If no credentials are set use test data
@@ -218,6 +241,13 @@ class CDEKFW_Client {
 		$cache  = get_transient( $hash );
 
 		if ( $cache ) {
+
+			if ( isset( $cache['error'] ) ) {
+				CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+
+				return false;
+			}
+
 			return $cache;
 		}
 
@@ -261,13 +291,14 @@ class CDEKFW_Client {
 
 		$response_body = json_decode( wp_remote_retrieve_body( $remote_response ), true );
 
+		// Set transient before checking the errors to prevent double requests with the same error.
+		set_transient( $hash, $response_body, DAY_IN_SECONDS );
+
 		if ( isset( $response_body['error'] ) ) {
 			CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 			return false;
 		}
-
-		set_transient( $hash, $response_body, DAY_IN_SECONDS );
 
 		return $response_body;
 	}
@@ -292,7 +323,7 @@ class CDEKFW_Client {
 
 
 function cdek_test() {
-//	CDEKFW_Client::retrieve_all_city_codes();
+//	CDEKFW_Client::retrieve_all_region_codes();
 }
 
 

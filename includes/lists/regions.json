@@ -1,0 +1,2113 @@
+[
+    {
+        "country_code": "TH",
+        "region": "Chon Buri",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Ыгдыр",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Сисакет",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Тверская",
+        "region_code": "50",
+        "country": "Россия",
+        "kladr_region_code": "69",
+        "fias_region_guid": "61723327-1c20-42fe-8dfa-402638d9b396"
+    },
+    {
+        "country_code": "TR",
+        "region": "Бурса",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Дюздже",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Удонтхани",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Кыркларели",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nakhon Nayok",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Архангельская",
+        "region_code": "66",
+        "country": "Россия",
+        "kladr_region_code": "29",
+        "fias_region_guid": "294277aa-e25d-428c-95ad-46719c4ddb44"
+    },
+    {
+        "country_code": "TR",
+        "region": "Балыкесир",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "провинция Сураттхани",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Loei",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Эрзурум",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Narathiwat",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Измир",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Чанаккале",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Калининградская",
+        "region_code": "38",
+        "country": "Россия",
+        "kladr_region_code": "39",
+        "fias_region_guid": "90c7181e-724f-41b3-b6c6-bd3ec7ae3f30"
+    },
+    {
+        "country_code": "US",
+        "region": "Миннесота",
+        "country": "США"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Ташкентская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "TH",
+        "region": "Chiang Rai",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Орду",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Западная Виргиния",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Магаданская",
+        "region_code": "59",
+        "country": "Россия",
+        "kladr_region_code": "49",
+        "fias_region_guid": "9c05e812-8679-4710-b8cb-5e8bd43cdf48"
+    },
+    {
+        "country_code": "TR",
+        "region": "Бингёль",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Чукотский",
+        "region_code": "83",
+        "country": "Россия",
+        "kladr_region_code": "87",
+        "fias_region_guid": "f136159b-404a-4f1f-8d8d-d169e1374d5c"
+    },
+    {
+        "country_code": "TH",
+        "region": "Yasothon",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Нижегородская",
+        "region_code": "67",
+        "country": "Россия",
+        "kladr_region_code": "52",
+        "fias_region_guid": "88cd27e2-6a8a-4421-9718-719a28a0a088"
+    },
+    {
+        "country_code": "TH",
+        "region": "Roi Et",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Chai Nat",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Шанлыурфа",
+        "country": "Турция"
+    },
+    {
+        "country_code": "DE",
+        "region": "Гессен",
+        "region_code": "417",
+        "country": "Германия"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ульяновская",
+        "region_code": "70",
+        "country": "Россия",
+        "kladr_region_code": "73",
+        "fias_region_guid": "fee76045-fe22-43a4-ad58-ad99e903bd58"
+    },
+    {
+        "country_code": "TH",
+        "region": "Phang-nga",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Гиресун",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Мерсин",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Surin",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Марий Эл",
+        "region_code": "32",
+        "country": "Россия",
+        "kladr_region_code": "12",
+        "fias_region_guid": "de2cbfdf-9662-44a4-a4a4-8ad237ae4a3e"
+    },
+    {
+        "country_code": "RU",
+        "region": "Свердловская",
+        "region_code": "24",
+        "country": "Россия",
+        "kladr_region_code": "66",
+        "fias_region_guid": "92b30014-4d52-4e2e-892d-928142b924bf"
+    },
+    {
+        "country_code": "TH",
+        "region": "Убонратчатхани",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Край Высочина",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "RU",
+        "region": "Костромская",
+        "region_code": "42",
+        "country": "Россия",
+        "kladr_region_code": "44",
+        "fias_region_guid": "15784a67-8cea-425b-834a-6afe0e3ed61c"
+    },
+    {
+        "country_code": "RU",
+        "region": "Еврейская",
+        "region_code": "76",
+        "country": "Россия",
+        "kladr_region_code": "79",
+        "fias_region_guid": "1b507b09-48c9-434f-bf6f-65066211c73e"
+    },
+    {
+        "country_code": "TR",
+        "region": "Кютахья",
+        "country": "Турция"
+    },
+    {
+        "country_code": "LT",
+        "region": "Алитусский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Прага",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "DE",
+        "region": "Северный Рейн-Вестфалия",
+        "region_code": "763",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TH",
+        "region": "Phayao",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "LT",
+        "region": "Тельшяйский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "AE",
+        "region": "эмират Абу-Даби",
+        "country": "ОАЭ"
+    },
+    {
+        "country_code": "DE",
+        "region": "Бранденбург",
+        "region_code": "133",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TR",
+        "region": "Мугла",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nakhon Pathom",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция Чхунчхон-Пукто",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "TR",
+        "region": "Мардин",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Sukhothai",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Северная Осетия - Алания",
+        "region_code": "79",
+        "country": "Россия",
+        "kladr_region_code": "15",
+        "fias_region_guid": "de459e9c-2933-4923-83d1-9c64cfd7a817"
+    },
+    {
+        "country_code": "TH",
+        "region": "Uthai Thani",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Удмуртская",
+        "region_code": "48",
+        "country": "Россия",
+        "kladr_region_code": "18",
+        "fias_region_guid": "52618b9c-bcbb-47e7-8957-95c63f0b17cc"
+    },
+    {
+        "country_code": "DE",
+        "region": "Гамбург",
+        "region_code": "409",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TH",
+        "region": "Chaiyaphum",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Денизли",
+        "country": "Турция"
+    },
+    {
+        "country_code": "LT",
+        "region": "Клайпедский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "RU",
+        "region": "Карелия",
+        "region_code": "73",
+        "country": "Россия",
+        "kladr_region_code": "10",
+        "fias_region_guid": "248d8071-06e1-425e-a1cf-d1ff4c4a14a8"
+    },
+    {
+        "country_code": "US",
+        "region": "Северная Каролина",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Санкт-Петербург",
+        "region_code": "82",
+        "country": "Россия",
+        "kladr_region_code": "78",
+        "fias_region_guid": "c2deb16a-0330-4f05-821f-1d09c93331e6"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция Кёнсан-Пукто",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "US",
+        "region": "Техас",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Кабардино-Балкарская",
+        "region_code": "78",
+        "country": "Россия",
+        "kladr_region_code": "07",
+        "fias_region_guid": "1781f74e-be4a-4697-9c6b-493057c94818"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Южночешский край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "TR",
+        "region": "Килис",
+        "country": "Турция"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Сырдарьинская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nong Bua Lam Phu",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Ферганская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "TH",
+        "region": "Lampang",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Мордовия",
+        "region_code": "68",
+        "country": "Россия",
+        "kladr_region_code": "13",
+        "fias_region_guid": "37a0c60a-9240-48b5-a87f-0d8c86cdb6e1"
+    },
+    {
+        "country_code": "RU",
+        "region": "Тамбовская",
+        "region_code": "58",
+        "country": "Россия",
+        "kladr_region_code": "68",
+        "fias_region_guid": "a9a71961-9363-44ba-91b5-ddf0463aebc2"
+    },
+    {
+        "country_code": "TR",
+        "region": "Агры",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Южная Каролина",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Иркутская",
+        "region_code": "4",
+        "country": "Россия",
+        "kladr_region_code": "38",
+        "fias_region_guid": "6466c988-7ce3-45e5-8b97-90ae16cb1249"
+    },
+    {
+        "country_code": "TR",
+        "region": "Сакарья",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Хакасия",
+        "region_code": "74",
+        "country": "Россия",
+        "kladr_region_code": "19",
+        "fias_region_guid": "8d3f1d35-f0f4-41b5-b5b7-e7cadf3e7bd7"
+    },
+    {
+        "country_code": "RU",
+        "region": "Астраханская",
+        "region_code": "34",
+        "country": "Россия",
+        "kladr_region_code": "30",
+        "fias_region_guid": "83009239-25cb-4561-af8e-7ee111b1cb73"
+    },
+    {
+        "country_code": "AE",
+        "region": "эмират Шарджа",
+        "country": "ОАЭ"
+    },
+    {
+        "country_code": "TH",
+        "region": "Samut Prakan",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Камчатский",
+        "region_code": "55",
+        "country": "Россия",
+        "kladr_region_code": "41",
+        "fias_region_guid": "d02f30fc-83bf-4c0f-ac2b-5729a866a207"
+    },
+    {
+        "country_code": "TH",
+        "region": "Rayong",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Satun",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Краснодарский",
+        "region_code": "7",
+        "country": "Россия",
+        "kladr_region_code": "23",
+        "fias_region_guid": "d00e1013-16bd-4c09-b3d5-3cb09fc54bd8"
+    },
+    {
+        "country_code": "DE",
+        "region": "Бремен",
+        "region_code": "355",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TR",
+        "region": "Афьонкарахисар",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Чорум",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Алтайский",
+        "region_code": "2",
+        "country": "Россия",
+        "kladr_region_code": "22",
+        "fias_region_guid": "8276c6a1-1a86-4f0d-8920-aba34d4cc34a"
+    },
+    {
+        "country_code": "LT",
+        "region": "Шяуляйский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Джизакская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "DE",
+        "region": "Саксония",
+        "region_code": "235",
+        "country": "Германия"
+    },
+    {
+        "country_code": "RU",
+        "region": "Бурятия",
+        "region_code": "12",
+        "country": "Россия",
+        "kladr_region_code": "03",
+        "fias_region_guid": "a84ebed3-153d-4ba9-8532-8bdf879e1f5a"
+    },
+    {
+        "country_code": "US",
+        "region": "Аляска",
+        "country": "США"
+    },
+    {
+        "country_code": "US",
+        "region": "Южная Дакота",
+        "country": "США"
+    },
+    {
+        "country_code": "LT",
+        "region": "Утенский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "RU",
+        "region": "Башкортостан",
+        "region_code": "27",
+        "country": "Россия",
+        "kladr_region_code": "02",
+        "fias_region_guid": "6f2cbfd8-692a-4ee4-9b16-067210bde3fc"
+    },
+    {
+        "country_code": "RU",
+        "region": "Сахалинская",
+        "region_code": "20",
+        "country": "Россия",
+        "kladr_region_code": "65",
+        "fias_region_guid": "aea6280f-4648-460f-b8be-c2bc18923191"
+    },
+    {
+        "country_code": "TR",
+        "region": "Ширнак",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Флорида",
+        "country": "США"
+    },
+    {
+        "country_code": "LT",
+        "region": "Мариямпольский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "TH",
+        "region": "Mae Hong Son",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "US",
+        "region": "Миссури",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Yala",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "US",
+        "region": "Делавэр",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Орловская",
+        "region_code": "36",
+        "country": "Россия",
+        "kladr_region_code": "57",
+        "fias_region_guid": "5e465691-de23-4c4e-9f46-f35a125b5970"
+    },
+    {
+        "country_code": "TR",
+        "region": "Анталья",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ростовская",
+        "region_code": "45",
+        "country": "Россия",
+        "kladr_region_code": "61",
+        "fias_region_guid": "f10763dc-63e3-48db-83e1-9c566fe3092b"
+    },
+    {
+        "country_code": "TR",
+        "region": "Батман",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Mukdahan",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Suphan Buri",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Тыва",
+        "region_code": "75",
+        "country": "Россия",
+        "kladr_region_code": "17",
+        "fias_region_guid": "026bc56f-3731-48e9-8245-655331f596c0"
+    },
+    {
+        "country_code": "TR",
+        "region": "Караман",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Болу",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Алтай",
+        "region_code": "25",
+        "country": "Россия",
+        "kladr_region_code": "04",
+        "fias_region_guid": "5c48611f-5de6-4771-9695-7e36a4e7529d"
+    },
+    {
+        "country_code": "TR",
+        "region": "Диярбакыр",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Трабзон",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Phetchabun",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ленинградская",
+        "region_code": "26",
+        "country": "Россия",
+        "kladr_region_code": "47",
+        "fias_region_guid": "6d1ebb35-70c6-4129-bd55-da3969658f5d"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ханты-Мансийский Автономный округ - Югра",
+        "region_code": "11",
+        "country": "Россия",
+        "kladr_region_code": "86",
+        "fias_region_guid": "d66e5325-3a25-4d29-ba86-4ca351d9704b"
+    },
+    {
+        "country_code": "TR",
+        "region": "Элязыг",
+        "country": "Турция"
+    },
+    {
+        "country_code": "KR",
+        "region": "город-метрополия Тэгу",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция Чолла-Пукто",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "TH",
+        "region": "Pattani",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Конья",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ямало-Ненецкий",
+        "region_code": "6",
+        "country": "Россия",
+        "kladr_region_code": "89",
+        "fias_region_guid": "826fa834-3ee8-404f-bdbc-13a5221cfb6e"
+    },
+    {
+        "country_code": "US",
+        "region": "Мэриленд",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Белгородская",
+        "region_code": "16",
+        "country": "Россия",
+        "kladr_region_code": "31",
+        "fias_region_guid": "639efe9d-3fc8-4438-8e70-ec4f2321f2a7"
+    },
+    {
+        "country_code": "RU",
+        "region": "Пермский",
+        "region_code": "22",
+        "country": "Россия",
+        "kladr_region_code": "59",
+        "fias_region_guid": "4f8b1a21-e4bb-422f-9087-d3cbf4bebc14"
+    },
+    {
+        "country_code": "TH",
+        "region": "Phichit",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Krabi",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Мурманская",
+        "region_code": "43",
+        "country": "Россия",
+        "kladr_region_code": "51",
+        "fias_region_guid": "1c727518-c96a-4f34-9ae6-fd510da3be03"
+    },
+    {
+        "country_code": "TH",
+        "region": "Prachin Buri",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Ушак",
+        "country": "Турция"
+    },
+    {
+        "country_code": "DE",
+        "region": "Шлезвиг-Гольштейн",
+        "region_code": "914",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TH",
+        "region": "Phatthalung",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Kamphaeng Phet",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Андижанская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "US",
+        "region": "Луизиана",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Амурская",
+        "region_code": "56",
+        "country": "Россия",
+        "kladr_region_code": "28",
+        "fias_region_guid": "844a80d6-5e31-4017-b422-4d9c01e9942c"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nan",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Маниса",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Эдирне",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Курская",
+        "region_code": "62",
+        "country": "Россия",
+        "kladr_region_code": "46",
+        "fias_region_guid": "ee594d5e-30a9-40dc-b9f2-0add1be44ba1"
+    },
+    {
+        "country_code": "TR",
+        "region": "Эскишехир",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Брянская",
+        "region_code": "29",
+        "country": "Россия",
+        "kladr_region_code": "32",
+        "fias_region_guid": "f5807226-8be0-4ea8-91fc-39d053aec1e2"
+    },
+    {
+        "country_code": "TR",
+        "region": "Кайсери",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Забайкальский",
+        "region_code": "49",
+        "country": "Россия",
+        "kladr_region_code": "75",
+        "fias_region_guid": "b6ba5716-eb48-401b-8443-b197c9578734"
+    },
+    {
+        "country_code": "TH",
+        "region": "Chachoengsao",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция Кёнсан-Намдо",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "TR",
+        "region": "Зонгулдак",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Вологодская",
+        "region_code": "51",
+        "country": "Россия",
+        "kladr_region_code": "35",
+        "fias_region_guid": "ed36085a-b2f5-454f-b9a9-1c9a678ee618"
+    },
+    {
+        "country_code": "TR",
+        "region": "Текирдаг",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Sa Kaeo",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "US",
+        "region": "Массачусетс",
+        "country": "США"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Пльзеньский край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "US",
+        "region": "Род-Айленд",
+        "country": "США"
+    },
+    {
+        "country_code": "US",
+        "region": "Нью-Йорк",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Липецкая",
+        "region_code": "60",
+        "country": "Россия",
+        "kladr_region_code": "48",
+        "fias_region_guid": "1490490e-49c5-421c-9572-5673ba5d80c8"
+    },
+    {
+        "country_code": "DE",
+        "region": "Саар",
+        "region_code": "729",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TH",
+        "region": "Chumphon",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Омская",
+        "region_code": "15",
+        "country": "Россия",
+        "kladr_region_code": "55",
+        "fias_region_guid": "05426864-466d-41a3-82c4-11e61cdc98ce"
+    },
+    {
+        "country_code": "TH",
+        "region": "Phetchaburi",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "DE",
+        "region": "Мекленбург-Передняя Померания",
+        "region_code": "209",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TH",
+        "region": "Sakhon Nakhon",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Владимирская",
+        "region_code": "17",
+        "country": "Россия",
+        "kladr_region_code": "33",
+        "fias_region_guid": "b8837188-39ee-4ff9-bc91-fcc9ed451bb3"
+    },
+    {
+        "country_code": "RU",
+        "region": "Томская",
+        "region_code": "53",
+        "country": "Россия",
+        "kladr_region_code": "70",
+        "fias_region_guid": "889b1f3a-98aa-40fc-9d3d-0f41192758ab"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ивановская",
+        "region_code": "8",
+        "country": "Россия",
+        "kladr_region_code": "37",
+        "fias_region_guid": "0824434f-4098-4467-af72-d4f702fed335"
+    },
+    {
+        "country_code": "US",
+        "region": "Колорадо",
+        "country": "США"
+    },
+    {
+        "country_code": "TR",
+        "region": "Адана",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Иллинойс",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Рязанская",
+        "region_code": "41",
+        "country": "Россия",
+        "kladr_region_code": "62",
+        "fias_region_guid": "963073ee-4dfc-48bd-9a70-d2dfc6bd1f31"
+    },
+    {
+        "country_code": "RU",
+        "region": "Самарская",
+        "region_code": "57",
+        "country": "Россия",
+        "kladr_region_code": "63",
+        "fias_region_guid": "df3d7359-afa9-4aaa-8ff9-197e73906b1c"
+    },
+    {
+        "country_code": "TR",
+        "region": "Малатья",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Кастамону",
+        "country": "Турция"
+    },
+    {
+        "country_code": "LT",
+        "region": "Каунасский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ярославская",
+        "region_code": "35",
+        "country": "Россия",
+        "kladr_region_code": "76",
+        "fias_region_guid": "a84b2ef4-db03-474b-b552-6229e801ae9b"
+    },
+    {
+        "country_code": "TH",
+        "region": "Maha Sarakham",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "US",
+        "region": "Вайоминг",
+        "country": "США"
+    },
+    {
+        "country_code": "US",
+        "region": "Северная Дакота",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Москва",
+        "region_code": "81",
+        "country": "Россия",
+        "kladr_region_code": "77",
+        "fias_region_guid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Оломоуцкий край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "US",
+        "region": "Юта",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Pathum Thani",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ставропольский",
+        "region_code": "19",
+        "country": "Россия",
+        "kladr_region_code": "26",
+        "fias_region_guid": "327a060b-878c-4fb4-8dc4-d5595871a3d8"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ненецкий",
+        "region_code": "77",
+        "country": "Россия",
+        "kladr_region_code": "83",
+        "fias_region_guid": "89db3198-6803-4106-9463-cbf781eff0b8"
+    },
+    {
+        "country_code": "US",
+        "region": "Айдахо",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Lamphun",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция с особой автономией Чеджудо",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "TR",
+        "region": "Тунджели",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Висконсин",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Kanchanaburi",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "DE",
+        "region": "Тюрингия",
+        "region_code": "262",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TR",
+        "region": "Синоп",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Пенсильвания",
+        "country": "США"
+    },
+    {
+        "country_code": "TR",
+        "region": "Чанкыры",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Songkhla",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Ranong",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Татарстан",
+        "region_code": "39",
+        "country": "Россия",
+        "kladr_region_code": "16",
+        "fias_region_guid": "0c089b04-099e-4e0e-955a-6bf1ce525f1a"
+    },
+    {
+        "country_code": "US",
+        "region": "Джорджия",
+        "country": "США"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Ташкент",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "US",
+        "region": "Оклахома",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nong Khai",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Самутсакхон",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Карабюк",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Пензенская",
+        "region_code": "69",
+        "country": "Россия",
+        "kladr_region_code": "58",
+        "fias_region_guid": "c99e7924-0428-4107-a302-4fd7c0cca3ff"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Южноморавский край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "AE",
+        "region": "эмират Рас-эль-Хайма",
+        "country": "ОАЭ"
+    },
+    {
+        "country_code": "TR",
+        "region": "Хатай",
+        "country": "Турция"
+    },
+    {
+        "country_code": "LT",
+        "region": "Таурагский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "RU",
+        "region": "Хабаровский",
+        "region_code": "14",
+        "country": "Россия",
+        "kladr_region_code": "27",
+        "fias_region_guid": "7d468b39-1afa-41ec-8c4f-97a8603cb3d4"
+    },
+    {
+        "country_code": "TR",
+        "region": "Токат",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Мэн",
+        "country": "США"
+    },
+    {
+        "country_code": "TR",
+        "region": "Амасья",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Новосибирская",
+        "region_code": "23",
+        "country": "Россия",
+        "kladr_region_code": "54",
+        "fias_region_guid": "1ac46b49-3209-4814-b7bf-a509ea1aecd9"
+    },
+    {
+        "country_code": "US",
+        "region": "Виргиния",
+        "country": "США"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Самаркандская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция Чолла-Намдо",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "TR",
+        "region": "Байбурт",
+        "country": "Турция"
+    },
+    {
+        "country_code": "KR",
+        "region": "город с особым статусом Сеул",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "TH",
+        "region": "Samut Songkhram",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Chanthaburi",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Tak",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Муш",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Нью-Джерси",
+        "country": "США"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Бухарская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Кашкадарьинская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "RU",
+        "region": "Дагестан",
+        "region_code": "21",
+        "country": "Россия",
+        "kladr_region_code": "05",
+        "fias_region_guid": "0bb7fa19-736d-49cf-ad0e-9774c4dae09b"
+    },
+    {
+        "country_code": "RU",
+        "region": "Московская",
+        "region_code": "9",
+        "country": "Россия",
+        "kladr_region_code": "50",
+        "fias_region_guid": "29251dcf-00a1-4e34-98d4-5c47484a36d4"
+    },
+    {
+        "country_code": "AE",
+        "region": "эмират Аджман",
+        "country": "ОАЭ"
+    },
+    {
+        "country_code": "US",
+        "region": "Орегон",
+        "country": "США"
+    },
+    {
+        "country_code": "LT",
+        "region": "Паневежский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Злинский край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "TH",
+        "region": "Пхрэ",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Йозгат",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Ялова",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Адыяман",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Бурирам",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "DE",
+        "region": "Баден-Вюртемберг",
+        "region_code": "333",
+        "country": "Германия"
+    },
+    {
+        "country_code": "KR",
+        "region": "город-метрополия Пусан",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "RU",
+        "region": "Кемеровская",
+        "region_code": "54",
+        "country": "Россия",
+        "kladr_region_code": "42",
+        "fias_region_guid": "393aeccb-89ef-4a7e-ae42-08d5cebc2e30"
+    },
+    {
+        "country_code": "US",
+        "region": "Вермонт",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Чеченская",
+        "region_code": "71",
+        "country": "Россия",
+        "kladr_region_code": "20",
+        "fias_region_guid": "de67dc49-b9ba-48a3-a4cc-c2ebfeca6c5e"
+    },
+    {
+        "country_code": "RU",
+        "region": "Крым",
+        "region_code": "90",
+        "country": "Россия",
+        "kladr_region_code": "91",
+        "fias_region_guid": "bd8e6511-e4b9-4841-90de-6bbc231a789e"
+    },
+    {
+        "country_code": "TR",
+        "region": "Сивас",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Phitsanulok",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Смоленская",
+        "region_code": "65",
+        "country": "Россия",
+        "kladr_region_code": "67",
+        "fias_region_guid": "e8502180-6d08-431b-83ea-c7038f0df905"
+    },
+    {
+        "country_code": "TR",
+        "region": "Бурдур",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Кентукки",
+        "country": "США"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция Кёнгидо",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "US",
+        "region": "Индиана",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Ингушетия",
+        "region_code": "72",
+        "country": "Россия",
+        "kladr_region_code": "06",
+        "fias_region_guid": "b2d8cd20-cabc-4deb-afad-f3c4b4d55821"
+    },
+    {
+        "country_code": "US",
+        "region": "Канзас",
+        "country": "США"
+    },
+    {
+        "country_code": "US",
+        "region": "Нью-Гэмпшир",
+        "country": "США"
+    },
+    {
+        "country_code": "US",
+        "region": "Теннесси",
+        "country": "США"
+    },
+    {
+        "country_code": "TR",
+        "region": "Османие",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Севастополь",
+        "region_code": "975",
+        "country": "Россия",
+        "kladr_region_code": "92",
+        "fias_region_guid": "6fdecb78-893a-4e3f-a5ba-aa062459463b"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Краловеградецкий край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "DE",
+        "region": "Саксония-Анхальт",
+        "region_code": "236",
+        "country": "Германия"
+    },
+    {
+        "country_code": "DE",
+        "region": "Бавария",
+        "region_code": "331",
+        "country": "Германия"
+    },
+    {
+        "country_code": "DE",
+        "region": "Рейнланд-Пфальц",
+        "region_code": "715",
+        "country": "Германия"
+    },
+    {
+        "country_code": "US",
+        "region": "Коннектикут",
+        "country": "США"
+    },
+    {
+        "country_code": "DE",
+        "region": "Берлин",
+        "region_code": "132",
+        "country": "Германия"
+    },
+    {
+        "country_code": "US",
+        "region": "Аризона",
+        "country": "США"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Карловарский край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Республика Каракалпакстан",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "TR",
+        "region": "Ыспарта",
+        "country": "Турция"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Моравскосилезский край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nakhon Sawan",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Курганская",
+        "region_code": "28",
+        "country": "Россия",
+        "kladr_region_code": "45",
+        "fias_region_guid": "4a3d970f-520e-46b9-b16c-50d4ca7535a8"
+    },
+    {
+        "country_code": "LT",
+        "region": "Вильнюсский уезд",
+        "country": "Литва"
+    },
+    {
+        "country_code": "TH",
+        "region": "Кхонкэн",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Гюмюшхане",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Lop Buri",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Карс",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Тюменская",
+        "region_code": "52",
+        "country": "Россия",
+        "kladr_region_code": "72",
+        "fias_region_guid": "54049357-326d-4b8f-b224-3c6dc25d6dd3"
+    },
+    {
+        "country_code": "RU",
+        "region": "Карачаево-Черкесская",
+        "region_code": "80",
+        "country": "Россия",
+        "kladr_region_code": "09",
+        "fias_region_guid": "61b95807-388a-4cb1-9bee-889f7cf811c8"
+    },
+    {
+        "country_code": "TR",
+        "region": "Ван",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Волгоградская",
+        "region_code": "40",
+        "country": "Россия",
+        "kladr_region_code": "34",
+        "fias_region_guid": "da051ec8-da2e-4a66-b542-473b8d221ab4"
+    },
+    {
+        "country_code": "TR",
+        "region": "Биледжик",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Сиирт",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Красноярский",
+        "region_code": "13",
+        "country": "Россия",
+        "kladr_region_code": "24",
+        "fias_region_guid": "db9c4f8b-b706-40e2-b2b4-d31b98dcd3d1"
+    },
+    {
+        "country_code": "TH",
+        "region": "Ang Thong",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция Чхунчхон-Намдо",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "TR",
+        "region": "Артвин",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Нигде",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Миссисипи",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Sara Buri",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "US",
+        "region": "Монтана",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Сакэу",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Ратчабури",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Калужская",
+        "region_code": "33",
+        "country": "Россия",
+        "kladr_region_code": "40",
+        "fias_region_guid": "18133adf-90c2-438e-88c4-62c41656de70"
+    },
+    {
+        "country_code": "US",
+        "region": "Нью-Мексико",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Trat",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Phra Nakhon Si Ayuttahaya",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Битлис",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Айдын",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Мичиган",
+        "country": "США"
+    },
+    {
+        "country_code": "US",
+        "region": "Невада",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Саратовская",
+        "region_code": "47",
+        "country": "Россия",
+        "kladr_region_code": "64",
+        "fias_region_guid": "df594e0e-a935-4664-9d26-0bae13f904fe"
+    },
+    {
+        "country_code": "TR",
+        "region": "Стамбул",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Газиантеп",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Айова",
+        "country": "США"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Пардубицкий край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "TR",
+        "region": "Анкара",
+        "country": "Турция"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Сурхандарьинская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "TH",
+        "region": "Sing Buri",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Адыгея",
+        "region_code": "61",
+        "country": "Россия",
+        "kladr_region_code": "01",
+        "fias_region_guid": "d8327a56-80de-4df2-815c-4f6ab1224c50"
+    },
+    {
+        "country_code": "RU",
+        "region": "Псковская",
+        "region_code": "30",
+        "country": "Россия",
+        "kladr_region_code": "60",
+        "fias_region_guid": "f6e148a1-c9d0-4141-a608-93e3bd95e6c4"
+    },
+    {
+        "country_code": "RU",
+        "region": "Саха \/Якутия\/",
+        "region_code": "10",
+        "country": "Россия",
+        "kladr_region_code": "14",
+        "fias_region_guid": "c225d3db-1db6-4063-ace0-b3fe9ea3805f"
+    },
+    {
+        "country_code": "RU",
+        "region": "Калмыкия",
+        "region_code": "46",
+        "country": "Россия",
+        "kladr_region_code": "08",
+        "fias_region_guid": "491cde9d-9d76-4591-ab46-ea93c079e686"
+    },
+    {
+        "country_code": "US",
+        "region": "Алабама",
+        "country": "США"
+    },
+    {
+        "country_code": "US",
+        "region": "Вашингтон",
+        "country": "США"
+    },
+    {
+        "country_code": "TR",
+        "region": "Кыршехир",
+        "country": "Турция"
+    },
+    {
+        "country_code": "LT",
+        "region": "Кедайнский район",
+        "country": "Литва"
+    },
+    {
+        "country_code": "US",
+        "region": "Огайо",
+        "country": "США"
+    },
+    {
+        "country_code": "KR",
+        "region": "провинция Канвондо",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "TR",
+        "region": "Коджаэли",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Самсун",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Uttaradit",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Чувашская",
+        "region_code": "64",
+        "country": "Россия",
+        "kladr_region_code": "21",
+        "fias_region_guid": "878fc621-3708-46c7-a97f-5a13a4176b3e"
+    },
+    {
+        "country_code": "TR",
+        "region": "Ризе",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Amnat Charoen",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Кахраманмараш",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Кырыккале",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nakhon Si Thammarat",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "US",
+        "region": "Округ Колумбия",
+        "country": "США"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Навоийская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "US",
+        "region": "Гавайи",
+        "country": "США"
+    },
+    {
+        "country_code": "RU",
+        "region": "Кировская",
+        "region_code": "44",
+        "country": "Россия",
+        "kladr_region_code": "43",
+        "fias_region_guid": "0b940b96-103f-4248-850c-26b6c7296728"
+    },
+    {
+        "country_code": "AE",
+        "region": "эмират Умм-эль-Кайвайн",
+        "country": "ОАЭ"
+    },
+    {
+        "country_code": "RU",
+        "region": "Воронежская",
+        "region_code": "63",
+        "country": "Россия",
+        "kladr_region_code": "36",
+        "fias_region_guid": "b756fe6b-bbd3-44d5-9302-5bfcc740f46e"
+    },
+    {
+        "country_code": "KR",
+        "region": "город-метрополия Инчхон",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Либерецкий край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "AE",
+        "region": "эмират Дубай",
+        "country": "ОАЭ"
+    },
+    {
+        "country_code": "TH",
+        "region": "Bangkok",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Prachuap Khiri Khan",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TR",
+        "region": "Ардахан",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Арканзас",
+        "country": "США"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Устецкий край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "KR",
+        "region": "Кванджу",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "DE",
+        "region": "Нижняя Саксония",
+        "region_code": "641",
+        "country": "Германия"
+    },
+    {
+        "country_code": "TR",
+        "region": "Бартын",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Калифорния",
+        "country": "США"
+    },
+    {
+        "country_code": "TH",
+        "region": "Kalasin",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "TH",
+        "region": "Chiang Mai",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Новгородская",
+        "region_code": "31",
+        "country": "Россия",
+        "kladr_region_code": "53",
+        "fias_region_guid": "e5a84b81-8ea1-49e3-b3c4-0528651be129"
+    },
+    {
+        "country_code": "TH",
+        "region": "Trang",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Оренбургская",
+        "region_code": "5",
+        "country": "Россия",
+        "kladr_region_code": "56",
+        "fias_region_guid": "8bcec9d6-05bc-4e53-b45c-ba0c6f3a5c44"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Наманганская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "TR",
+        "region": "Невшехир",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Хаккяри",
+        "country": "Турция"
+    },
+    {
+        "country_code": "RU",
+        "region": "Коми",
+        "region_code": "1",
+        "country": "Россия",
+        "kladr_region_code": "11",
+        "fias_region_guid": "c20180d9-ad9c-46d1-9eff-d60bc424592a"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nakhon Ratchasima",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "RU",
+        "region": "Тульская",
+        "region_code": "37",
+        "country": "Россия",
+        "kladr_region_code": "71",
+        "fias_region_guid": "d028ec4f-f6da-4843-ada6-b68b3e0efa3d"
+    },
+    {
+        "country_code": "UZ",
+        "region": "Хорезмская область",
+        "country": "Узбекистан"
+    },
+    {
+        "country_code": "TR",
+        "region": "Эрзинджан",
+        "country": "Турция"
+    },
+    {
+        "country_code": "TR",
+        "region": "Аксарай",
+        "country": "Турция"
+    },
+    {
+        "country_code": "US",
+        "region": "Небраска",
+        "country": "США"
+    },
+    {
+        "country_code": "KR",
+        "region": "город-метрополия Тэджон",
+        "country": "Южная Корея (Республика Корея)"
+    },
+    {
+        "country_code": "RU",
+        "region": "Приморский",
+        "region_code": "18",
+        "country": "Россия",
+        "kladr_region_code": "25",
+        "fias_region_guid": "43909681-d6e1-432d-b61f-ddac393cb5da"
+    },
+    {
+        "country_code": "TH",
+        "region": "Nakhon Phanom",
+        "country": "Таиланд"
+    },
+    {
+        "country_code": "CZ",
+        "region": "Среднечешский край",
+        "country": "Чехия"
+    },
+    {
+        "country_code": "RU",
+        "region": "Челябинская",
+        "region_code": "3",
+        "country": "Россия",
+        "kladr_region_code": "74",
+        "fias_region_guid": "27eb7c10-a234-44da-a59c-8b1f864966de"
+    }
+]
