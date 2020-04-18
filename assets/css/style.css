@@ -3,23 +3,19 @@
     display: none !important;
 }
 
-.cdekfw-ekom-index-block {
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
 .cdekfw-pvz-block .select2 {
     max-width: 100%;
     margin-bottom: 8px;
 }
 
 .cdekfw-pvz-block label {
-    margin-top: 2px;
+    margin-top: 4px;
     margin-bottom: 2px;
     display: block;
 }
 
 #cdekfw-map-trigger {
+    margin-top: 2px;
     margin-bottom: 15px;
     display: block
 }

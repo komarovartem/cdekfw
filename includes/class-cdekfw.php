@@ -49,7 +49,7 @@ class CDEKFW {
 		if ( is_checkout() ) {
 			wp_enqueue_script(
 				'cdekfw-main',
-				plugin_dir_url( CDEK_PLUGIN_FILE ) . '/assets/js/main.js',
+				plugin_dir_url( CDEK_PLUGIN_FILE ) . 'assets/js/main.js',
 				array(
 					'jquery',
 					'selectWoo',
@@ -58,7 +58,7 @@ class CDEKFW {
 				true
 			);
 
-			wp_enqueue_style( 'cdekfw', plugin_dir_url( CDEK_PLUGIN_FILE ) . '/assets/css/style.css', array(), '1.0.0' );
+			wp_enqueue_style( 'cdekfw', plugin_dir_url( CDEK_PLUGIN_FILE ) . 'assets/css/style.css', array(), '1.0.0' );
 		}
 	}
 

@@ -154,7 +154,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$this->add_rate(
 			array(
 				'id'        => $this->get_rate_id(),
-				'label'     => $this->title . '. ' . __( 'Error during calculation. This message and method is visible only for site Administrator for debugging purpose.', 'cdek-for-woocommerce' ),
+				'label'     => $this->title . '. ' . __( 'Error during calculation. This message and method are visible only for the site Administrator for debugging purposes.', 'cdek-for-woocommerce' ),
 				'cost'      => 0,
 				'meta_data' => array( 'cdek_error' => true ),
 			)
