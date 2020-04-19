@@ -56,24 +56,34 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$state         = $package['destination']['state'];
 		$city          = $package['destination']['city'];
 
-		if ( CDEKFW::is_pro_active() && $state && $city && 'RU' === $to_country ) {
-			$to_postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
-		}
+		if ( 'RU' === $to_country ) {
+			if ( CDEKFW::is_pro_active() && $state && $city ) {
+				$to_postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+			}
 
-		if ( ! $to_postcode ) {
-			return;
+			if ( ! $to_postcode ) {
+				return;
+			}
 		}
 
 		// https://confluence.cdek.ru/pages/viewpage.action?pageId=15616129#id-%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8(v1.5)-4.14Calculator%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.
 		$args = array(
-			'receiverCityPostCode' => $to_postcode,
-			'receiverCountryCode'  => $to_country,
-			'receiverCity'         => $city,
-			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
+//			'receiverCityPostCode' => $to_postcode,
+			'receiverCountryCode'  => strtolower($to_country),
+//			'receiverCity'         => $city,
+//			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => intval( $this->tariff ),
-			'services'             => array(),
+//			'services'             => array(),
 		);
+
+		if ( 'RU' !== $to_country ) {
+			unset( $args['receiverCityPostCode'] );
+			unset( $args['receiverCity'] );
+
+			$args['senderCityId'] = 286;
+			$args['receiverCityId'] = $this->get_international_city_id( $to_country );
+		}
 
 		$shipping_rate = CDEKFW_Client::calculate_rate( $args );
 
@@ -159,5 +169,21 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				'meta_data' => array( 'cdek_error' => true ),
 			)
 		);
+	}
+
+	/**
+	 * Get basic country code for international shipments
+	 *
+	 * @param string $country_code Country Code.
+	 *
+	 * @return bool|mixed
+	 */
+	public function get_international_city_id( $country_code ) {
+		$city_ids = array(
+			'US' => 5917,
+			'UA' => 7870,
+		);
+
+		return isset( $city_ids[ $country_code ] ) ? $city_ids[ $country_code ] : false;
 	}
 }

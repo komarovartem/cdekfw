@@ -23,7 +23,7 @@ class CDEKFW_Client {
 	 */
 	public static function calculate_rate( $args ) {
 		$client = self::get_client_credentials();
-		$date   = current_time( 'mysql' );
+		$date   = gmdate( 'Y-m-d', strtotime( current_time( 'mysql' ) ) );
 
 		$args = array_merge(
 			$args,
@@ -176,7 +176,7 @@ class CDEKFW_Client {
 	/**
 	 * Get client auth token
 	 *
-	 * @return string
+	 * @return string|mixed
 	 */
 	public static function get_client_auth_token() {
 		$client     = self::get_client_credentials();
@@ -194,7 +194,7 @@ class CDEKFW_Client {
 			$remote_response = wp_remote_post(
 				$request,
 				array(
-					'timeout'   => 30,
+					'timeout'   => 50,
 					'sslverify' => false,
 					'headers'   => array(
 						'Content-Type' => 'application/x-www-form-urlencoded',
@@ -203,18 +203,21 @@ class CDEKFW_Client {
 			);
 
 			if ( ! $remote_response ) {
+				CDEKFW::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $remote_response ), 'error' );
 				return false;
 			}
 
 			$response_code = wp_remote_retrieve_response_code( $remote_response );
 
 			if ( 200 !== $response_code ) {
+				CDEKFW::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ERROR: ' . wp_json_encode( $response_code ), 'error' );
 				return false;
 			}
 
 			$response_body = json_decode( wp_remote_retrieve_body( $remote_response ), true );
 
 			if ( ! isset( $response_body['access_token'] ) ) {
+				CDEKFW::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $response_body ), 'error' );
 				return false;
 			}
 
@@ -242,11 +245,11 @@ class CDEKFW_Client {
 
 		if ( $cache ) {
 
-			if ( isset( $cache['error'] ) ) {
-				CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
-
-				return false;
-			}
+//			if ( isset( $cache['error'] ) ) {
+//				CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+//
+//				return false;
+//			}
 
 			return $cache;
 		}
@@ -254,8 +257,6 @@ class CDEKFW_Client {
 		$client_auth_token = self::get_client_auth_token();
 
 		if ( ! $client_auth_token ) {
-			CDEKFW::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ' . $url );
-
 			return false;
 		}
 
@@ -291,14 +292,14 @@ class CDEKFW_Client {
 
 		$response_body = json_decode( wp_remote_retrieve_body( $remote_response ), true );
 
-		// Set transient before checking the errors to prevent double requests with the same error.
-		set_transient( $hash, $response_body, DAY_IN_SECONDS );
-
 		if ( isset( $response_body['error'] ) ) {
 			CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 			return false;
 		}
+
+		// Set transient before checking the errors to prevent double requests with the same error.
+		set_transient( $hash, $response_body, DAY_IN_SECONDS );
 
 		return $response_body;
 	}
@@ -323,7 +324,7 @@ class CDEKFW_Client {
 
 
 function cdek_test() {
-//	CDEKFW_Client::retrieve_all_region_codes();
+	// echo gmdate('Y-m-d');
 }
 
 
