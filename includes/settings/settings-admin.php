@@ -158,12 +158,33 @@ return array(
 		'type' => 'sectionend',
 	),
 	array(
+		'title' => __( 'Order', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	array(
+		'title'   => __( 'Admin Order Shipping', 'cdek-for-woocommerce' ),
+		'desc'    => __( 'Select a method that will be used as a template for orders created via admin area.', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'id'      => 'cdek_pro_admin_shipping_method',
+		'options' => CDEKFW_Helper::get_all_methods(),
+	),
+	array(
+		'title'   => __( 'Free Shipping', 'cdek-for-woocommerce' ),
+		'desc'    => __( 'To make synchronization of order with free shipping with CDEK API, select a method that will be used as a template for creating packages.', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'id'      => 'cdek_pro_free_shipping_method',
+		'options' => CDEKFW_Helper::get_all_methods(),
+	),
+	array(
+		'type' => 'sectionend',
+	),
+	array(
 		'title' => __( 'Other', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
 		'title'             => __( 'Vat Rate', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Значения - 0, 10, 18, 20 и т.п.', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Values - 0, 10, 18, 20 and etc.', 'cdek-for-woocommerce' ),
 		'type'              => 'number',
 		'id'                => 'cdek_pro_vat_rate',
 		'custom_attributes' => array(

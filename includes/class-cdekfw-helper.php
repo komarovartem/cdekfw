@@ -135,4 +135,23 @@ class CDEKFW_Helper {
 
 		return isset( $region_codes[ $region_code ] ) ? $region_codes[ $region_code ] : false;
 	}
+
+	/**
+	 * Get all CDEK methods from db
+	 *
+	 * @return array
+	 */
+	public static function get_all_methods() {
+		global $wpdb;
+
+		$rp_db_options = $wpdb->get_results( "SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'woocommerce_cdek_shipping_%'" );
+		$rp_options    = array();
+
+		foreach ( $rp_db_options as $rp_db_option ) {
+			$option_value                             = maybe_unserialize( $rp_db_option->option_value );
+			$rp_options[ $rp_db_option->option_name ] = $option_value['title'];
+		}
+
+		return $rp_options;
+	}
 }

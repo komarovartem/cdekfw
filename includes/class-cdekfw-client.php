@@ -44,7 +44,18 @@ class CDEKFW_Client {
 	}
 
 	/**
-	 * Get delivery points
+	 * Create new order https://confluence.cdek.ru/pages/viewpage.action?pageId=29923926
+	 *
+	 * @param array $args Orders params.
+	 *
+	 * @return bool|mixed|null
+	 */
+	public static function create_order( $args ) {
+		return self::get_data_from_api( 'v2/orders', $args );
+	}
+
+	/**
+	 * Get delivery points https://confluence.cdek.ru/pages/viewpage.action?pageId=36982648
 	 *
 	 * @return array|bool
 	 */
@@ -333,38 +344,38 @@ class CDEKFW_Client {
 
 function cdek_test() {
 	// echo gmdate('Y-m-d');
-//	$client_auth_token = CDEKFW_Client::get_client_auth_token();
-//	$body = json_encode( [
-//		'version'              => '1.0',
-//			'currency'    => get_woocommerce_currency(),
-//			'authLogin'   => $client['account'],
-//			'secure'      => md5( $date . '&' . $client['password'] ),
-//		'dateExecute'          => gmdate( 'Y-m-d' ),
-//		'tariffId'             => 1,
-//		'receiverCityPostCode' => 675000,
-//		'senderCityPostCode'   => 101000,
-//		'goods'                => [
-//			[
-//				"weight" => "0.3",
-//				"length" => "5",
-//				"width"  => "20",
-//				"height" => "10"
-//			]
-//		]
+	// $client_auth_token = CDEKFW_Client::get_client_auth_token();
+	// $body = json_encode( [
+	// 'version'              => '1.0',
+	// 'currency'    => get_woocommerce_currency(),
+	// 'authLogin'   => $client['account'],
+	// 'secure'      => md5( $date . '&' . $client['password'] ),
+	// 'dateExecute'          => gmdate( 'Y-m-d' ),
+	// 'tariffId'             => 1,
+	// 'receiverCityPostCode' => 675000,
+	// 'senderCityPostCode'   => 101000,
+	// 'goods'                => [
+	// [
+	// "weight" => "0.3",
+	// "length" => "5",
+	// "width"  => "20",
+	// "height" => "10"
+	// ]
+	// ]
 
-//		'postal_code'  => '67500',
-//		'country_code' => 'RU',
-//	] );
+	// 'postal_code'  => '67500',
+	// 'country_code' => 'RU',
+	// ] );
 
-//	$res  = wp_remote_request( 'https://api.cdek.ru/v2/deliverypoints?postal_code=675000&country_code=RU',
-//		[
-//			'headers' => [
-//				'Content-Type' => 'application/json',
-//				'Authorization' => 'Bearer ' . $client_auth_token,
-//			],
-//			'method'  => 'GET',
-//			'body'    => $body
-//		] );
+	// $res  = wp_remote_request( 'https://api.cdek.ru/v2/deliverypoints?postal_code=675000&country_code=RU',
+	// [
+	// 'headers' => [
+	// 'Content-Type' => 'application/json',
+	// 'Authorization' => 'Bearer ' . $client_auth_token,
+	// ],
+	// 'method'  => 'GET',
+	// 'body'    => $body
+	// ] );
 
 	$client = CDEKFW_Client::get_client_credentials();
 
@@ -386,9 +397,8 @@ function cdek_test() {
 		)
 	);
 
-
 	var_dump( json_decode( wp_remote_retrieve_body( $remote_response ), true ) );
 }
 
 
-//add_action( 'wp_footer', 'cdek_test' );
+// add_action( 'wp_footer', 'cdek_test' );
