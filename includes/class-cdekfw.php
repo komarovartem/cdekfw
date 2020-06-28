@@ -27,7 +27,6 @@ class CDEKFW {
 	 */
 	public function init_hooks() {
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
 		add_action( 'woocommerce_shipping_init', array( $this, 'init_method' ) );
 		add_filter( 'woocommerce_shipping_methods', array( $this, 'register_method' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( CDEK_PLUGIN_FILE ), array( $this, 'plugin_action_links' ) );
@@ -40,26 +39,6 @@ class CDEKFW {
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain( 'cdek-for-woocommerce' );
-	}
-
-	/**
-	 * Load all frontend plugin scripts
-	 */
-	public function load_scripts() {
-		if ( is_checkout() ) {
-			wp_enqueue_script(
-				'cdekfw-main',
-				plugin_dir_url( CDEK_PLUGIN_FILE ) . 'assets/js/main.js',
-				array(
-					'jquery',
-					'selectWoo',
-				),
-				'1.0.0',
-				true
-			);
-
-			wp_enqueue_style( 'cdekfw', plugin_dir_url( CDEK_PLUGIN_FILE ) . 'assets/css/style.css', array(), '1.0.0' );
-		}
 	}
 
 	/**
