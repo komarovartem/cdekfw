@@ -192,6 +192,12 @@ class CDEKFW {
 	 * @param string $type Message type.
 	 */
 	public static function log_it( $message, $type = 'info' ) {
+		$hide_log_info = get_option( 'cdek_hide_info_log', 'no' );
+
+		if ( 'yes' === $hide_log_info && 'info' === $type ) {
+			return;
+		}
+
 		$logger = wc_get_logger();
 		$logger->{$type}( $message, array( 'source' => 'cdek' ) );
 	}

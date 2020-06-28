@@ -7,6 +7,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$post_index_message = '';
+
+if ( ! CDEKFW::is_pro_active() ) {
+	$post_index_message = '<br><br><span style="color: red">Пожалуйста, обратите внимание,</span><span style="color: #007cba"> что расчет доставки происходит только от индекса отправителя до индекса получателя. Убедитесь, что в вашем магазине поле индекс при оформлении заказа не отключено и является обязательным для заполнения, иначе расчет будет невозможно произвести.</span>';
+}
+
 $settings = array(
 	'title'              => array(
 		'title'       => __( 'Method title', 'cdek-for-woocommerce' ),
@@ -25,11 +31,12 @@ $settings = array(
 		),
 	),
 	'tariff'             => array(
-		'title'   => __( 'Tariff', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'class'   => 'wc-enhanced-select',
-		'default' => 'taxable',
-		'options' => array(
+		'title'       => __( 'Tariff', 'cdek-for-woocommerce' ),
+		'description' => __( 'Please note. Not all tariffs available for some particular destinations. For example international shipment will work only for specific countries. So please always check what tariffs for what destination are available by checking official calculator.', 'cdek-for-woocommerce' ) . ' <a href="https://cdek.ru/calculate" target="_blank">https://cdek.ru/calculate</a>' . $post_index_message,
+		'type'        => 'select',
+		'class'       => 'wc-enhanced-select',
+		'default'     => 'taxable',
+		'options'     => array(
 			1   => 'Экспресс лайт дверь-дверь (до 30 кг)',
 			3   => 'Супер-экспресс до 18 дверь-дверь (до 30 кг)',
 			5   => 'Экономичный экспресс склад-склад',
@@ -89,6 +96,20 @@ $settings = array(
 			293 => 'CDEK Express дверь-дверь',
 			294 => 'CDEK Express склад-дверь',
 			295 => 'CDEK Express дверь-склад',
+		),
+	),
+	'services'           => array(
+		'title'   => __( 'Additional Services', 'cdek-for-woocommerce' ),
+		'type'    => 'multiselect',
+		'class'   => 'wc-enhanced-select',
+		'options' => array(
+			3  => 'Доставка в выходной день',
+			7  => 'Опасный груз',
+			24 => 'Упаковка 1',
+			30 => 'Примерка на дому',
+			36 => 'Частичная доставка',
+			37 => 'Осмотр вложения',
+			48 => 'Реверс',
 		),
 	),
 	'show_delivery_time' => array(

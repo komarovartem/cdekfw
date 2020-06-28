@@ -22,7 +22,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$this->id                 = 'cdek_shipping';
 		$this->instance_id        = absint( $instance_id );
 		$this->method_title       = __( 'CDEK', 'cdek-for-woocommerce' );
-		$this->method_description = __( 'Lets you charge a fixed rate for shipping.', 'cdek-for-woocommerce' );
+		$this->method_description = __( 'Calculate shipping rates for CDEK tariffs.', 'cdek-for-woocommerce' );
 		$this->supports           = array(
 			'shipping-zones',
 			'instance-settings',
@@ -50,6 +50,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 */
 	public function calculate_shipping( $package = array() ) {
 		$label         = $this->title;
+		$services      = $this->services ? $this->services : array();
 		$from_postcode = get_option( 'cdek_sender_post_code', 101000 );
 		$to_country    = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
 		$to_postcode   = wc_format_postcode( $package['destination']['postcode'], $to_country );
@@ -66,22 +67,17 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			}
 		}
 
-		// https://confluence.cdek.ru/pages/viewpage.action?pageId=15616129#id-%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8(v1.5)-4.14Calculator%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.
 		$args = array(
-//			'receiverCityPostCode' => $to_postcode,
-			'receiverCountryCode'  => strtolower($to_country),
-//			'receiverCity'         => $city,
-//			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
+			'receiverCityPostCode' => $to_postcode,
+			'receiverCountryCode'  => $to_country,
+			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => intval( $this->tariff ),
-//			'services'             => array(),
+			'services'             => $services,
 		);
 
 		if ( 'RU' !== $to_country ) {
 			unset( $args['receiverCityPostCode'] );
-			unset( $args['receiverCity'] );
-
-			$args['senderCityId'] = 286;
 			$args['receiverCityId'] = $this->get_international_city_id( $to_country );
 		}
 
@@ -89,6 +85,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 		if ( ! $shipping_rate ) {
 			$this->maybe_print_error();
+
 			return;
 		}
 
@@ -172,7 +169,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	}
 
 	/**
-	 * Get basic country code for international shipments
+	 * Get basic city code of country for international shipments
 	 *
 	 * @param string $country_code Country Code.
 	 *
@@ -180,8 +177,20 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 */
 	public function get_international_city_id( $country_code ) {
 		$city_ids = array(
+			'AT' => 32,
+			'AM' => 7114,
+			'BY' => 9220,
+			'FR' => 10090,
+			'DE' => 196,
+			'IL' => 11580,
+			'KZ' => 4961,
+			'KG' => 5444,
+			'KR' => 11157,
+			'MN' => 1868,
 			'US' => 5917,
 			'UA' => 7870,
+			'UZ' => 11562,
+			'CN' => 12683,
 		);
 
 		return isset( $city_ids[ $country_code ] ) ? $city_ids[ $country_code ] : false;

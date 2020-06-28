@@ -149,4 +149,12 @@ return array(
 	array(
 		'type' => 'sectionend',
 	),
+	array(
+		'title'    => __( 'Log Messages', 'cdek-for-woocommerce' ),
+		'type'     => 'checkbox',
+		'id'       => 'cdek_hide_info_log',
+		'desc'     => __( 'Hide Info Log Messages', 'cdek-for-woocommerce' ),
+		'default'  => 'no',
+		'desc_tip' => __( 'By default all requests stored in WooCommerce logs. You can hide info messages and keep only errors and warnings.', 'cdek-for-woocommerce' ),
+	),
 );

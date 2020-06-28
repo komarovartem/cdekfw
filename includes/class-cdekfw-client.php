@@ -15,6 +15,13 @@ defined( 'ABSPATH' ) || exit;
  */
 class CDEKFW_Client {
 	/**
+	 * Main api url.
+	 *
+	 * @var string
+	 */
+	private static $api_url = 'https://api.cdek.ru/';
+
+	/**
 	 * Calculate shipping rate
 	 *
 	 * @param array $args Shipping params.
@@ -22,21 +29,18 @@ class CDEKFW_Client {
 	 * @return bool|mixed|null
 	 */
 	public static function calculate_rate( $args ) {
-		$client = self::get_client_credentials();
-		$date   = gmdate( 'Y-m-d', strtotime( current_time( 'mysql' ) ) );
+		$date = gmdate( 'Y-m-d', strtotime( current_time( 'mysql' ) ) );
 
 		$args = array_merge(
 			$args,
 			array(
 				'version'     => '1.0',
 				'currency'    => get_woocommerce_currency(),
-				'authLogin'   => $client['account'],
-				'secure'      => md5( $date . '&' . $client['password'] ),
 				'dateExecute' => $date,
 			)
 		);
 
-		return self::get_data_from_api( 'calculator/calculate_tarifflist.php', $args );
+		return self::get_data_from_api( 'calculator/calculate_price_by_json.php', $args );
 	}
 
 	/**
@@ -162,13 +166,13 @@ class CDEKFW_Client {
 			return array(
 				'account'  => get_option( 'cdek_account' ),
 				'password' => get_option( 'cdek_password' ),
-				'api_url'  => 'http://api.cdek.ru/',
+				'api_url'  => 'https://api.cdek.ru/',
 			);
 		} else {
 			return array(
-				'account'  => 'z9GRRu7FxmO53CQ9cFfI6qiy32wpfTkd',
-				'password' => 'w24JTCv4MnAcuRTx0oHjHLDtyt3I6IBq',
-				'api_url'  => 'http://api.edu.cdek.ru/',
+				'account'  => 'EMscd6r9JnFiQ3bLoyjJY6eM78JrJceI',
+				'password' => 'PjLZkKBHEiLK3YsjtNrt3TGNG0ahs3kG',
+				'api_url'  => 'https://api.edu.cdek.ru/',
 			);
 		}
 	}
@@ -202,22 +206,27 @@ class CDEKFW_Client {
 				)
 			);
 
+			$error_msg = esc_html__( 'Could not get client auth token.', 'cdek-for-woocommerce' );
+
 			if ( ! $remote_response ) {
-				CDEKFW::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $remote_response ), 'error' );
+				CDEKFW::log_it( $error_msg . ' ' . wp_json_encode( $remote_response ), 'error' );
+
 				return false;
 			}
 
 			$response_code = wp_remote_retrieve_response_code( $remote_response );
 
 			if ( 200 !== $response_code ) {
-				CDEKFW::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ERROR: ' . wp_json_encode( $response_code ), 'error' );
+				CDEKFW::log_it( $error_msg . ' ERROR: ' . wp_json_encode( $response_code ) . ' ' . wp_remote_retrieve_body( $remote_response ), 'error' );
+
 				return false;
 			}
 
 			$response_body = json_decode( wp_remote_retrieve_body( $remote_response ), true );
 
 			if ( ! isset( $response_body['access_token'] ) ) {
-				CDEKFW::log_it( esc_html__( 'Could not get client auth token', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $response_body ), 'error' );
+				CDEKFW::log_it( $error_msg . ' ' . wp_json_encode( $response_body ), 'error' );
+
 				return false;
 			}
 
@@ -244,12 +253,11 @@ class CDEKFW_Client {
 		$cache  = get_transient( $hash );
 
 		if ( $cache ) {
+			if ( isset( $cache['error'] ) ) {
+				CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
-//			if ( isset( $cache['error'] ) ) {
-//				CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
-//
-//				return false;
-//			}
+				return false;
+			}
 
 			return $cache;
 		}
@@ -261,7 +269,7 @@ class CDEKFW_Client {
 		}
 
 		$remote_response = wp_remote_request(
-			$client['api_url'] . $url,
+			self::$api_url . $url,
 			array(
 				'headers' => array(
 					'Authorization' => 'Bearer ' . $client_auth_token,
@@ -274,7 +282,7 @@ class CDEKFW_Client {
 			)
 		);
 
-		CDEKFW::log_it( esc_html__( 'Making request to get:', 'cdek-for-woocommerce' ) . ' ' . $url );
+		CDEKFW::log_it( esc_html__( 'Making request to get:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . esc_html__( 'with the next body:', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE ) );
 
 		if ( is_wp_error( $remote_response ) ) {
 			CDEKFW::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $remote_response->get_error_message() . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
@@ -325,7 +333,62 @@ class CDEKFW_Client {
 
 function cdek_test() {
 	// echo gmdate('Y-m-d');
+//	$client_auth_token = CDEKFW_Client::get_client_auth_token();
+//	$body = json_encode( [
+//		'version'              => '1.0',
+//			'currency'    => get_woocommerce_currency(),
+//			'authLogin'   => $client['account'],
+//			'secure'      => md5( $date . '&' . $client['password'] ),
+//		'dateExecute'          => gmdate( 'Y-m-d' ),
+//		'tariffId'             => 1,
+//		'receiverCityPostCode' => 675000,
+//		'senderCityPostCode'   => 101000,
+//		'goods'                => [
+//			[
+//				"weight" => "0.3",
+//				"length" => "5",
+//				"width"  => "20",
+//				"height" => "10"
+//			]
+//		]
+
+//		'postal_code'  => '67500',
+//		'country_code' => 'RU',
+//	] );
+
+//	$res  = wp_remote_request( 'https://api.cdek.ru/v2/deliverypoints?postal_code=675000&country_code=RU',
+//		[
+//			'headers' => [
+//				'Content-Type' => 'application/json',
+//				'Authorization' => 'Bearer ' . $client_auth_token,
+//			],
+//			'method'  => 'GET',
+//			'body'    => $body
+//		] );
+
+	$client = CDEKFW_Client::get_client_credentials();
+
+	$parameters = array(
+		'grant_type'    => 'client_credentials',
+		'client_id'     => $client['account'],
+		'client_secret' => $client['password'],
+	);
+
+	$request         = add_query_arg( $parameters, $client['api_url'] . 'v2/oauth/token' );
+	$remote_response = wp_remote_post(
+		$request,
+		array(
+			'timeout'   => 50,
+			'sslverify' => false,
+			'headers'   => array(
+				'Content-Type' => 'application/x-www-form-urlencoded',
+			),
+		)
+	);
+
+
+	var_dump( json_decode( wp_remote_retrieve_body( $remote_response ), true ) );
 }
 
 
-add_action( 'wp_footer', 'cdek_test' );
+//add_action( 'wp_footer', 'cdek_test' );
