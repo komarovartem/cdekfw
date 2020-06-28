@@ -16,19 +16,19 @@ return array(
 	),
 	array(
 		'title' => __( 'Account', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Client ID', 'cdek-for-woocommerce' ) . ' ' . $test_warning,
+		'desc'  => __( 'Client ID.', 'cdek-for-woocommerce' ) . ' ' . $test_warning,
 		'type'  => 'text',
 		'id'    => 'cdek_account',
 	),
 	array(
 		'title' => __( 'Secure password', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'секретный ключ клиента.', 'cdek-for-woocommerce' ) . ' ' . $test_warning,
+		'desc'  => __( 'Client secret key.', 'cdek-for-woocommerce' ) . ' ' . $test_warning,
 		'type'  => 'text',
 		'id'    => 'cdek_password',
 	),
 	array(
-		'title' => __( 'Индекс', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Индекс города отправителя. Если поле не заполнено индекс 101000 будет использован по умолчанию', 'cdek-for-woocommerce' ),
+		'title' => __( 'Postcode', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Postal code of the sender. If the field is empty, the 101000 index will be used by default.', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_sender_post_code',
 	),
@@ -36,31 +36,31 @@ return array(
 		'type' => 'sectionend',
 	),
 	array(
-		'title' => __( 'Габаритные характеристики одного товара по умолчанию', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Данные значения будут браться в расчет при условии отсутствия габаритных характеристик в карточке товара', 'cdek-for-woocommerce' ),
+		'title' => __( 'Dimensions of one product by default', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'These values will be taken into account in the absence of overall characteristics of the product.', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
-		'title' => __( 'Вес', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'в граммах', 'cdek-for-woocommerce' ),
+		'title' => __( 'Weight', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'in grams', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_dimensions_item_weight',
 	),
 	array(
-		'title' => __( 'Длина', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'в сантиметрах', 'cdek-for-woocommerce' ),
+		'title' => __( 'Length', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'in centimeters', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_dimensions_item_length',
 	),
 	array(
-		'title' => __( 'Ширина', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'в сантиметрах', 'cdek-for-woocommerce' ),
+		'title' => __( 'Width', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'in centimeters', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_dimensions_item_width',
 	),
 	array(
-		'title' => __( 'Высота', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'в сантиметрах', 'cdek-for-woocommerce' ),
+		'title' => __( 'Height', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'in centimeters', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_dimensions_item_height',
 	),
@@ -69,7 +69,7 @@ return array(
 	),
 	array(
 		'title' => __( 'Delivery Points', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Список действующих ПВЗ (пунктов выдачи заказов), откуда клиент самостоятельно может забрать заказ.', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'A list of existing delivery points, from where the client can pick up the order on his own.', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
@@ -134,6 +134,35 @@ return array(
 		'type' => 'sectionend',
 	),
 	array(
+		'title' => __( 'Tracking', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	array(
+		'title'   => __( 'Tracking code sending', 'cdek-for-woocommerce' ),
+		'desc'    => __( 'You can send tracking code immediately after creating new package via personal dashboard or when order status changed to delivering.', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'id'      => 'cdek_use_auto_email_tracking_code',
+		'options' => array(
+			''                                  => __( 'Send Manually', 'cdek-for-woocommerce' ),
+			'after_creating_new_package'        => __( 'After creating new package', 'cdek-for-woocommerce' ),
+			'after_status_change_to_delivering' => __( 'After status changed to delivering', 'cdek-for-woocommerce' ),
+		),
+	),
+	array(
+		'title'   => __( 'Tracking info block', 'cdek-for-woocommerce' ),
+		'desc'    => __( 'Display tracking info on the customer account page.', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'id'      => 'cdek_account_tracking_position',
+		'options' => array(
+			'before' => __( 'Before order table', 'cdek-for-woocommerce' ),
+			'after'  => __( 'After order table', 'cdek-for-woocommerce' ),
+			'hide'   => __( 'Do not display', 'cdek-for-woocommerce' ),
+		),
+	),
+	array(
+		'type' => 'sectionend',
+	),
+	array(
 		'title' => __( 'Other', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
@@ -147,14 +176,14 @@ return array(
 		),
 	),
 	array(
-		'type' => 'sectionend',
-	),
-	array(
 		'title'    => __( 'Log Messages', 'cdek-for-woocommerce' ),
 		'type'     => 'checkbox',
 		'id'       => 'cdek_hide_info_log',
 		'desc'     => __( 'Hide Info Log Messages', 'cdek-for-woocommerce' ),
 		'default'  => 'no',
 		'desc_tip' => __( 'By default all requests stored in WooCommerce logs. You can hide info messages and keep only errors and warnings.', 'cdek-for-woocommerce' ),
+	),
+	array(
+		'type' => 'sectionend',
 	),
 );
