@@ -73,11 +73,6 @@ return array(
 		'type'  => 'title',
 	),
 	array(
-		'title' => __( 'Database of Delivery Points', 'cdek-for-woocommerce' ),
-		'type'  => 'cdek_sync_pvz',
-		'id'    => 'cdek_pvz',
-	),
-	array(
 		'title'             => __( 'Yandex Maps JavaScript API', 'cdek-for-woocommerce' ),
 		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Set the API key for Yandex Maps if you want to let customers to choose delivery points on the map.', 'cdek-for-woocommerce' ),
 		'type'              => 'text',
@@ -141,7 +136,7 @@ return array(
 		'title'   => __( 'Tracking code sending', 'cdek-for-woocommerce' ),
 		'desc'    => __( 'You can send tracking code immediately after creating new package via personal dashboard or when order status changed to delivering.', 'cdek-for-woocommerce' ),
 		'type'    => 'select',
-		'id'      => 'cdek_use_auto_email_tracking_code',
+		'id'      => 'cdek_pro_use_auto_email_tracking_code',
 		'options' => array(
 			''                                  => __( 'Send Manually', 'cdek-for-woocommerce' ),
 			'after_creating_new_package'        => __( 'After creating new package', 'cdek-for-woocommerce' ),
@@ -152,7 +147,7 @@ return array(
 		'title'   => __( 'Tracking info block', 'cdek-for-woocommerce' ),
 		'desc'    => __( 'Display tracking info on the customer account page.', 'cdek-for-woocommerce' ),
 		'type'    => 'select',
-		'id'      => 'cdek_account_tracking_position',
+		'id'      => 'cdek_pro_account_tracking_position',
 		'options' => array(
 			'before' => __( 'Before order table', 'cdek-for-woocommerce' ),
 			'after'  => __( 'After order table', 'cdek-for-woocommerce' ),
