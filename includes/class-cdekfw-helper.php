@@ -154,4 +154,25 @@ class CDEKFW_Helper {
 
 		return $rp_options;
 	}
+
+	/**
+	 * Match services number with names
+	 * number comes from API 1.5 but names are used in API 2.0
+	 *
+	 * @param int $service Service ID.
+	 *
+	 * @return bool|mixed
+	 */
+	public static function match_service( $service ) {
+		$match_service = array(
+			3  => 'DELIV_WEEKEND',
+			7  => 'DANGER_CARGO',
+			24 => 'PACKAGE_1',
+			30 => 'TRYING_ON',
+			36 => 'PART_DELIV',
+			37 => 'INSPECTION_CARGO',
+		);
+
+		return isset( $match_service[ $service ] ) ? $match_service[ $service ] : false;
+	}
 }

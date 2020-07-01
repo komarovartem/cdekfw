@@ -85,6 +85,32 @@ return array(
 		'type' => 'sectionend',
 	),
 	array(
+		'title' => __( 'Shipper', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Только для заказов "интернет-магазин" при международном отправлении.', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	array(
+		'title'             => __( 'Shipper Name', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_shipper_name',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'title'             => __( 'Shipper Address', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_shipper_address',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'type' => 'sectionend',
+	),
+	array(
 		'title' => __( 'Sender', 'cdek-for-woocommerce' ),
 		'desc'  => __( 'Для регистрации заказов в ИС СДЭК на доставку товаров до покупателей. Только для договора типа "доставка". Может быть создан любым клиентом с договором (но доступны тарифы только для обычной доставки).', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
@@ -133,6 +159,19 @@ return array(
 		'type'  => 'title',
 	),
 	array(
+		'title'   => __( 'Synchronize order with tracking status', 'cdek-for-woocommerce' ),
+		'desc'    => __( 'Select how often orders should check for tracking status. Automatically set order status from "Processing" to "Delivering" after shipping will be accepted in CDEK. And setting order status to "Completed" when shipping will be received by customer.', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'id'      => 'cdek_pro_use_auto_change_order_status',
+		'options' => array(
+			''   => __( 'Do not synchronize', 'cdek-for-woocommerce' ),
+			'1'  => __( 'Every 1 hour', 'cdek-for-woocommerce' ),
+			'6'  => __( 'Every 6 hours', 'cdek-for-woocommerce' ),
+			'12' => __( 'Every 12 hours', 'cdek-for-woocommerce' ),
+			'24' => __( 'Every 24 hours', 'cdek-for-woocommerce' ),
+		),
+	),
+	array(
 		'title'   => __( 'Tracking code sending', 'cdek-for-woocommerce' ),
 		'desc'    => __( 'You can send tracking code immediately after creating new package via personal dashboard or when order status changed to delivering.', 'cdek-for-woocommerce' ),
 		'type'    => 'select',
@@ -160,6 +199,16 @@ return array(
 	array(
 		'title' => __( 'Order', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
+	),
+	array(
+		'title'   => __( 'Auto Submission of Packages to CDEK Dashboard', 'cdek-for-woocommerce' ),
+		'desc'    => __( 'You can create automatic submission for packages with a specific order status.', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'id'      => 'cdek_pro_auto_order_submit',
+		'options' => array(
+			''           => __( 'Send Manually', 'cdek-for-woocommerce' ),
+			'processing' => __( 'After order got status Processing', 'cdek-for-woocommerce' ),
+		),
 	),
 	array(
 		'title'   => __( 'Admin Order Shipping', 'cdek-for-woocommerce' ),

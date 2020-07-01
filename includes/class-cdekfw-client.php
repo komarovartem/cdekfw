@@ -22,7 +22,7 @@ class CDEKFW_Client {
 	private static $api_url = 'https://api.cdek.ru/';
 
 	/**
-	 * Calculate shipping rate
+	 * Calculate shipping rate https://confluence.cdek.ru/pages/viewpage.action?pageId=15616129#id-%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8(v1.5)-4.14.1.%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%D0%BF%D0%BE%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0%D0%BC%D1%81%D0%BF%D1%80%D0%B8%D0%BE%D1%80%D0%B8%D1%82%D0%B5%D1%82%D0%BE%D0%BC
 	 *
 	 * @param array $args Shipping params.
 	 *
@@ -52,6 +52,17 @@ class CDEKFW_Client {
 	 */
 	public static function create_order( $args ) {
 		return self::get_data_from_api( 'v2/orders', $args );
+	}
+
+	/**
+	 * Get order info https://confluence.cdek.ru/pages/viewpage.action?pageId=29923975
+	 *
+	 * @param string $args Order uuid key.
+	 *
+	 * @return bool|mixed|null
+	 */
+	public static function get_order( $args ) {
+		return self::get_data_from_api( 'v2/orders/' . $args, array(), 'GET' );
 	}
 
 	/**
@@ -293,7 +304,7 @@ class CDEKFW_Client {
 			)
 		);
 
-		CDEKFW::log_it( esc_html__( 'Making request to get:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . esc_html__( 'with the next body:', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE ) );
+		CDEKFW::log_it( esc_html__( 'Making request to:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . esc_html__( 'with the next body:', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE ) );
 
 		if ( is_wp_error( $remote_response ) ) {
 			CDEKFW::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $remote_response->get_error_message() . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );

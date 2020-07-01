@@ -109,8 +109,16 @@ $settings = array(
 			30 => 'Примерка на дому',
 			36 => 'Частичная доставка',
 			37 => 'Осмотр вложения',
-			48 => 'Реверс',
 		),
+	),
+	'add_cost'           => array(
+		'title' => __( 'Additional Cost', 'cdek-for-woocommerce' ),
+		'type'  => 'number',
+	),
+	'add_weight'         => array(
+		'title'       => __( 'Additional Weight', 'cdek-for-woocommerce' ),
+		'description' => __( 'Set additional weight. It could be package weight for example.', 'cdek-for-woocommerce' ),
+		'type'        => 'number',
 	),
 	'show_delivery_time' => array(
 		'title' => __( 'Show delivery time', 'cdek-for-woocommerce' ),
@@ -118,10 +126,6 @@ $settings = array(
 	),
 	'add_delivery_time'  => array(
 		'title' => __( 'Additional Time for Delivery', 'cdek-for-woocommerce' ),
-		'type'  => 'number',
-	),
-	'add_cost'           => array(
-		'title' => __( 'Additional Cost', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 	),
 );
