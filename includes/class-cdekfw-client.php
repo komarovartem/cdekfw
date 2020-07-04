@@ -29,7 +29,8 @@ class CDEKFW_Client {
 	 * @return bool|mixed|null
 	 */
 	public static function calculate_rate( $args ) {
-		$date = gmdate( 'Y-m-d', strtotime( current_time( 'mysql' ) ) );
+		$client = self::get_client_credentials();
+		$date   = gmdate( 'Y-m-d', strtotime( current_time( 'mysql' ) ) );
 
 		$args = array_merge(
 			$args,
@@ -37,10 +38,12 @@ class CDEKFW_Client {
 				'version'     => '1.0',
 				'currency'    => get_woocommerce_currency(),
 				'dateExecute' => $date,
+				'authLogin'   => $client['account'],
+				'secure'      => md5( $date . '&' . $client['password'] ),
 			)
 		);
 
-		return self::get_data_from_api( 'calculator/calculate_price_by_json.php', $args );
+		return self::get_data_from_api( 'calculator/calculate_price_by_json.php', $args, 'POST', false );
 	}
 
 	/**
@@ -52,6 +55,17 @@ class CDEKFW_Client {
 	 */
 	public static function create_order( $args ) {
 		return self::get_data_from_api( 'v2/orders', $args );
+	}
+
+	/**
+	 * Delete order info https://confluence.cdek.ru/pages/viewpage.action?pageId=29924487
+	 *
+	 * @param string $args Order uuid key.
+	 *
+	 * @return bool|mixed|null
+	 */
+	public static function delete_order( $args ) {
+		return self::get_data_from_api( 'v2/orders/' . $args, array(), 'DELETE' );
 	}
 
 	/**
@@ -263,25 +277,28 @@ class CDEKFW_Client {
 	/**
 	 * Connect to Post API and get body for requested URL
 	 *
-	 * @param string $url API url.
-	 * @param array  $body Request body.
-	 * @param string $method Type.
+	 * @param string  $url API url.
+	 * @param array   $body Request body.
+	 * @param string  $method Type.
+	 * @param boolean $skip_cache Skip cash.
 	 *
 	 * @return bool|mixed|null
 	 */
-	public static function get_data_from_api( $url, $body = array(), $method = 'POST' ) {
-		$client = self::get_client_credentials();
-		$hash   = self::get_request_hash( $client['account'], $url, $body );
-		$cache  = get_transient( $hash );
+	public static function get_data_from_api( $url, $body = array(), $method = 'POST', $skip_cache = true ) {
+		if ( ! $skip_cache ) {
+			$client = self::get_client_credentials();
+			$hash   = self::get_request_hash( $client['account'], $url, $body );
+			$cache  = get_transient( $hash );
 
-		if ( $cache ) {
-			if ( isset( $cache['error'] ) ) {
-				CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+			if ( $cache ) {
+				if ( isset( $cache['error'] ) ) {
+					CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
-				return false;
+					return false;
+				}
+
+				return $cache;
 			}
-
-			return $cache;
 		}
 
 		$client_auth_token = self::get_client_auth_token();
@@ -304,7 +321,7 @@ class CDEKFW_Client {
 			)
 		);
 
-		CDEKFW::log_it( esc_html__( 'Making request to:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . esc_html__( 'with the next body:', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE ) );
+		CDEKFW::log_it( esc_html__( 'Making request to', 'cdek-for-woocommerce' ) . ' ' . $method . ': ' . $url . ' ' . esc_html__( 'with the next body:', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE ) );
 
 		if ( is_wp_error( $remote_response ) ) {
 			CDEKFW::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $remote_response->get_error_message() . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
@@ -328,8 +345,10 @@ class CDEKFW_Client {
 			return false;
 		}
 
-		// Set transient before checking the errors to prevent double requests with the same error.
-		set_transient( $hash, $response_body, DAY_IN_SECONDS );
+		if ( ! $skip_cache ) {
+			// Set transient before checking the errors to prevent double requests with the same error.
+			set_transient( $hash, $response_body, DAY_IN_SECONDS );
+		}
 
 		return $response_body;
 	}

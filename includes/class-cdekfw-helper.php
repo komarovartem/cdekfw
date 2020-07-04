@@ -165,9 +165,11 @@ class CDEKFW_Helper {
 	 */
 	public static function match_service( $service ) {
 		$match_service = array(
+			2  => 'INSURANCE',
 			3  => 'DELIV_WEEKEND',
 			7  => 'DANGER_CARGO',
 			24 => 'PACKAGE_1',
+			25 => 'PACKAGE_2',
 			30 => 'TRYING_ON',
 			36 => 'PART_DELIV',
 			37 => 'INSPECTION_CARGO',

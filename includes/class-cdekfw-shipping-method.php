@@ -73,7 +73,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => intval( $this->tariff ),
-			'services'             => $services,
+			'services'             => $this->get_services( $services ),
 		);
 
 		if ( 'RU' !== $to_country ) {
@@ -194,5 +194,36 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		);
 
 		return isset( $city_ids[ $country_code ] ) ? $city_ids[ $country_code ] : false;
+	}
+
+	/**
+	 * Prepare services list for sending
+	 *
+	 * @param array $services Selected shipping services.
+	 *
+	 * @return array
+	 */
+	public function get_services( $services ) {
+		$services_ids = array();
+
+		foreach ( $services as $service ) {
+			$service_id = intval( $service );
+			// in case insurance.
+			if ( 2 === $service_id ) {
+				$services_ids[] = array(
+					'id'    => $service_id,
+					'param' => ceil( WC()->cart->get_cart_contents_total() ),
+				);
+			} elseif ( 24 === $service_id || 25 === $service_id ) {
+				$services_ids[] = array(
+					'id'    => $service_id,
+					'param' => 1,
+				);
+			} else {
+				$services_ids[] = array( 'id' => $service_id );
+			}
+		}
+
+		return $services_ids;
 	}
 }
