@@ -173,7 +173,7 @@ return array(
 	),
 	array(
 		'title'   => __( 'Tracking code sending', 'cdek-for-woocommerce' ),
-		'desc'    => __( 'You can send tracking code immediately after creating new package via personal dashboard or when order status changed to delivering.', 'cdek-for-woocommerce' ),
+		'desc'    => __( 'You can send tracking code immediately after creating new package or when order status changed to delivering.', 'cdek-for-woocommerce' ),
 		'type'    => 'select',
 		'id'      => 'cdek_pro_use_auto_email_tracking_code',
 		'options' => array(
@@ -223,6 +223,17 @@ return array(
 		'type'    => 'select',
 		'id'      => 'cdek_pro_free_shipping_method',
 		'options' => CDEKFW_Helper::get_all_methods(),
+	),
+	array(
+		'title'   => __( 'Print Barcode Settings', 'cdek-for-woocommerce' ),
+		'desc'    => __( 'Choose a format for printing barcode.', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'id'      => 'cdek_pro_barcode_format',
+		'options' => array(
+			'A4' => 'A4',
+			'A5' => 'A5',
+			'A6' => 'A6',
+		),
 	),
 	array(
 		'type' => 'sectionend',
