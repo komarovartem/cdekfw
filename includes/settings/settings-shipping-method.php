@@ -7,30 +7,29 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$post_index_message = '';
+$shipping_classes         = WC()->shipping()->get_shipping_classes();
+$post_index_message       = '';
+$shipping_classes_options = array();
+foreach ( $shipping_classes as $shipping_class ) {
+	if ( ! isset( $shipping_class->term_id ) ) {
+		continue;
+	}
+	$shipping_classes_options[ $shipping_class->term_id ] = $shipping_class->name;
+}
+$cost_desc = __( 'Enter a cost (excl. tax) or sum, e.g. 10.00 * [qty].', 'cdek-for-woocommerce' ) . '<br/><br/>' . __( 'Use [qty] for the number of items, [cost] for the total cost of items, and [fee percent="10" min_fee="20" max_fee=""] for percentage based fees.', 'cdek-for-woocommerce' );
 
 if ( ! CDEKFW::is_pro_active() ) {
-	$post_index_message = '<br><br><span style="color: red">Пожалуйста, обратите внимание,</span><span style="color: #007cba"> что расчет доставки происходит только от индекса отправителя до индекса получателя. Убедитесь, что в вашем магазине поле индекс при оформлении заказа не отключено и является обязательным для заполнения, иначе расчет будет невозможно произвести.</span>';
+	$post_index_message = '<br><br><span style="color: red">Пожалуйста, обратите внимание,</span><span style="color: #007cba"> что расчет доставки происходит только от индекса отправителя до индекса получателя. Убедитесь, что в вашем магазине поле индекс при оформлении заказа не отключено и является обязательным для заполнения, иначе расчет будет невозможно произвести. Это ограничение отсутствует в PRO версии плагина так как используется база регионов и городов РФ.</span>';
 }
 
 $settings = array(
-	'title'              => array(
+	'title'               => array(
 		'title'       => __( 'Method title', 'cdek-for-woocommerce' ),
 		'type'        => 'text',
 		'description' => __( 'This controls the title which the user sees during checkout.', 'cdek-for-woocommerce' ),
 		'default'     => __( 'CDEK', 'cdek-for-woocommerce' ),
 	),
-	'tax_status'         => array(
-		'title'   => __( 'Tax status', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'class'   => 'wc-enhanced-select',
-		'default' => 'taxable',
-		'options' => array(
-			'taxable' => __( 'Taxable', 'cdek-for-woocommerce' ),
-			'none'    => _x( 'None', 'Tax status', 'cdek-for-woocommerce' ),
-		),
-	),
-	'tariff'             => array(
+	'tariff'              => array(
 		'title'       => __( 'Tariff', 'cdek-for-woocommerce' ),
 		'description' => __( 'Please note. Not all tariffs available for some particular destinations. For example international shipment will work only for specific countries. So please always check what tariffs for what destination are available by checking official calculator.', 'cdek-for-woocommerce' ) . ' <a href="https://cdek.ru/calculate" target="_blank">https://cdek.ru/calculate</a>' . $post_index_message,
 		'type'        => 'select',
@@ -98,7 +97,21 @@ $settings = array(
 			295 => 'CDEK Express дверь-склад',
 		),
 	),
-	'services'           => array(
+	'tax_status'          => array(
+		'title'   => __( 'Tax status', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'class'   => 'wc-enhanced-select',
+		'default' => 'taxable',
+		'options' => array(
+			'taxable' => __( 'Taxable', 'cdek-for-woocommerce' ),
+			'none'    => _x( 'None', 'Tax status', 'cdek-for-woocommerce' ),
+		),
+	),
+	'add_settings_title'  => array(
+		'title' => __( 'Additional Settings', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	'services'            => array(
 		'title'   => __( 'Additional Services', 'cdek-for-woocommerce' ),
 		'type'    => 'multiselect',
 		'class'   => 'wc-enhanced-select',
@@ -106,30 +119,160 @@ $settings = array(
 			2  => 'Страхование',
 			3  => 'Доставка в выходной день',
 			7  => 'Опасный груз',
-			24 => 'Упаковка 1',
-			25 => 'Упаковка 2',
+			24 => 'Упаковка 1 (31*21*28см для грузов до 10 кг)',
 			30 => 'Примерка на дому',
 			36 => 'Частичная доставка',
 			37 => 'Осмотр вложения',
 		),
 	),
-	'add_cost'           => array(
+	'add_cost'            => array(
 		'title' => __( 'Additional Cost', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 	),
-	'add_weight'         => array(
+	'add_weight'          => array(
 		'title'       => __( 'Additional Weight', 'cdek-for-woocommerce' ),
 		'description' => __( 'Set additional weight. It could be package weight for example.', 'cdek-for-woocommerce' ),
 		'type'        => 'number',
 	),
-	'show_delivery_time' => array(
+	'delivery_time_title' => array(
+		'title' => __( 'Delivery time', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	'show_delivery_time'  => array(
 		'title' => __( 'Show delivery time', 'cdek-for-woocommerce' ),
 		'type'  => 'checkbox',
 	),
-	'add_delivery_time'  => array(
+	'add_delivery_time'   => array(
 		'title' => __( 'Additional Time for Delivery', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 	),
+	'package_title'       => array(
+		'title'       => __( 'Custom Package Size', 'cdek-for-woocommerce' ),
+		'description' => __( 'Package size is not affecting shipping rate but required for creating order in a dashboard. If you select "Package 1" in services, its size will be used in condition that custom package size field are empty. If you wish to create separate custom package sizes depending on shipping class or weight of the order you can do it by creating separate shipping methods with different conditions. If customer order is not fit in provided custom dimensions you will be able to change it before sending order to CDEK dashboard. ', 'cdek-for-woocommerce' ),
+		'type'        => 'title',
+	),
+	'package_width'       => array(
+		'title'             => __( 'Package Width (in cm)', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'number',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'package_height'      => array(
+		'title'             => __( 'Package Height (in cm)', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'number',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'package_length'      => array(
+		'title'             => __( 'Package Length (in cm)', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'number',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'conditions_title'    => array(
+		'title'       => __( 'Conditions', 'cdek-for-woocommerce' ),
+		'description' => esc_html__( 'Disable a method based on some conditions.', 'cdek-for-woocommerce' ),
+		'type'        => 'title',
+	),
+	'cond_min_cost'       => array(
+		'title'             => esc_html__( 'Min. cost of order in RUB', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text() . esc_html__( 'Disable this method if the cost of the order is less than inputted value. Leave this field empty to allow any order cost.', 'cdek-for-woocommerce' ),
+		'type'              => 'number',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'cond_min_weight'     => array(
+		'title'             => esc_html__( 'Min. weight of order in grams', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text() . esc_html__( 'Disable this method if the weight of the order is less than inputted value. Leave this field empty to allow any order weight.', 'cdek-for-woocommerce' ),
+		'type'              => 'number',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'cond_max_weight'     => array(
+		'title'             => esc_html__( 'Max. weight of order in grams', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text() . esc_html__( 'Disable this method if the weight of the order is more than inputted value. Leave this field empty to allow any order weight.', 'cdek-for-woocommerce' ),
+		'type'              => 'number',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
 );
+
+if ( $shipping_classes_options ) {
+	$settings['cond_has_shipping_class'] = array(
+		'title'             => __( 'Exclude for specific shipping classes', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text() . __( 'Hide the method if the order contains at least one product with the selected shipping class. This condition can be used in order not to display the parcel or simple parcel for orders with bulky and / or heavy goods by weight when placing an order.', 'cdek-for-woocommerce' ),
+		'type'              => 'multiselect',
+		'class'             => 'wc-enhanced-select',
+		'options'           => $shipping_classes_options,
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	);
+	$settings['class_costs_title']       = array(
+		'title'             => __( 'Additional costs for shipping classes', 'cdek-for-woocommerce' ),
+		'type'              => 'title',
+		'default'           => '',
+		// translators: %s href link.
+		'description'       => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'These costs can optionally be added based on the <a href="%s">product shipping class</a>.', 'cdek-for-woocommerce' ), admin_url( 'admin.php?page=wc-settings&tab=shipping&section=classes' ) ),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	);
+	foreach ( $shipping_classes as $shipping_class ) {
+		if ( ! isset( $shipping_class->term_id ) ) {
+			continue;
+		}
+
+		$settings[ 'class_cost_' . $shipping_class->term_id ] = array(
+			// translators: %s shipping class name.
+			'title'             => sprintf( esc_html__( '"%s" shipping class cost', 'cdek-for-woocommerce' ), esc_html( $shipping_class->name ) ),
+			'type'              => 'text',
+			'placeholder'       => __( 'N/A', 'cdek-for-woocommerce' ),
+			'description'       => CDEKFW::only_in_pro_ver_text() . $cost_desc,
+			'desc_tip'          => true,
+			'sanitize_callback' => array( $this, 'sanitize_cost' ),
+			'custom_attributes' => array(
+				CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			),
+		);
+	}
+
+	$settings['no_class_cost'] = array(
+		'title'             => __( 'No shipping class cost', 'cdek-for-woocommerce' ),
+		'type'              => 'text',
+		'placeholder'       => 'N/A',
+		'description'       => CDEKFW::only_in_pro_ver_text() . $cost_desc,
+		'default'           => '',
+		'desc_tip'          => true,
+		'sanitize_callback' => array( $this, 'sanitize_cost' ),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	);
+
+	$settings['class_cost_calc_type'] = array(
+		'title'             => __( 'Calculation type', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'select',
+		'class'             => 'wc-enhanced-select',
+		'default'           => 'class',
+		'options'           => array(
+			'class' => __( 'Per class: Charge shipping for each shipping class individually', 'cdek-for-woocommerce' ),
+			'order' => __( 'Per order: Charge shipping for the most expensive shipping class', 'cdek-for-woocommerce' ),
+		),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	);
+}
 
 return $settings;

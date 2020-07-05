@@ -159,22 +159,21 @@ class CDEKFW_Helper {
 	 * Match services number with names
 	 * number comes from API 1.5 but names are used in API 2.0
 	 *
-	 * @param int $service Service ID.
+	 * @param int $service_id Service ID.
 	 *
 	 * @return bool|mixed
 	 */
-	public static function match_service( $service ) {
+	public static function match_service( $service_id ) {
 		$match_service = array(
 			2  => 'INSURANCE',
 			3  => 'DELIV_WEEKEND',
 			7  => 'DANGER_CARGO',
 			24 => 'PACKAGE_1',
-			25 => 'PACKAGE_2',
 			30 => 'TRYING_ON',
 			36 => 'PART_DELIV',
 			37 => 'INSPECTION_CARGO',
 		);
 
-		return isset( $match_service[ $service ] ) ? $match_service[ $service ] : false;
+		return isset( $match_service[ $service_id ] ) ? $match_service[ $service_id ] : false;
 	}
 }

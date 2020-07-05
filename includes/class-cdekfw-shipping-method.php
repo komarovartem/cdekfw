@@ -67,6 +67,10 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			}
 		}
 
+		if ( $this->check_condition_for_disable( $package ) ) {
+			return;
+		}
+
 		$args = array(
 			'receiverCityPostCode' => $to_postcode,
 			'receiverCountryCode'  => $to_country,
@@ -89,13 +93,10 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			return;
 		}
 
-		$shipping_rate = $shipping_rate['result'];
-		$cost          = ceil( $shipping_rate['price'] );
-		$delivery_time = intval( $shipping_rate['deliveryPeriodMax'] );
-
-		if ( $this->add_cost ) {
-			$cost += intval( $this->add_cost );
-		}
+		$shipping_rate       = $shipping_rate['result'];
+		$shipping_class_cost = $this->get_shipping_class_cost( $package );
+		$cost                = ceil( $shipping_rate['price'] ) + intval( $this->add_cost ) + $shipping_class_cost;
+		$delivery_time       = intval( $shipping_rate['deliveryPeriodMax'] );
 
 		if ( $this->show_delivery_time ) {
 			if ( $this->add_delivery_time ) {
@@ -114,6 +115,209 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				'package' => $package,
 			)
 		);
+	}
+
+	/**
+	 * Check all condition to display a method before calculation
+	 *
+	 * @param array $package Shipping package.
+	 *
+	 * @return bool
+	 */
+	public function check_condition_for_disable( $package ) {
+		$total_val = WC()->cart->get_cart_subtotal();
+		$weight    = wc_get_weight( WC()->cart->get_cart_contents_weight(), 'g' );
+
+		// check if cost is less than provided in options.
+		if ( $this->cond_min_cost && intval( $this->cond_min_cost ) > 0 && $total_val < $this->cond_min_cost ) {
+			return true;
+		}
+
+		// check conditional weights.
+		if ( ( $this->cond_min_weight && $weight < intval( $this->cond_min_weight ) ) || ( $this->cond_max_weight && $weight > intval( $this->cond_max_weight ) ) ) {
+			return true;
+		}
+
+		// check if has specific shipping class.
+		if ( $this->cond_has_shipping_class ) {
+			$found_shipping_classes  = $this->find_shipping_classes( $package );
+			$is_shipping_class_found = false;
+			foreach ( $found_shipping_classes as $shipping_class => $products ) {
+				$shipping_class_term = get_term_by( 'slug', $shipping_class, 'product_shipping_class' );
+				if ( $shipping_class_term && $shipping_class_term->term_id && in_array( (string) $shipping_class_term->term_id, $this->cond_has_shipping_class, true ) ) {
+					$is_shipping_class_found = true;
+					break;
+				}
+			}
+
+			if ( $is_shipping_class_found ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Add additional cost based on shipping classes
+	 *
+	 * @param array $package Shipping package.
+	 *
+	 * @return int
+	 */
+	public function get_shipping_class_cost( $package ) {
+		$shipping_classes = WC()->shipping()->get_shipping_classes();
+		$cost             = 0;
+
+		if ( ! empty( $shipping_classes ) && isset( $this->class_cost_calc_type ) ) {
+			$found_shipping_classes = $this->find_shipping_classes( $package );
+			$highest_class_cost     = 0;
+
+			foreach ( $found_shipping_classes as $shipping_class => $products ) {
+				// Also handles BW compatibility when slugs were used instead of ids.
+				$shipping_class_term = get_term_by( 'slug', $shipping_class, 'product_shipping_class' );
+				$class_cost_string   = $shipping_class_term && $shipping_class_term->term_id ? $this->get_option( 'class_cost_' . $shipping_class_term->term_id, $this->get_option( 'class_cost_' . $shipping_class, '' ) ) : $this->get_option( 'no_class_cost', '' );
+
+				if ( '' === $class_cost_string ) {
+					continue;
+				}
+
+				$class_cost = $this->evaluate_cost(
+					$class_cost_string,
+					array(
+						'qty'  => array_sum( wp_list_pluck( $products, 'quantity' ) ),
+						'cost' => array_sum( wp_list_pluck( $products, 'line_total' ) ),
+					)
+				);
+
+				if ( 'class' === $this->class_cost_calc_type ) {
+					$cost += $class_cost;
+				} else {
+					$highest_class_cost = $class_cost > $highest_class_cost ? $class_cost : $highest_class_cost;
+				}
+			}
+
+			if ( 'order' === $this->class_cost_calc_type && $highest_class_cost ) {
+				$cost += $highest_class_cost;
+			}
+		}
+
+		return $cost;
+	}
+
+	/**
+	 * Finds and returns shipping classes and the products with said class.
+	 *
+	 * @param mixed $package Package of items from cart.
+	 *
+	 * @return array
+	 */
+	public function find_shipping_classes( $package ) {
+		$found_shipping_classes = array();
+
+		foreach ( $package['contents'] as $item_id => $values ) {
+			if ( $values['data']->needs_shipping() ) {
+				$found_class = $values['data']->get_shipping_class();
+
+				if ( ! isset( $found_shipping_classes[ $found_class ] ) ) {
+					$found_shipping_classes[ $found_class ] = array();
+				}
+
+				$found_shipping_classes[ $found_class ][ $item_id ] = $values;
+			}
+		}
+
+		return $found_shipping_classes;
+	}
+
+	/**
+	 * Work out fee (shortcode).
+	 *
+	 * @param array $atts Attributes.
+	 *
+	 * @return string
+	 */
+	public function fee( $atts ) {
+		$atts = shortcode_atts(
+			array(
+				'percent' => '',
+				'min_fee' => '',
+				'max_fee' => '',
+			),
+			$atts,
+			'fee'
+		);
+
+		$calculated_fee = 0;
+
+		if ( $atts['percent'] ) {
+			$calculated_fee = $this->fee_cost * ( floatval( $atts['percent'] ) / 100 );
+		}
+
+		if ( $atts['min_fee'] && $calculated_fee < $atts['min_fee'] ) {
+			$calculated_fee = $atts['min_fee'];
+		}
+
+		if ( $atts['max_fee'] && $calculated_fee > $atts['max_fee'] ) {
+			$calculated_fee = $atts['max_fee'];
+		}
+
+		return $calculated_fee;
+	}
+
+
+	/**
+	 * Evaluate a cost from a sum/string.
+	 *
+	 * @param string $sum Sum of shipping.
+	 * @param array  $args Args.
+	 *
+	 * @return string
+	 */
+	protected function evaluate_cost( $sum, $args = array() ) {
+		include_once WC()->plugin_path() . '/includes/libraries/class-wc-eval-math.php';
+
+		// Allow 3rd parties to process shipping cost arguments.
+		$args           = apply_filters( 'woocommerce_evaluate_shipping_cost_args', $args, $sum, $this );
+		$locale         = localeconv();
+		$decimals       = array(
+			wc_get_price_decimal_separator(),
+			$locale['decimal_point'],
+			$locale['mon_decimal_point'],
+			',',
+		);
+		$this->fee_cost = $args['cost'];
+
+		// Expand shortcodes.
+		add_shortcode( 'fee', array( $this, 'fee' ) );
+
+		$sum = do_shortcode(
+			str_replace(
+				array(
+					'[qty]',
+					'[cost]',
+				),
+				array(
+					$args['qty'],
+					$args['cost'],
+				),
+				$sum
+			)
+		);
+
+		remove_shortcode( 'fee', array( $this, 'fee' ) );
+
+		// Remove whitespace from string.
+		$sum = preg_replace( '/\s+/', '', $sum );
+
+		// Remove locale from string.
+		$sum = str_replace( $decimals, '.', $sum );
+
+		// Trim invalid start/end characters.
+		$sum = rtrim( ltrim( $sum, "\t\n\r\0\x0B+*/" ), "\t\n\r\0\x0B+-*/" );
+
+		// Do the math.
+		return $sum ? WC_Eval_Math::evaluate( $sum ) : 0;
 	}
 
 	/**

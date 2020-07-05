@@ -159,38 +159,47 @@ return array(
 		'type'  => 'title',
 	),
 	array(
-		'title'   => __( 'Synchronize order with tracking status', 'cdek-for-woocommerce' ),
-		'desc'    => __( 'Select how often orders should check for tracking status. Automatically set order status from "Processing" to "Delivering" after shipping will be accepted in CDEK. And setting order status to "Completed" when shipping will be received by customer.', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'id'      => 'cdek_pro_use_auto_change_order_status',
-		'options' => array(
+		'title'             => __( 'Synchronize order with tracking status', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Select how often orders should check for tracking status. Automatically set order status from "Processing" to "Delivering" after shipping will be accepted in CDEK. And setting order status to "Completed" when shipping will be received by customer.', 'cdek-for-woocommerce' ),
+		'type'              => 'select',
+		'id'                => 'cdek_pro_use_auto_change_order_status',
+		'options'           => array(
 			''   => __( 'Do not synchronize', 'cdek-for-woocommerce' ),
 			'1'  => __( 'Every 1 hour', 'cdek-for-woocommerce' ),
 			'6'  => __( 'Every 6 hours', 'cdek-for-woocommerce' ),
 			'12' => __( 'Every 12 hours', 'cdek-for-woocommerce' ),
 			'24' => __( 'Every 24 hours', 'cdek-for-woocommerce' ),
 		),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
 	),
 	array(
-		'title'   => __( 'Tracking code sending', 'cdek-for-woocommerce' ),
-		'desc'    => __( 'You can send tracking code immediately after creating new package or when order status changed to delivering.', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'id'      => 'cdek_pro_use_auto_email_tracking_code',
-		'options' => array(
+		'title'             => __( 'Tracking code sending', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'You can send tracking code immediately after creating new package or when order status changed to delivering.', 'cdek-for-woocommerce' ),
+		'type'              => 'select',
+		'id'                => 'cdek_pro_use_auto_email_tracking_code',
+		'options'           => array(
 			''                                  => __( 'Send Manually', 'cdek-for-woocommerce' ),
 			'after_creating_new_package'        => __( 'After creating new package', 'cdek-for-woocommerce' ),
 			'after_status_change_to_delivering' => __( 'After status changed to delivering', 'cdek-for-woocommerce' ),
 		),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
 	),
 	array(
-		'title'   => __( 'Tracking info block', 'cdek-for-woocommerce' ),
-		'desc'    => __( 'Display tracking info on the customer account page.', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'id'      => 'cdek_pro_account_tracking_position',
-		'options' => array(
+		'title'             => __( 'Tracking info block', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Display tracking info on the customer account page.', 'cdek-for-woocommerce' ),
+		'type'              => 'select',
+		'id'                => 'cdek_pro_account_tracking_position',
+		'options'           => array(
 			'before' => __( 'Before order table', 'cdek-for-woocommerce' ),
 			'after'  => __( 'After order table', 'cdek-for-woocommerce' ),
 			'hide'   => __( 'Do not display', 'cdek-for-woocommerce' ),
+		),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
 		),
 	),
 	array(
@@ -201,38 +210,50 @@ return array(
 		'type'  => 'title',
 	),
 	array(
-		'title'   => __( 'Auto Submission of Packages to CDEK Dashboard', 'cdek-for-woocommerce' ),
-		'desc'    => __( 'You can create automatic submission for packages with a specific order status.', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'id'      => 'cdek_pro_auto_order_submit',
-		'options' => array(
+		'title'             => __( 'Auto Submission of Packages to CDEK Dashboard', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'You can create automatic submission for packages with a specific order status.', 'cdek-for-woocommerce' ),
+		'type'              => 'select',
+		'id'                => 'cdek_pro_auto_order_submit',
+		'options'           => array(
 			''           => __( 'Send Manually', 'cdek-for-woocommerce' ),
 			'processing' => __( 'After order got status Processing', 'cdek-for-woocommerce' ),
 		),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
 	),
 	array(
-		'title'   => __( 'Admin Order Shipping', 'cdek-for-woocommerce' ),
-		'desc'    => __( 'Select a method that will be used as a template for orders created via admin area.', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'id'      => 'cdek_pro_admin_shipping_method',
-		'options' => CDEKFW_Helper::get_all_methods(),
+		'title'             => __( 'Admin Order Shipping', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Select a method that will be used as a template for orders created via admin area.', 'cdek-for-woocommerce' ),
+		'type'              => 'select',
+		'id'                => 'cdek_pro_admin_shipping_method',
+		'options'           => CDEKFW_Helper::get_all_methods(),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
 	),
 	array(
-		'title'   => __( 'Free Shipping', 'cdek-for-woocommerce' ),
-		'desc'    => __( 'To make synchronization of order with free shipping with CDEK API, select a method that will be used as a template for creating packages.', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'id'      => 'cdek_pro_free_shipping_method',
-		'options' => CDEKFW_Helper::get_all_methods(),
+		'title'             => __( 'Free Shipping', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'To make synchronization of order with free shipping with CDEK API, select a method that will be used as a template for creating packages.', 'cdek-for-woocommerce' ),
+		'type'              => 'select',
+		'id'                => 'cdek_pro_free_shipping_method',
+		'options'           => CDEKFW_Helper::get_all_methods(),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
 	),
 	array(
-		'title'   => __( 'Print Barcode Settings', 'cdek-for-woocommerce' ),
-		'desc'    => __( 'Choose a format for printing barcode.', 'cdek-for-woocommerce' ),
-		'type'    => 'select',
-		'id'      => 'cdek_pro_barcode_format',
-		'options' => array(
+		'title'             => __( 'Print Barcode Settings', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Choose a format for printing barcode.', 'cdek-for-woocommerce' ),
+		'type'              => 'select',
+		'id'                => 'cdek_pro_barcode_format',
+		'options'           => array(
 			'A4' => 'A4',
 			'A5' => 'A5',
 			'A6' => 'A6',
+		),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
 		),
 	),
 	array(
