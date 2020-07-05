@@ -343,12 +343,22 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 			for ( $i = 0; $i < $item_values['quantity']; $i ++ ) {
 				$goods[] = array(
-					'weight' => $weight ? $weight : wc_get_weight( $defaults['weight'], 'kg' ),
+					'weight' => $weight ? $weight : intval( $defaults['weight'] ) / 1000,
 					'length' => $length ? $length : $defaults['length'],
 					'width'  => $width ? $width : $defaults['width'],
 					'height' => $height ? $height : $defaults['height'],
 				);
 			}
+		}
+
+		// additional weight.
+		if ( $this->add_weight ) {
+			$goods[] = array(
+				'weight' => intval( $this->add_weight ) / 1000,
+				'length' => 1,
+				'width'  => 1,
+				'height' => 1,
+			);
 		}
 
 		return $goods;

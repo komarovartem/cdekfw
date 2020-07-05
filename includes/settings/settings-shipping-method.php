@@ -119,7 +119,7 @@ $settings = array(
 			2  => 'Страхование',
 			3  => 'Доставка в выходной день',
 			7  => 'Опасный груз',
-			24 => 'Упаковка 1 (31*21*28см для грузов до 10 кг)',
+			24 => 'Упаковка 1 (31*21.5*28см для грузов до 10 кг)',
 			30 => 'Примерка на дому',
 			36 => 'Частичная доставка',
 			37 => 'Осмотр вложения',
@@ -130,7 +130,7 @@ $settings = array(
 		'type'  => 'number',
 	),
 	'add_weight'          => array(
-		'title'       => __( 'Additional Weight', 'cdek-for-woocommerce' ),
+		'title'       => __( 'Additional Weight (in g.)', 'cdek-for-woocommerce' ),
 		'description' => __( 'Set additional weight. It could be package weight for example.', 'cdek-for-woocommerce' ),
 		'type'        => 'number',
 	),
@@ -151,6 +151,14 @@ $settings = array(
 		'description' => __( 'Package size is not affecting shipping rate but required for creating order in a dashboard. If you select "Package 1" in services, its size will be used in condition that custom package size field are empty. If you wish to create separate custom package sizes depending on shipping class or weight of the order you can do it by creating separate shipping methods with different conditions. If customer order is not fit in provided custom dimensions you will be able to change it before sending order to CDEK dashboard. ', 'cdek-for-woocommerce' ),
 		'type'        => 'title',
 	),
+	'package_length'      => array(
+		'title'             => __( 'Package Length (in cm)', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'number',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
 	'package_width'       => array(
 		'title'             => __( 'Package Width (in cm)', 'cdek-for-woocommerce' ),
 		'description'       => CDEKFW::only_in_pro_ver_text(),
@@ -161,14 +169,6 @@ $settings = array(
 	),
 	'package_height'      => array(
 		'title'             => __( 'Package Height (in cm)', 'cdek-for-woocommerce' ),
-		'description'       => CDEKFW::only_in_pro_ver_text(),
-		'type'              => 'number',
-		'custom_attributes' => array(
-			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
-		),
-	),
-	'package_length'      => array(
-		'title'             => __( 'Package Length (in cm)', 'cdek-for-woocommerce' ),
 		'description'       => CDEKFW::only_in_pro_ver_text(),
 		'type'              => 'number',
 		'custom_attributes' => array(

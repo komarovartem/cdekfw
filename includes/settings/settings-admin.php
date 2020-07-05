@@ -41,28 +41,24 @@ return array(
 		'type'  => 'title',
 	),
 	array(
-		'title' => __( 'Weight', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'in grams', 'cdek-for-woocommerce' ),
-		'type'  => 'number',
-		'id'    => 'cdek_dimensions_item_weight',
-	),
-	array(
-		'title' => __( 'Length', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'in centimeters', 'cdek-for-woocommerce' ),
+		'title' => __( 'Length (cm.)', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_dimensions_item_length',
 	),
 	array(
-		'title' => __( 'Width', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'in centimeters', 'cdek-for-woocommerce' ),
+		'title' => __( 'Width (cm.)', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_dimensions_item_width',
 	),
 	array(
-		'title' => __( 'Height', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'in centimeters', 'cdek-for-woocommerce' ),
+		'title' => __( 'Height (cm.)', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 		'id'    => 'cdek_dimensions_item_height',
+	),
+	array(
+		'title' => __( 'Weight (g.)', 'cdek-for-woocommerce' ),
+		'type'  => 'number',
+		'id'    => 'cdek_dimensions_item_weight',
 	),
 	array(
 		'type' => 'sectionend',
@@ -263,15 +259,15 @@ return array(
 		'title' => __( 'Other', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
-	array(
-		'title'             => __( 'Vat Rate', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Values - 0, 10, 18, 20 and etc.', 'cdek-for-woocommerce' ),
-		'type'              => 'number',
-		'id'                => 'cdek_pro_vat_rate',
-		'custom_attributes' => array(
-			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
-		),
-	),
+//	array(
+//		'title'             => __( 'Vat Rate', 'cdek-for-woocommerce' ),
+//		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Values - 0, 10, 18, 20 and etc.', 'cdek-for-woocommerce' ),
+//		'type'              => 'number',
+//		'id'                => 'cdek_pro_vat_rate',
+//		'custom_attributes' => array(
+//			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+//		),
+//	),
 	array(
 		'title'    => __( 'Log Messages', 'cdek-for-woocommerce' ),
 		'type'     => 'checkbox',

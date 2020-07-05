@@ -21,10 +21,10 @@ class CDEKFW_Helper {
 	 */
 	public static function get_default_dimensions() {
 		$dimensions = array(
-			'weight' => 100,
-			'length' => 10,
-			'width'  => 10,
-			'height' => 10,
+			'weight' => 100, // g.
+			'length' => 10, // cm.
+			'width'  => 10, // cm.
+			'height' => 10, // cm.
 		);
 
 		foreach ( $dimensions as $k => $v ) {
