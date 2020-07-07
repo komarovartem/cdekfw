@@ -83,7 +83,7 @@ class CDEKFW {
 	 * @return string
 	 */
 	public static function only_in_pro_ver_text() {
-		return self::is_pro_active() ? '' : 'Доступно только в PRO версии. ';
+		return self::is_pro_active() ? '' : __( 'Available only in PRO version.', 'cdek-for-woocommerce' ) . ' ';
 	}
 
 	/**

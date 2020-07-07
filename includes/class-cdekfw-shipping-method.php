@@ -50,6 +50,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 */
 	public function calculate_shipping( $package = array() ) {
 		$label         = $this->title;
+		$time          = '';
 		$services      = $this->services ? $this->services : array();
 		$from_postcode = get_option( 'cdek_sender_post_code', 101000 );
 		$to_country    = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
@@ -104,13 +105,34 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			}
 
 			/* translators: %s: Delivery time */
-			$label .= ' (' . sprintf( _n( '%s day', '%s days', $delivery_time, 'cdek-for-woocommerce' ), number_format_i18n( $delivery_time ) ) . ')';
+			$time = ' (' . sprintf( _n( '%s day', '%s days', $delivery_time, 'cdek-for-woocommerce' ), number_format_i18n( $delivery_time ) ) . ')';
+		}
+
+		if ( 'yes' === $this->free_shipping ) {
+			if ( $this->is_free_shipping_available() ) {
+				$label = $this->free_shipping_custom_title ? $this->free_shipping_custom_title : $label;
+				$this->add_rate(
+					array(
+						'id'      => $this->get_rate_id(),
+						'label'   => $label . $time,
+						'taxes'   => false,
+						'package' => $package,
+						'cost'    => 0,
+					)
+				);
+
+				return;
+			}
+
+			if ( 'yes' === $this->free_shipping_hide_if_not_achieved ) {
+				return;
+			}
 		}
 
 		$this->add_rate(
 			array(
 				'id'      => $this->get_rate_id(),
-				'label'   => $label,
+				'label'   => $label . $time,
 				'cost'    => $cost,
 				'package' => $package,
 			)
@@ -439,5 +461,66 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		}
 
 		return $services_ids;
+	}
+
+	/**
+	 * Check if free shipping is available based on the package and cart.
+	 *
+	 * @return bool
+	 */
+	public function is_free_shipping_available() {
+		$has_coupon         = false;
+		$has_met_min_amount = false;
+
+		if ( in_array( $this->free_shipping_cond, array( 'coupon', 'either', 'both' ), true ) ) {
+			$coupons = WC()->cart->get_coupons();
+
+			if ( $coupons ) {
+				foreach ( $coupons as $code => $coupon ) {
+					if ( $coupon->is_valid() && $coupon->get_free_shipping() ) {
+						$has_coupon = true;
+						break;
+					}
+				}
+			}
+		}
+
+		if ( in_array( $this->free_shipping_cond, array( 'min_amount', 'either', 'both' ), true ) ) {
+			$total = WC()->cart->get_displayed_subtotal();
+
+			if ( WC()->cart->display_prices_including_tax() ) {
+				$total = $total - WC()->cart->get_discount_tax();
+			}
+
+			if ( 'no' === $this->free_shipping_ignore_discounts ) {
+				$total = $total - WC()->cart->get_discount_total();
+			}
+
+			$total = round( $total, wc_get_price_decimals() );
+
+			if ( $total >= $this->free_shipping_cond_amount ) {
+				$has_met_min_amount = true;
+			}
+		}
+
+		switch ( $this->free_shipping_cond ) {
+			case 'min_amount':
+				$is_available = $has_met_min_amount;
+				break;
+			case 'coupon':
+				$is_available = $has_coupon;
+				break;
+			case 'both':
+				$is_available = $has_met_min_amount && $has_coupon;
+				break;
+			case 'either':
+				$is_available = $has_met_min_amount || $has_coupon;
+				break;
+			default:
+				$is_available = true;
+				break;
+		}
+
+		return $is_available;
 	}
 }
