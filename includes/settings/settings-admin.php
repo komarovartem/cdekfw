@@ -7,30 +7,38 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$test_warning = __( 'If field is empty, test account data will be used.', 'cdek-for-woocommerce' );
-
 return array(
 	array(
 		'title' => __( 'CDEK', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
-		'title' => __( 'Account', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Client ID.', 'cdek-for-woocommerce' ) . ' ' . $test_warning,
-		'type'  => 'text',
 		'id'    => 'cdek_account',
-	),
-	array(
-		'title' => __( 'Secure password', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Client secret key.', 'cdek-for-woocommerce' ) . ' ' . $test_warning,
+		'title' => __( 'Account', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Client ID.', 'cdek-for-woocommerce' ),
 		'type'  => 'text',
-		'id'    => 'cdek_password',
 	),
 	array(
+		'id'    => 'cdek_password',
+		'title' => __( 'Secure password', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Client secret key.', 'cdek-for-woocommerce' ),
+		'type'  => 'text',
+	),
+	array(
+		'id'      => 'cdek_type',
+		'title'   => __( 'Type of agreement', 'cdek-for-woocommerce' ),
+		'desc'    => __( '"Online store" -  only for a client with the type of agreement "online store". "Delivery" can be created by any client with a contract (but tariffs are available only for regular delivery).', 'cdek-for-woocommerce' ),
+		'type'    => 'select',
+		'options' => array(
+			1 => __( 'Online store', 'cdek-for-woocommerce' ),
+			2 => __( 'Delivery', 'cdek-for-woocommerce' ),
+		),
+	),
+	array(
+		'id'    => 'cdek_sender_post_code',
 		'title' => __( 'Postcode', 'cdek-for-woocommerce' ),
 		'desc'  => __( 'Postal code of the sender. If the field is empty, the 101000 index will be used by default.', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
-		'id'    => 'cdek_sender_post_code',
 	),
 	array(
 		'type' => 'sectionend',
@@ -41,9 +49,9 @@ return array(
 		'type'  => 'title',
 	),
 	array(
+		'id'    => 'cdek_dimensions_item_length',
 		'title' => __( 'Length (cm.)', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
-		'id'    => 'cdek_dimensions_item_length',
 	),
 	array(
 		'title' => __( 'Width (cm.)', 'cdek-for-woocommerce' ),
@@ -108,7 +116,7 @@ return array(
 	),
 	array(
 		'title' => __( 'Sender', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Для регистрации заказов в ИС СДЭК на доставку товаров до покупателей. Только для договора типа "доставка". Может быть создан любым клиентом с договором (но доступны тарифы только для обычной доставки).', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Для регистрации заказов в ИС СДЭК на доставку товаров до покупателей. Только для договора типа "доставка".', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
@@ -259,15 +267,6 @@ return array(
 		'title' => __( 'Other', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
-//	array(
-//		'title'             => __( 'Vat Rate', 'cdek-for-woocommerce' ),
-//		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Values - 0, 10, 18, 20 and etc.', 'cdek-for-woocommerce' ),
-//		'type'              => 'number',
-//		'id'                => 'cdek_pro_vat_rate',
-//		'custom_attributes' => array(
-//			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
-//		),
-//	),
 	array(
 		'title'    => __( 'Log Messages', 'cdek-for-woocommerce' ),
 		'type'     => 'checkbox',

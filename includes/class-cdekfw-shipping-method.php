@@ -440,11 +440,16 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @return array
 	 */
 	public function get_services( $services ) {
-		$services_ids = array();
+		$cdek_order_type = intval( get_option( 'cdek_type', 1 ) );
+		$services_ids    = array();
+
+		// for Online Store agreement types insurance is required.
+		if ( 1 === $cdek_order_type && ! in_array( '2', $services, true ) ) {
+			$services[] = 2;
+		}
 
 		foreach ( $services as $service ) {
 			$service_id = intval( $service );
-			// in case insurance.
 			if ( 2 === $service_id ) {
 				$services_ids[] = array(
 					'id'    => $service_id,
