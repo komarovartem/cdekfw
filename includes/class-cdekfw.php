@@ -26,12 +26,39 @@ class CDEKFW {
 	 * Hook into actions and filters.
 	 */
 	public function init_hooks() {
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'woocommerce_shipping_init', array( $this, 'init_method' ) );
 		add_filter( 'woocommerce_shipping_methods', array( $this, 'register_method' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( CDEK_PLUGIN_FILE ), array( $this, 'plugin_action_links' ) );
 		add_filter( 'auto_update_plugin', array( $this, 'auto_update_plugin' ), 10, 2 );
 		add_action( 'woocommerce_debug_tools', array( $this, 'add_debug_tools' ) );
+	}
+
+	/**
+	 * Load all frontend plugin scripts
+	 */
+	public function load_scripts() {
+		if ( is_checkout() ) {
+			wp_enqueue_script(
+				'cdekfw-main',
+				plugin_dir_url( CDEK_PLUGIN_FILE ) . 'assets/js/pvz-select.js',
+				array(
+					'jquery',
+					'selectWoo',
+				),
+				'1.0.0',
+				true
+			);
+
+			wp_enqueue_style( 'cdekfw', plugin_dir_url( CDEK_PLUGIN_FILE ) . 'assets/css/pvz-select.css', array(), '1.0.0' );
+
+			$map_api = get_option( 'cdek_pro_yandex_api' );
+
+			if ( $map_api ) {
+				wp_enqueue_script( 'yandex-maps', 'https://api-maps.yandex.ru/2.1/?apikey=' . esc_attr( $map_api ) . '&lang=ru_RU', array(), '2.1', false );
+			}
+		}
 	}
 
 	/**

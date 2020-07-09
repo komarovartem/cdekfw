@@ -36,6 +36,7 @@ class CDEKFW_PVZ_Shipping {
 		if ( isset( $meta_data['cdek_error'] ) ) {
 			// translators: %s: Links.
 			echo ' ' . sprintf( __( 'Please check %1$sWooCommerce Logs%2$s to get more information about the issue.', 'cdek-for-woocommerce' ), '<a style="color: #ac0608; font-weight: bold;" target="_blank" href="' . admin_url( 'admin.php?page=wc-status&tab=logs&log_file=' . WC_Log_Handler_File::get_log_file_name( 'cdek' ) ) . '">', '</a>' ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+
 			return;
 		}
 
@@ -138,9 +139,9 @@ class CDEKFW_PVZ_Shipping {
 		$pvz = get_post_meta( $order->get_id(), '_cdekfw_pvz', true );
 		if ( $pvz ) {
 			?>
-			<h2><?php esc_html_e( 'Delivery Point', 'cdek-for-woocommerce' ); ?></h2>
-			<p><?php echo esc_html( $pvz['address'] ); ?></p>
-			<br>
+            <h2><?php esc_html_e( 'Delivery Point', 'cdek-for-woocommerce' ); ?></h2>
+            <p><?php echo esc_html( $pvz['address'] ); ?></p>
+            <br>
 			<?php
 		}
 	}

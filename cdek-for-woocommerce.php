@@ -9,7 +9,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: cdek-for-woocommerce
  * WC requires at least: 3.0.0
- * WC tested up to: 4.0
+ * WC tested up to: 4.3
  *
  * @package CDEK
  */

@@ -92,16 +92,18 @@ class CDEKFW_Client {
 		$is_cod          = 'allowed_cod';
 		$delivery_points = array();
 
-		if ( CDEKFW::is_pro_active() && $state && $city ) {
-			$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
-		}
-
 		$args = array(
-			'postal_code'  => $postcode,
 			'country_code' => $country,
 		);
 
-		$items = self::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET' );
+		if ( 'RU' === $country ) {
+			if ( CDEKFW::is_pro_active() && $state && $city ) {
+				$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+			}
+			$args['postal_code'] = $postcode;
+		}
+
+		$items = self::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET', false );
 
 		if ( ! $items ) {
 			return false;
@@ -110,6 +112,7 @@ class CDEKFW_Client {
 		foreach ( $items as $item ) {
 			if ( isset( $item['location']['adress'] ) && isset( $item['location']['latitude'] ) ) {
 				$delivery_points[] = array(
+					'fullAddress' => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['adress'],
 					'code'        => $item['code'],
 					'name'        => $item['name'],
 					'address'     => $item['location']['adress'],
@@ -291,7 +294,7 @@ class CDEKFW_Client {
 			$cache  = get_transient( $hash );
 
 			if ( $cache ) {
-				if ( isset( $cache['error'] ) ) {
+				if ( isset( $cache['error'] ) || isset( $response_body['errors'] ) ) {
 					CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 					return false;
@@ -339,15 +342,14 @@ class CDEKFW_Client {
 
 		$response_body = json_decode( wp_remote_retrieve_body( $remote_response ), true );
 
-		if ( isset( $response_body['error'] ) ) {
+		if ( ! $skip_cache ) {
+			set_transient( $hash, $response_body, DAY_IN_SECONDS );
+		}
+
+		if ( isset( $response_body['error'] ) || isset( $response_body['errors'] ) ) {
 			CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 			return false;
-		}
-
-		if ( ! $skip_cache ) {
-			// Set transient before checking the errors to prevent double requests with the same error.
-			set_transient( $hash, $response_body, DAY_IN_SECONDS );
 		}
 
 		return $response_body;
@@ -373,62 +375,18 @@ class CDEKFW_Client {
 
 
 function cdek_test() {
-	// echo gmdate('Y-m-d');
-	// $client_auth_token = CDEKFW_Client::get_client_auth_token();
-	// $body = json_encode( [
-	// 'version'              => '1.0',
-	// 'currency'    => get_woocommerce_currency(),
-	// 'authLogin'   => $client['account'],
-	// 'secure'      => md5( $date . '&' . $client['password'] ),
-	// 'dateExecute'          => gmdate( 'Y-m-d' ),
-	// 'tariffId'             => 1,
-	// 'receiverCityPostCode' => 675000,
-	// 'senderCityPostCode'   => 101000,
-	// 'goods'                => [
-	// [
-	// "weight" => "0.3",
-	// "length" => "5",
-	// "width"  => "20",
-	// "height" => "10"
-	// ]
-	// ]
 
-	// 'postal_code'  => '67500',
-	// 'country_code' => 'RU',
-	// ] );
 
-	// $res  = wp_remote_request( 'https://api.cdek.ru/v2/deliverypoints?postal_code=675000&country_code=RU',
-	// [
-	// 'headers' => [
-	// 'Content-Type' => 'application/json',
-	// 'Authorization' => 'Bearer ' . $client_auth_token,
-	// ],
-	// 'method'  => 'GET',
-	// 'body'    => $body
-	// ] );
-
-	$client = CDEKFW_Client::get_client_credentials();
-
-	$parameters = array(
-		'grant_type'    => 'client_credentials',
-		'client_id'     => $client['account'],
-		'client_secret' => $client['password'],
+	$args = array(
+//		'city_code' => 7114,
+//		'postal_code' => '0008',
+		'country_code' => 'CN',
 	);
 
-	$request         = add_query_arg( $parameters, $client['api_url'] . 'v2/oauth/token' );
-	$remote_response = wp_remote_post(
-		$request,
-		array(
-			'timeout'   => 50,
-			'sslverify' => false,
-			'headers'   => array(
-				'Content-Type' => 'application/x-www-form-urlencoded',
-			),
-		)
-	);
+	$items = CDEKFW_Client::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET' );
 
-	var_dump( json_decode( wp_remote_retrieve_body( $remote_response ), true ) );
+	var_dump( $items );
 }
 
 
-// add_action( 'wp_footer', 'cdek_test' );
+//add_action( 'wp_footer', 'cdek_test' );
