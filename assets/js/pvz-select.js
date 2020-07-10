@@ -22,6 +22,15 @@ jQuery(function ($) {
 		});
 	}
 
+	$('body').on('change', '#cdekfw-pvz-code', function () {
+		var $shippingCountry = $('#shipping_country').val();
+		var $billingCountry = $('#billing_country').val();
+
+		if ($shippingCountry && $shippingCountry != 'RU' || $billingCountry && $billingCountry != 'RU') {
+			$('body').trigger('update_checkout');
+		}
+	});
+
 	if (typeof cdekfwYandexMap === "undefined") {
 		$('#cdekfw-map-trigger').hide();
 	}
@@ -46,7 +55,7 @@ jQuery(function ($) {
 		return false;
 	});
 
-	window.cdekfwSetPvzFromBaloon = function(id) {
+	window.cdekfwSetPvzFromBaloon = function (id) {
 		$('#cdekfw-pvz-code').val(id).trigger('change');
 		cdekfwMapWrapper.css('display', 'none');
 	}

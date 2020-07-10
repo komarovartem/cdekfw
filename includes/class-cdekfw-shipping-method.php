@@ -83,7 +83,10 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 		if ( 'RU' !== $to_country ) {
 			unset( $args['receiverCityPostCode'] );
-			$args['receiverCityId'] = $this->get_international_city_id( $to_country );
+
+			$selected_pvz = CDEKFW_PVZ_Shipping::get_selected_pvz_code();
+
+			$args['receiverCityId'] = $selected_pvz ? intval( explode( '|', $selected_pvz )[2] ) : $this->get_international_city_id( $to_country );
 		}
 
 		$shipping_rate = CDEKFW_Client::calculate_rate( $args );

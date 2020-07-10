@@ -114,7 +114,7 @@ class CDEKFW_Client {
 				$delivery_points[] = array(
 					'fullAddress' => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['adress'],
 					'code'        => $item['code'],
-					'name'        => $item['name'],
+					'city_code'   => $item['location']['city_code'],
 					'address'     => $item['location']['adress'],
 					'coordinates' => $item['location']['latitude'] . ',' . $item['location']['longitude'],
 				);
@@ -375,12 +375,10 @@ class CDEKFW_Client {
 
 
 function cdek_test() {
-
-
 	$args = array(
 //		'city_code' => 7114,
 //		'postal_code' => '0008',
-		'country_code' => 'CN',
+		'country_code' => 'UA',
 	);
 
 	$items = CDEKFW_Client::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET' );

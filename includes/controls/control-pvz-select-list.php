@@ -15,7 +15,8 @@
 	<select name="cdekfw-pvz-code" id="cdekfw-pvz-code"
 			data-noresults="<?php esc_attr_e( 'Address is not found', 'cdek-for-woocommerce' ); ?>">
 		<?php foreach ( $pvz as $item ) : ?>
-			<option value="<?php echo esc_attr( $item['code'] ); ?>|<?php echo esc_attr( $item['address'] ); ?>" <?php selected( $item['code'] . '|' . $item['address'], $selected_pvz ); ?>>
+			<?php $pvz_value = $item['code'] . '|' . $item['address'] . '|' . $item['city_code']; ?>
+			<option value="<?php echo esc_attr( $pvz_value ); ?>" <?php selected( $pvz_value, $selected_pvz ); ?>>
 				<?php
 				if ( $item['fullAddress'] ) {
 					echo esc_attr( $item['fullAddress'] );

@@ -66,7 +66,7 @@ class CDEKFW_PVZ_Shipping {
 		}
 
 		$pvz          = CDEKFW_Client::get_pvz_list();
-		$selected_pvz = $this->get_selected_pvz_code();
+		$selected_pvz = self::get_selected_pvz_code();
 
 		if ( ! $pvz ) {
 			return;
@@ -80,16 +80,16 @@ class CDEKFW_PVZ_Shipping {
 	 *
 	 * @return string
 	 */
-	public function get_selected_pvz_code() {
+	public static function get_selected_pvz_code() {
 		$pvz_code = '';
 
-		$post_data = ! empty( $_REQUEST['post_data'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['post_data'] ) ) : null; // phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce already verified in WC_Checkout::process_checkout().
-
+		$post_data = ! empty( $_REQUEST['post_data'] ) ? urldecode( $_REQUEST['post_data'] ) : null; // phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce already verified in WC_Checkout::process_checkout().
 		if ( $post_data ) {
 			parse_str( $post_data, $post_data );
 
 			if ( isset( $post_data['cdekfw-pvz-code'] ) ) {
 				$pvz_code = esc_attr( $post_data['cdekfw-pvz-code'] );
+
 			}
 		}
 
@@ -111,8 +111,9 @@ class CDEKFW_PVZ_Shipping {
 		$pvz = explode( '|', $pvz );
 
 		$pvz_data = array(
-			'code'    => $pvz[0],
-			'address' => $pvz[1],
+			'code'      => $pvz[0],
+			'address'   => $pvz[1],
+			'city_code' => $pvz[2],
 		);
 
 		update_post_meta( $order_id, '_cdekfw_pvz', $pvz_data );
