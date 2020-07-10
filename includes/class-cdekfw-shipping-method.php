@@ -3,7 +3,7 @@
  * CDEK Shipping Method.
  *
  * @version 1.0.0
- * @package CDEK/Classes/Shipping
+ * @package CDEK/Shipping
  */
 
 defined( 'ABSPATH' ) || exit;

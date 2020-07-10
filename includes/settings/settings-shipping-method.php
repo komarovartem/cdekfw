@@ -2,7 +2,7 @@
 /**
  * Settings for CDEK shipping.
  *
- * @package CDEK/Classes/Shipping
+ * @package CDEK/Settings/Shipping
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -26,7 +26,7 @@ $settings = array(
 	'title'                              => array(
 		'title'       => __( 'Method title', 'cdek-for-woocommerce' ),
 		'type'        => 'text',
-		'description' => __( 'This controls the title which the user sees during checkout.', 'cdek-for-woocommerce' ),
+		'description' => __( 'This title the user sees during checkout.', 'cdek-for-woocommerce' ),
 		'default'     => __( 'CDEK', 'cdek-for-woocommerce' ),
 	),
 	'tariff'                             => array(
@@ -114,7 +114,7 @@ $settings = array(
 	),
 	'services'                           => array(
 		'title'       => __( 'Additional Services', 'cdek-for-woocommerce' ),
-		'description' => __( 'For "Online store" orders the Insurance service is on by default.', 'cdek-for-woocommerce' ),
+		'description' => __( 'For type of agreement "Online store" orders the "Insurance" service is on by default.', 'cdek-for-woocommerce' ),
 		'type'        => 'multiselect',
 		'class'       => 'wc-enhanced-select',
 		'options'     => array(

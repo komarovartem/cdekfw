@@ -2,7 +2,7 @@
 /**
  * CDEK helper functions
  *
- * @package CDEK
+ * @package CDEK/Helper
  * @since   1.0.0
  */
 

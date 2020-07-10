@@ -2,7 +2,7 @@
 /**
  * Settings for admin page.
  *
- * @package CDEK/Admin
+ * @package CDEK/Settings/Admin
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -41,6 +41,16 @@ return array(
 		'type'  => 'number',
 	),
 	array(
+		'id'                => 'cdek_shipment_point',
+		'title'             => __( 'Shipment point code', 'cdek-for-woocommerce' ),
+		/* translators: %s are links. */
+		'desc'              => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'For integration with CDEK dashboard. It is required for tariffs "from shipment point". Shipment point code is usually three letters and number like "MSK114" or "KSD42". You can find code for your city point on %1$s official website. %2$s', 'cdek-for-woocommerce' ), '<a href="https://cdek.ru/offices" target="_blank">', '</a>' ),
+		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
 		'type' => 'sectionend',
 	),
 	array(
@@ -72,25 +82,8 @@ return array(
 		'type' => 'sectionend',
 	),
 	array(
-		'title' => __( 'Delivery Points', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'A list of existing delivery points, from where the client can pick up the order on his own.', 'cdek-for-woocommerce' ),
-		'type'  => 'title',
-	),
-	array(
-		'title'             => __( 'Yandex Maps JavaScript API', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Set the API key for Yandex Maps if you want to let customers to choose delivery points on the map.', 'cdek-for-woocommerce' ),
-		'type'              => 'text',
-		'id'                => 'cdek_pro_yandex_api',
-		'custom_attributes' => array(
-			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
-		),
-	),
-	array(
-		'type' => 'sectionend',
-	),
-	array(
 		'title' => __( 'Shipper', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Только для заказов "интернет-магазин" при международном отправлении.', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Only for orders "Online store" with international shipment.', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
@@ -116,7 +109,7 @@ return array(
 	),
 	array(
 		'title' => __( 'Sender', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Для регистрации заказов в ИС СДЭК на доставку товаров до покупателей. Только для договора типа "доставка".', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'To register orders with CDEK dashboard for the delivery of goods to customers.', 'cdek-for-woocommerce' ),
 		'type'  => 'title',
 	),
 	array(
@@ -129,8 +122,8 @@ return array(
 		),
 	),
 	array(
-		'title'             => __( 'Name', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'ФИО контактного лица', 'cdek-for-woocommerce' ),
+		'title'             => __( 'Full Name', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Full name of contact person', 'cdek-for-woocommerce' ),
 		'type'              => 'text',
 		'id'                => 'cdek_pro_sender_name',
 		'custom_attributes' => array(
@@ -148,7 +141,7 @@ return array(
 	),
 	array(
 		'title'             => __( 'Phone', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Должен передаваться в международном формате: код страны (для России +7) и сам номер (10 и более цифр)', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'It must be transmitted in the international format: country code (for Russia +7) and the number itself (10 or more digits)', 'cdek-for-woocommerce' ),
 		'type'              => 'text',
 		'id'                => 'cdek_pro_sender_phone',
 		'custom_attributes' => array(
@@ -214,7 +207,7 @@ return array(
 		'type'  => 'title',
 	),
 	array(
-		'title'             => __( 'Auto Submission of Packages to CDEK Dashboard', 'cdek-for-woocommerce' ),
+		'title'             => __( 'Auto submission of packages to CDEK dashboard', 'cdek-for-woocommerce' ),
 		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'You can create automatic submission for packages with a specific order status.', 'cdek-for-woocommerce' ),
 		'type'              => 'select',
 		'id'                => 'cdek_pro_auto_order_submit',
@@ -227,7 +220,7 @@ return array(
 		),
 	),
 	array(
-		'title'             => __( 'Admin Order Shipping', 'cdek-for-woocommerce' ),
+		'title'             => __( 'Admin order shipping', 'cdek-for-woocommerce' ),
 		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Select a method that will be used as a template for orders created via admin area.', 'cdek-for-woocommerce' ),
 		'type'              => 'select',
 		'id'                => 'cdek_pro_admin_shipping_method',
@@ -237,7 +230,7 @@ return array(
 		),
 	),
 	array(
-		'title'             => __( 'Free Shipping', 'cdek-for-woocommerce' ),
+		'title'             => __( 'Free shipping', 'cdek-for-woocommerce' ),
 		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'To make synchronization of order with free shipping with CDEK API, select a method that will be used as a template for creating packages.', 'cdek-for-woocommerce' ),
 		'type'              => 'select',
 		'id'                => 'cdek_pro_free_shipping_method',
@@ -247,7 +240,7 @@ return array(
 		),
 	),
 	array(
-		'title'             => __( 'Print Barcode Settings', 'cdek-for-woocommerce' ),
+		'title'             => __( 'Print barcode settings', 'cdek-for-woocommerce' ),
 		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Choose a format for printing barcode.', 'cdek-for-woocommerce' ),
 		'type'              => 'select',
 		'id'                => 'cdek_pro_barcode_format',
@@ -256,6 +249,23 @@ return array(
 			'A5' => 'A5',
 			'A6' => 'A6',
 		),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'type' => 'sectionend',
+	),
+	array(
+		'title' => __( 'Delivery Points', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'A list of existing delivery points, from where the client can pick up the order on his own.', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	array(
+		'title'             => __( 'Yandex Maps JavaScript API', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Set the API key for Yandex Maps if you want to let customers to choose delivery points on the map.', 'cdek-for-woocommerce' ),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_yandex_api',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
 		),

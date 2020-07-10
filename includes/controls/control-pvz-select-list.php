@@ -2,7 +2,7 @@
 /**
  * CDEK PVZ select list
  *
- * @package CDEK/Controls
+ * @package CDEK/Controls/PVZ
  * @since   1.0.0
  */
 

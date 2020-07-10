@@ -113,6 +113,7 @@ class CDEKFW_Client {
 			if ( isset( $item['location']['adress'] ) && isset( $item['location']['latitude'] ) ) {
 				$delivery_points[] = array(
 					'fullAddress' => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['adress'],
+					'name'        => $item['name'],
 					'code'        => $item['code'],
 					'city_code'   => $item['location']['city_code'],
 					'address'     => $item['location']['adress'],

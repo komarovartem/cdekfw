@@ -2,7 +2,7 @@
 /**
  * CDEK pvz shipping options
  *
- * @package CDEK
+ * @package CDEK/PVZ
  * @since   1.0.0
  */
 
