@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: CDEK for WooCommerce
- * Description: The plugin allows you to automatically calculate the shipping cost for CDEK
+ * Description: Automatically calculate the shipping cost for CDEK tariffs
  * Version: 1.0.0
  * Author: Artem Komarov
  * Author URI: mailto:yumecommerce@gmail.com
