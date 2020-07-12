@@ -59,8 +59,12 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$city          = $package['destination']['city'];
 
 		if ( 'RU' === $to_country ) {
-			if ( CDEKFW::is_pro_active() && $state && $city ) {
-				$to_postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+			if ( CDEKFW::is_pro_active() ) {
+				if ( $state && $city ) {
+					$to_postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+				} else {
+					return;
+				}
 			}
 
 			if ( ! $to_postcode ) {

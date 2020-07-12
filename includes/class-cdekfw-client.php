@@ -32,16 +32,19 @@ class CDEKFW_Client {
 		$client = self::get_client_credentials();
 		$date   = gmdate( 'Y-m-d', strtotime( current_time( 'mysql' ) ) );
 
-		$args = array_merge(
-			$args,
-			array(
-				'version'     => '1.0',
-				'currency'    => get_woocommerce_currency(),
-				'dateExecute' => $date,
-				'authLogin'   => $client['account'],
-				'secure'      => md5( $date . '&' . $client['password'] ),
-			)
+		$req_params = array(
+			'version'     => '1.0',
+			'currency'    => get_woocommerce_currency(),
+			'dateExecute' => $date,
 		);
+
+		// Add account data if not a test request.
+		if ( ! $client['test'] ) {
+			$req_params['authLogin'] = $client['account'];
+			$req_params['secure']    = md5( $date . '&' . $client['password'] );
+		}
+
+		$args = array_merge( $args, $req_params );
 
 		return self::get_data_from_api( 'calculator/calculate_price_by_json.php', $args, 'POST', false );
 	}
@@ -207,12 +210,14 @@ class CDEKFW_Client {
 				'account'  => get_option( 'cdek_account' ),
 				'password' => get_option( 'cdek_password' ),
 				'api_url'  => 'https://api.cdek.ru/',
+				'test'     => false,
 			);
 		} else {
 			return array(
 				'account'  => 'EMscd6r9JnFiQ3bLoyjJY6eM78JrJceI',
 				'password' => 'PjLZkKBHEiLK3YsjtNrt3TGNG0ahs3kG',
 				'api_url'  => 'https://api.edu.cdek.ru/',
+				'test'     => true,
 			);
 		}
 	}
@@ -311,14 +316,19 @@ class CDEKFW_Client {
 			return false;
 		}
 
+		$headers = array(
+			'Accept'       => 'application/json;charset=UTF-8',
+			'Content-Type' => 'application/json',
+		);
+
+		if ( ! self::get_client_credentials()['test'] ) {
+			$headers['Authorization'] = 'Bearer ' . $client_auth_token;
+		}
+
 		$remote_response = wp_remote_request(
 			self::$api_url . $url,
 			array(
-				'headers' => array(
-					'Authorization' => 'Bearer ' . $client_auth_token,
-					'Accept'        => 'application/json;charset=UTF-8',
-					'Content-Type'  => 'application/json',
-				),
+				'headers' => $headers,
 				'method'  => $method,
 				'body'    => $body ? wp_json_encode( $body, JSON_UNESCAPED_UNICODE ) : '',
 				'timeout' => 100, // must be that big for huge requests like getting PVZ list.
