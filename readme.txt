@@ -3,7 +3,7 @@ Contributors: artemkomarov
 Tags: woocommerce, woocommerce shipping, ecommerce, shipping, cdek
 Requires at least: 5
 Tested up to: 5.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -35,6 +35,11 @@ Then create new Shipping Zone and add CDEK as a method.
 The plugin by itself has no methods to calculate the shipping price. All data comes from official CDEK API
 
 == Changelog ==
+
+= 1.0.1 =
+
+Add new seller options
+Fix international delivery point select.
 
 = 1.0.0 =
 
