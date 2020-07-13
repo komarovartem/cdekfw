@@ -198,6 +198,10 @@ class CDEKFW {
 	 * @param string $type Message type.
 	 */
 	public static function log_it( $message, $type = 'info' ) {
+		if ( ! current_user_can( 'administrator' ) ) {
+			return;
+		}
+
 		$hide_log_info = get_option( 'cdek_hide_info_log', 'no' );
 
 		if ( 'yes' === $hide_log_info && 'info' === $type ) {
