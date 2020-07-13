@@ -102,8 +102,6 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				$selected_pvz_code = $selected_pvz ? explode( '|', $selected_pvz )[0] : false;
 
 				if ( $pvz_list ) {
-//					error_log(json_encode($pvz_list, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
-//					error_log( json_encode( $selected_pvz, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
 					if ( $selected_pvz_code && array_key_exists( $selected_pvz_code, $pvz_list ) ) {
 						$city_id = intval( explode( '|', $selected_pvz )[2] );
 					} else {
