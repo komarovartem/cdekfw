@@ -103,6 +103,7 @@ class CDEKFW_Client {
 			if ( CDEKFW::is_pro_active() && $state && $city ) {
 				$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
 			}
+
 			$args['postal_code'] = $postcode;
 		}
 
@@ -114,7 +115,7 @@ class CDEKFW_Client {
 
 		foreach ( $items as $item ) {
 			if ( isset( $item['location']['adress'] ) && isset( $item['location']['latitude'] ) ) {
-				$delivery_points[] = array(
+				$delivery_points[ $item['code'] ] = array(
 					'fullAddress' => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['adress'],
 					'name'        => $item['name'],
 					'code'        => $item['code'],
@@ -383,19 +384,3 @@ class CDEKFW_Client {
 		return 'cdek_cache_' . md5( $account . $url . wp_json_encode( $body ) );
 	}
 }
-
-
-function cdek_test() {
-	$args = array(
-//		'city_code' => 7114,
-//		'postal_code' => '0008',
-		'country_code' => 'UA',
-	);
-
-	$items = CDEKFW_Client::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET' );
-
-	var_dump( $items );
-}
-
-
-//add_action( 'wp_footer', 'cdek_test' );

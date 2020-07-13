@@ -51,12 +51,17 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	public function calculate_shipping( $package = array() ) {
 		$label         = $this->title;
 		$time          = '';
+		$tariff        = intval( $this->tariff );
 		$services      = $this->services ? $this->services : array();
 		$from_postcode = get_option( 'cdek_sender_post_code', 101000 );
 		$to_country    = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
 		$to_postcode   = wc_format_postcode( $package['destination']['postcode'], $to_country );
 		$state         = $package['destination']['state'];
 		$city          = $package['destination']['city'];
+
+		if ( $this->check_condition_for_disable( $package ) ) {
+			return;
+		}
 
 		if ( 'RU' === $to_country ) {
 			if ( CDEKFW::is_pro_active() ) {
@@ -72,25 +77,45 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			}
 		}
 
-		if ( $this->check_condition_for_disable( $package ) ) {
-			return;
-		}
-
 		$args = array(
 			'receiverCityPostCode' => $to_postcode,
 			'receiverCountryCode'  => $to_country,
 			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'goods'                => $this->get_goods_dimensions( $package ),
-			'tariffId'             => intval( $this->tariff ),
+			'tariffId'             => $tariff,
 			'services'             => $this->get_services( $services ),
 		);
 
 		if ( 'RU' !== $to_country ) {
 			unset( $args['receiverCityPostCode'] );
 
-			$selected_pvz = CDEKFW_PVZ_Shipping::get_selected_pvz_code();
+			$city_id = $this->get_international_city_id( $to_country );
 
-			$args['receiverCityId'] = $selected_pvz ? intval( explode( '|', $selected_pvz )[2] ) : $this->get_international_city_id( $to_country );
+			// Get pvz list for tariffs which are related to warehouses.
+			if ( in_array(
+				$tariff,
+				CDEKFW_PVZ_Shipping::get_warehouse_tariffs(),
+				true
+			) ) {
+				$pvz_list          = CDEKFW_Client::get_pvz_list();
+				$selected_pvz      = CDEKFW_PVZ_Shipping::get_selected_pvz_code();
+				$selected_pvz_code = $selected_pvz ? explode( '|', $selected_pvz )[0] : false;
+
+				if ( $pvz_list ) {
+//					error_log(json_encode($pvz_list, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+//					error_log( json_encode( $selected_pvz, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
+					if ( $selected_pvz_code && array_key_exists( $selected_pvz_code, $pvz_list ) ) {
+						$city_id = intval( explode( '|', $selected_pvz )[2] );
+					} else {
+						$city_id = current( $pvz_list )['city_code'];
+					}
+				} else {
+					// Do nothing since no pvz were found.
+					return;
+				}
+			}
+
+			$args['receiverCityId'] = $city_id;
 		}
 
 		$shipping_rate = CDEKFW_Client::calculate_rate( $args );

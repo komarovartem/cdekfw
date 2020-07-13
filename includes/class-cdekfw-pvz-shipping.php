@@ -89,7 +89,6 @@ class CDEKFW_PVZ_Shipping {
 
 			if ( isset( $post_data['cdekfw-pvz-code'] ) ) {
 				$pvz_code = esc_attr( $post_data['cdekfw-pvz-code'] );
-
 			}
 		}
 

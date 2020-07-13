@@ -29,4 +29,4 @@
 	</select>
 </div>
 
-<?php do_action( 'cdek_pvz_block_after', $pvz ); ?>
+<?php do_action( 'cdek_pvz_block_after', $pvz, $selected_pvz ); ?>
