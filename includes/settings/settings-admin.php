@@ -48,6 +48,7 @@ return array(
 		'type'              => 'text',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
 		),
 	),
 	array(
@@ -102,6 +103,72 @@ return array(
 		'id'                => 'cdek_pro_shipper_address',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'type' => 'sectionend',
+	),
+	array(
+		'title' => __( 'Seller', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Details of the real seller. It is used when printing invoices to display the address of the real seller of the goods, as well as for international orders.', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	array(
+		'title'             => __( 'Seller Name', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_seller_name',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
+		),
+	),
+	array(
+		'title'             => __( 'INN', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_seller_inn',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
+		),
+	),
+	array(
+		'title'             => __( 'Phone', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_seller_phone',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
+		),
+	),
+	array(
+		'title'             => __( 'Ownership Form', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'select',
+		'options'           => array(
+			9   => 'Акционерное общество',
+			61  => 'Закрытое акционерное общество',
+			63  => 'Индивидуальный предприниматель',
+			119 => 'Открытое акционерное общество',
+			137 => 'Общество с ограниченной ответственностью',
+			147 => 'Публичное акционерное общество',
+		),
+		'id'                => 'cdek_pro_seller_ownership_form',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
+		),
+	),
+	array(
+		'title'             => __( 'Address', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_seller_address',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
 		),
 	),
 	array(
