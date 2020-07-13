@@ -94,6 +94,7 @@ return array(
 		'id'                => 'cdek_pro_shipper_name',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
 		),
 	),
 	array(
@@ -103,6 +104,7 @@ return array(
 		'id'                => 'cdek_pro_shipper_address',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
 		),
 	),
 	array(
@@ -186,6 +188,7 @@ return array(
 		'id'                => 'cdek_pro_sender_company',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
 		),
 	),
 	array(
@@ -195,6 +198,7 @@ return array(
 		'id'                => 'cdek_pro_sender_name',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
 		),
 	),
 	array(
@@ -204,6 +208,7 @@ return array(
 		'id'                => 'cdek_pro_sender_email',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
 		),
 	),
 	array(
@@ -213,6 +218,7 @@ return array(
 		'id'                => 'cdek_pro_sender_phone',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
 		),
 	),
 	array(
