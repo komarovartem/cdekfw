@@ -206,7 +206,10 @@ class CDEKFW_Client {
 	 * @return array
 	 */
 	public static function get_client_credentials() {
-		if ( get_option( 'cdek_account' ) ) {
+		$cdek_account = get_option( 'cdek_account' );
+
+		// Check in case someone tries to set test account as data.
+		if ( $cdek_account && 'EMscd6r9JnFiQ3bLoyjJY6eM78JrJceI' !== $cdek_account ) {
 			return array(
 				'account'  => get_option( 'cdek_account' ),
 				'password' => get_option( 'cdek_password' ),
