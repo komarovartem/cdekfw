@@ -16,13 +16,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! defined( 'CDEK_PLUGIN_FILE' ) ) {
-	define( 'CDEK_PLUGIN_FILE', __FILE__ );
-}
-
-if ( ! defined( 'CDEK_ABSPATH' ) ) {
-	define( 'CDEK_ABSPATH', dirname( CDEK_PLUGIN_FILE ) . '/' );
-}
+define( 'CDEK_PLUGIN_FILE', __FILE__ );
+define( 'CDEK_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'CDEK_ABSPATH', dirname( CDEK_PLUGIN_FILE ) . '/' );
 
 // Include the main class.
 if ( ! class_exists( 'CDEKFW', false ) ) {

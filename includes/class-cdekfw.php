@@ -121,6 +121,7 @@ class CDEKFW {
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-admin.php';
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-client.php';
 		include_once CDEK_ABSPATH . 'includes/class-cdekfw-pvz-shipping.php';
+		include_once CDEK_ABSPATH . 'includes/class-cdekfw-promo.php';
 	}
 
 	/**
