@@ -19,7 +19,7 @@ foreach ( $shipping_classes as $shipping_class ) {
 $cost_desc = __( 'Enter a cost (excl. tax) or sum, e.g. 10.00 * [qty].', 'cdek-for-woocommerce' ) . '<br/><br/>' . __( 'Use [qty] for the number of items, [cost] for the total cost of items, and [fee percent="10" min_fee="20" max_fee=""] for percentage based fees.', 'cdek-for-woocommerce' );
 
 if ( ! CDEKFW::is_pro_active() ) {
-	$post_index_message = '<br><br><span style="color: red">Пожалуйста, обратите внимание,</span><span style="color: #007cba"> что расчет доставки происходит только от индекса отправителя до индекса получателя. Убедитесь, что в вашем магазине поле индекс при оформлении заказа не отключено и является обязательным для заполнения, иначе расчет будет невозможно произвести. Это ограничение отсутствует в PRO версии плагина так как используются базы регионов и городов РФ.</span>';
+	$post_index_message = '<br><br><span style="color: red">' . __( 'Please note!', 'cdek-for-woocommerce' ) . '</span> <span style="color: #007cba">' . __( 'Delivery is calculated only from the sender postcode to the recipient\'s postcode. Make sure that the postcode field in your store is not disabled on the checkout page and is required, otherwise, the calculation will not be possible. This limitation is absent in the PRO version of the plugin since the bases of regions and cities of the Russian Federation are used.', 'cdek-for-woocommerce' ) . '</span>';
 }
 
 $settings = array(
@@ -31,7 +31,7 @@ $settings = array(
 	),
 	'tariff'                             => array(
 		'title'       => __( 'Tariff', 'cdek-for-woocommerce' ),
-		'description' => __( 'Please note. Not all tariffs available for some particular destinations. For example international shipment will work only for specific countries. So please always check what tariffs for what destination are available by checking official calculator.', 'cdek-for-woocommerce' ) . ' <a href="https://cdek.ru/calculate" target="_blank">https://cdek.ru/calculate</a>' . $post_index_message,
+		'description' => '<span style="color: red">' . __( 'Please note. Not all tariffs available for some particular destinations.', 'cdek-for-woocommerce' ) . '</span><br>' . __( 'For example, international shipment will work only for specific countries or if you are creating a shipping zone to deliver from Moscow to Moscow and Moscow region you can select special tariffs that are available just for this destination and will not work for other destinations. So please always check what tariffs for what destination are available by checking the official calculator.', 'cdek-for-woocommerce' ) . ' <a href="https://cdek.ru/calculate" target="_blank">https://cdek.ru/calculate</a>' . $post_index_message,
 		'type'        => 'select',
 		'class'       => 'wc-enhanced-select',
 		'default'     => 'taxable',
@@ -118,13 +118,13 @@ $settings = array(
 		'type'        => 'multiselect',
 		'class'       => 'wc-enhanced-select',
 		'options'     => array(
-			2  => 'Страхование',
-			3  => 'Доставка в выходной день',
-			7  => 'Опасный груз',
-			24 => 'Упаковка 1 (31*21.5*28см для грузов до 10 кг)',
-			30 => 'Примерка на дому',
-			36 => 'Частичная доставка',
-			37 => 'Осмотр вложения',
+			2  => __( 'Insurance', 'cdek-for-woocommerce' ),
+			3  => __( 'Delivery on weekends', 'cdek-for-woocommerce' ),
+			7  => __( 'Dangerous cargoes', 'cdek-for-woocommerce' ),
+			24 => __( 'Package 1 (31*21.5*28cm for packages to 10kg)', 'cdek-for-woocommerce' ),
+			30 => __( 'Home fitting', 'cdek-for-woocommerce' ),
+			36 => __( 'Partial delivery', 'cdek-for-woocommerce' ),
+			37 => __( 'Inspection of contents', 'cdek-for-woocommerce' ),
 		),
 	),
 	'add_cost'                           => array(

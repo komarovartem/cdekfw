@@ -14,14 +14,14 @@ return array(
 	),
 	array(
 		'id'    => 'cdek_account',
-		'title' => __( 'Account', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Client ID.', 'cdek-for-woocommerce' ),
+		'title' => __( 'API Account', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Account for API integration.', 'cdek-for-woocommerce' ) . ' ' . __( 'If you do not have API credentials you can get it by sending a request to integrator@cdek.ru. In the request, you must indicate your contract number with CDEK and e-mail to receive keys and notifications from the API integration.', 'cdek-for-woocommerce' ),
 		'type'  => 'text',
 	),
 	array(
 		'id'    => 'cdek_password',
-		'title' => __( 'Secure password', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Client secret key.', 'cdek-for-woocommerce' ),
+		'title' => __( 'API Secure Password', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Secret key for API integration.', 'cdek-for-woocommerce' ) . ' ' . __( 'If you do not have API credentials you can get it by sending a request to integrator@cdek.ru. In the request, you must indicate your contract number with CDEK and e-mail to receive keys and notifications from the API integration.', 'cdek-for-woocommerce' ),
 		'type'  => 'text',
 	),
 	array(
@@ -150,12 +150,12 @@ return array(
 		'desc'              => CDEKFW::only_in_pro_ver_text(),
 		'type'              => 'select',
 		'options'           => array(
-			9   => 'Акционерное общество',
-			61  => 'Закрытое акционерное общество',
-			63  => 'Индивидуальный предприниматель',
-			119 => 'Открытое акционерное общество',
-			137 => 'Общество с ограниченной ответственностью',
-			147 => 'Публичное акционерное общество',
+			9   => __( 'Joint-stock company', 'cdek-for-woocommerce' ),
+			61  => __( 'Closed joint-stock company', 'cdek-for-woocommerce' ),
+			63  => __( 'Individual entrepreneur', 'cdek-for-woocommerce' ),
+			119 => __( 'Open joint-stock company', 'cdek-for-woocommerce' ),
+			137 => __( 'Limited liability company', 'cdek-for-woocommerce' ),
+			147 => __( 'Public joint-stock company', 'cdek-for-woocommerce' ),
 		),
 		'id'                => 'cdek_pro_seller_ownership_form',
 		'custom_attributes' => array(
