@@ -55,6 +55,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$services      = $this->services ? $this->services : array();
 		$from_postcode = get_option( 'cdek_sender_post_code', 101000 );
 		$from_country  = get_option( 'woocommerce_default_country', 'RU' );
+		$from_country  = $from_country ? explode( ':', $from_country )[0] : 'RU';
 		$to_country    = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
 		$to_postcode   = wc_format_postcode( $package['destination']['postcode'], $to_country );
 		$state         = $package['destination']['state'];
@@ -82,7 +83,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			'receiverCityPostCode' => $to_postcode,
 			'receiverCountryCode'  => $to_country,
 			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
-			'senderCountryCode'    => $from_country ? $from_country : 'RU',
+			'senderCountryCode'    => $from_country,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => $tariff,
 			'services'             => $this->get_services( $services ),
@@ -131,7 +132,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$cost                = ceil( $shipping_rate['price'] ) + intval( $this->add_cost ) + $shipping_class_cost;
 		$delivery_time       = intval( $shipping_rate['deliveryPeriodMax'] );
 
-		if ( $this->show_delivery_time ) {
+		if ( 'yes' === $this->show_delivery_time ) {
 			if ( $this->add_delivery_time ) {
 				$delivery_time += $this->add_delivery_time;
 			}
