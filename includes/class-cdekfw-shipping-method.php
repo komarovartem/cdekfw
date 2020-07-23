@@ -51,9 +51,9 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	public function calculate_shipping( $package = array() ) {
 		$label         = $this->title;
 		$time          = '';
-		$tariff        = intval( $this->tariff );
+		$tariff        = intval( $this->tariff ) ? intval( $this->tariff ) : 1;
 		$services      = $this->services ? $this->services : array();
-		$from_postcode = get_option( 'cdek_sender_post_code', 101000 );
+		$from_postcode = get_option( 'cdek_sender_post_code' ) ? get_option( 'cdek_sender_post_code' ) : 101000;
 		$from_country  = get_option( 'woocommerce_default_country', 'RU' );
 		$from_country  = $from_country ? explode( ':', $from_country )[0] : 'RU';
 		$to_country    = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
@@ -82,11 +82,11 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$args = array(
 			'receiverCityPostCode' => $to_postcode,
 			'receiverCountryCode'  => $to_country,
-			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
+			'senderCityPostCode'   => $from_postcode,
 			'senderCountryCode'    => $from_country,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => $tariff,
-			'services'             => $this->get_services( $services ),
+			'services'             => CDEKFW_Helper::get_services_for_shipping_calculation( $services, WC()->cart->get_cart_contents_total() ),
 		);
 
 		if ( 'RU' !== $to_country ) {
@@ -100,7 +100,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				CDEKFW_PVZ_Shipping::get_warehouse_tariffs(),
 				true
 			) ) {
-				$pvz_list          = CDEKFW_Client::get_pvz_list();
+				$pvz_list          = CDEKFW_Client::get_pvz_list( WC()->customer );
 				$selected_pvz      = CDEKFW_PVZ_Shipping::get_selected_pvz_code();
 				$selected_pvz_code = $selected_pvz ? explode( '|', $selected_pvz )[0] : false;
 
@@ -463,42 +463,6 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		);
 
 		return isset( $city_ids[ $country_code ] ) ? $city_ids[ $country_code ] : false;
-	}
-
-	/**
-	 * Prepare services list for sending
-	 *
-	 * @param array $services Selected shipping services.
-	 *
-	 * @return array
-	 */
-	public function get_services( $services ) {
-		$cdek_order_type = intval( get_option( 'cdek_type', 1 ) );
-		$services_ids    = array();
-
-		// for Online Store agreement types insurance is required.
-		if ( 1 === $cdek_order_type && ! in_array( '2', $services, true ) ) {
-			$services[] = 2;
-		}
-
-		foreach ( $services as $service ) {
-			$service_id = intval( $service );
-			if ( 2 === $service_id ) {
-				$services_ids[] = array(
-					'id'    => $service_id,
-					'param' => ceil( WC()->cart->get_cart_contents_total() ),
-				);
-			} elseif ( 24 === $service_id || 25 === $service_id ) {
-				$services_ids[] = array(
-					'id'    => $service_id,
-					'param' => 1,
-				);
-			} else {
-				$services_ids[] = array( 'id' => $service_id );
-			}
-		}
-
-		return $services_ids;
 	}
 
 	/**

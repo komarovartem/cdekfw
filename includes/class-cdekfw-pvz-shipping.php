@@ -65,10 +65,10 @@ class CDEKFW_PVZ_Shipping {
 			return;
 		}
 
-		$pvz          = CDEKFW_Client::get_pvz_list();
+		$pvz_list     = CDEKFW_Client::get_pvz_list( WC()->customer );
 		$selected_pvz = self::get_selected_pvz_code();
 
-		if ( ! $pvz ) {
+		if ( ! $pvz_list ) {
 			return;
 		}
 
@@ -126,7 +126,7 @@ class CDEKFW_PVZ_Shipping {
 	public function display_pvz_after_shipping_address( $order ) {
 		$pvz = get_post_meta( $order->get_id(), '_cdekfw_pvz', true );
 		if ( $pvz ) {
-			echo '<div style="float: left;width: 100%;margin: 10px 0;"><strong>ПВЗ: </strong>' . esc_attr( $pvz['code'] ) . ', ' . esc_attr( $pvz['address'] ) . '</div>';
+			echo '<div class="cdekfw-admin-pvz" style="float: left; width: 100%; margin: 10px 0;"><strong>ПВЗ: </strong><span class="cdekfw-admin-pvz-value">' . esc_attr( $pvz['code'] ) . ', ' . esc_attr( $pvz['address'] ) . '</span></div>';
 		}
 	}
 

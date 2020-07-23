@@ -176,4 +176,41 @@ class CDEKFW_Helper {
 
 		return isset( $match_service[ $service_id ] ) ? $match_service[ $service_id ] : false;
 	}
+
+	/**
+	 * Prepare services list for sending
+	 *
+	 * @param array $services Selected shipping services.
+	 * @param float $subtotal Subtotal of the order.
+	 *
+	 * @return array
+	 */
+	public static function get_services_for_shipping_calculation( $services, $subtotal ) {
+		$cdek_order_type = intval( get_option( 'cdek_type', 1 ) );
+		$services_ids    = array();
+
+		// for Online Store agreement types insurance is required.
+		if ( 1 === $cdek_order_type && ! in_array( '2', $services, true ) ) {
+			$services[] = 2;
+		}
+
+		foreach ( $services as $service ) {
+			$service_id = intval( $service );
+			if ( 2 === $service_id ) {
+				$services_ids[] = array(
+					'id'    => $service_id,
+					'param' => ceil( $subtotal ),
+				);
+			} elseif ( 24 === $service_id || 25 === $service_id ) {
+				$services_ids[] = array(
+					'id'    => $service_id,
+					'param' => 1,
+				);
+			} else {
+				$services_ids[] = array( 'id' => $service_id );
+			}
+		}
+
+		return $services_ids;
+	}
 }

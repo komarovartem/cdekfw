@@ -85,13 +85,15 @@ class CDEKFW_Client {
 	/**
 	 * Get delivery points https://confluence.cdek.ru/pages/viewpage.action?pageId=36982648
 	 *
+	 * @param object $order It could be customer (WC()->customer) or order object.
+	 *
 	 * @return array|bool
 	 */
-	public static function get_pvz_list() {
-		$postcode        = WC()->customer->get_shipping_postcode();
-		$state           = WC()->customer->get_shipping_state();
-		$city            = WC()->customer->get_shipping_city();
-		$country         = WC()->customer->get_shipping_country();
+	public static function get_pvz_list( $order ) {
+		$postcode        = $order->get_shipping_postcode();
+		$state           = $order->get_shipping_state();
+		$city            = $order->get_shipping_city();
+		$country         = $order->get_shipping_country();
 		$is_cod          = 'allowed_cod';
 		$delivery_points = array();
 
