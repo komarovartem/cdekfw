@@ -92,7 +92,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		if ( 'RU' !== $to_country ) {
 			unset( $args['receiverCityPostCode'] );
 
-			$city_id = $this->get_international_city_id( $to_country );
+			$city_id = CDEKFW_Helper::get_international_city_id( $to_country );
 
 			// Get pvz list for tariffs which are related to warehouses.
 			if ( in_array(
@@ -437,33 +437,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		);
 	}
 
-	/**
-	 * Get basic city code of country for international shipments
-	 *
-	 * @param string $country_code Country Code.
-	 *
-	 * @return bool|mixed
-	 */
-	public function get_international_city_id( $country_code ) {
-		$city_ids = array(
-			'AT' => 32,
-			'AM' => 7114,
-			'BY' => 9220,
-			'FR' => 10090,
-			'DE' => 196,
-			'IL' => 11580,
-			'KZ' => 4961,
-			'KG' => 5444,
-			'KR' => 11157,
-			'MN' => 1868,
-			'US' => 5917,
-			'UA' => 7870,
-			'UZ' => 11562,
-			'CN' => 12683,
-		);
 
-		return isset( $city_ids[ $country_code ] ) ? $city_ids[ $country_code ] : false;
-	}
 
 	/**
 	 * Check if free shipping is available based on the package and cart.

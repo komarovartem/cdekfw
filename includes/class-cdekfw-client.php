@@ -306,8 +306,8 @@ class CDEKFW_Client {
 			$cache  = get_transient( $hash );
 
 			if ( $cache ) {
-				if ( isset( $cache['error'] ) || isset( $response_body['errors'] ) ) {
-					CDEKFW::log_it( esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+				if ( isset( $cache['error'] ) ) {
+					CDEKFW::log_it( esc_html__( 'CACHED!', 'cdek-for-woocommerce' ) . ' ' . esc_html__( 'API request error:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $cache, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) . 'Body' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
 
 					return false;
 				}
