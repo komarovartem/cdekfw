@@ -3,7 +3,7 @@ Contributors: artemkomarov
 Tags: woocommerce, woocommerce shipping, ecommerce, shipping, cdek
 Requires at least: 5
 Tested up to: 5.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,6 +17,23 @@ The plugin allows you to automatically calculate shipping costs for CDEK tariffs
 * Calculate shipping costs based selected tariff and the weight of the cart
 * Display time of delivery
 * Specify an additional cost and delivery time
+
+= PRO Extension  =
+
+The extension adds single-click actions to synchronize orders with CDEK’s personal dashboard and sends emails with tracking codes. Also, it synchronizes order status with shipment status, so your orders will automatically be marked “Complete” once the recipient receives their package.
+
+* Synchronizes orders with the CDEK dashboard
+* Generates and prints order invoices and barcode
+* Displays the current order shipment status
+* Synchronizes orders with tracking status
+* Emails tracking numbers to customers
+* Display tracking numbers for customer's account page
+* Displays a map of pick-up points
+* Hides delivery methods based on custom conditions
+* Uses custom package dimensions
+* Allows you to create a free shipping option based on the CDEK tariff
+
+[Demo website](https://yumecommerce.com/cdek/). PRO extension can be purchased on the [official WooCommerce marketplace](https://woocommerce.com/products/cdek-pro-for-woocommerce/)
 
 == Installation ==
 
@@ -34,7 +51,18 @@ Then create new Shipping Zone and add CDEK as a method.
 
 The plugin by itself has no methods to calculate the shipping price. All data comes from official CDEK API
 
+== Screenshots ==
+
+1. Basic settings
+2. PRO Extension: choosing shipping state and city from database
+3. PRO Extension: choosing pick-up points on the map
+4. PRO Extension: automatically track shipments and sending tracking code
+
 == Changelog ==
+
+= 1.0.2 =
+
+Fix shipping calculation from abroad
 
 = 1.0.1 =
 
