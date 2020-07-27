@@ -128,8 +128,9 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		}
 
 		$shipping_rate       = $shipping_rate['result'];
-		$shipping_class_cost = $this->get_shipping_class_cost( $package );
-		$cost                = ceil( $shipping_rate['price'] ) + intval( $this->add_cost ) + $shipping_class_cost;
+		$shipping_class_cost = ceil( $this->get_shipping_class_cost( $package ) );
+		$percentage_cost     = ceil( $this->get_percentage_cost( ceil( $shipping_rate['price'] ) ) );
+		$cost                = ceil( $shipping_rate['price'] ) + intval( $this->add_cost ) + $shipping_class_cost + $percentage_cost;
 		$delivery_time       = intval( $shipping_rate['deliveryPeriodMax'] );
 
 		if ( 'yes' === $this->show_delivery_time ) {
@@ -211,6 +212,32 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Additional percentage cost.
+	 *
+	 * @param int $shipping_cost Shipping cost.
+	 *
+	 * @since 1.0.3
+	 * @return float|int
+	 */
+	public function get_percentage_cost( $shipping_cost ) {
+		$percentage = floatval( $this->add_percentage_cost ) / 100;
+		$type       = $this->add_percentage_cost_type;
+
+		if ( ! $percentage ) {
+			return 0;
+		}
+
+		switch ( $type ) {
+			case 'percentage_shipping_cost':
+				return $shipping_cost * $percentage;
+			case 'percentage_total':
+				return ( WC()->cart->get_subtotal() + WC()->cart->get_fee_total() + $shipping_cost ) * $percentage;
+			default:
+				return WC()->cart->get_subtotal() * $percentage;
+		}
 	}
 
 	/**

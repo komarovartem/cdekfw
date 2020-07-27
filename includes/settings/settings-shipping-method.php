@@ -132,6 +132,21 @@ $settings = array(
 		'description' => __( 'Additional flat rate for this shipping method. This may be the average value of the package for example', 'cdek-for-woocommerce' ),
 		'type'        => 'price',
 	),
+	'add_percentage_cost'                => array(
+		'title'       => __( 'Additional Percentage Cost', 'cdek-for-woocommerce' ),
+		'description' => __( 'Additional percentage rate for this shipping method.', 'cdek-for-woocommerce' ),
+		'type'        => 'number',
+	),
+	'add_percentage_cost_type'           => array(
+		'description' => __( 'Type of calculation for additional percentage cost', 'cdek-for-woocommerce' ),
+		'type'        => 'select',
+		'default'     => 'percentage_subtotal',
+		'options'     => array(
+			'percentage_subtotal'      => __( 'Percentage of Subtotal', 'cdek-for-woocommerce' ),
+			'percentage_shipping_cost' => __( 'Percentage of Shipping Cost', 'cdek-for-woocommerce' ),
+			'percentage_total'         => __( 'Percentage of Total', 'cdek-for-woocommerce' ),
+		),
+	),
 	'add_weight'                         => array(
 		'title'       => __( 'Additional Weight (in g.)', 'cdek-for-woocommerce' ),
 		'description' => __( 'Set additional weight. It could be package weight for example.', 'cdek-for-woocommerce' ),
