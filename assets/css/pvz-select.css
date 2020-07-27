@@ -2,14 +2,28 @@
     display: none !important;
 }
 
+.cdekfw-pvz-block {
+    width: 100%;
+}
+
 .cdekfw-pvz-block .select2 {
-    max-width: 100%;
+    max-width: 250px;
     margin-bottom: 8px;
+    width: 100% !important;
+    display: block;
+}
+
+.cdekfw-pvz-block select {
+    width: 100%;
 }
 
 .cdekfw-pvz-block label {
-    margin-top: 4px;
+    margin-top: 5px;
     margin-bottom: 2px;
+    display: block;
+}
+
+.cdekfw-pvz-block + small {
     display: block;
 }
 
