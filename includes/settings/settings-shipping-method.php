@@ -130,7 +130,7 @@ $settings = array(
 	'remove_declared_value'              => array(
 		'title'       => __( 'Remove Declared Value', 'cdek-for-woocommerce' ),
 		'label'       => __( 'Make declared value equal to zero', 'cdek-for-woocommerce' ),
-		'description' => __( 'By default for Insurance service the declared value of the product will be equal to its price but if you wish you can make it equal to zero. It will reduce shipping cost for a customer.', 'cdek-for-woocommerce' ),
+		'description' => __( 'By default for Insurance service the declared value of the product will be equal to its price but if you wish you can make it equal to zero. It will reduce shipping cost for a customer. Also it remove declared value for products during synchronization with personal dashboard for orders with this shipping method.', 'cdek-for-woocommerce' ),
 		'type'        => 'checkbox',
 	),
 	'add_cost'                           => array(
