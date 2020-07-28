@@ -62,8 +62,9 @@ The plugin by itself has no methods to calculate the shipping price. All data co
 
 = 1.0.3 =
 
-Fix select pick-up point width
-Add percentage fee cost options
+Added option to remove ordered value
+Added percentage fee cost options
+Tweak select pick-up point width
 
 = 1.0.2 =
 
