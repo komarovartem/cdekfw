@@ -181,11 +181,11 @@ class CDEKFW_Helper {
 	 * Prepare services list for sending
 	 *
 	 * @param array $services Selected shipping services.
-	 * @param float $subtotal Subtotal of the order.
+	 * @param float $ordered_value Subtotal of the order.
 	 *
 	 * @return array
 	 */
-	public static function get_services_for_shipping_calculation( $services, $subtotal ) {
+	public static function get_services_for_shipping_calculation( $services, $ordered_value ) {
 		$cdek_order_type = intval( get_option( 'cdek_type', 1 ) );
 		$services_ids    = array();
 
@@ -199,7 +199,7 @@ class CDEKFW_Helper {
 			if ( 2 === $service_id ) {
 				$services_ids[] = array(
 					'id'    => $service_id,
-					'param' => ceil( $subtotal ),
+					'param' => ceil( $ordered_value ),
 				);
 			} elseif ( 24 === $service_id || 25 === $service_id ) {
 				$services_ids[] = array(

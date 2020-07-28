@@ -79,6 +79,8 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			}
 		}
 
+		$ordered_value = 'yes' === $this->remove_declared_value ? 0 : WC()->cart->get_cart_contents_total();
+
 		$args = array(
 			'receiverCityPostCode' => $to_postcode,
 			'receiverCountryCode'  => $to_country,
@@ -86,7 +88,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			'senderCountryCode'    => $from_country,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => $tariff,
-			'services'             => CDEKFW_Helper::get_services_for_shipping_calculation( $services, WC()->cart->get_cart_contents_total() ),
+			'services'             => CDEKFW_Helper::get_services_for_shipping_calculation( $services, $ordered_value ),
 		);
 
 		if ( 'RU' !== $to_country ) {
