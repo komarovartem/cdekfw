@@ -115,6 +115,20 @@ class CDEKFW_Client {
 			return false;
 		}
 
+		// Sort array in alphabetical order based on address.
+		if ( version_compare(
+			phpversion(),
+			7,
+			'>='
+		) ) {
+			usort(
+				$items,
+				function ( $item1, $item2 ) {
+					return $item1['location']['adress'] <=> $item2['location']['adress'];
+				}
+			);
+		}
+
 		foreach ( $items as $item ) {
 			if ( isset( $item['location']['adress'] ) && isset( $item['location']['latitude'] ) ) {
 				$delivery_points[ $item['code'] ] = array(
