@@ -48,10 +48,15 @@ jQuery(function ($) {
 	window.cdekfwMapWrapper = $('#cdekfw-yandex-map-wrapper');
 
 	$('body').on('click', '#cdekfw-map-trigger', function () {
+		let selectedPointId = jQuery('#cdekfw-pvz-code').val().split('|')[0];
+		let selectedPoint = cdekfwYandexMapData.features.filter(point => point.id === selectedPointId)[0];
+		
 		cdekfwMapWrapper.css('display', 'flex');
-		cdekfwYandexMap.setCenter($('#cdekfw-map-trigger').data('map-center'));
+		cdekfwYandexMap.setCenter(selectedPoint.geometry.coordinates);
 		cdekfwYandexObjectManager.removeAll();
 		cdekfwYandexObjectManager.add(cdekfwYandexMapData);
+		cdekfwYandexObjectManager.objects.balloon.open(selectedPointId);
+
 		return false;
 	});
 
