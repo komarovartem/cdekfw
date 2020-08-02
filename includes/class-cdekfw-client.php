@@ -97,13 +97,21 @@ class CDEKFW_Client {
 		$is_cod          = 'allowed_cod';
 		$delivery_points = array();
 
+		if ( ! $country ) {
+			return false;
+		}
+
 		$args = array(
 			'country_code' => $country,
 		);
 
 		if ( 'RU' === $country ) {
-			if ( CDEKFW::is_pro_active() && $state && $city ) {
-				$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+			if ( CDEKFW::is_pro_active() ) {
+				if ( $state && $city ) {
+					$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
+				} else {
+					return false;
+				}
 			}
 
 			$args['postal_code'] = $postcode;
