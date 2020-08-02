@@ -50,7 +50,7 @@ jQuery(function ($) {
 	$('body').on('click', '#cdekfw-map-trigger', function () {
 		let selectedPointId = jQuery('#cdekfw-pvz-code').val().split('|')[0];
 		let selectedPoint = cdekfwYandexMapData.features.filter(point => point.id === selectedPointId)[0];
-		
+
 		cdekfwMapWrapper.css('display', 'flex');
 		cdekfwYandexMap.setCenter(selectedPoint.geometry.coordinates);
 		cdekfwYandexObjectManager.removeAll();

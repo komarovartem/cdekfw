@@ -3,7 +3,7 @@ Contributors: artemkomarov
 Tags: woocommerce, woocommerce shipping, ecommerce, shipping, cdek
 Requires at least: 5
 Tested up to: 5.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,6 +32,7 @@ The extension adds single-click actions to synchronize orders with CDEK’s pers
 * Hides delivery methods based on custom conditions
 * Uses custom package dimensions
 * Allows you to create a free shipping option based on the CDEK tariff
+* Allows you to calculate shipping coast via admin panel
 
 [Demo website](https://yumecommerce.com/cdek/). PRO extension can be purchased on the [official WooCommerce marketplace](https://woocommerce.com/products/cdek-pro-for-woocommerce/)
 
@@ -59,6 +60,11 @@ The plugin by itself has no methods to calculate the shipping price. All data co
 4. PRO Extension: automatically track shipments and sending tracking code
 
 == Changelog ==
+
+= 1.0.4 =
+
+* Tweak - Sort pickup points in alphabetical order
+* Tweak for PRO - Open selected pickup point on the map
 
 = 1.0.3 =
 

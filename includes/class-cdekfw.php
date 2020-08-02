@@ -47,11 +47,11 @@ class CDEKFW {
 					'jquery',
 					'selectWoo',
 				),
-				'1.0.3',
+				'1.0.4',
 				true
 			);
 
-			wp_enqueue_style( 'cdekfw', plugin_dir_url( CDEK_PLUGIN_FILE ) . 'assets/css/pvz-select.css', array(), '1.0.3' );
+			wp_enqueue_style( 'cdekfw', plugin_dir_url( CDEK_PLUGIN_FILE ) . 'assets/css/pvz-select.css', array(), '1.0.4' );
 
 			$map_api = get_option( 'cdek_pro_yandex_api' );
 
