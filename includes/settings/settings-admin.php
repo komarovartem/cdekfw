@@ -351,6 +351,15 @@ return array(
 		'type'  => 'title',
 	),
 	array(
+		'title'             => __( 'Middle Name Field Key', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'If you have a middle name field in your checkout form, add a meta key here to send it to CDEK dashboard with the rest of data.', 'cdek-for-woocommerce' ),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_middle_name_field',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
 		'title'    => __( 'Log Messages', 'cdek-for-woocommerce' ),
 		'type'     => 'checkbox',
 		'id'       => 'cdek_hide_info_log',
