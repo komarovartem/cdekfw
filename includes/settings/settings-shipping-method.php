@@ -170,6 +170,27 @@ $settings = array(
 		'title' => __( 'Additional Time for Delivery', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 	),
+	'warehouse_title'                    => array(
+		'title'       => __( 'Separate Shipment point', 'cdek-for-woocommerce' ),
+		'description' => __( 'If you have several warehouses and wish to specify this shipping method to particular shipping zone you can set separate postcode and shipment point code just for this method.', 'cdek-for-woocommerce' ),
+		'type'        => 'title',
+	),
+	'postcode'                           => array(
+		'title'             => __( 'Postcode', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'shipment_point'                     => array(
+		'title'             => __( 'Shipment point code', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'For integration with CDEK dashboard. It is required for tariffs "from shipment point". Shipment point code is usually three letters and number like "MSK114" or "KSD42". You can find code for your city point on %1$s official website. %2$s', 'cdek-for-woocommerce' ), '<a href="https://cdek.ru/offices" target="_blank">', '</a>' ),
+		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
 	'package_title'                      => array(
 		'title'       => __( 'Custom Package Size', 'cdek-for-woocommerce' ),
 		'description' => __( 'Package size is not affecting the shipping rate but required for creating order in a dashboard. If you select "Package 1" in services, its size will be used in the condition that custom package size fields are empty. If you wish to create separate custom package sizes depending on the shipping class or weight of the order you can do it by creating separate shipping methods with different conditions. If a customer order is not fit in provided custom dimensions you will be able to change it before sending the order to the CDEK dashboard.', 'cdek-for-woocommerce' ),

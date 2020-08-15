@@ -53,7 +53,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$time          = '';
 		$tariff        = intval( $this->tariff ) ? intval( $this->tariff ) : 1;
 		$services      = $this->services ? $this->services : array();
-		$from_postcode = get_option( 'cdek_sender_post_code' ) ? get_option( 'cdek_sender_post_code' ) : 101000;
+		$from_postcode = $this->postcode ? $this->postcode : get_option( 'cdek_sender_post_code' );
 		$from_country  = get_option( 'woocommerce_default_country', 'RU' );
 		$from_country  = $from_country ? explode( ':', $from_country )[0] : 'RU';
 		$to_country    = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
@@ -84,7 +84,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$args = array(
 			'receiverCityPostCode' => $to_postcode,
 			'receiverCountryCode'  => $to_country,
-			'senderCityPostCode'   => $from_postcode,
+			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'senderCountryCode'    => $from_country,
 			'goods'                => $this->get_goods_dimensions( $package ),
 			'tariffId'             => $tariff,
