@@ -178,6 +178,15 @@ class CDEKFW_Helper {
 	}
 
 	/**
+	 * All tariffs related to from door type
+	 *
+	 * @return array
+	 */
+	public static function get_from_door_tariffs() {
+		return array( 1, 3, 12, 17, 18, 57, 58, 59, 60, 61, 118, 120, 121, 123, 124, 126, 7, 8, 138, 139, 180, 183, 231, 232, 245, 247, 293, 295 );
+	}
+
+	/**
 	 * Prepare services list for sending
 	 *
 	 * @param array $services Selected shipping services.

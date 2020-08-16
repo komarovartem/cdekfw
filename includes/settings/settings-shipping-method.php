@@ -172,7 +172,7 @@ $settings = array(
 	),
 	'warehouse_title'                    => array(
 		'title'       => __( 'Separate Shipment point', 'cdek-for-woocommerce' ),
-		'description' => __( 'If you have several warehouses and wish to specify this shipping method to particular shipping zone you can set separate postcode and shipment point code just for this method.', 'cdek-for-woocommerce' ),
+		'description' => __( 'If you have several warehouses and wish to specify this shipping method to particular shipping zone you can set separate postcode and address data just for this method. If you send all packages from one location there is no need to specify a separate address for each shipping method and you can leave these fields empty.', 'cdek-for-woocommerce' ),
 		'type'        => 'title',
 	),
 	'postcode'                           => array(
@@ -185,7 +185,49 @@ $settings = array(
 	),
 	'shipment_point'                     => array(
 		'title'             => __( 'Shipment point code', 'cdek-for-woocommerce' ),
-		'description'       => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'For integration with CDEK dashboard. It is required for tariffs "from shipment point". Shipment point code is usually three letters and number like "MSK114" or "KSD42". You can find code for your city point on %1$s official website. %2$s', 'cdek-for-woocommerce' ), '<a href="https://cdek.ru/offices" target="_blank">', '</a>' ),
+		// translators: %s href link.
+		'description'       => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'You can find code for point in your city on %1$s official website. %2$s', 'cdek-for-woocommerce' ), '<a href="https://cdek.ru/offices" target="_blank">', '</a>' ),
+		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'region'                             => array(
+		'title'             => __( 'Region', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'sub_region'                         => array(
+		'title'             => __( 'Sub Region', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'city'                               => array(
+		'title'             => __( 'City', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'address'                            => array(
+		'title'             => __( 'Address', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'kladr_code'                         => array(
+		'title'             => __( 'KLADR Code', 'cdek-for-woocommerce' ),
+		// translators: %s href link.
+		'description'       => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'Set KLADR Code of the location. You can find KLADR code on %1$sthe official website%2$s by selecting your Region > City > Street name', 'cdek-for-woocommerce' ), '<a href="https://kladr-rf.ru/" target="_blank">', '</a>' ),
 		'type'              => 'text',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',

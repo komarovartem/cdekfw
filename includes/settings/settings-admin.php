@@ -222,6 +222,55 @@ return array(
 		),
 	),
 	array(
+		'title'             => __( 'Region', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Region name.', 'cdek-for-woocommerce' ),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_region',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
+		),
+	),
+	array(
+		'title'             => __( 'Sub Region', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Sub region name if applicable.', 'cdek-for-woocommerce' ),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_sub_region',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'title'             => __( 'City', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_city',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
+		),
+	),
+	array(
+		'title'             => __( 'Address', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text(),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_address',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
+		),
+	),
+	array(
+		'title'             => __( 'KLADR Code', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() .sprintf( __( 'Set KLADR Code of the location. You can find KLADR code on %1$sthe official website%2$s by selecting your Region > City > Street name', 'cdek-for-woocommerce' ), '<a href="https://kladr-rf.ru/" target="_blank">', '</a>'),
+		'type'              => 'text',
+		'id'                => 'cdek_pro_sender_kladr',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'required'                                => true,
+		),
+	),
+	array(
 		'type' => 'sectionend',
 	),
 	array(
