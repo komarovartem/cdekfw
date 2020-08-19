@@ -132,19 +132,19 @@ class CDEKFW_Client {
 			usort(
 				$items,
 				function ( $item1, $item2 ) {
-					return $item1['location']['adress'] <=> $item2['location']['adress'];
+					return $item1['location']['address'] <=> $item2['location']['address'];
 				}
 			);
 		}
 
 		foreach ( $items as $item ) {
-			if ( isset( $item['location']['adress'] ) && isset( $item['location']['latitude'] ) ) {
+			if ( isset( $item['location']['address'] ) && isset( $item['location']['latitude'] ) ) {
 				$delivery_points[ $item['code'] ] = array(
-					'fullAddress' => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['adress'],
+					'fullAddress' => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['address'],
 					'name'        => $item['name'],
 					'code'        => $item['code'],
 					'city_code'   => $item['location']['city_code'],
-					'address'     => $item['location']['adress'],
+					'address'     => $item['location']['address'],
 					'coordinates' => $item['location']['latitude'] . ',' . $item['location']['longitude'],
 				);
 			}
