@@ -420,10 +420,10 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				continue;
 			}
 
-			$weight = wc_get_weight( $item_values['data']->get_weight(), 'kg' );
-			$length = wc_get_dimension( $item_values['data']->get_length(), 'cm' );
-			$width  = wc_get_dimension( $item_values['data']->get_width(), 'cm' );
-			$height = wc_get_dimension( $item_values['data']->get_height(), 'cm' );
+			$weight = wc_get_weight( floatval($item_values['data']->get_weight()), 'kg' );
+			$length = wc_get_dimension( floatval($item_values['data']->get_length()), 'cm' );
+			$width  = wc_get_dimension( floatval($item_values['data']->get_width()), 'cm' );
+			$height = wc_get_dimension( floatval($item_values['data']->get_height()), 'cm' );
 
 			for ( $i = 0; $i < $item_values['quantity']; $i ++ ) {
 				$goods[] = array(
