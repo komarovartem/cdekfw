@@ -262,7 +262,7 @@ return array(
 	),
 	array(
 		'title'             => __( 'KLADR Code', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() .sprintf( __( 'Set KLADR Code of the location. You can find KLADR code on %1$sthe official website%2$s by selecting your Region > City > Street name', 'cdek-for-woocommerce' ), '<a href="https://kladr-rf.ru/" target="_blank">', '</a>'),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'Set KLADR Code of the location. You can find KLADR code on %1$sthe official website%2$s by selecting your Region > City > Street name', 'cdek-for-woocommerce' ), '<a href="https://kladr-rf.ru/" target="_blank">', '</a>' ),
 		'type'              => 'text',
 		'id'                => 'cdek_pro_sender_kladr',
 		'custom_attributes' => array(
@@ -371,6 +371,33 @@ return array(
 			'A5' => 'A5',
 			'A6' => 'A6',
 		),
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'type' => 'sectionend',
+	),
+	array(
+		'title' => __( 'Courier pick up call', 'cdek-for-woocommerce' ),
+		'desc'  => __( 'Default values for creating courier pick up call.', 'cdek-for-woocommerce' ),
+		'type'  => 'title',
+	),
+	array(
+		'title'             => __( 'Courier waiting time', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'From. The start time of the waiting courier.', 'cdek-for-woocommerce' ),
+		'type'              => 'number',
+		'placeholder'       => '9',
+		'id'                => 'cdek_pro_intake_time_from',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	array(
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Until. The end time of the waiting courier.', 'cdek-for-woocommerce' ),
+		'type'              => 'number',
+		'placeholder'       => '18',
+		'id'                => 'cdek_pro_intake_time_until',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
 		),

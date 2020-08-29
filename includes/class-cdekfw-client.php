@@ -83,6 +83,28 @@ class CDEKFW_Client {
 	}
 
 	/**
+	 * Register courier intake https://confluence.cdek.ru/pages/viewpage.action?pageId=29925274
+	 *
+	 * @param array $args Intake params.
+	 *
+	 * @return bool|mixed|null
+	 */
+	public static function register_intake( $args ) {
+		return self::get_data_from_api( 'v2/intakes', $args, 'POST' );
+	}
+
+	/**
+	 * Register courier intake https://confluence.cdek.ru/pages/viewpage.action?pageId=29948379
+	 *
+	 * @param string $args Intake uuid.
+	 *
+	 * @return bool|mixed|null
+	 */
+	public static function delete_intake( $args ) {
+		return self::get_data_from_api( 'v2/intakes/' . $args, array(), 'DELETE' );
+	}
+
+	/**
 	 * Get delivery points https://confluence.cdek.ru/pages/viewpage.action?pageId=36982648
 	 *
 	 * @param object $order It could be customer (WC()->customer) or order object.
