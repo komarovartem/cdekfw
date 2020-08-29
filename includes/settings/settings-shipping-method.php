@@ -170,6 +170,23 @@ $settings = array(
 		'title' => __( 'Additional Time for Delivery', 'cdek-for-woocommerce' ),
 		'type'  => 'number',
 	),
+	'package_title'                      => array(
+		'title'       => __( 'Custom Package Size', 'cdek-for-woocommerce' ),
+		'description' => __( 'Package size is affecting the shipping rate and required for creating order in a dashboard. If you select "Package 1" in services, its size will be used in the condition that custom package size fields are empty. If nor "Package 1" selected in services or custom package size fields are empty, the dimensions of the package will be calculated by CDEK combining all dimensions of the products. If you wish to create separate custom package sizes depending on the shipping class or weight of the order you can do it by creating separate shipping methods with different conditions with PRO plugin. If a customer order is not fit in provided custom dimensions you will be able to change it before sending the order to the CDEK dashboard.', 'cdek-for-woocommerce' ),
+		'type'        => 'title',
+	),
+	'package_length'                     => array(
+		'title' => __( 'Package Length (in cm)', 'cdek-for-woocommerce' ),
+		'type'  => 'number',
+	),
+	'package_width'                      => array(
+		'title' => __( 'Package Width (in cm)', 'cdek-for-woocommerce' ),
+		'type'  => 'number',
+	),
+	'package_height'                     => array(
+		'title' => __( 'Package Height (in cm)', 'cdek-for-woocommerce' ),
+		'type'  => 'number',
+	),
 	'warehouse_title'                    => array(
 		'title'       => __( 'Separate Shipment point', 'cdek-for-woocommerce' ),
 		'description' => __( 'If you have several warehouses and wish to specify this shipping method to particular shipping zone you can set separate postcode and address data just for this method. If you send all packages from one location there is no need to specify a separate address for each shipping method and you can leave these fields empty.', 'cdek-for-woocommerce' ),
@@ -229,35 +246,6 @@ $settings = array(
 		// translators: %s href link.
 		'description'       => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'Set KLADR Code of the location. You can find KLADR code on %1$sthe official website%2$s by selecting your Region > City > Street name', 'cdek-for-woocommerce' ), '<a href="https://kladr-rf.ru/" target="_blank">', '</a>' ),
 		'type'              => 'text',
-		'custom_attributes' => array(
-			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
-		),
-	),
-	'package_title'                      => array(
-		'title'       => __( 'Custom Package Size', 'cdek-for-woocommerce' ),
-		'description' => __( 'Package size is not affecting the shipping rate but required for creating order in a dashboard. If you select "Package 1" in services, its size will be used in the condition that custom package size fields are empty. If you wish to create separate custom package sizes depending on the shipping class or weight of the order you can do it by creating separate shipping methods with different conditions. If a customer order is not fit in provided custom dimensions you will be able to change it before sending the order to the CDEK dashboard.', 'cdek-for-woocommerce' ),
-		'type'        => 'title',
-	),
-	'package_length'                     => array(
-		'title'             => __( 'Package Length (in cm)', 'cdek-for-woocommerce' ),
-		'description'       => CDEKFW::only_in_pro_ver_text(),
-		'type'              => 'number',
-		'custom_attributes' => array(
-			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
-		),
-	),
-	'package_width'                      => array(
-		'title'             => __( 'Package Width (in cm)', 'cdek-for-woocommerce' ),
-		'description'       => CDEKFW::only_in_pro_ver_text(),
-		'type'              => 'number',
-		'custom_attributes' => array(
-			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
-		),
-	),
-	'package_height'                     => array(
-		'title'             => __( 'Package Height (in cm)', 'cdek-for-woocommerce' ),
-		'description'       => CDEKFW::only_in_pro_ver_text(),
-		'type'              => 'number',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
 		),

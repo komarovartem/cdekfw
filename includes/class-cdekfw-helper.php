@@ -210,7 +210,7 @@ class CDEKFW_Helper {
 					'id'    => $service_id,
 					'param' => ceil( $ordered_value ),
 				);
-			} elseif ( 24 === $service_id || 25 === $service_id ) {
+			} elseif ( 24 === $service_id ) {
 				$services_ids[] = array(
 					'id'    => $service_id,
 					'param' => 1,

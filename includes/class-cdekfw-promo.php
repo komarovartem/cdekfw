@@ -87,7 +87,7 @@ class CDEKFW_Promo {
 			<?php endif; ?>
 			<?php if ( ! CDEKFW::is_pro_active() ) : ?>
 				<div class="cdekfw-promo-block">
-					<h3 class="wc-settings-sub-title">СДЭК PRO</h3>
+					<h3 class="wc-settings-sub-title">СДЭК PRO для WooCommerce</h3>
 					<p>
 						Передача информации по заказу в систему СДЭК плюс формирование печатной формы квитанции к заказу
 						и

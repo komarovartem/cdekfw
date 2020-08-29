@@ -86,7 +86,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			'receiverCountryCode'  => $to_country,
 			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'senderCountryCode'    => $from_country,
-			'goods'                => $this->get_goods_dimensions( $package ),
+			'goods'                => $this->get_goods_dimensions( $package, $services ),
 			'tariffId'             => $tariff,
 			'services'             => CDEKFW_Helper::get_services_for_shipping_calculation( $services, $ordered_value ),
 		);
@@ -408,41 +408,62 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * Get all goods dimensions
 	 *
 	 * @param array $package Package of items from cart.
+	 * @param array $services Method services.
 	 *
 	 * @return array
 	 */
-	public function get_goods_dimensions( $package ) {
-		$defaults = CDEKFW_Helper::get_default_dimensions();
-		$goods    = array();
+	public function get_goods_dimensions( $package, $services ) {
+		$defaults       = CDEKFW_Helper::get_default_dimensions();
+		$goods          = array();
+		$cart_weight    = wc_get_weight( WC()->cart->get_cart_contents_weight(), 'kg' );
+		$package_length = floatval( $this->package_length );
+		$package_width  = floatval( $this->package_width );
+		$package_height = floatval( $this->package_height );
 
-		foreach ( $package['contents'] as $item_id => $item_values ) {
-			if ( ! $item_values['data']->needs_shipping() ) {
-				continue;
-			}
-
-			$weight = wc_get_weight( floatval( $item_values['data']->get_weight() ), 'kg' );
-			$length = wc_get_dimension( floatval( $item_values['data']->get_length() ), 'cm' );
-			$width  = wc_get_dimension( floatval( $item_values['data']->get_width() ), 'cm' );
-			$height = wc_get_dimension( floatval( $item_values['data']->get_height() ), 'cm' );
-
-			for ( $i = 0; $i < $item_values['quantity']; $i ++ ) {
-				$goods[] = array(
-					'weight' => $weight ? $weight : intval( $defaults['weight'] ) / 1000,
-					'length' => $length ? $length : $defaults['length'],
-					'width'  => $width ? $width : $defaults['width'],
-					'height' => $height ? $height : $defaults['height'],
-				);
-			}
+		// If package selected in services.
+		if ( in_array( '24', $services, true ) && ! $package_length ) {
+			$package_length = 31;
+			$package_width  = 21.5;
+			$package_height = 28;
 		}
 
-		// additional weight.
-		if ( $this->add_weight ) {
+		if ( $package_length && $package_width && $package_height ) {
 			$goods[] = array(
-				'weight' => intval( $this->add_weight ) / 1000,
-				'length' => 1,
-				'width'  => 1,
-				'height' => 1,
+				'weight' => intval( $this->add_weight ) / 1000 + $cart_weight,
+				'length' => $package_length,
+				'width'  => $package_width,
+				'height' => $package_height,
 			);
+		} else {
+			foreach ( $package['contents'] as $item_id => $item_values ) {
+				if ( ! $item_values['data']->needs_shipping() ) {
+					continue;
+				}
+
+				$weight = wc_get_weight( floatval( $item_values['data']->get_weight() ), 'kg' );
+				$length = wc_get_dimension( floatval( $item_values['data']->get_length() ), 'cm' );
+				$width  = wc_get_dimension( floatval( $item_values['data']->get_width() ), 'cm' );
+				$height = wc_get_dimension( floatval( $item_values['data']->get_height() ), 'cm' );
+
+				for ( $i = 0; $i < $item_values['quantity']; $i ++ ) {
+					$goods[] = array(
+						'weight' => $weight ? $weight : intval( $defaults['weight'] ) / 1000,
+						'length' => $length ? $length : $defaults['length'],
+						'width'  => $width ? $width : $defaults['width'],
+						'height' => $height ? $height : $defaults['height'],
+					);
+				}
+			}
+
+			// Additional weight.
+			if ( $this->add_weight ) {
+				$goods[] = array(
+					'weight' => intval( $this->add_weight ) / 1000,
+					'length' => 1,
+					'width'  => 1,
+					'height' => 1,
+				);
+			}
 		}
 
 		return $goods;
