@@ -385,16 +385,17 @@ return array(
 	),
 	array(
 		'title'             => __( 'Courier waiting time', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'From. The start time of the waiting courier.', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'The start time of the waiting courier. Please not the time should not be earlier that 10:00 AM.', 'cdek-for-woocommerce' ),
 		'type'              => 'number',
-		'placeholder'       => '9',
+		'placeholder'       => '10',
 		'id'                => 'cdek_pro_intake_time_from',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+			'min'                                     => 10,
 		),
 	),
 	array(
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'Until. The end time of the waiting courier.', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'The end time of the waiting courier.', 'cdek-for-woocommerce' ),
 		'type'              => 'number',
 		'placeholder'       => '18',
 		'id'                => 'cdek_pro_intake_time_until',
