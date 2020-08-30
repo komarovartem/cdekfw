@@ -8,6 +8,9 @@
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: cdek-for-woocommerce
+ * Domain Path: /languages
+ * Requires at least: 5.2
+ * Requires PHP: 7.0
  * WC requires at least: 3.8.0
  * WC tested up to: 4.4
  *

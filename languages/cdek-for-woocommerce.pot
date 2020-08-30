@@ -1,0 +1,953 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CDEK for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-30 09:03+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.4.3; wp-5.5"
+
+#. %s shipping class name.
+#: includes/settings/settings-shipping-method.php:375
+#, php-format
+msgid "\"%s\" shipping class cost"
+msgstr ""
+
+#: includes/settings/settings-admin.php:30
+msgid ""
+"\"Online store\" -  only for a client with the type of agreement \"online "
+"store\". \"Delivery\" can be created by any client with a contract (but "
+"tariffs are available only for regular delivery)."
+msgstr ""
+
+#. %s: Delivery time
+#: includes/class-cdekfw-shipping-method.php:144
+#, php-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/settings/settings-admin.php:411
+msgid ""
+"A list of existing delivery points, from where the client can pick up the "
+"order on his own."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:283
+msgid "A minimum order amount"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:285
+msgid "A minimum order amount AND a coupon"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:284
+msgid "A minimum order amount OR a coupon"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:282
+msgid "A valid free shipping coupon"
+msgstr ""
+
+#: includes/settings/settings-admin.php:18
+msgid "Account for API integration."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:137
+msgid "Additional Cost"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:359
+msgid "Additional costs for shipping classes"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:138
+msgid ""
+"Additional flat rate for this shipping method. This may be the average value "
+"of the package for example"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:142
+msgid "Additional Percentage Cost"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:143
+msgid "Additional percentage rate for this shipping method."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:116
+msgid "Additional Services"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:112
+msgid "Additional Settings"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:170
+msgid "Additional Time for Delivery"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:157
+msgid "Additional Weight (in g.)"
+msgstr ""
+
+#: includes/settings/settings-admin.php:167
+#: includes/settings/settings-admin.php:254
+#: includes/settings/settings-shipping-method.php:237
+msgid "Address"
+msgstr ""
+
+#: includes/controls/control-pvz-select-list.php:19
+msgid "Address is not found"
+msgstr ""
+
+#: includes/settings/settings-admin.php:345
+msgid "Admin order shipping"
+msgstr ""
+
+#: includes/settings/settings-admin.php:303
+msgid "After creating new package"
+msgstr ""
+
+#: includes/settings/settings-admin.php:338
+msgid "After order got status Processing"
+msgstr ""
+
+#: includes/settings/settings-admin.php:317
+msgid "After order table"
+msgstr ""
+
+#: includes/settings/settings-admin.php:304
+msgid "After status changed to delivering"
+msgstr ""
+
+#: includes/settings/settings-admin.php:17
+msgid "API Account"
+msgstr ""
+
+#: includes/class-cdekfw-client.php:354 includes/class-cdekfw-client.php:408
+msgid "API request error:"
+msgstr ""
+
+#: includes/settings/settings-admin.php:23
+msgid "API Secure Password"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:299
+msgid "Apply minimum order rule before coupon discount"
+msgstr ""
+
+#. Author of the plugin
+msgid "Artem Komarov"
+msgstr ""
+
+#: includes/settings/settings-admin.php:332
+msgid "Auto submission of packages to CDEK dashboard"
+msgstr ""
+
+#. Description of the plugin
+msgid "Automatically calculate the shipping cost for CDEK tariffs"
+msgstr ""
+
+#: includes/class-cdekfw.php:113
+msgid "Available only in PRO version."
+msgstr ""
+
+#: includes/settings/settings-admin.php:316
+msgid "Before order table"
+msgstr ""
+
+#: includes/class-cdekfw.php:143
+msgid "Buy PRO version"
+msgstr ""
+
+#: includes/settings/settings-admin.php:445
+msgid ""
+"By default all requests stored in WooCommerce logs. You can hide info "
+"messages and keep only errors and warnings."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:133
+msgid ""
+"By default for Insurance service the declared value of the product will be "
+"equal to its price but if you wish you can make it equal to zero. It will "
+"reduce shipping cost for a customer. Also it remove declared value for "
+"products during synchronization with personal dashboard for orders with this "
+"shipping method."
+msgstr ""
+
+#: includes/class-cdekfw-client.php:354
+msgid "CACHED!"
+msgstr ""
+
+#: includes/class-cdekfw-shipping-method.php:25
+msgid "Calculate shipping rates for CDEK tariffs."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:401
+msgid "Calculation type"
+msgstr ""
+
+#: includes/class-cdekfw-client.php:388 includes/class-cdekfw-client.php:396
+msgid "Cannot connect to"
+msgstr ""
+
+#: includes/class-cdekfw-admin.php:37
+#: includes/class-cdekfw-shipping-method.php:24
+#: includes/settings/settings-admin.php:12
+#: includes/settings/settings-shipping-method.php:30
+msgid "CDEK"
+msgstr ""
+
+#. Name of the plugin
+msgid "CDEK for WooCommerce"
+msgstr ""
+
+#: includes/class-cdekfw.php:173
+msgid "CDEK transients"
+msgstr ""
+
+#: includes/settings/settings-admin.php:366
+msgid "Choose a format for printing barcode."
+msgstr ""
+
+#: includes/settings/settings-admin.php:244
+#: includes/settings/settings-shipping-method.php:229
+msgid "City"
+msgstr ""
+
+#: includes/class-cdekfw.php:174
+msgid "Clear transients"
+msgstr ""
+
+#: includes/settings/settings-admin.php:154
+msgid "Closed joint-stock company"
+msgstr ""
+
+#: includes/settings/settings-admin.php:185
+msgid "Company Name"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:317
+msgid "Conditions"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:254
+msgid "Conditions for Free Shipping"
+msgstr ""
+
+#: includes/class-cdekfw-client.php:304
+msgid "Could not get client auth token."
+msgstr ""
+
+#: includes/settings/settings-admin.php:382
+msgid "Courier pick up call"
+msgstr ""
+
+#: includes/settings/settings-admin.php:387
+msgid "Courier waiting time"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:269
+msgid ""
+"Custom method title. You could rename method title based on free shipping if "
+"you wish."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:174
+msgid "Custom Package Size"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:123
+msgid "Dangerous cargoes"
+msgstr ""
+
+#: includes/settings/settings-admin.php:383
+msgid "Default values for creating courier pick up call."
+msgstr ""
+
+#: includes/class-cdekfw-admin.php:65 includes/class-cdekfw-admin.php:88
+msgid "Delivering"
+msgstr ""
+
+#: includes/settings/settings-admin.php:34
+msgid "Delivery"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:22
+msgid ""
+"Delivery is calculated only from the sender postcode to the recipient's "
+"postcode. Make sure that the postcode field in your store is not disabled on "
+"the checkout page and is required, otherwise, the calculation will not be "
+"possible. This limitation is absent in the PRO version of the plugin since "
+"the bases of regions and cities of the Russian Federation are used."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:122
+msgid "Delivery on weekends"
+msgstr ""
+
+#: includes/class-cdekfw-pvz-shipping.php:142
+msgid "Delivery Point"
+msgstr ""
+
+#: includes/settings/settings-admin.php:410
+msgid "Delivery Points"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:162
+msgid "Delivery time"
+msgstr ""
+
+#: includes/settings/settings-admin.php:115
+msgid ""
+"Details of the real seller. It is used when printing invoices to display the "
+"address of the real seller of the goods, as well as for international orders."
+msgstr ""
+
+#: includes/settings/settings-admin.php:58
+msgid "Dimensions of one product by default"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:318
+msgid "Disable a method based on some conditions."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:323
+msgid ""
+"Disable this method if the cost of the order is less than inputted value. "
+"Leave this field empty to allow any order cost."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:331
+msgid ""
+"Disable this method if the weight of the order is less than inputted value. "
+"Leave this field empty to allow any order weight."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:339
+msgid ""
+"Disable this method if the weight of the order is more than inputted value. "
+"Leave this field empty to allow any order weight."
+msgstr ""
+
+#: includes/settings/settings-admin.php:312
+msgid "Display tracking info on the customer account page."
+msgstr ""
+
+#: includes/settings/settings-admin.php:318
+msgid "Do not display"
+msgstr ""
+
+#: includes/settings/settings-admin.php:286
+msgid "Do not synchronize"
+msgstr ""
+
+#: includes/settings/settings-admin.php:205
+msgid "Email"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:19
+msgid "Enter a cost (excl. tax) or sum, e.g. 10.00 * [qty]."
+msgstr ""
+
+#: includes/class-cdekfw-shipping-method.php:483
+msgid ""
+"Error during calculation. This message and method are visible only for the "
+"site Administrator for debugging purposes."
+msgstr ""
+
+#: includes/settings/settings-admin.php:287
+msgid "Every 1 hour"
+msgstr ""
+
+#: includes/settings/settings-admin.php:289
+msgid "Every 12 hours"
+msgstr ""
+
+#: includes/settings/settings-admin.php:290
+msgid "Every 24 hours"
+msgstr ""
+
+#: includes/settings/settings-admin.php:288
+msgid "Every 6 hours"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:349
+msgid "Exclude for specific shipping classes"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:34
+msgid ""
+"For example, international shipment will work only for specific countries or "
+"if you are creating a shipping zone to deliver from Moscow to Moscow and "
+"Moscow region you can select special tariffs that are available just for "
+"this destination and will not work for other destinations. So please always "
+"check what tariffs for what destination are available by checking the "
+"official calculator."
+msgstr ""
+
+#. %s are links.
+#: includes/settings/settings-admin.php:47
+#, php-format
+msgid ""
+"For integration with CDEK dashboard. It is required for tariffs \"from "
+"shipment point\". Shipment point code is usually three letters and number "
+"like \"MSK114\" or \"KSD42\". You can find code for your city point on %1$s "
+"official website. %2$s"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:117
+msgid ""
+"For type of agreement \"Online store\" orders the \"Insurance\" service is "
+"on by default."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:260
+msgid "Free Shipping"
+msgstr ""
+
+#: includes/settings/settings-admin.php:355
+msgid "Free shipping"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:277
+msgid "Free Shipping Conditions"
+msgstr ""
+
+#: includes/settings/settings-admin.php:195
+msgid "Full Name"
+msgstr ""
+
+#: includes/settings/settings-admin.php:196
+msgid "Full name of contact person"
+msgstr ""
+
+#: includes/settings/settings-admin.php:73
+msgid "Height (cm.)"
+msgstr ""
+
+#: includes/settings/settings-admin.php:443
+msgid "Hide Info Log Messages"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:308
+msgid "Hide method if condition for free shipping is not achieved"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:350
+msgid ""
+"Hide the method if the order contains at least one product with the selected "
+"shipping class. This condition can be used in order not to display the "
+"parcel or simple parcel for orders with bulky and / or heavy goods by weight "
+"when placing an order."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:125
+msgid "Home fitting"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:301
+msgid ""
+"If checked, free shipping would be available based on pre-discount order "
+"amount."
+msgstr ""
+
+#: includes/settings/settings-admin.php:18
+#: includes/settings/settings-admin.php:24
+msgid ""
+"If you do not have API credentials you can get it by sending a request to "
+"integrator@cdek.ru. In the request, you must indicate your contract number "
+"with CDEK and e-mail to receive keys and notifications from the API "
+"integration."
+msgstr ""
+
+#: includes/settings/settings-admin.php:432
+msgid ""
+"If you have a middle name field in your checkout form, add a meta key here "
+"to send it to CDEK dashboard with the rest of data."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:192
+msgid ""
+"If you have several warehouses and wish to specify this shipping method to "
+"particular shipping zone you can set separate postcode and address data just "
+"for this method. If you send all packages from one location there is no need "
+"to specify a separate address for each shipping method and you can leave "
+"these fields empty."
+msgstr ""
+
+#: includes/settings/settings-admin.php:155
+msgid "Individual entrepreneur"
+msgstr ""
+
+#: includes/settings/settings-admin.php:129
+msgid "INN"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:127
+msgid "Inspection of contents"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:121
+msgid "Insurance"
+msgstr ""
+
+#: includes/settings/settings-admin.php:216
+msgid ""
+"It must be transmitted in the international format: country code (for Russia "
+"+7) and the number itself (10 or more digits)"
+msgstr ""
+
+#: includes/settings/settings-admin.php:153
+msgid "Joint-stock company"
+msgstr ""
+
+#: includes/settings/settings-admin.php:264
+#: includes/settings/settings-shipping-method.php:245
+msgid "KLADR Code"
+msgstr ""
+
+#: includes/settings/settings-admin.php:64
+msgid "Length (cm.)"
+msgstr ""
+
+#: includes/settings/settings-admin.php:157
+msgid "Limited liability company"
+msgstr ""
+
+#: includes/settings/settings-admin.php:440
+msgid "Log Messages"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "mailto:yumecommerce@gmail.com"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:132
+msgid "Make declared value equal to zero"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:262
+msgid "Make shipping cost equal to zero"
+msgstr ""
+
+#: includes/class-cdekfw-client.php:385
+msgid "Making request to"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:338
+msgid "Max. weight of order in grams"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:27
+msgid "Method title"
+msgstr ""
+
+#: includes/settings/settings-admin.php:431
+msgid "Middle Name Field Key"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:322
+msgid "Min. cost of order in RUB"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:330
+msgid "Min. weight of order in grams"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:377
+msgid "N/A"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:388
+msgid "No shipping class cost"
+msgstr ""
+
+#: includes/settings/settings-admin.php:33
+msgid "Online store"
+msgstr ""
+
+#: includes/settings/settings-admin.php:87
+msgid "Only for orders \"Online store\" with international shipment."
+msgstr ""
+
+#: includes/settings/settings-admin.php:156
+msgid "Open joint-stock company"
+msgstr ""
+
+#: includes/settings/settings-admin.php:328
+msgid "Order"
+msgstr ""
+
+#: includes/settings/settings-admin.php:427
+msgid "Other"
+msgstr ""
+
+#: includes/settings/settings-admin.php:149
+msgid "Ownership Form"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:124
+msgid "Package 1 (31*21.5*28cm for packages to 10kg)"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:187
+msgid "Package Height (in cm)"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:179
+msgid "Package Length (in cm)"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:175
+msgid ""
+"Package size is affecting the shipping rate and required for creating order "
+"in a dashboard. If you select \"Package 1\" in services, its size will be "
+"used in the condition that custom package size fields are empty. If nor "
+"\"Package 1\" selected in services or custom package size fields are empty, "
+"the dimensions of the package will be calculated by CDEK combining all "
+"dimensions of the products. If you wish to create separate custom package "
+"sizes depending on the shipping class or weight of the order you can do it "
+"by creating separate shipping methods with different conditions with PRO "
+"plugin. If a customer order is not fit in provided custom dimensions you "
+"will be able to change it before sending the order to the CDEK dashboard."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:183
+msgid "Package Width (in cm)"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:126
+msgid "Partial delivery"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:407
+msgid "Per class: Charge shipping for each shipping class individually"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:408
+msgid "Per order: Charge shipping for the most expensive shipping class"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:152
+msgid "Percentage of Shipping Cost"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:151
+msgid "Percentage of Subtotal"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:153
+msgid "Percentage of Total"
+msgstr ""
+
+#: includes/settings/settings-admin.php:139
+#: includes/settings/settings-admin.php:215
+msgid "Phone"
+msgstr ""
+
+#: includes/controls/control-pvz-select-list.php:16
+msgid "Pick-up point"
+msgstr ""
+
+#. %s: Links.
+#: includes/class-cdekfw-pvz-shipping.php:38
+#, php-format
+msgid ""
+"Please check %1$sWooCommerce Logs%2$s to get more information about the "
+"issue."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:22
+msgid "Please note!"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:34
+msgid ""
+"Please note. Not all tariffs available for some particular destinations."
+msgstr ""
+
+#: includes/settings/settings-admin.php:40
+msgid ""
+"Postal code of the sender. If the field is empty, the 101000 index will be "
+"used by default."
+msgstr ""
+
+#: includes/settings/settings-admin.php:39
+#: includes/settings/settings-shipping-method.php:196
+msgid "Postcode"
+msgstr ""
+
+#: includes/settings/settings-admin.php:365
+msgid "Print barcode settings"
+msgstr ""
+
+#: includes/settings/settings-admin.php:158
+msgid "Public joint-stock company"
+msgstr ""
+
+#: includes/settings/settings-admin.php:225
+#: includes/settings/settings-shipping-method.php:213
+msgid "Region"
+msgstr ""
+
+#: includes/settings/settings-admin.php:226
+msgid "Region name."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:131
+msgid "Remove Declared Value"
+msgstr ""
+
+#: includes/class-cdekfw-client.php:396
+msgid "response status code:"
+msgstr ""
+
+#: includes/settings/settings-admin.php:24
+msgid "Secret key for API integration."
+msgstr ""
+
+#: includes/settings/settings-admin.php:346
+msgid ""
+"Select a method that will be used as a template for orders created via admin "
+"area."
+msgstr ""
+
+#: includes/settings/settings-admin.php:282
+msgid ""
+"Select how often orders should check for tracking status. Automatically set "
+"order status from \"Processing\" to \"Delivering\" after shipping will be "
+"accepted in CDEK. And setting order status to \"Completed\" when shipping "
+"will be received by customer."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:278
+msgid "Select requirements for free shipping"
+msgstr ""
+
+#: includes/settings/settings-admin.php:114
+msgid "Seller"
+msgstr ""
+
+#: includes/settings/settings-admin.php:119
+msgid "Seller Name"
+msgstr ""
+
+#: includes/settings/settings-admin.php:302
+#: includes/settings/settings-admin.php:337
+msgid "Send Manually"
+msgstr ""
+
+#: includes/settings/settings-admin.php:180
+msgid "Sender"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:191
+msgid "Separate Shipment point"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:158
+msgid "Set additional weight. It could be package weight for example."
+msgstr ""
+
+#. %s href link.
+#: includes/settings/settings-admin.php:265
+#: includes/settings/settings-shipping-method.php:247
+#, php-format
+msgid ""
+"Set KLADR Code of the location. You can find KLADR code on %1$sthe official "
+"website%2$s by selecting your Region > City > Street name"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:292
+msgid "Set minimum order amount if you select it for free shipping conditions"
+msgstr ""
+
+#: includes/settings/settings-admin.php:416
+msgid ""
+"Set the API key for Yandex Maps if you want to let customers to choose "
+"delivery points on the map."
+msgstr ""
+
+#: includes/class-cdekfw.php:135
+msgid "Settings"
+msgstr ""
+
+#: includes/settings/settings-admin.php:45
+#: includes/settings/settings-shipping-method.php:204
+msgid "Shipment point code"
+msgstr ""
+
+#: includes/settings/settings-admin.php:86
+msgid "Shipper"
+msgstr ""
+
+#: includes/settings/settings-admin.php:101
+msgid "Shipper Address"
+msgstr ""
+
+#: includes/settings/settings-admin.php:91
+msgid "Shipper Name"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:166
+msgid "Show delivery time"
+msgstr ""
+
+#: includes/settings/settings-admin.php:235
+#: includes/settings/settings-shipping-method.php:221
+msgid "Sub Region"
+msgstr ""
+
+#: includes/settings/settings-admin.php:236
+msgid "Sub region name if applicable."
+msgstr ""
+
+#: includes/settings/settings-admin.php:281
+msgid "Synchronize order with tracking status"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:33
+msgid "Tariff"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:102
+msgid "Tax status"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:108
+msgctxt "Tax status"
+msgid "None"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:107
+msgid "Taxable"
+msgstr ""
+
+#: includes/settings/settings-admin.php:398
+msgid "The end time of the waiting courier."
+msgstr ""
+
+#: includes/settings/settings-admin.php:388
+msgid ""
+"The start time of the waiting courier. Please note: the time should not be "
+"earlier than 10:00 AM."
+msgstr ""
+
+#. %s href link.
+#: includes/settings/settings-shipping-method.php:363
+#, php-format
+msgid ""
+"These costs can optionally be added based on the <a href=\"%s\">product "
+"shipping class</a>."
+msgstr ""
+
+#: includes/settings/settings-admin.php:59
+msgid ""
+"These values will be taken into account in the absence of overall "
+"characteristics of the product."
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:29
+msgid "This title the user sees during checkout."
+msgstr ""
+
+#: includes/class-cdekfw.php:175
+msgid "This tool will clear the request transients cache."
+msgstr ""
+
+#: includes/settings/settings-admin.php:356
+msgid ""
+"To make synchronization of order with free shipping with CDEK API, select a "
+"method that will be used as a template for creating packages."
+msgstr ""
+
+#: includes/settings/settings-admin.php:181
+msgid ""
+"To register orders with CDEK dashboard for the delivery of goods to "
+"customers."
+msgstr ""
+
+#: includes/settings/settings-admin.php:277
+msgid "Tracking"
+msgstr ""
+
+#: includes/settings/settings-admin.php:297
+msgid "Tracking code sending"
+msgstr ""
+
+#: includes/settings/settings-admin.php:311
+msgid "Tracking info block"
+msgstr ""
+
+#: includes/class-cdekfw.php:192
+msgid "Transients cleared"
+msgstr ""
+
+#: includes/settings/settings-admin.php:29
+msgid "Type of agreement"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:147
+msgid "Type of calculation for additional percentage cost"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:19
+msgid ""
+"Use [qty] for the number of items, [cost] for the total cost of items, and "
+"[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"] for percentage based fees."
+msgstr ""
+
+#: includes/settings/settings-admin.php:78
+msgid "Weight (g.)"
+msgstr ""
+
+#: includes/settings/settings-admin.php:68
+msgid "Width (cm.)"
+msgstr ""
+
+#: includes/class-cdekfw-client.php:385
+msgid "with the next body:"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:281
+msgid "Without conditions"
+msgstr ""
+
+#: includes/settings/settings-admin.php:415
+msgid "Yandex Maps JavaScript API"
+msgstr ""
+
+#: includes/settings/settings-admin.php:333
+msgid ""
+"You can create automatic submission for packages with a specific order "
+"status."
+msgstr ""
+
+#. %s href link.
+#: includes/settings/settings-shipping-method.php:206
+#, php-format
+msgid "You can find code for point in your city on %1$s official website. %2$s"
+msgstr ""
+
+#: includes/settings/settings-shipping-method.php:255
+msgid ""
+"You can make free shipping and display delivery date at the same time to "
+"inform your clients."
+msgstr ""
+
+#: includes/settings/settings-admin.php:298
+msgid ""
+"You can send tracking code immediately after creating new package or when "
+"order status changed to delivering."
+msgstr ""
