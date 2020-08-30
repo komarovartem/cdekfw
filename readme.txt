@@ -3,7 +3,7 @@ Contributors: artemkomarov
 Tags: woocommerce, woocommerce shipping, ecommerce, shipping, cdek
 Requires at least: 5
 Tested up to: 5.5
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,6 +17,7 @@ The plugin allows you to automatically calculate shipping costs for CDEK tariffs
 * Calculate shipping costs based selected tariff and the weight of the cart
 * Display time of delivery
 * Specify an additional cost and delivery time
+* Specify custom package dimensions
 
 = PRO Extension  =
 
@@ -31,6 +32,8 @@ The extension adds single-click actions to synchronize orders with CDEK’s pers
 * Displays a map of pick-up points
 * Hides delivery methods based on custom conditions
 * Uses custom package dimensions
+* Registration of an application for a courier call
+* Support several shipment points (warehouses)
 * Allows you to create a free shipping option based on the CDEK tariff
 * Allows you to calculate shipping coast via admin panel
 
@@ -60,6 +63,13 @@ The plugin by itself has no methods to calculate the shipping price. All data co
 4. PRO Extension: automatically track shipments and sending tracking code
 
 == Changelog ==
+
+= 1.0.6 =
+
+* Tweak - calculate shipping rate via package dimensions if provided
+* Added - WooCommerce 4.4 support
+* Added for PRO - options to separate shipment points (warehouses)
+* Added for PRO - registration of an application for a courier call
 
 = 1.0.5 =
 
