@@ -385,7 +385,7 @@ return array(
 	),
 	array(
 		'title'             => __( 'Courier waiting time', 'cdek-for-woocommerce' ),
-		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'The start time of the waiting courier. Please not the time should not be earlier that 10:00 AM.', 'cdek-for-woocommerce' ),
+		'desc'              => CDEKFW::only_in_pro_ver_text() . __( 'The start time of the waiting courier. Please note: the time should not be earlier than 10:00 AM.', 'cdek-for-woocommerce' ),
 		'type'              => 'number',
 		'placeholder'       => '10',
 		'id'                => 'cdek_pro_intake_time_from',
