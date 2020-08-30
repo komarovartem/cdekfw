@@ -367,13 +367,10 @@ class CDEKFW_Client {
 		}
 
 		$headers = array(
-			'Accept'       => 'application/json;charset=UTF-8',
-			'Content-Type' => 'application/json',
+			'Accept'        => 'application/json;charset=UTF-8',
+			'Content-Type'  => 'application/json',
+			'Authorization' => 'Bearer ' . $client_auth_token,
 		);
-
-		if ( ! self::get_client_credentials()['test'] ) {
-			$headers['Authorization'] = 'Bearer ' . $client_auth_token;
-		}
 
 		$remote_response = wp_remote_request(
 			self::$api_url . $url,
