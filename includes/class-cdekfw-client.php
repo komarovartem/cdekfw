@@ -382,7 +382,7 @@ class CDEKFW_Client {
 			)
 		);
 
-		CDEKFW::log_it( esc_html__( 'Making request to', 'cdek-for-woocommerce' ) . ' ' . $method . ': ' . $url . ' ' . esc_html__( 'with the next body:', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE ) );
+		CDEKFW::log_it( esc_html__( 'Making request to', 'cdek-for-woocommerce' ) . ' ' . $method . ': ' . $url . ' ' . esc_html__( 'with the next body:', 'cdek-for-woocommerce' ) . ' ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
 
 		if ( is_wp_error( $remote_response ) ) {
 			CDEKFW::log_it( esc_html__( 'Cannot connect to', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . $remote_response->get_error_message() . ' Body: ' . wp_json_encode( $body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
@@ -409,6 +409,8 @@ class CDEKFW_Client {
 
 			return false;
 		}
+
+		CDEKFW::log_it( esc_html__( 'API response:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
 
 		return $response_body;
 	}

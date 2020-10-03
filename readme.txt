@@ -65,6 +65,13 @@ The plugin by itself has no methods to calculate the shipping price. All data co
 
 == Changelog ==
 
+= 1.0.7 =
+
+* Tweak - remove deleted CDEK tariffs
+* Tweak - log response from successful API call
+* Added - possibility to subtract shipping cost
+* Added for PRO - set fixed shipping cost
+
 = 1.0.6 =
 
 * Tweak - calculate shipping rate via package dimensions if provided

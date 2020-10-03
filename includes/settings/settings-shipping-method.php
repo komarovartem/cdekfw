@@ -18,6 +18,62 @@ foreach ( $shipping_classes as $shipping_class ) {
 }
 $cost_desc = __( 'Enter a cost (excl. tax) or sum, e.g. 10.00 * [qty].', 'cdek-for-woocommerce' ) . '<br/><br/>' . __( 'Use [qty] for the number of items, [cost] for the total cost of items, and [fee percent="10" min_fee="20" max_fee=""] for percentage based fees.', 'cdek-for-woocommerce' );
 
+$tariffs = array(
+	1   => 'Экспресс лайт дверь-дверь',
+	3   => 'Супер-экспресс до 18 дверь-дверь',
+	5   => 'Экономичный экспресс склад-склад',
+	10  => 'Экспресс лайт склад-склад',
+	11  => 'Экспресс лайт склад-дверь',
+	12  => 'Экспресс лайт дверь-склад',
+	15  => 'Экспресс тяжеловесы склад-склад',
+	16  => 'Экспресс тяжеловесы склад-дверь',
+	17  => 'Экспресс тяжеловесы дверь-склад',
+	18  => 'Экспресс тяжеловесы дверь-дверь',
+	57  => 'Супер-экспресс до 9 дверь-дверь',
+	58  => 'Супер-экспресс до 10 дверь-дверь',
+	59  => 'Супер-экспресс до 12 дверь-дверь',
+	60  => 'Супер-экспресс до 14 дверь-дверь',
+	61  => 'Супер-экспресс до 16 дверь-дверь',
+	62  => 'Магистральный экспресс склад-склад',
+	63  => 'Магистральный супер-экспресс склад-склад',
+	118 => 'Экономичный экспресс дверь-дверь',
+	119 => 'Экономичный экспресс склад-дверь',
+	120 => 'Экономичный экспресс дверь-склад',
+	121 => 'Магистральный экспресс дверь-дверь',
+	122 => 'Магистральный экспресс склад-дверь',
+	123 => 'Магистральный экспресс дверь-склад',
+	124 => 'Магистральный супер-экспресс дверь-дверь',
+	125 => 'Магистральный супер-экспресс склад-дверь',
+	126 => 'Магистральный супер-экспресс дверь-склад',
+	// Экспресс-доставка за/из-за границы документов и писем.
+	7   => 'Международный экспресс документы дверь-дверь',
+	// Экспресс-доставка за/из-за границы грузов и посылок до 30 кг.
+	8   => 'Международный экспресс грузы дверь-дверь',
+	// Услуга экономичной доставки товаров по России для компаний, осуществляющих дистанционную торговлю.
+	136 => 'Посылка склад-склад',
+	137 => 'Посылка склад-дверь',
+	138 => 'Посылка дверь-склад',
+	139 => 'Посылка дверь-дверь',
+	// Экспресс-доставка за/из-за границы грузов и посылок до 30 кг.
+	// Экспресс-доставка за/из-за границы документов и писем.
+	// Услуга экономичной наземной доставки товаров по России для компаний, осуществляющих дистанционную торговлю.
+	// Услуга действует по направлениям из Москвы в подразделения СДЭК, находящиеся за Уралом и в Крым.
+	// до 50 кг.
+	233 => 'Экономичная посылка склад-дверь',
+	234 => 'Экономичная посылка склад-склад',
+	// Тарифы Китайский экспресс.
+	243 => 'Китайский экспресс склад-склад',
+	245 => 'Китайский экспресс дверь-дверь',
+	246 => 'Китайский экспресс склад-дверь',
+	247 => 'Китайский экспресс дверь-склад',
+	// Сервис по доставке товаров из-за рубежа в Россию.
+	// Украину, Казахстан, Киргизию, Узбекистан с услугами по таможенному оформлению.
+	291 => 'CDEK Express склад-склад',
+	293 => 'CDEK Express дверь-дверь',
+	294 => 'CDEK Express склад-дверь',
+	295 => 'CDEK Express дверь-склад',
+);
+
 if ( ! CDEKFW::is_pro_active() ) {
 	$post_index_message = '<br><br><span style="color: red">' . __( 'Please note!', 'cdek-for-woocommerce' ) . '</span> <span style="color: #007cba">' . __( 'Delivery is calculated only from the sender postcode to the recipient\'s postcode. Make sure that the postcode field in your store is not disabled on the checkout page and is required, otherwise, the calculation will not be possible. This limitation is absent in the PRO version of the plugin since the bases of regions and cities of the Russian Federation are used.', 'cdek-for-woocommerce' ) . '</span>';
 }
@@ -35,61 +91,7 @@ $settings = array(
 		'type'        => 'select',
 		'class'       => 'wc-enhanced-select',
 		'default'     => 'taxable',
-		'options'     => array(
-			1   => 'Экспресс лайт дверь-дверь',
-			3   => 'Супер-экспресс до 18 дверь-дверь',
-			5   => 'Экономичный экспресс склад-склад',
-			10  => 'Экспресс лайт склад-склад',
-			11  => 'Экспресс лайт склад-дверь',
-			12  => 'Экспресс лайт дверь-склад',
-			15  => 'Экспресс тяжеловесы склад-склад',
-			16  => 'Экспресс тяжеловесы склад-дверь',
-			17  => 'Экспресс тяжеловесы дверь-склад',
-			18  => 'Экспресс тяжеловесы дверь-дверь',
-			57  => 'Супер-экспресс до 9 дверь-дверь',
-			58  => 'Супер-экспресс до 10 дверь-дверь',
-			59  => 'Супер-экспресс до 12 дверь-дверь',
-			60  => 'Супер-экспресс до 14 дверь-дверь',
-			61  => 'Супер-экспресс до 16 дверь-дверь',
-			62  => 'Магистральный экспресс склад-склад',
-			63  => 'Магистральный супер-экспресс склад-склад',
-			118 => 'Экономичный экспресс дверь-дверь',
-			119 => 'Экономичный экспресс склад-дверь',
-			120 => 'Экономичный экспресс дверь-склад',
-			121 => 'Магистральный экспресс дверь-дверь',
-			122 => 'Магистральный экспресс склад-дверь',
-			123 => 'Магистральный экспресс дверь-склад',
-			124 => 'Магистральный супер-экспресс дверь-дверь',
-			125 => 'Магистральный супер-экспресс склад-дверь',
-			126 => 'Магистральный супер-экспресс дверь-склад',
-			// Экспресс-доставка за/из-за границы документов и писем.
-			7   => 'Международный экспресс документы дверь-дверь',
-			// Экспресс-доставка за/из-за границы грузов и посылок до 30 кг.
-			8   => 'Международный экспресс грузы дверь-дверь',
-			// Услуга экономичной доставки товаров по России для компаний, осуществляющих дистанционную торговлю.
-			136 => 'Посылка склад-склад',
-			137 => 'Посылка склад-дверь',
-			138 => 'Посылка дверь-склад',
-			139 => 'Посылка дверь-дверь',
-			// Экспресс-доставка за/из-за границы грузов и посылок до 30 кг.
-			// Экспресс-доставка за/из-за границы документов и писем.
-			// Услуга экономичной наземной доставки товаров по России для компаний, осуществляющих дистанционную торговлю.
-			// Услуга действует по направлениям из Москвы в подразделения СДЭК, находящиеся за Уралом и в Крым.
-			// до 50 кг.
-			233 => 'Экономичная посылка склад-дверь',
-			234 => 'Экономичная посылка склад-склад',
-			// Тарифы Китайский экспресс.
-			243 => 'Китайский экспресс склад-склад',
-			245 => 'Китайский экспресс дверь-дверь',
-			246 => 'Китайский экспресс склад-дверь',
-			247 => 'Китайский экспресс дверь-склад',
-			// Сервис по доставке товаров из-за рубежа в Россию.
-			// Украину, Казахстан, Киргизию, Узбекистан с услугами по таможенному оформлению.
-			291 => 'CDEK Express склад-склад',
-			293 => 'CDEK Express дверь-дверь',
-			294 => 'CDEK Express склад-дверь',
-			295 => 'CDEK Express дверь-склад',
-		),
+		'options'     => $tariffs,
 	),
 	'tax_status'                         => array(
 		'title'   => __( 'Tax status', 'cdek-for-woocommerce' ),
@@ -128,12 +130,12 @@ $settings = array(
 	),
 	'add_cost'                           => array(
 		'title'       => __( 'Additional Cost', 'cdek-for-woocommerce' ),
-		'description' => __( 'Additional flat rate for this shipping method. This may be the average value of the package for example', 'cdek-for-woocommerce' ),
+		'description' => __( 'Additional flat rate for this shipping method. This may be the average value of the package for example', 'cdek-for-woocommerce' ) . ' ' . __( 'You can set negative number to subtract shipping cost if you wish.', 'cdek-for-woocommerce' ),
 		'type'        => 'price',
 	),
 	'add_percentage_cost'                => array(
 		'title'       => __( 'Additional Percentage Cost', 'cdek-for-woocommerce' ),
-		'description' => __( 'Additional percentage rate for this shipping method.', 'cdek-for-woocommerce' ),
+		'description' => __( 'Additional percentage rate for this shipping method.', 'cdek-for-woocommerce' ) . ' ' . __( 'You can set negative number to subtract shipping cost if you wish.', 'cdek-for-woocommerce' ),
 		'type'        => 'number',
 	),
 	'add_percentage_cost_type'           => array(
@@ -239,6 +241,52 @@ $settings = array(
 		// translators: %s href link.
 		'description'       => CDEKFW::only_in_pro_ver_text() . sprintf( __( 'Set KLADR Code of the location. You can find KLADR code on %1$sthe official website%2$s by selecting your Region > City > Street name', 'cdek-for-woocommerce' ), '<a href="https://kladr-rf.ru/" target="_blank">', '</a>' ),
 		'type'              => 'text',
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'tariff_list'                        => array(
+		'title'       => __( 'Tariff List', 'cdek-for-woocommerce' ),
+		'description' => __( 'For some regions not all tariffs are available you can set multiple shipping methods for specific region but in this case if all tariffs are available all of them will be visible to customer to choose from. If you wish to provide a single tariff without creating several shipping methods you can set tariff list which will calculate selected tariffs one by one until one of provided tariff options will be successfuly calculated.', 'cdek-for-woocommerce' ),
+		'type'        => 'title',
+	),
+	'tariff_list_1'                      => array(
+		'title'             => __( 'Additional Tariffs', 'cdek-for-woocommerce' ),
+		'description'       => __( 'Tariff - 1. Set additional tariff in case the main one cannot be calculated for customer region.', 'cdek-for-woocommerce' ),
+		'type'              => 'multiselect',
+		'class'             => 'wc-enhanced-select',
+		'options'           => $tariffs,
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'tariff_list_2'                      => array(
+		'description'       => __( 'Tariff - 2. Set alternative tariff in case the additional Tariff - 1 cannot be calculated.', 'cdek-for-woocommerce' ),
+		'type'              => 'multiselect',
+		'class'             => 'wc-enhanced-select',
+		'options'           => $tariffs,
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'tariff_list_3'                      => array(
+		'description'       => __( 'Tariff - 3. Set alternative tariff in case the additional tariff - 2 cannot be calculated.', 'cdek-for-woocommerce' ),
+		'type'              => 'multiselect',
+		'class'             => 'wc-enhanced-select',
+		'options'           => $tariffs,
+		'custom_attributes' => array(
+			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
+		),
+	),
+	'fixed_cost_title'                   => array(
+		'title'       => __( 'Fixed Cost', 'cdek-for-woocommerce' ),
+		'description' => __( 'You can set fixed shipping cost for this method but keep other features like delivery time and shipping points map active.', 'cdek-for-woocommerce' ),
+		'type'        => 'title',
+	),
+	'fixed_cost'                         => array(
+		'title'             => __( 'Shipping Cost', 'cdek-for-woocommerce' ),
+		'description'       => CDEKFW::only_in_pro_ver_text() . __( 'Set fixed cost if you wish to overwrite calculated cost by CDEK.', 'cdek-for-woocommerce' ),
+		'type'              => 'number',
 		'custom_attributes' => array(
 			CDEKFW::is_pro_active() ? '' : 'disabled' => '',
 		),
