@@ -94,7 +94,18 @@ class CDEKFW_Client {
 	}
 
 	/**
-	 * Register courier intake https://confluence.cdek.ru/pages/viewpage.action?pageId=29948379
+	 * Get courier intake status https://confluence.cdek.ru/pages/viewpage.action?pageId=29925274
+	 *
+	 * @param array $args Intake params.
+	 *
+	 * @return bool|mixed|null
+	 */
+	public static function get_intake( $args ) {
+		return self::get_data_from_api( 'v2/intakes/' . $args, array(), 'GET' );
+	}
+
+	/**
+	 * Delete courier intake https://confluence.cdek.ru/pages/viewpage.action?pageId=29948379
 	 *
 	 * @param string $args Intake uuid.
 	 *
