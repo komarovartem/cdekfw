@@ -48,13 +48,7 @@ class CDEKFW_PVZ_Shipping {
 			return;
 		}
 
-		$method_settings = get_option( 'woocommerce_cdek_shipping_' . $method->instance_id . '_settings' );
-
-		if ( ! $method_settings ) {
-			return;
-		}
-
-		$type = intval( $method_settings['tariff'] );
+		$type = intval( $meta_data['tariff_id'] );
 
 		// Only if tariff shipping goes to warehouse.
 		if ( ! in_array(

@@ -51,7 +51,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	public function calculate_shipping( $package = array() ) {
 		$label         = $this->title;
 		$time          = '';
-		$tariff        = intval( $this->tariff ) ? intval( $this->tariff ) : 1;
+		$tariff_list   = $this->get_tariff_list();
 		$services      = $this->services ? $this->services : array();
 		$from_postcode = $this->postcode ? $this->postcode : get_option( 'cdek_sender_post_code' );
 		$from_country  = get_option( 'woocommerce_default_country', 'RU' );
@@ -87,7 +87,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
 			'senderCountryCode'    => $from_country,
 			'goods'                => $this->get_goods_dimensions( $package, $services ),
-			'tariffId'             => $tariff,
+			'tariffList'           => $tariff_list,
 			'services'             => CDEKFW_Helper::get_services_for_shipping_calculation( $services, $ordered_value ),
 		);
 
@@ -98,7 +98,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 			// Get pvz list for tariffs which are related to warehouses.
 			if ( in_array(
-				$tariff,
+				$this->tariff,
 				CDEKFW_PVZ_Shipping::get_warehouse_tariffs(),
 				true
 			) ) {
@@ -129,12 +129,27 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			return;
 		}
 
-		$shipping_rate       = $shipping_rate['result'];
+		$rate = array();
+
+		foreach ( $shipping_rate['result'] as $result ) {
+			if ( true === $result['status'] ) {
+				$rate      = $result['result'];
+				$tariff_id = $result['tariffId'];
+				break;
+			}
+		}
+
+		if ( ! $rate ) {
+			$this->maybe_print_error();
+
+			return;
+		}
+
 		$shipping_class_cost = ceil( $this->get_shipping_class_cost( $package ) );
-		$shipping_price       = intval( $this->fixed_cost ) ? intval( $this->fixed_cost ) : ceil( $shipping_rate['price'] );
+		$shipping_price      = intval( $this->fixed_cost ) ? intval( $this->fixed_cost ) : ceil( $rate['price'] );
 		$percentage_cost     = ceil( $this->get_percentage_cost( $shipping_price ) );
 		$cost                = $shipping_price + intval( $this->add_cost ) + $shipping_class_cost + $percentage_cost;
-		$delivery_time       = intval( $shipping_rate['deliveryPeriodMax'] );
+		$delivery_time       = intval( $rate['deliveryPeriodMax'] );
 
 		if ( 'yes' === $this->show_delivery_time ) {
 			if ( $this->add_delivery_time ) {
@@ -168,12 +183,42 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 		$this->add_rate(
 			array(
-				'id'      => $this->get_rate_id(),
-				'label'   => $label . $time,
-				'cost'    => $cost,
-				'package' => $package,
+				'id'        => $this->get_rate_id(),
+				'label'     => $label . $time,
+				'cost'      => $cost,
+				'package'   => $package,
+				'meta_data' => array(
+					'tariff_id' => $tariff_id,
+					'CDEK'      => CDEKFW_Helper::get_tariff_name( $tariff_id ),
+				),
 			)
 		);
+	}
+
+	/**
+	 * Generate tariff list
+	 *
+	 * @return array
+	 */
+	public function get_tariff_list() {
+		$list    = array();
+		$tariffs = array(
+			intval( $this->tariff ) ? intval( $this->tariff ) : 1,
+			intval( $this->tariff_list_1 ),
+			intval( $this->tariff_list_2 ),
+			intval( $this->tariff_list_3 ),
+		);
+
+		$tariffs = array_filter( $tariffs );
+
+		foreach ( $tariffs as $k => $tariff ) {
+			$list[] = array(
+				'priority' => $k + 1,
+				'id'       => $tariff,
+			);
+		}
+
+		return $list;
 	}
 
 	/**

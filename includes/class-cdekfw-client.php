@@ -46,7 +46,7 @@ class CDEKFW_Client {
 
 		$args = array_merge( $args, $req_params );
 
-		return self::get_data_from_api( 'calculator/calculate_price_by_json.php', $args, 'POST', false );
+		return self::get_data_from_api( 'calculator/calculate_tarifflist.php', $args, 'POST', false );
 	}
 
 	/**
@@ -421,7 +421,9 @@ class CDEKFW_Client {
 			return false;
 		}
 
-		CDEKFW::log_it( esc_html__( 'API response:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
+		if ( 'GET' !== $method ) {
+			CDEKFW::log_it( esc_html__( 'API response:', 'cdek-for-woocommerce' ) . ' ' . $url . ' ' . wp_json_encode( $response_body, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
+		}
 
 		return $response_body;
 	}

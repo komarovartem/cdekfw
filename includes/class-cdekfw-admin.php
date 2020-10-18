@@ -24,6 +24,9 @@ class CDEKFW_Admin {
 		// add new order status.
 		add_action( 'init', array( $this, 'register_delivering_status' ) );
 		add_filter( 'wc_order_statuses', array( $this, 'add_order_status' ), 10, 1 );
+
+		// hide order item meta.
+		add_filter( 'woocommerce_hidden_order_itemmeta', array( $this, 'hide_order_itemmeta' ) );
 	}
 
 	/**
@@ -90,6 +93,19 @@ class CDEKFW_Admin {
 		}
 
 		return $new_order_statuses;
+	}
+
+	/**
+	 * Hide tariff id
+	 *
+	 * @param array $itemmeta Hidden order item meta.
+	 *
+	 * @return mixed array
+	 */
+	public function hide_order_itemmeta( $itemmeta ) {
+		$itemmeta[] = 'tariff_id';
+
+		return $itemmeta;
 	}
 }
 

@@ -140,6 +140,9 @@ class CDEKFW_Promo {
 							Поддержка заказов с наложенным платежом.
 						</li>
 						<li>
+							Возможность создания списка дополнительных альтернативных тарифов внутри одного метода.
+						</li>
+						<li>
 							Регистрация заявки на вызов курьера
 							<img src="<?php echo CDEK_PLUGIN_DIR_URL . 'assets/images/intakes.png'; ?>"
 								 style="max-width: 200px">
