@@ -16,6 +16,17 @@ jQuery(function ($) {
 						noResults: function () {
 							return $select.data('noresults');
 						}
+					},
+					matcher: function(params, data) {
+						if ($.trim(params.term) === '') {
+							return data;
+						}
+
+						if ($(data.element).data('searchTerm').toString().indexOf(params.term.toLowerCase()) > -1) {
+							return data;
+						}
+
+						return null;
 					}
 				});
 			}

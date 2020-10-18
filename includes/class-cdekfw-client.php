@@ -173,12 +173,13 @@ class CDEKFW_Client {
 		foreach ( $items as $item ) {
 			if ( isset( $item['location']['address'] ) && isset( $item['location']['latitude'] ) ) {
 				$delivery_points[ $item['code'] ] = array(
-					'fullAddress' => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['address'],
-					'name'        => $item['name'],
-					'code'        => $item['code'],
-					'city_code'   => $item['location']['city_code'],
-					'address'     => $item['location']['address'],
-					'coordinates' => $item['location']['latitude'] . ',' . $item['location']['longitude'],
+					'fullAddress'     => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['address'],
+					'name'            => $item['name'],
+					'code'            => $item['code'],
+					'nearest_station' => $item['nearest_station'],
+					'city_code'       => $item['location']['city_code'],
+					'address'         => $item['location']['address'],
+					'coordinates'     => $item['location']['latitude'] . ',' . $item['location']['longitude'],
 				);
 			}
 		}
