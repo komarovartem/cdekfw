@@ -33,6 +33,7 @@ class CDEKFW {
 		add_filter( 'plugin_action_links_' . plugin_basename( CDEK_PLUGIN_FILE ), array( $this, 'plugin_action_links' ) );
 		add_filter( 'auto_update_plugin', array( $this, 'auto_update_plugin' ), 10, 2 );
 		add_action( 'woocommerce_debug_tools', array( $this, 'add_debug_tools' ) );
+		add_action( 'admin_head', array( $this, 'add_admin_notices' ) );
 	}
 
 	/**
@@ -211,5 +212,42 @@ class CDEKFW {
 
 		$logger = wc_get_logger();
 		$logger->{$type}( $message, array( 'source' => 'cdek' ) );
+	}
+
+	/**
+	 * Add admin notices based on different occasions
+	 */
+	public function add_admin_notices() {
+		if ( self::is_pro_active() ) {
+			$plugin_data          = get_plugin_data( WP_PLUGIN_DIR . '/cdek-pro-for-woocommerce/cdek-pro-for-woocommerce.php' );
+			$required_pro_version = '1.0.5';
+
+			if ( ! version_compare( $plugin_data['Version'], $required_pro_version, '>=' ) ) {
+				// translators: plugin version.
+				$this->add_admin_notice( '<p>' . sprintf( esc_html__( 'The plugin "CDEK PRO for WooCommerce" is outdated. You need to update and it up to %1$s version.', 'cdek-for-woocommerce' ), $required_pro_version ) . '</p>', 'error' );
+
+				return;
+			}
+		}
+	}
+
+	/**
+	 * Helper to add admin notice
+	 *
+	 * @param string $message Notice text.
+	 * @param string $type Notice type.
+	 */
+	public function add_admin_notice( $message, $type = 'message' ) {
+		add_action(
+			'admin_notices',
+			function () use ( $message, $type ) {
+				$notice_class = array(
+					'type'   => 'notice-' . esc_html( $type ),
+					'is-dis' => 'error' !== $type ? 'is-dismissible' : '',
+
+				);
+				echo '<div class="notice ' . esc_attr( implode( ' ', $notice_class ) ) . '">' . $message . '</div>';
+			}
+		);
 	}
 }
