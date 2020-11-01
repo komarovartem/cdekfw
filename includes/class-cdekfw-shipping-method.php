@@ -243,7 +243,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		}
 
 		// check if has specific shipping class.
-		if ( $this->cond_has_shipping_class ) {
+		if ( isset( $this->cond_has_shipping_class ) ) {
 			$found_shipping_classes  = $this->find_shipping_classes( $package );
 			$is_shipping_class_found = false;
 			foreach ( $found_shipping_classes as $shipping_class => $products ) {

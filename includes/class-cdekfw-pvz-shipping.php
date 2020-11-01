@@ -44,6 +44,10 @@ class CDEKFW_PVZ_Shipping {
 			return;
 		}
 
+		if ( 'cdek_shipping' !== $method->method_id ) {
+			return;
+		}
+
 		if ( WC()->session->get( 'chosen_shipping_methods' )[0] !== $method->id ) {
 			return;
 		}

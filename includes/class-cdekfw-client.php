@@ -176,7 +176,7 @@ class CDEKFW_Client {
 					'fullAddress'     => 'RU' === $country ? '' : $item['location']['city'] . ',' . $item['location']['address'],
 					'name'            => $item['name'],
 					'code'            => $item['code'],
-					'nearest_station' => $item['nearest_station'],
+					'nearest_station' => ! empty( $item['nearest_station'] ) ? $item['nearest_station'] : '',
 					'city_code'       => $item['location']['city_code'],
 					'address'         => $item['location']['address'],
 					'coordinates'     => $item['location']['latitude'] . ',' . $item['location']['longitude'],
