@@ -178,7 +178,7 @@ class CDEKFW_Client {
 					'code'            => $item['code'],
 					'nearest_station' => ! empty( $item['nearest_station'] ) ? $item['nearest_station'] : '',
 					'city_code'       => $item['location']['city_code'],
-					'address'         => $item['location']['address'],
+					'address'         => str_replace( '\\', '/', $item['location']['address'] ),
 					'coordinates'     => $item['location']['latitude'] . ',' . $item['location']['longitude'],
 				);
 			}
