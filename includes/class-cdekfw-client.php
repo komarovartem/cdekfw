@@ -147,7 +147,11 @@ class CDEKFW_Client {
 				}
 			}
 
-			$args['postal_code'] = $postcode;
+			if ( 101000 === $postcode || 'москва' === mb_strtolower( $city ) ) {
+				$args['region_code'] = 81;
+			} else {
+				$args['postal_code'] = $postcode;
+			}
 		}
 
 		$items = self::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET', false );
