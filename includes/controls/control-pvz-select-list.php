@@ -19,12 +19,9 @@
 			data-noresults="<?php esc_attr_e( 'Address is not found', 'cdek-for-woocommerce' ); ?>">
 		<?php foreach ( $pvz_list as $item ) : ?>
 			<?php $pvz_value = $item['code'] . '|' . $item['address'] . '|' . $item['city_code']; ?>
+            <?php $item['address'] = $item['fullAddress'] ? $item['fullAddress'] : $item['address']; ?>
 			<option value="<?php echo esc_attr( $pvz_value ); ?>" <?php selected( $pvz_value, $selected_pvz ); ?> data-search-term="<?php echo esc_attr( mb_strtolower( $item['name'] . ' ' . $item['address'] . ' ' . $item['nearest_station'] ) ); ?>"><?php
-			if ( $item['fullAddress'] ) {
-				echo esc_attr( $item['fullAddress'] );
-			} else {
 				echo esc_attr( $item['address'] );
-			}
 			?></option>
 		<?php endforeach; ?>
 	</select>

@@ -170,6 +170,10 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 						'taxes'   => false,
 						'package' => $package,
 						'cost'    => 0,
+						'meta_data' => array(
+							'tariff_id' => $tariff_id,
+							'CDEK'      => CDEKFW_Helper::get_tariff_name( $tariff_id ),
+						),
 					)
 				);
 
