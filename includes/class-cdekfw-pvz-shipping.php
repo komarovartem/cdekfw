@@ -159,7 +159,7 @@ class CDEKFW_PVZ_Shipping {
 	 * @return array
 	 */
 	public static function get_warehouse_tariffs() {
-		return array( 5, 10, 12, 15, 17, 62, 63, 120, 123, 126, 136, 138, 178, 180, 181, 183, 232, 234, 243, 247, 291, 295 );
+		return array( 5, 10, 12, 15, 17, 62, 63, 120, 123, 126, 136, 138, 178, 180, 181, 183, 232, 234, 243, 247, 291, 295, 481, 483 );
 	}
 }
 

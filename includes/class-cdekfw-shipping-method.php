@@ -64,7 +64,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$to_city      = $package['destination']['city'];
 
 		if ( $this->check_condition_for_disable( $package ) ) {
-//			return;
+			return;
 		}
 
 		if ( ! $from_code ) {
