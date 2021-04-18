@@ -34,6 +34,8 @@ class CDEKFW {
 		add_filter( 'auto_update_plugin', array( $this, 'auto_update_plugin' ), 10, 2 );
 		add_action( 'woocommerce_debug_tools', array( $this, 'add_debug_tools' ) );
 		add_action( 'admin_head', array( $this, 'add_admin_notices' ) );
+		// add notice in case empty city code.
+		add_action( 'admin_head', array( $this, 'check_city_code' ) );
 	}
 
 	/**
@@ -200,7 +202,7 @@ class CDEKFW {
 	 * @param string $type Message type.
 	 */
 	public static function log_it( $message, $type = 'info' ) {
-		if ( ! current_user_can( 'administrator' ) ) {
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
 			return;
 		}
 
@@ -228,6 +230,18 @@ class CDEKFW {
 
 				return;
 			}
+		}
+	}
+
+	/**
+	 * Add notice in case city code is empty
+	 */
+	public function check_city_code() {
+		if ( ! get_option( 'cdek_sender_city_code' ) ) {
+			// translators: %s html links and new line tags.
+			$this->add_admin_notice( '<p>' . sprintf( esc_html__( 'The CDEK city code field is empty. Please fill the city code in the main plugin settings to calculate the shipping. %1$s Open settings. %2$s', 'cdek-for-woocommerce' ), '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping&section=cdek' ) . '">', '</a>' ) . '</p>', 'error' );
+
+			return;
 		}
 	}
 

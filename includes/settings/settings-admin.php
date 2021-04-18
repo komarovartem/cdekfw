@@ -35,10 +35,14 @@ return array(
 		),
 	),
 	array(
-		'id'    => 'cdek_sender_post_code',
-		'title' => __( 'Postcode', 'cdek-for-woocommerce' ),
-		'desc'  => __( 'Postal code of the sender. If the field is empty, the 101000 index will be used by default.', 'cdek-for-woocommerce' ),
-		'type'  => 'number',
+		'id'                => 'cdek_sender_city_code',
+		'title'             => __( 'CDEK City Code', 'cdek-for-woocommerce' ),
+		/* translators: %s are links. */
+		'desc'              => sprintf( __( 'Enter your city code here. You can get it from %1$s this table. %2$s', 'cdek-for-woocommerce' ), '<a href="' . plugin_dir_url( CDEK_PLUGIN_FILE ) . 'includes/lists/cdek-codes.html" target="_blank">', '</a>' ),
+		'type'              => 'number',
+		'custom_attributes' => array(
+			'required' => true,
+		),
 	),
 	array(
 		'id'                => 'cdek_shipment_point',

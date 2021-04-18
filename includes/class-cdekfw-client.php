@@ -22,31 +22,14 @@ class CDEKFW_Client {
 	private static $api_url = 'https://api.cdek.ru/';
 
 	/**
-	 * Calculate shipping rate https://confluence.cdek.ru/pages/viewpage.action?pageId=15616129#id-%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8(v1.5)-4.14.1.%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%D0%BF%D0%BE%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0%D0%BC%D1%81%D0%BF%D1%80%D0%B8%D0%BE%D1%80%D0%B8%D1%82%D0%B5%D1%82%D0%BE%D0%BC
+	 * Calculate shipping rate
 	 *
 	 * @param array $args Shipping params.
 	 *
 	 * @return bool|mixed|null
 	 */
 	public static function calculate_rate( $args ) {
-		$client = self::get_client_credentials();
-		$date   = gmdate( 'Y-m-d', strtotime( current_time( 'mysql' ) ) );
-
-		$req_params = array(
-			'version'     => '1.0',
-			'currency'    => get_woocommerce_currency(),
-			'dateExecute' => $date,
-		);
-
-		// Add account data if not a test request.
-		if ( ! $client['test'] ) {
-			$req_params['authLogin'] = $client['account'];
-			$req_params['secure']    = md5( $date . '&' . $client['password'] );
-		}
-
-		$args = array_merge( $args, $req_params );
-
-		return self::get_data_from_api( 'calculator/calculate_tarifflist.php', $args, 'POST', false );
+		return self::get_data_from_api( 'v2/calculator/tarifflist', $args, 'POST', false );
 	}
 
 	/**
@@ -139,19 +122,9 @@ class CDEKFW_Client {
 		);
 
 		if ( 'RU' === $country ) {
-			if ( CDEKFW::is_pro_active() ) {
-				if ( $state && $city ) {
-					$postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
-				} else {
-					return false;
-				}
-			}
+			$to_code = CDEKFW_Helper::get_city_code( $state, $city, $postcode );
 
-			if ( 101000 === $postcode || 'москва' === mb_strtolower( $city ) ) {
-				$args['region_code'] = 81;
-			} else {
-				$args['postal_code'] = $postcode;
-			}
+			$args['city_code'] = $to_code;
 		}
 
 		$items = self::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET', false );
@@ -218,7 +191,7 @@ class CDEKFW_Client {
 	public static function retrieve_all_city_codes() {
 		$url  = add_query_arg(
 			array(
-				'country_codes' => array( 'RU' ),
+				'country_codes' => 'RU',
 				'size'          => 99999,
 				'page'          => 0,
 			),
@@ -235,6 +208,86 @@ class CDEKFW_Client {
 		fclose( $file_all );
 
 		return true;
+	}
+
+	/**
+	 * Get new updated version for delivery points from API
+	 *
+	 * @return bool
+	 */
+	public static function save_city_codes() {
+		$file = fopen( plugin_dir_path( __FILE__ ) . 'lists/cdek-codes.txt', 'w+' );
+
+		if ( ! $file ) {
+			CDEKFW::log_it( __( 'Cannot open file for delivery points.', 'cdek-for-woocommerce' ), 'error' );
+
+			return false;
+		}
+
+		$url    = add_query_arg(
+			array(
+				'country_codes' => 'RU',
+				'size'          => 99999,
+				'page'          => 0,
+			),
+			'v2/location/cities'
+		);
+		$cities = self::get_data_from_api( $url, array(), 'GET' );
+
+		if ( ! $cities ) {
+			return false;
+		}
+
+		foreach ( $cities as $data ) {
+			if ( ! isset( $data['region_code'] ) ) {
+				continue;
+			}
+
+			$cdek_code    = $data['code'];
+			$region_code  = CDEKFW_Helper::get_cdek_region_code( $data['region_code'], true );
+			$region       = str_replace( 'обл.', 'область', $data['region'] );
+			$region       = preg_replace( '/(.*) респ\./', 'Республика $1', $region );
+			$city         = $data['city'];
+			$postal_codes = isset( $data['postal_codes'] ) ? implode( ',', $data['postal_codes'] ) : '';
+
+			fwrite(
+				$file,
+				implode(
+					"\t",
+					array(
+						$cdek_code,
+						$region_code,
+						$region,
+						$city,
+						$postal_codes,
+					)
+				) . "\t\n"
+			);
+		}
+
+		fclose( $file );
+
+		return $cities;
+	}
+
+	/**
+	 * Generate HTML table for admin select
+	 *
+	 * @return string
+	 */
+	public static function get_city_codes_html() {
+		$file = fopen( plugin_dir_path( __FILE__ ) . 'lists/cdek-codes.txt', 'r' );
+		$html = '<table><thead><tr><td>Город</td><td>КОД</td></tr></thead><tbody>';
+
+		while ( ( $line = fgets( $file ) ) !== false ) {
+			list( $cdek_code, $region_code, $region, $city, $postal_codes ) = explode( "\t", $line );
+
+			$html .= "<tr><td>$region - $city</td><td>$cdek_code</td></tr>";
+		}
+
+		$html .= '</tbody></table>';
+
+		return $html;
 	}
 
 	/**

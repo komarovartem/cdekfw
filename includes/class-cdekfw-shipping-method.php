@@ -49,32 +49,36 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @param array $package Package of items from cart.
 	 */
 	public function calculate_shipping( $package = array() ) {
-		$label         = $this->title;
-		$time          = '';
-		$tariff_list   = $this->get_tariff_list();
-		$services      = $this->services ? $this->services : array();
-		$from_postcode = $this->postcode ? $this->postcode : get_option( 'cdek_sender_post_code' );
-		$from_country  = get_option( 'woocommerce_default_country', 'RU' );
-		$from_country  = $from_country ? explode( ':', $from_country )[0] : 'RU';
-		$to_country    = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
-		$to_postcode   = wc_format_postcode( $package['destination']['postcode'], $to_country );
-		$state         = $package['destination']['state'];
-		$city          = $package['destination']['city'];
+		$label        = $this->title;
+		$time         = '';
+		$to_code      = '';
+		$rate         = array();
+		$tariff_list  = $this->get_tariff_list();
+		$services     = $this->services ? $this->services : array();
+		$from_code    = intval( get_option( 'cdek_sender_city_code' ) );
+		$from_country = get_option( 'woocommerce_default_country', 'RU' );
+		$from_country = $from_country ? explode( ':', $from_country )[0] : 'RU';
+		$to_country   = $package['destination']['country'] ? $package['destination']['country'] : 'RU';
+		$to_postcode  = wc_format_postcode( $package['destination']['postcode'], $to_country );
+		$to_state     = $package['destination']['state'];
+		$to_city      = $package['destination']['city'];
 
 		if ( $this->check_condition_for_disable( $package ) ) {
+//			return;
+		}
+
+		if ( ! $from_code ) {
+			CDEKFW::log_it( __( 'The CDEK city code field is empty.', 'cdek-for-woocommerce' ), 'error' );
+			// translators: %s html links.
+			$this->maybe_print_error( esc_html__( 'The CDEK city code field is empty. Please fill the city code in the main plugin settings to calculate the shipping.', 'cdek-for-woocommerce' ) );
+
 			return;
 		}
 
 		if ( 'RU' === $to_country ) {
-			if ( CDEKFW::is_pro_active() ) {
-				if ( $state && $city ) {
-					$to_postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $state, $city );
-				} else {
-					return;
-				}
-			}
+			$to_code = CDEKFW_Helper::get_city_code( $to_state, $to_city, $to_postcode );
 
-			if ( ! $to_postcode ) {
+			if ( ! $to_code ) {
 				return;
 			}
 		}
@@ -82,18 +86,17 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$ordered_value = 'yes' === $this->remove_declared_value ? 0 : WC()->cart->get_cart_contents_total();
 
 		$args = array(
-			'receiverCityPostCode' => $to_postcode,
-			'receiverCountryCode'  => $to_country,
-			'senderCityPostCode'   => $from_postcode ? $from_postcode : 101000,
-			'senderCountryCode'    => $from_country,
-			'goods'                => $this->get_goods_dimensions( $package, $services ),
-			'tariffList'           => $tariff_list,
-			'services'             => CDEKFW_Helper::get_services_for_shipping_calculation( $services, $ordered_value ),
+			'from_location' => array(
+				'code' => $from_code,
+			),
+			'to_location'   => array(
+				'code' => $to_code,
+			),
+			'packages'      => $this->get_goods_dimensions( $package, $services ),
+			// 'services'      => CDEKFW_Helper::get_services_for_shipping_calculation( $services, $ordered_value ),
 		);
 
 		if ( 'RU' !== $to_country ) {
-			unset( $args['receiverCityPostCode'] );
-
 			$city_id = CDEKFW_Helper::get_international_city_id( $to_country );
 
 			// Get pvz list for tariffs which are related to warehouses.
@@ -108,9 +111,9 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 				if ( $pvz_list ) {
 					if ( $selected_pvz_code && array_key_exists( $selected_pvz_code, $pvz_list ) ) {
-						$city_id = intval( explode( '|', $selected_pvz )[2] );
+						$to_code = intval( explode( '|', $selected_pvz )[2] );
 					} else {
-						$city_id = current( $pvz_list )['city_code'];
+						$to_code = current( $pvz_list )['city_code'];
 					}
 				} else {
 					// Do nothing since no pvz were found.
@@ -118,38 +121,50 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				}
 			}
 
-			$args['receiverCityId'] = $city_id;
+			$args['to_location']['code'] = $to_code;
 		}
 
-		$shipping_rate = CDEKFW_Client::calculate_rate( $args );
+		$shipping_rates = CDEKFW_Client::calculate_rate( $args );
 
-		if ( ! $shipping_rate ) {
+		if ( ! $shipping_rates ) {
 			$this->maybe_print_error();
 
 			return;
 		}
 
-		$rate = array();
+		if ( isset( $shipping_rates['errors'] ) ) {
+			$this->maybe_print_error( $shipping_rates['errors'][0]['message'] );
 
-		foreach ( $shipping_rate['result'] as $result ) {
-			if ( true === $result['status'] ) {
-				$rate      = $result['result'];
-				$tariff_id = $result['tariffId'];
-				break;
+			return;
+		}
+
+		foreach ( $tariff_list as $tariff ) {
+			foreach ( $shipping_rates['tariff_codes'] as $shipping_rate ) {
+				if ( $tariff === $shipping_rate['tariff_code'] && ! $rate ) {
+					$rate = array(
+						'tariff_id'  => intval( $shipping_rate['tariff_code'] ),
+						'price'      => ceil( $shipping_rate['delivery_sum'] ),
+						'period_max' => intval( $shipping_rate['period_max'] ),
+					);
+				}
 			}
 		}
 
 		if ( ! $rate ) {
-			$this->maybe_print_error();
+			CDEKFW::log_it( __( 'For current destination next tariffs available', 'cdek-for-woocommerce' ) . ' - ' . $to_country . ' - ' . $package['destination']['city'] . ' - ' . $args['to_location']['code'] . json_encode( $shipping_rates, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ), 'error' );
+
+			$this->maybe_print_error( __( 'There are no matching or available tariffs for this destinations.', 'cdek-for-woocommerce' ) );
 
 			return;
 		}
 
+		// $this->maybe_print_error( json_encode( $tariff_list, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) );
+
 		$shipping_class_cost = ceil( $this->get_shipping_class_cost( $package ) );
-		$shipping_price      = intval( $this->fixed_cost ) ? intval( $this->fixed_cost ) : ceil( $rate['price'] );
+		$shipping_price      = intval( $this->fixed_cost ) ? intval( $this->fixed_cost ) : $rate['price'];
 		$percentage_cost     = ceil( $this->get_percentage_cost( $shipping_price ) );
 		$cost                = $shipping_price + intval( $this->add_cost ) + $shipping_class_cost + $percentage_cost;
-		$delivery_time       = intval( $rate['deliveryPeriodMax'] );
+		$delivery_time       = $rate['period_max'];
 
 		if ( 'yes' === $this->show_delivery_time ) {
 			if ( $this->add_delivery_time ) {
@@ -165,14 +180,14 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				$label = $this->free_shipping_custom_title ? $this->free_shipping_custom_title : $label;
 				$this->add_rate(
 					array(
-						'id'      => $this->get_rate_id(),
-						'label'   => $label . $time,
-						'taxes'   => false,
-						'package' => $package,
-						'cost'    => 0,
+						'id'        => $this->get_rate_id(),
+						'label'     => $label . $time,
+						'taxes'     => false,
+						'package'   => $package,
+						'cost'      => 0,
 						'meta_data' => array(
-							'tariff_id' => $tariff_id,
-							'CDEK'      => CDEKFW_Helper::get_tariff_name( $tariff_id ),
+							'tariff_id' => $rate['tariff_id'],
+							'CDEK'      => CDEKFW_Helper::get_tariff_name( $rate['tariff_id'] ),
 						),
 					)
 				);
@@ -192,8 +207,8 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 				'cost'      => $cost,
 				'package'   => $package,
 				'meta_data' => array(
-					'tariff_id' => $tariff_id,
-					'CDEK'      => CDEKFW_Helper::get_tariff_name( $tariff_id ),
+					'tariff_id' => $rate['tariff_id'],
+					'CDEK'      => CDEKFW_Helper::get_tariff_name( $rate['tariff_id'] ),
 				),
 			)
 		);
@@ -215,11 +230,8 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 		$tariffs = array_filter( $tariffs );
 
-		foreach ( $tariffs as $k => $tariff ) {
-			$list[] = array(
-				'priority' => $k + 1,
-				'id'       => $tariff,
-			);
+		foreach ( $tariffs as $tariff ) {
+			$list[] = $tariff;
 		}
 
 		return $list;
@@ -465,7 +477,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	public function get_goods_dimensions( $package, $services ) {
 		$defaults       = CDEKFW_Helper::get_default_dimensions();
 		$goods          = array();
-		$cart_weight    = wc_get_weight( WC()->cart->get_cart_contents_weight(), 'kg' );
+		$cart_weight    = wc_get_weight( WC()->cart->get_cart_contents_weight(), 'g' );
 		$package_length = floatval( $this->package_length );
 		$package_width  = floatval( $this->package_width );
 		$package_height = floatval( $this->package_height );
@@ -479,7 +491,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 		if ( $package_length && $package_width && $package_height ) {
 			$goods[] = array(
-				'weight' => intval( $this->add_weight ) / 1000 + $cart_weight,
+				'weight' => intval( $this->add_weight ) + $cart_weight,
 				'length' => $package_length,
 				'width'  => $package_width,
 				'height' => $package_height,
@@ -490,14 +502,14 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 					continue;
 				}
 
-				$weight = wc_get_weight( floatval( $item_values['data']->get_weight() ), 'kg' );
+				$weight = wc_get_weight( floatval( $item_values['data']->get_weight() ), 'g' );
 				$length = wc_get_dimension( floatval( $item_values['data']->get_length() ), 'cm' );
 				$width  = wc_get_dimension( floatval( $item_values['data']->get_width() ), 'cm' );
 				$height = wc_get_dimension( floatval( $item_values['data']->get_height() ), 'cm' );
 
 				for ( $i = 0; $i < $item_values['quantity']; $i ++ ) {
 					$goods[] = array(
-						'weight' => $weight ? $weight : intval( $defaults['weight'] ) / 1000,
+						'weight' => $weight ? $weight : intval( $defaults['weight'] ),
 						'length' => $length ? $length : $defaults['length'],
 						'width'  => $width ? $width : $defaults['width'],
 						'height' => $height ? $height : $defaults['height'],
@@ -508,7 +520,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 			// Additional weight.
 			if ( $this->add_weight ) {
 				$goods[] = array(
-					'weight' => intval( $this->add_weight ) / 1000,
+					'weight' => intval( $this->add_weight ),
 					'length' => 1,
 					'width'  => 1,
 					'height' => 1,
@@ -520,17 +532,19 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	}
 
 	/**
-	 * Print human error only for admin to easy debug errors
+	 * Print error for debugging
+	 *
+	 * @param string $message custom error message.
 	 */
-	public function maybe_print_error() {
-		if ( ! current_user_can( 'administrator' ) ) {
+	public function maybe_print_error( $message = '' ) {
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
 			return;
 		}
 
 		$this->add_rate(
 			array(
 				'id'        => $this->get_rate_id(),
-				'label'     => $this->title . '. ' . __( 'Error during calculation. This message and method are visible only for the site Administrator for debugging purposes.', 'cdek-for-woocommerce' ),
+				'label'     => $message ? $this->title . '. ' . $message : $this->title . '. ' . __( 'Error during calculation. This message and method are visible only for the site Administrator for debugging purposes.', 'cdek-for-woocommerce' ),
 				'cost'      => 0,
 				'meta_data' => array( 'cdek_error' => true ),
 			)

@@ -87,6 +87,7 @@ class CDEKFW_Helper {
 	public static function get_tariff_name( $id ) {
 		return isset( self::get_tariffs()[ $id ] ) ? self::get_tariffs()[ $id ] : 'NAN';
 	}
+
 	/**
 	 * Get default weight and dimensions based on basic settings
 	 *
@@ -117,7 +118,7 @@ class CDEKFW_Helper {
 	 *
 	 * @return bool|mixed
 	 */
-	public static function get_cdek_region_code( $region_code ) {
+	public static function get_cdek_region_code( $region_code, $return_official_code = false ) {
 		$region_codes = array(
 			27 => 14,
 			54 => 23,
@@ -206,7 +207,93 @@ class CDEKFW_Helper {
 			51 => 43,
 		);
 
+		if ( $return_official_code ) {
+			$found = array_search( intval( $region_code ), $region_codes, true );
+
+			return $found ? $found : false;
+		}
+
 		return isset( $region_codes[ $region_code ] ) ? $region_codes[ $region_code ] : false;
+	}
+
+	public static function get_city_codes() {
+		$file   = fopen( plugin_dir_path( __FILE__ ) . 'lists/cdek-codes.txt', 'r' );
+		$cities = array();
+
+		if ( ! $file ) {
+			CDEKFW::log_it( __( 'Cannot open file of city codes.', 'cdek-for-woocommerce' ), 'error' );
+
+			return $cities;
+		}
+
+		while ( ( $line = fgets( $file ) ) !== false ) {
+			list( $cdek_code, $region_code, $region, $city, $postal_codes ) = explode( "\t", $line );
+			$cities[ $cdek_code ] = $region . ' - ' . $city;
+		}
+		fclose( $file );
+
+		$cities = array_unique( $cities );
+
+		sort( $cities );
+
+		return $cities;
+	}
+
+	/**
+	 * Get city code based on address
+	 *
+	 * @param string $shipping_state Shipping state.
+	 * @param string $shipping_city Shipping city.
+	 * @param string $shipping_postcode Shipping postcode.
+	 *
+	 * @return false|mixed|int
+	 */
+	public static function get_city_code( $shipping_state = '', $shipping_city = '', $shipping_postcode = '' ) {
+		$code           = '';
+		$file           = fopen( plugin_dir_path( __FILE__ ) . 'lists/cdek-codes.txt', 'r' );
+		$shipping_state = is_numeric( $shipping_state ) ? intval( $shipping_state ) : $shipping_state;
+
+		if ( ! $file ) {
+			CDEKFW::log_it( __( 'Cannot open file of city codes.', 'cdek-for-woocommerce' ), 'error' );
+
+			return false;
+		}
+
+		if ( is_numeric( $shipping_state ) ) {
+			while ( ( $line = fgets( $file ) ) !== false ) {
+				list( $cdek_code, $region_code, $region, $city, $postal_codes ) = explode( "\t", $line );
+
+				// if PRO is active state will be presented as code.
+				if ( $region_code == $shipping_state && $city == $shipping_city ) {
+					$code = $cdek_code;
+					break;
+				}
+			}
+		}
+
+		// if we could not locate code by region code and city name, try postcode.
+		if ( ! $code ) {
+			if ( CDEKFW::is_pro_active() ) {
+				$shipping_postcode = CDEKFW_PRO_Ru_Base::get_index_based_on_address( $shipping_state, $shipping_city );
+			}
+
+			if ( $shipping_postcode ) {
+				fseek( $file, 0 );
+				while ( ( $line = fgets( $file ) ) !== false ) {
+					list( $cdek_code, $region_code, $region, $city, $postal_codes ) = explode( "\t", $line );
+					$city_postal_codes = explode( ',', $postal_codes );
+
+					if ( in_array( $shipping_postcode, $city_postal_codes ) ) {
+						$code = $cdek_code;
+						break;
+					}
+				}
+			}
+		}
+
+		fclose( $file );
+
+		return intval( $code );
 	}
 
 	/**
