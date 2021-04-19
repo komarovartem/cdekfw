@@ -67,6 +67,10 @@ The plugin by itself has no methods to calculate the shipping price. All data co
 
 == Changelog ==
 
+= 1.1.3 =
+
+* Fix - CDEK api issues
+
 = 1.1.2 =
 
 * Fix - new to warehouse + from door methods

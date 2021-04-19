@@ -97,8 +97,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		);
 
 		if ( 'RU' !== $to_country ) {
-			$city_id = CDEKFW_Helper::get_international_city_id( $to_country );
-
+			$to_code = CDEKFW_Helper::get_international_city_id( $to_country );
 			// Get pvz list for tariffs which are related to warehouses.
 			if ( in_array(
 				$this->tariff,
