@@ -3,7 +3,7 @@ Contributors: artemkomarov
 Tags: woocommerce, woocommerce shipping, ecommerce, shipping, cdek
 Requires at least: 5.4
 Tested up to: 5.7
-Stable tag: 1.1.2
+Stable tag: 1.1.4
 Requires PHP: 7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -66,6 +66,10 @@ The plugin by itself has no methods to calculate the shipping price. All data co
 4. PRO Extension: automatically track shipments and sending tracking code
 
 == Changelog ==
+
+= 1.1.4 =
+
+* Fix - weight calculation
 
 = 1.1.3 =
 

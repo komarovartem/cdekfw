@@ -477,20 +477,20 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$defaults       = CDEKFW_Helper::get_default_dimensions();
 		$goods          = array();
 		$cart_weight    = wc_get_weight( WC()->cart->get_cart_contents_weight(), 'g' );
-		$package_length = floatval( $this->package_length );
-		$package_width  = floatval( $this->package_width );
-		$package_height = floatval( $this->package_height );
+		$package_length = ceil( $this->package_length );
+		$package_width  = ceil( $this->package_width );
+		$package_height = ceil( $this->package_height );
 
 		// If package selected in services.
 		if ( in_array( '24', $services, true ) && ! $package_length ) {
 			$package_length = 31;
-			$package_width  = 21.5;
+			$package_width  = 22;
 			$package_height = 28;
 		}
 
 		if ( $package_length && $package_width && $package_height ) {
 			$goods[] = array(
-				'weight' => intval( $this->add_weight ) + $cart_weight,
+				'weight' => intval( $this->add_weight ) + ceil( $cart_weight ),
 				'length' => $package_length,
 				'width'  => $package_width,
 				'height' => $package_height,
@@ -508,10 +508,10 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 				for ( $i = 0; $i < $item_values['quantity']; $i ++ ) {
 					$goods[] = array(
-						'weight' => $weight ? $weight : intval( $defaults['weight'] ),
-						'length' => $length ? $length : $defaults['length'],
-						'width'  => $width ? $width : $defaults['width'],
-						'height' => $height ? $height : $defaults['height'],
+						'weight' => $weight ? ceil( $weight ) : ceil( $defaults['weight'] ),
+						'length' => $length ? ceil( $length ) : ceil( $defaults['length'] ),
+						'width'  => $width ? ceil( $width ) : ceil( $defaults['width'] ),
+						'height' => $height ? ceil( $height ) : ceil( $defaults['height'] ),
 					);
 				}
 			}

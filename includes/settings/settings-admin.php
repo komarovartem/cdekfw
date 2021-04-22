@@ -38,7 +38,7 @@ return array(
 		'id'                => 'cdek_sender_city_code',
 		'title'             => __( 'CDEK City Code', 'cdek-for-woocommerce' ),
 		/* translators: %s are links. */
-		'desc'              => sprintf( __( 'Enter your city code here. You can get it from %1$s this table. %2$s', 'cdek-for-woocommerce' ), '<a href="' . plugin_dir_url( CDEK_PLUGIN_FILE ) . 'includes/lists/cdek-codes.html" target="_blank">', '</a>' ),
+		'desc'              => sprintf( __( 'Enter your city code here. You can get it from %1$s this table. %2$s', 'cdek-for-woocommerce' ), '<a href="' . plugin_dir_url( CDEK_PLUGIN_FILE ) . 'includes/lists/cdek-codes.html" target="_blank">', '</a>' ) . '<br><br>' . __( 'Some codes for popular cities.', 'cdek-for-woocommerce' ) . '<br>' . __( 'Moscow - 44', 'cdek-for-woocommerce' ) . '<br>' . __( 'St. Petersburg - 137', 'cdek-for-woocommerce' ) . '<br>' . __( 'Novosibirsk - 270', 'cdek-for-woocommerce' ) . '<br>' . __( 'Yekaterinburg - 250', 'cdek-for-woocommerce' ) . '<br>',
 		'type'              => 'number',
 		'custom_attributes' => array(
 			'required' => true,
