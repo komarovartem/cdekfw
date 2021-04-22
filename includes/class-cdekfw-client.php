@@ -239,7 +239,7 @@ class CDEKFW_Client {
 		}
 
 		foreach ( $cities as $data ) {
-			if ( ! isset( $data['region_code'] ) ) {
+			if ( ! isset( $data['region_code'] ) || ! isset( $data['payment_limit'] ) ) {
 				continue;
 			}
 

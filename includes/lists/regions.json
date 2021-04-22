@@ -1,2178 +1,2996 @@
 [
     {
-        "country_code": "TR",
-        "region": "Ыгдыр",
-        "country": "Турция"
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Баранья",
+        "region_code": 337
+    },
+    {
+        "country_code": "SR",
+        "country": "Суринам",
+        "region": "Paramaribo",
+        "region_code": 222
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Ahaia",
+        "region_code": 116
     },
     {
         "country_code": "CN",
-        "region": "аймак Алашань",
-        "country": "Китай (КНР)"
+        "country": "Китай (КНР)",
+        "region": "Пекин",
+        "region_code": 693
     },
     {
-        "country_code": "RU",
-        "region": "Тверская",
-        "region_code": 50,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "69",
-        "fias_region_guid": "61723327-1c20-42fe-8dfa-402638d9b396"
-    },
-    {
-        "country_code": "TR",
-        "region": "Бурса",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Дюздже",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Кыркларели",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Архангельская",
-        "region_code": 66,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "29",
-        "fias_region_guid": "294277aa-e25d-428c-95ad-46719c4ddb44"
-    },
-    {
-        "country_code": "TR",
-        "region": "Балыкесир",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Эрзурум",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Измир",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Чанаккале",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Калининградская",
-        "region_code": 38,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "39",
-        "fias_region_guid": "90c7181e-724f-41b3-b6c6-bd3ec7ae3f30"
-    },
-    {
-        "country_code": "US",
-        "region": "Миннесота",
-        "region_code": 602,
-        "country": "США"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Ташкентская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "TR",
-        "region": "Орду",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Западная Виргиния",
-        "region_code": 463,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Магаданская",
-        "region_code": 59,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "49",
-        "fias_region_guid": "9c05e812-8679-4710-b8cb-5e8bd43cdf48"
-    },
-    {
-        "country_code": "UA",
-        "region": "Донецкая область",
-        "region_code": 442,
-        "country": "Украина"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Хэнань",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Бингёль",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Чукотский",
-        "region_code": 83,
-        "country": "Россия",
-        "prefix": "автономный округ",
-        "kladr_region_code": "87",
-        "fias_region_guid": "f136159b-404a-4f1f-8d8d-d169e1374d5c"
-    },
-    {
-        "country_code": "RU",
-        "region": "Нижегородская",
-        "region_code": 67,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "52",
-        "fias_region_guid": "88cd27e2-6a8a-4421-9718-719a28a0a088"
-    },
-    {
-        "country_code": "TR",
-        "region": "Шанлыурфа",
-        "country": "Турция"
-    },
-    {
-        "country_code": "DE",
-        "region": "Гессен",
-        "region_code": 417,
-        "country": "Германия"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ульяновская",
-        "region_code": 70,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "73",
-        "fias_region_guid": "fee76045-fe22-43a4-ad58-ad99e903bd58"
-    },
-    {
-        "country_code": "TR",
-        "region": "Гиресун",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Мерсин",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Марий Эл",
-        "region_code": 32,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "12",
-        "fias_region_guid": "de2cbfdf-9662-44a4-a4a4-8ad237ae4a3e"
-    },
-    {
-        "country_code": "RU",
-        "region": "Свердловская",
-        "region_code": 24,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "66",
-        "fias_region_guid": "92b30014-4d52-4e2e-892d-928142b924bf"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Гирин",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "UA",
-        "region": "Харьковская область",
-        "region_code": 863,
-        "country": "Украина"
-    },
-    {
-        "country_code": "UA",
-        "region": "Сумская область",
-        "region_code": 791,
-        "country": "Украина"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Край Высочина",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "RU",
-        "region": "Костромская",
-        "region_code": 42,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "44",
-        "fias_region_guid": "15784a67-8cea-425b-834a-6afe0e3ed61c"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Фуцзянь",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Еврейская",
-        "region_code": 76,
-        "country": "Россия",
-        "prefix": "автономная область",
-        "kladr_region_code": "79",
-        "fias_region_guid": "1b507b09-48c9-434f-bf6f-65066211c73e"
-    },
-    {
-        "country_code": "TR",
-        "region": "Кютахья",
-        "country": "Турция"
-    },
-    {
-        "country_code": "LT",
-        "region": "Алитусский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Прага",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "DE",
-        "region": "Северный Рейн-Вестфалия",
-        "region_code": 763,
-        "country": "Германия"
-    },
-    {
-        "country_code": "CN",
-        "region": "город центрального подчинения Шанхай",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "LT",
-        "region": "Тельшяйский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "UA",
-        "region": "Херсонская область",
-        "region_code": 870,
-        "country": "Украина"
-    },
-    {
-        "country_code": "AE",
-        "region": "эмират Абу-Даби",
-        "country": "ОАЭ"
-    },
-    {
-        "country_code": "DE",
-        "region": "Бранденбург",
-        "region_code": 133,
-        "country": "Германия"
-    },
-    {
-        "country_code": "TR",
-        "region": "Мугла",
-        "country": "Турция"
+        "country_code": "CR",
+        "country": "Коста-Рика",
+        "region": "Puntarenas",
+        "region_code": 232
     },
     {
         "country_code": "KR",
-        "region": "провинция Чхунчхон-Пукто",
-        "country": "Южная Корея (Республика Корея)"
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Pusan",
+        "region_code": 233
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Сьюдад-Реаль",
+        "region_code": 796
+    },
+    {
+        "country_code": "GP",
+        "country": "Гваделупа",
+        "region": "Grande-Terre",
+        "region_code": 162
+    },
+    {
+        "country_code": "LI",
+        "country": "Лихтенштейн",
+        "region": "Лихтенштейн",
+        "region_code": 1016
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Вьенна",
+        "region_code": 403
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Пондишери",
+        "region_code": 709
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Satakunta",
+        "region_code": 243
+    },
+    {
+        "country_code": "HT",
+        "country": "Гаити",
+        "region": "Nord-Ouest",
+        "region_code": 213
+    },
+    {
+        "country_code": "HT",
+        "country": "Гаити",
+        "region": "Ouest",
+        "region_code": 220
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Рондония",
+        "region_code": 724
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Мисьонес",
+        "region_code": 606
+    },
+    {
+        "country_code": "DK",
+        "country": "Дания",
+        "region": "Pocкилле",
+        "region_code": 223
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Tasman",
+        "region_code": 259
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Акри",
+        "region_code": 293
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Санта-Крус",
+        "region_code": 746
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Чако",
+        "region_code": 892
+    },
+    {
+        "country_code": "SV",
+        "country": "Сальвадор",
+        "region": "SanSalvador",
+        "region_code": 241
+    },
+    {
+        "country_code": "CR",
+        "country": "Коста-Рика",
+        "region": "SanJose",
+        "region_code": 239
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Сан-Хуан",
+        "region_code": 744
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Kordestan",
+        "region_code": 185
+    },
+    {
+        "country_code": "RE",
+        "country": "Реюньон",
+        "region": "Saint-Denis",
+        "region_code": 237
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Иль и Виден",
+        "region_code": 476
+    },
+    {
+        "country_code": "SV",
+        "country": "Сальвадор",
+        "region": "SantaAna",
+        "region_code": 242
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Ноград",
+        "region_code": 646
     },
     {
         "country_code": "TR",
-        "region": "Мардин",
-        "country": "Турция"
-    },
-    {
-        "country_code": "CN",
-        "region": "городской округ Ордос",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Северная Осетия - Алания",
-        "region_code": 79,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "15",
-        "fias_region_guid": "de459e9c-2933-4923-83d1-9c64cfd7a817"
-    },
-    {
-        "country_code": "RU",
-        "region": "Удмуртская",
-        "region_code": 48,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "18",
-        "fias_region_guid": "52618b9c-bcbb-47e7-8957-95c63f0b17cc"
-    },
-    {
-        "country_code": "DE",
-        "region": "Гамбург",
-        "region_code": 409,
-        "country": "Германия"
-    },
-    {
-        "country_code": "TR",
-        "region": "Денизли",
-        "country": "Турция"
-    },
-    {
-        "country_code": "LT",
-        "region": "Клайпедский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "RU",
-        "region": "Карелия",
-        "region_code": 73,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "10",
-        "fias_region_guid": "248d8071-06e1-425e-a1cf-d1ff4c4a14a8"
-    },
-    {
-        "country_code": "US",
-        "region": "Северная Каролина",
-        "region_code": 760,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Санкт-Петербург",
-        "region_code": 82,
-        "country": "Россия",
-        "prefix": "",
-        "kladr_region_code": "78",
-        "fias_region_guid": "c2deb16a-0330-4f05-821f-1d09c93331e6"
-    },
-    {
-        "country_code": "KR",
-        "region": "провинция Кёнсан-Пукто",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "US",
-        "region": "Техас",
-        "region_code": 817,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Кабардино-Балкарская",
-        "region_code": 78,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "07",
-        "fias_region_guid": "1781f74e-be4a-4697-9c6b-493057c94818"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Южночешский край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "TR",
-        "region": "Килис",
-        "country": "Турция"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Сырдарьинская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Цзянси",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Ферганская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "RU",
-        "region": "Мордовия",
-        "region_code": 68,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "13",
-        "fias_region_guid": "37a0c60a-9240-48b5-a87f-0d8c86cdb6e1"
-    },
-    {
-        "country_code": "RU",
-        "region": "Тамбовская",
-        "region_code": 58,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "68",
-        "fias_region_guid": "a9a71961-9363-44ba-91b5-ddf0463aebc2"
-    },
-    {
-        "country_code": "TR",
-        "region": "Агры",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Южная Каролина",
-        "region_code": 939,
-        "country": "США"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Шэньси",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "UA",
-        "region": "Винницкая область",
-        "region_code": 392,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Иркутская",
-        "region_code": 4,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "38",
-        "fias_region_guid": "6466c988-7ce3-45e5-8b97-90ae16cb1249"
-    },
-    {
-        "country_code": "TR",
-        "region": "Сакарья",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Хакасия",
-        "region_code": 74,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "19",
-        "fias_region_guid": "8d3f1d35-f0f4-41b5-b5b7-e7cadf3e7bd7"
-    },
-    {
-        "country_code": "RU",
-        "region": "Астраханская",
-        "region_code": 34,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "30",
-        "fias_region_guid": "83009239-25cb-4561-af8e-7ee111b1cb73"
-    },
-    {
-        "country_code": "AE",
-        "region": "эмират Шарджа",
-        "country": "ОАЭ"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Гуандун",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Камчатский",
-        "region_code": 55,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "41",
-        "fias_region_guid": "d02f30fc-83bf-4c0f-ac2b-5729a866a207"
-    },
-    {
-        "country_code": "RU",
-        "region": "Краснодарский",
-        "region_code": 7,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "23",
-        "fias_region_guid": "d00e1013-16bd-4c09-b3d5-3cb09fc54bd8"
-    },
-    {
-        "country_code": "DE",
-        "region": "Бремен",
-        "region_code": 355,
-        "country": "Германия"
-    },
-    {
-        "country_code": "TR",
-        "region": "Афьонкарахисар",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Чорум",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Алтайский",
-        "region_code": 2,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "22",
-        "fias_region_guid": "8276c6a1-1a86-4f0d-8920-aba34d4cc34a"
-    },
-    {
-        "country_code": "LT",
-        "region": "Шяуляйский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Джизакская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "DE",
-        "region": "Саксония",
-        "region_code": 235,
-        "country": "Германия"
-    },
-    {
-        "country_code": "RU",
-        "region": "Бурятия",
-        "region_code": 12,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "03",
-        "fias_region_guid": "a84ebed3-153d-4ba9-8532-8bdf879e1f5a"
-    },
-    {
-        "country_code": "US",
-        "region": "Аляска",
-        "region_code": 307,
-        "country": "США"
-    },
-    {
-        "country_code": "UA",
-        "region": "Запорожская область",
-        "region_code": 466,
-        "country": "Украина"
-    },
-    {
-        "country_code": "US",
-        "region": "Южная Дакота",
-        "region_code": 938,
-        "country": "США"
-    },
-    {
-        "country_code": "LT",
-        "region": "Утенский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "RU",
-        "region": "Башкортостан",
-        "region_code": 27,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "02",
-        "fias_region_guid": "6f2cbfd8-692a-4ee4-9b16-067210bde3fc"
-    },
-    {
-        "country_code": "RU",
-        "region": "Сахалинская",
-        "region_code": 20,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "65",
-        "fias_region_guid": "aea6280f-4648-460f-b8be-c2bc18923191"
-    },
-    {
-        "country_code": "TR",
-        "region": "Ширнак",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Флорида",
-        "region_code": 847,
-        "country": "США"
-    },
-    {
-        "country_code": "LT",
-        "region": "Мариямпольский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "US",
-        "region": "Миссури",
-        "region_code": 605,
-        "country": "США"
-    },
-    {
-        "country_code": "US",
-        "region": "Делавэр",
-        "region_code": 433,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Орловская",
-        "region_code": 36,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "57",
-        "fias_region_guid": "5e465691-de23-4c4e-9f46-f35a125b5970"
-    },
-    {
-        "country_code": "TR",
-        "region": "Анталья",
-        "country": "Турция"
-    },
-    {
-        "country_code": "UA",
-        "region": "Тернопольская область",
-        "region_code": 815,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ростовская",
-        "region_code": 45,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "61",
-        "fias_region_guid": "f10763dc-63e3-48db-83e1-9c566fe3092b"
-    },
-    {
-        "country_code": "TR",
-        "region": "Батман",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Тыва",
-        "region_code": 75,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "17",
-        "fias_region_guid": "026bc56f-3731-48e9-8245-655331f596c0"
-    },
-    {
-        "country_code": "TR",
-        "region": "Караман",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Болу",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Алтай",
-        "region_code": 25,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "04",
-        "fias_region_guid": "5c48611f-5de6-4771-9695-7e36a4e7529d"
-    },
-    {
-        "country_code": "TR",
-        "region": "Диярбакыр",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Трабзон",
-        "country": "Турция"
-    },
-    {
-        "country_code": "UA",
-        "region": "Днепропетровская область",
-        "region_code": 441,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ленинградская",
-        "region_code": 26,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "47",
-        "fias_region_guid": "6d1ebb35-70c6-4129-bd55-da3969658f5d"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ханты-Мансийский Автономный округ - Югра",
-        "region_code": 11,
-        "country": "Россия",
-        "prefix": "автономный округ",
-        "kladr_region_code": "86",
-        "fias_region_guid": "d66e5325-3a25-4d29-ba86-4ca351d9704b"
-    },
-    {
-        "country_code": "TR",
-        "region": "Элязыг",
-        "country": "Турция"
-    },
-    {
-        "country_code": "KR",
-        "region": "город-метрополия Тэгу",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "KR",
-        "region": "провинция Чолла-Пукто",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "CN",
-        "region": "Синьцзян-Уйгурский автономный район",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Конья",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ямало-Ненецкий",
-        "region_code": 6,
-        "country": "Россия",
-        "prefix": "автономный округ",
-        "kladr_region_code": "89",
-        "fias_region_guid": "826fa834-3ee8-404f-bdbc-13a5221cfb6e"
-    },
-    {
-        "country_code": "US",
-        "region": "Мэриленд",
-        "region_code": 624,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Белгородская",
-        "region_code": 16,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "31",
-        "fias_region_guid": "639efe9d-3fc8-4438-8e70-ec4f2321f2a7"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Цинхай",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Пермский",
-        "region_code": 22,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "59",
-        "fias_region_guid": "4f8b1a21-e4bb-422f-9087-d3cbf4bebc14"
-    },
-    {
-        "country_code": "CN",
-        "region": "город центрального подчинения Тяньцзинь",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Мурманская",
-        "region_code": 43,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "51",
-        "fias_region_guid": "1c727518-c96a-4f34-9ae6-fd510da3be03"
-    },
-    {
-        "country_code": "TR",
-        "region": "Ушак",
-        "country": "Турция"
-    },
-    {
-        "country_code": "DE",
-        "region": "Шлезвиг-Гольштейн",
-        "region_code": 914,
-        "country": "Германия"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Андижанская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "US",
-        "region": "Луизиана",
-        "region_code": 569,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Амурская",
-        "region_code": 56,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "28",
-        "fias_region_guid": "844a80d6-5e31-4017-b422-4d9c01e9942c"
-    },
-    {
-        "country_code": "TR",
-        "region": "Маниса",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Эдирне",
-        "country": "Турция"
-    },
-    {
-        "country_code": "UA",
-        "region": "Одесская область",
-        "region_code": 668,
-        "country": "Украина"
-    },
-    {
-        "country_code": "UA",
-        "region": "Кировоградская область",
-        "region_code": 518,
-        "country": "Украина"
-    },
-    {
-        "country_code": "UA",
-        "region": "Житомирская область",
-        "region_code": 457,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Курская",
-        "region_code": 62,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "46",
-        "fias_region_guid": "ee594d5e-30a9-40dc-b9f2-0add1be44ba1"
-    },
-    {
-        "country_code": "TR",
-        "region": "Эскишехир",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Брянская",
-        "region_code": 29,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "32",
-        "fias_region_guid": "f5807226-8be0-4ea8-91fc-39d053aec1e2"
-    },
-    {
-        "country_code": "UA",
-        "region": "Черновицкая область",
-        "region_code": 897,
-        "country": "Украина"
-    },
-    {
-        "country_code": "TR",
-        "region": "Кайсери",
-        "country": "Турция"
-    },
-    {
-        "country_code": "UA",
-        "region": "Черниговская область",
-        "region_code": 896,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Забайкальский",
-        "region_code": 49,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "75",
-        "fias_region_guid": "b6ba5716-eb48-401b-8443-b197c9578734"
-    },
-    {
-        "country_code": "UA",
-        "region": "Киев",
-        "country": "Украина"
-    },
-    {
-        "country_code": "KR",
-        "region": "провинция Кёнсан-Намдо",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Зонгулдак",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Вологодская",
-        "region_code": 51,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "35",
-        "fias_region_guid": "ed36085a-b2f5-454f-b9a9-1c9a678ee618"
-    },
-    {
-        "country_code": "TR",
-        "region": "Текирдаг",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Массачусетс",
-        "region_code": 592,
-        "country": "США"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Пльзеньский край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "US",
-        "region": "Род-Айленд",
-        "region_code": 721,
-        "country": "США"
-    },
-    {
-        "country_code": "US",
-        "region": "Нью-Йорк",
-        "region_code": 656,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Липецкая",
-        "region_code": 60,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "48",
-        "fias_region_guid": "1490490e-49c5-421c-9572-5673ba5d80c8"
-    },
-    {
-        "country_code": "DE",
-        "region": "Саар",
-        "region_code": 729,
-        "country": "Германия"
-    },
-    {
-        "country_code": "UA",
-        "region": "Ивано-Франковская область",
-        "region_code": 469,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Омская",
-        "region_code": 15,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "55",
-        "fias_region_guid": "05426864-466d-41a3-82c4-11e61cdc98ce"
-    },
-    {
-        "country_code": "DE",
-        "region": "Мекленбург-Передняя Померания",
-        "region_code": 209,
-        "country": "Германия"
-    },
-    {
-        "country_code": "RU",
-        "region": "Владимирская",
-        "region_code": 17,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "33",
-        "fias_region_guid": "b8837188-39ee-4ff9-bc91-fcc9ed451bb3"
-    },
-    {
-        "country_code": "RU",
-        "region": "Томская",
-        "region_code": 53,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "70",
-        "fias_region_guid": "889b1f3a-98aa-40fc-9d3d-0f41192758ab"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ивановская",
-        "region_code": 8,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "37",
-        "fias_region_guid": "0824434f-4098-4467-af72-d4f702fed335"
-    },
-    {
-        "country_code": "US",
-        "region": "Колорадо",
-        "region_code": 523,
-        "country": "США"
-    },
-    {
-        "country_code": "TR",
-        "region": "Адана",
-        "country": "Турция"
-    },
-    {
-        "country_code": "UA",
-        "region": "Киевская область",
-        "region_code": 515,
-        "country": "Украина"
-    },
-    {
-        "country_code": "US",
-        "region": "Иллинойс",
-        "region_code": 475,
-        "country": "США"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Хэйлунцзян",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Ганьсу",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Рязанская",
-        "region_code": 41,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "62",
-        "fias_region_guid": "963073ee-4dfc-48bd-9a70-d2dfc6bd1f31"
-    },
-    {
-        "country_code": "RU",
-        "region": "Самарская",
-        "region_code": 57,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "63",
-        "fias_region_guid": "df3d7359-afa9-4aaa-8ff9-197e73906b1c"
-    },
-    {
-        "country_code": "TR",
-        "region": "Малатья",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Кастамону",
-        "country": "Турция"
-    },
-    {
-        "country_code": "LT",
-        "region": "Каунасский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ярославская",
-        "region_code": 35,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "76",
-        "fias_region_guid": "a84b2ef4-db03-474b-b552-6229e801ae9b"
-    },
-    {
-        "country_code": "US",
-        "region": "Вайоминг",
-        "region_code": 367,
-        "country": "США"
-    },
-    {
-        "country_code": "US",
-        "region": "Северная Дакота",
-        "region_code": 758,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Москва",
-        "region_code": 81,
-        "country": "Россия",
-        "prefix": "",
-        "kladr_region_code": "77",
-        "fias_region_guid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Оломоуцкий край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "US",
-        "region": "Юта",
-        "region_code": 943,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ставропольский",
-        "region_code": 19,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "26",
-        "fias_region_guid": "327a060b-878c-4fb4-8dc4-d5595871a3d8"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Аньхой",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ненецкий",
-        "region_code": 77,
-        "country": "Россия",
-        "prefix": "автономный округ",
-        "kladr_region_code": "83",
-        "fias_region_guid": "89db3198-6803-4106-9463-cbf781eff0b8"
-    },
-    {
-        "country_code": "US",
-        "region": "Айдахо",
-        "region_code": 287,
-        "country": "США"
-    },
-    {
-        "country_code": "UA",
-        "region": "Львовская область",
-        "region_code": 570,
-        "country": "Украина"
-    },
-    {
-        "country_code": "KR",
-        "region": "провинция с особой автономией Чеджудо",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Тунджели",
-        "country": "Турция"
-    },
-    {
-        "country_code": "CN",
-        "region": "город центрального подчинения Чунцин",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "US",
-        "region": "Висконсин",
-        "region_code": 394,
-        "country": "США"
-    },
-    {
-        "country_code": "DE",
-        "region": "Тюрингия",
-        "region_code": 262,
-        "country": "Германия"
-    },
-    {
-        "country_code": "TR",
-        "region": "Синоп",
-        "country": "Турция"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Чжэцзян",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "US",
-        "region": "Пенсильвания",
-        "region_code": 695,
-        "country": "США"
-    },
-    {
-        "country_code": "TR",
-        "region": "Чанкыры",
-        "country": "Турция"
-    },
-    {
-        "country_code": "UA",
-        "region": "Волынская область",
-        "region_code": 400,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Татарстан",
-        "region_code": 39,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "16",
-        "fias_region_guid": "0c089b04-099e-4e0e-955a-6bf1ce525f1a"
-    },
-    {
-        "country_code": "US",
-        "region": "Джорджия",
-        "region_code": 440,
-        "country": "США"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Ташкент",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "US",
-        "region": "Оклахома",
-        "region_code": 671,
-        "country": "США"
-    },
-    {
-        "country_code": "TR",
-        "region": "Карабюк",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Пензенская",
-        "region_code": 69,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "58",
-        "fias_region_guid": "c99e7924-0428-4107-a302-4fd7c0cca3ff"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Южноморавский край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "AE",
-        "region": "эмират Рас-эль-Хайма",
-        "country": "ОАЭ"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Юньнань",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Хатай",
-        "country": "Турция"
-    },
-    {
-        "country_code": "LT",
-        "region": "Таурагский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "RU",
-        "region": "Хабаровский",
-        "region_code": 14,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "27",
-        "fias_region_guid": "7d468b39-1afa-41ec-8c4f-97a8603cb3d4"
-    },
-    {
-        "country_code": "TR",
-        "region": "Токат",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Мэн",
-        "region_code": 623,
-        "country": "США"
-    },
-    {
-        "country_code": "TR",
-        "region": "Амасья",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Новосибирская",
-        "region_code": 23,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "54",
-        "fias_region_guid": "1ac46b49-3209-4814-b7bf-a509ea1aecd9"
-    },
-    {
-        "country_code": "US",
-        "region": "Виргиния",
-        "region_code": 393,
-        "country": "США"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Хайнань",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Самаркандская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "KR",
-        "region": "провинция Чолла-Намдо",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Байбурт",
-        "country": "Турция"
-    },
-    {
-        "country_code": "KR",
-        "region": "город с особым статусом Сеул",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Муш",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Нью-Джерси",
-        "region_code": 655,
-        "country": "США"
-    },
-    {
-        "country_code": "UA",
-        "region": "Николаевская область",
-        "region_code": 643,
-        "country": "Украина"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Бухарская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Кашкадарьинская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "RU",
-        "region": "Дагестан",
-        "region_code": 21,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "05",
-        "fias_region_guid": "0bb7fa19-736d-49cf-ad0e-9774c4dae09b"
-    },
-    {
-        "country_code": "RU",
-        "region": "Московская",
-        "region_code": 9,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "50",
-        "fias_region_guid": "29251dcf-00a1-4e34-98d4-5c47484a36d4"
-    },
-    {
-        "country_code": "AE",
-        "region": "эмират Аджман",
-        "country": "ОАЭ"
-    },
-    {
-        "country_code": "US",
-        "region": "Орегон",
-        "region_code": 675,
-        "country": "США"
-    },
-    {
-        "country_code": "LT",
-        "region": "Паневежский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Хубэй",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Злинский край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "TR",
-        "region": "Йозгат",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Ялова",
-        "country": "Турция"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Шаньси",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Адыяман",
-        "country": "Турция"
-    },
-    {
-        "country_code": "DE",
-        "region": "Баден-Вюртемберг",
-        "region_code": 333,
-        "country": "Германия"
-    },
-    {
-        "country_code": "UA",
-        "region": "Луганская область",
-        "region_code": 567,
-        "country": "Украина"
-    },
-    {
-        "country_code": "KR",
-        "region": "город-метрополия Пусан",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Кемеровская",
-        "region_code": 54,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "42",
-        "fias_region_guid": "393aeccb-89ef-4a7e-ae42-08d5cebc2e30"
-    },
-    {
-        "country_code": "US",
-        "region": "Вермонт",
-        "region_code": 383,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Чеченская",
-        "region_code": 71,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "20",
-        "fias_region_guid": "de67dc49-b9ba-48a3-a4cc-c2ebfeca6c5e"
-    },
-    {
-        "country_code": "RU",
-        "region": "Крым",
-        "region_code": 90,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "91",
-        "fias_region_guid": "bd8e6511-e4b9-4841-90de-6bbc231a789e"
-    },
-    {
-        "country_code": "TR",
-        "region": "Сивас",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Смоленская",
-        "region_code": 65,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "67",
-        "fias_region_guid": "e8502180-6d08-431b-83ea-c7038f0df905"
-    },
-    {
-        "country_code": "TR",
-        "region": "Бурдур",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Кентукки",
-        "region_code": 508,
-        "country": "США"
-    },
-    {
-        "country_code": "KR",
-        "region": "провинция Кёнгидо",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "US",
-        "region": "Индиана",
-        "region_code": 477,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Ингушетия",
-        "region_code": 72,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "06",
-        "fias_region_guid": "b2d8cd20-cabc-4deb-afad-f3c4b4d55821"
-    },
-    {
-        "country_code": "US",
-        "region": "Канзас",
-        "region_code": 499,
-        "country": "США"
-    },
-    {
-        "country_code": "US",
-        "region": "Нью-Гэмпшир",
-        "region_code": 654,
-        "country": "США"
-    },
-    {
-        "country_code": "US",
-        "region": "Теннесси",
-        "region_code": 814,
-        "country": "США"
-    },
-    {
-        "country_code": "TR",
-        "region": "Османие",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Севастополь",
-        "region_code": 975,
-        "country": "Россия",
-        "prefix": "",
-        "kladr_region_code": "92",
-        "fias_region_guid": "6fdecb78-893a-4e3f-a5ba-aa062459463b"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Краловеградецкий край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "DE",
-        "region": "Саксония-Анхальт",
-        "region_code": 236,
-        "country": "Германия"
-    },
-    {
-        "country_code": "DE",
-        "region": "Бавария",
-        "region_code": 331,
-        "country": "Германия"
-    },
-    {
-        "country_code": "DE",
-        "region": "Рейнланд-Пфальц",
-        "region_code": 715,
-        "country": "Германия"
-    },
-    {
-        "country_code": "US",
-        "region": "Коннектикут",
-        "region_code": 525,
-        "country": "США"
-    },
-    {
-        "country_code": "DE",
-        "region": "Берлин",
-        "region_code": 132,
-        "country": "Германия"
-    },
-    {
-        "country_code": "US",
-        "region": "Аризона",
-        "region_code": 321,
-        "country": "США"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Карловарский край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Республика Каракалпакстан",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "TR",
-        "region": "Ыспарта",
-        "country": "Турция"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Моравскосилезский край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "RU",
-        "region": "Курганская",
-        "region_code": 28,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "45",
-        "fias_region_guid": "4a3d970f-520e-46b9-b16c-50d4ca7535a8"
-    },
-    {
-        "country_code": "LT",
-        "region": "Вильнюсский уезд",
-        "country": "Литва"
-    },
-    {
-        "country_code": "TR",
-        "region": "Гюмюшхане",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Карс",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Тюменская",
-        "region_code": 52,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "72",
-        "fias_region_guid": "54049357-326d-4b8f-b224-3c6dc25d6dd3"
-    },
-    {
-        "country_code": "RU",
-        "region": "Карачаево-Черкесская",
-        "region_code": 80,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "09",
-        "fias_region_guid": "61b95807-388a-4cb1-9bee-889f7cf811c8"
-    },
-    {
-        "country_code": "TR",
-        "region": "Ван",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Волгоградская",
-        "region_code": 40,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "34",
-        "fias_region_guid": "da051ec8-da2e-4a66-b542-473b8d221ab4"
-    },
-    {
-        "country_code": "TR",
-        "region": "Биледжик",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Сиирт",
-        "country": "Турция"
-    },
-    {
-        "country_code": "RU",
-        "region": "Красноярский",
-        "region_code": 13,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "24",
-        "fias_region_guid": "db9c4f8b-b706-40e2-b2b4-d31b98dcd3d1"
-    },
-    {
-        "country_code": "KR",
-        "region": "провинция Чхунчхон-Намдо",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Артвин",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Нигде",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Миссисипи",
-        "region_code": 604,
-        "country": "США"
-    },
-    {
-        "country_code": "US",
-        "region": "Монтана",
-        "region_code": 617,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Калужская",
-        "region_code": 33,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "40",
-        "fias_region_guid": "18133adf-90c2-438e-88c4-62c41656de70"
-    },
-    {
-        "country_code": "US",
-        "region": "Нью-Мексико",
-        "region_code": 657,
-        "country": "США"
-    },
-    {
-        "country_code": "UA",
-        "region": "Черкасская область",
-        "region_code": 895,
-        "country": "Украина"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Шаньдун",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Битлис",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Айдын",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Мичиган",
-        "region_code": 607,
-        "country": "США"
-    },
-    {
-        "country_code": "US",
-        "region": "Невада",
-        "region_code": 635,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Саратовская",
-        "region_code": 47,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "64",
-        "fias_region_guid": "df594e0e-a935-4664-9d26-0bae13f904fe"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Гуйчжоу",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Стамбул",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Газиантеп",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Айова",
-        "region_code": 289,
-        "country": "США"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Пардубицкий край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "TR",
-        "region": "Анкара",
-        "country": "Турция"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Сурхандарьинская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "RU",
-        "region": "Адыгея",
-        "region_code": 61,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "01",
-        "fias_region_guid": "d8327a56-80de-4df2-815c-4f6ab1224c50"
-    },
-    {
-        "country_code": "RU",
-        "region": "Псковская",
-        "region_code": 30,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "60",
-        "fias_region_guid": "f6e148a1-c9d0-4141-a608-93e3bd95e6c4"
-    },
-    {
-        "country_code": "RU",
-        "region": "Саха \/Якутия\/",
-        "region_code": 10,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "14",
-        "fias_region_guid": "c225d3db-1db6-4063-ace0-b3fe9ea3805f"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Ляонин",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "UA",
-        "region": "Полтавская область",
-        "region_code": 707,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Калмыкия",
-        "region_code": 46,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "08",
-        "fias_region_guid": "491cde9d-9d76-4591-ab46-ea93c079e686"
-    },
-    {
-        "country_code": "US",
-        "region": "Алабама",
-        "region_code": 295,
-        "country": "США"
-    },
-    {
-        "country_code": "US",
-        "region": "Вашингтон",
-        "region_code": 376,
-        "country": "США"
-    },
-    {
-        "country_code": "TR",
-        "region": "Кыршехир",
-        "country": "Турция"
-    },
-    {
-        "country_code": "LT",
-        "region": "Кедайнский район",
-        "country": "Литва"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Сычуань",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "US",
-        "region": "Огайо",
-        "region_code": 666,
-        "country": "США"
-    },
-    {
-        "country_code": "KR",
-        "region": "провинция Канвондо",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Коджаэли",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
+        "country": "Турция",
         "region": "Самсун",
-        "country": "Турция"
+        "region_code": 740
     },
     {
-        "country_code": "RU",
-        "region": "Чувашская",
-        "region_code": 64,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "21",
-        "fias_region_guid": "878fc621-3708-46c7-a97f-5a13a4176b3e"
+        "country_code": "SV",
+        "country": "Сальвадор",
+        "region": "SanMiguel",
+        "region_code": 240
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Сан-Луис",
+        "region_code": 741
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Сальта",
+        "region_code": 737
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Сарагоса",
+        "region_code": 752
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Санта-Фе",
+        "region_code": 748
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Cantabria",
+        "region_code": 134
+    },
+    {
+        "country_code": "DO",
+        "country": "Доминиканская Республика",
+        "region": "Санто-доминго",
+        "region_code": 749
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Сантьяго-дель-Эстеро",
+        "region_code": 751
+    },
+    {
+        "country_code": "SV",
+        "country": "Сальвадор",
+        "region": "Sonsonate",
+        "region_code": 248
+    },
+    {
+        "country_code": "CH",
+        "country": "Швейцария",
+        "region": "Золотурн",
+        "region_code": 467
+    },
+    {
+        "country_code": "KZ",
+        "country": "Казахстан",
+        "region": "Семипалатинская обл.",
+        "region_code": 766
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Кот-д'Армор",
+        "region_code": 146
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Луара",
+        "region_code": 562
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Ceuta",
+        "region_code": 137
     },
     {
         "country_code": "TR",
-        "region": "Ризе",
-        "country": "Турция"
+        "country": "Турция",
+        "region": "Сивас",
+        "region_code": 772
+    },
+    {
+        "country_code": "NO",
+        "country": "Норвегия",
+        "region": "Телемарк",
+        "region_code": 812
+    },
+    {
+        "country_code": "MK",
+        "country": "Македония",
+        "region": "Скопье",
+        "region_code": 780
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Севилья",
+        "region_code": 765
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Тегеран",
+        "region_code": 810
+    },
+    {
+        "country_code": "HN",
+        "country": "Гондурас",
+        "region": "Тегусигальпа",
+        "region_code": 811
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Пиауи",
+        "region_code": 700
+    },
+    {
+        "country_code": "MA",
+        "country": "Марокко",
+        "region": "Танжер",
+        "region_code": 805
+    },
+    {
+        "country_code": "EG",
+        "country": "Египет",
+        "region": "Гарбия",
+        "region_code": 412
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Верхние Пиренеи",
+        "region_code": 702
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Комаром",
+        "region_code": 524
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "BayofPlenty",
+        "region_code": 129
     },
     {
         "country_code": "CN",
-        "region": "город центрального подчинения Пекин",
-        "country": "Китай (КНР)"
+        "country": "Китай (КНР)",
+        "region": "Шаньси",
+        "region_code": 908
     },
     {
-        "country_code": "TR",
-        "region": "Кахраманмараш",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Кырыккале",
-        "country": "Турция"
-    },
-    {
-        "country_code": "CN",
-        "region": "Гуанси-Чжуанский автономный район",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "US",
-        "region": "Округ Колумбия",
-        "region_code": 672,
-        "country": "США"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Навоийская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "US",
-        "region": "Гавайи",
-        "region_code": 406,
-        "country": "США"
-    },
-    {
-        "country_code": "RU",
-        "region": "Кировская",
-        "region_code": 44,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "43",
-        "fias_region_guid": "0b940b96-103f-4248-850c-26b6c7296728"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Хунань",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "AE",
-        "region": "эмират Умм-эль-Кайвайн",
-        "country": "ОАЭ"
-    },
-    {
-        "country_code": "RU",
-        "region": "Воронежская",
-        "region_code": 63,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "36",
-        "fias_region_guid": "b756fe6b-bbd3-44d5-9302-5bfcc740f46e"
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Кагава",
+        "region_code": 489
     },
     {
         "country_code": "KR",
-        "region": "город-метрополия Инчхон",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Либерецкий край",
-        "country": "Чехия"
-    },
-    {
-        "country_code": "AE",
-        "region": "эмират Дубай",
-        "country": "ОАЭ"
-    },
-    {
-        "country_code": "TR",
-        "region": "Ардахан",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Арканзас",
-        "region_code": 322,
-        "country": "США"
-    },
-    {
-        "country_code": "CZ",
-        "region": "Устецкий край",
-        "country": "Чехия"
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Taegu",
+        "region_code": 255
     },
     {
         "country_code": "KR",
-        "region": "Кванджу",
-        "country": "Южная Корея (Республика Корея)"
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Taejeon",
+        "region_code": 256
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Трабзон",
+        "region_code": 826
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Тукуман",
+        "region_code": 829
+    },
+    {
+        "country_code": "LY",
+        "country": "Ливия",
+        "region": "Tarabulus",
+        "region_code": 257
+    },
+    {
+        "country_code": "SK",
+        "country": "Словакия",
+        "region": "Trnavsky",
+        "region_code": 263
+    },
+    {
+        "country_code": "NO",
+        "country": "Норвегия",
+        "region": "Сёр-Трённелаг",
+        "region_code": 771
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Об",
+        "region_code": 664
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Varsinais-Suomi",
+        "region_code": 269
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Эндр и Луара",
+        "region_code": 923
+    },
+    {
+        "country_code": "MN",
+        "country": "Монголия",
+        "region": "Улан-батор",
+        "region_code": 833
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Ulsan",
+        "region_code": 266
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Вестерботтен",
+        "region_code": 387
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Формоса",
+        "region_code": 848
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Thessaloniki",
+        "region_code": 261
+    },
+    {
+        "country_code": "PT",
+        "country": "Португалия",
+        "region": "Фаро",
+        "region_code": 840
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Гаронна Верхняя",
+        "region_code": 413
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Халланд",
+        "region_code": 861
+    },
+    {
+        "country_code": "DK",
+        "country": "Дания",
+        "region": "Хельсингор",
+        "region_code": 869
+    },
+    {
+        "country_code": "CR",
+        "country": "Коста-Рика",
+        "region": "Heredia",
+        "region_code": 170
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Hania",
+        "region_code": 168
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Hamadan",
+        "region_code": 166
+    },
+    {
+        "country_code": "CZ",
+        "country": "Чехия",
+        "region": "Jihochesky",
+        "region_code": 175
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Cheju",
+        "region_code": 139
+    },
+    {
+        "country_code": "CZ",
+        "country": "Чехия",
+        "region": "Kralovehradecky",
+        "region_code": 188
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Жужуй",
+        "region_code": 458
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Чонград",
+        "region_code": 902
+    },
+    {
+        "country_code": "VN",
+        "country": "Вьетнам",
+        "region": "MienNuiVaTrung",
+        "region_code": 210
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Емтланд",
+        "region_code": 452
+    },
+    {
+        "country_code": "AZ",
+        "country": "Азербайджан",
+        "region": "НагорныйКарабах",
+        "region_code": 628
+    },
+    {
+        "country_code": "NL",
+        "country": "Нидерланды",
+        "region": "Дренте",
+        "region_code": 443
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Вогезы",
+        "region_code": 398
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Эрзинджан",
+        "region_code": 927
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Эрзурум",
+        "region_code": 928
+    },
+    {
+        "country_code": "DK",
+        "country": "Дания",
+        "region": "Pибе",
+        "region_code": 234
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Чиуауа",
+        "region_code": 901
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Мегхалая",
+        "region_code": 596
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Chungcheongbuk",
+        "region_code": 143
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Chungcheongnam",
+        "region_code": 144
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Марна",
+        "region_code": 590
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Эр",
+        "region_code": 926
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Эдирне",
+        "region_code": 918
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Арденны",
+        "region_code": 320
+    },
+    {
+        "country_code": "CA",
+        "country": "Канада",
+        "region": "ПринцЭдуард",
+        "region_code": 710
+    },
+    {
+        "country_code": "EG",
+        "country": "Египет",
+        "region": "Синай",
+        "region_code": 777
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Эндр",
+        "region_code": 922
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Элязыг",
+        "region_code": 919
+    },
+    {
+        "country_code": "KW",
+        "country": "Кувейт",
+        "region": "al-Kuwayt",
+        "region_code": 119
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Ямбол",
+        "region_code": 948
+    },
+    {
+        "country_code": "CM",
+        "country": "Камерун",
+        "region": "Центральная",
+        "region_code": 887
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Jasz-Nagykun-Szolnok",
+        "region_code": 174
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Вестернорланд",
+        "region_code": 388
+    },
+    {
+        "country_code": "HK",
+        "country": "Гонконг",
+        "region": "Гонконг",
+        "region_code": 420
+    },
+    {
+        "country_code": "KE",
+        "country": "Кения",
+        "region": "Кения",
+        "region_code": 1006
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Эн",
+        "region_code": 976
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "Лацио",
+        "region_code": 551
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Эна",
+        "region_code": 921
+    },
+    {
+        "country_code": "NO",
+        "country": "Норвегия",
+        "region": "Ругаланн",
+        "region_code": 725
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region_code": 992
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "ОстроваБалеарские",
+        "region_code": 681
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Упсала",
+        "region_code": 835
+    },
+    {
+        "country_code": "LK",
+        "country": "Шри-Ланка",
+        "region": "Шри-Ланка",
+        "region_code": 1001
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "Умбрия",
+        "region_code": 834
+    },
+    {
+        "country_code": "VN",
+        "country": "Вьетнам",
+        "region": "Вьетнам",
+        "region_code": 1017
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "РейнНижний",
+        "region_code": 716
+    },
+    {
+        "country_code": "CH",
+        "country": "Швейцария",
+        "region": "Фрибур",
+        "region_code": 850
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Рона",
+        "region_code": 723
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region_code": 989
+    },
+    {
+        "country_code": "SG",
+        "country": "Сингапур",
+        "region": "Сингапур",
+        "region_code": 779
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Гуйчжоу",
+        "region_code": 985
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Макао",
+        "region_code": 994
+    },
+    {
+        "country_code": "KP",
+        "country": "КНДР (Корейская Народно-Демократическая Республика)",
+        "region": "Korea",
+        "region_code": 186
+    },
+    {
+        "country_code": "ET",
+        "country": "Эфиопия",
+        "region": "Эфиопия",
+        "region_code": 1000
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Kouvola",
+        "region_code": 187
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Алье",
+        "region_code": 303
+    },
+    {
+        "country_code": "TN",
+        "country": "Тунис",
+        "region": "Tunisia",
+        "region_code": 264
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Pohjois-Karjala",
+        "region_code": 228
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Фарс",
+        "region_code": 841
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Трипура",
+        "region_code": 828
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Воклюз",
+        "region_code": 399
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Айдын",
+        "region_code": 288
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Адана",
+        "region_code": 284
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Сакарья",
+        "region_code": 735
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Агуаскальентес",
+        "region_code": 283
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Ло и Гаронна",
+        "region_code": 560
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Шэньси",
+        "region_code": 988
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Орн",
+        "region_code": 677
+    },
+    {
+        "country_code": "CR",
+        "country": "Коста-Рика",
+        "region": "Alajuela",
+        "region_code": 120
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Кадис",
+        "region_code": 491
+    },
+    {
+        "country_code": "EG",
+        "country": "Египет",
+        "region": "Египет",
+        "region_code": 451
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Evros",
+        "region_code": 157
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Аликанте",
+        "region_code": 298
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Альмерия",
+        "region_code": 304
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Альбасете",
+        "region_code": 301
+    },
+    {
+        "country_code": "KW",
+        "country": "Кувейт",
+        "region": "al-Jahra",
+        "region_code": 118
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Тарн",
+        "region_code": 806
+    },
+    {
+        "country_code": "DK",
+        "country": "Дания",
+        "region": "CeвернаяЮтландия",
+        "region_code": 138
+    },
+    {
+        "country_code": "JO",
+        "country": "Иордания",
+        "region": "Иордания",
+        "region_code": 480
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Амасья",
+        "region_code": 310
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Токусима",
+        "region_code": 821
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Сомма",
+        "region_code": 784
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Шаранта",
+        "region_code": 909
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Тайвань",
+        "region_code": 799
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Мен и Луара",
+        "region_code": 598
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Анкара",
+        "region_code": 314
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Markazi",
+        "region_code": 206
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Сержипи",
+        "region_code": 769
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Валь-д`Уаз",
+        "region_code": 371
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Артвин",
+        "region_code": 324
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Сидзуока",
+        "region_code": 774
+    },
+    {
+        "country_code": "EG",
+        "country": "Египет",
+        "region": "Асуан",
+        "region_code": 327
+    },
+    {
+        "country_code": "EG",
+        "country": "Египет",
+        "region": "Асьют",
+        "region_code": 328
+    },
+    {
+        "country_code": "KZ",
+        "country": "Казахстан",
+        "region": "Целиноградская обл.",
+        "region_code": 886
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Афьон",
+        "region_code": 329
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Хузистан",
+        "region_code": 880
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Attiki",
+        "region_code": 123
+    },
+    {
+        "country_code": "KZ",
+        "country": "Казахстан",
+        "region": "Гурьевская обл.",
+        "region_code": 431
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Южная Корсика",
+        "region_code": 533
+    },
+    {
+        "country_code": "SV",
+        "country": "Сальвадор",
+        "region": "Ahuachapan",
+        "region_code": 117
+    },
+    {
+        "country_code": "CH",
+        "country": "Швейцария",
+        "region": "Базель-Штадт",
+        "region_code": 334
+    },
+    {
+        "country_code": "IQ",
+        "country": "Ирак",
+        "region": "Багдад",
+        "region_code": 332
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Мазендеран",
+        "region_code": 578
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Bayburt",
+        "region_code": 128
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Атлантические Пиренеи",
+        "region_code": 701
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Bartin",
+        "region_code": 127
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Балыкесир",
+        "region_code": 336
+    },
+    {
+        "country_code": "IQ",
+        "country": "Ирак",
+        "region": "Басра",
+        "region_code": 340
+    },
+    {
+        "country_code": "GP",
+        "country": "Гваделупа",
+        "region": "Бас-Тер",
+        "region_code": 339
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Верхняя Корсика",
+        "region_code": 532
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Ду",
+        "region_code": 445
+    },
+    {
+        "country_code": "BZ",
+        "country": "Белиз",
+        "region": "Belize",
+        "region_code": 131
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Пара",
+        "region_code": 689
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Бекеш",
+        "region_code": 343
+    },
+    {
+        "country_code": "LB",
+        "country": "Ливан",
+        "region": "Бейрут",
+        "region_code": 342
+    },
+    {
+        "country_code": "LY",
+        "country": "Ливия",
+        "region": "Бенгази",
+        "region_code": 346
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Хорасан",
+        "region_code": 875
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Территория Бельфор",
+        "region_code": 345
+    },
+    {
+        "country_code": "NO",
+        "country": "Норвегия",
+        "region": "Хуралан",
+        "region_code": 882
+    },
+    {
+        "country_code": "EG",
+        "country": "Египет",
+        "region": "Бени-Суэйф",
+        "region_code": 347
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region_code": 986
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Нинся",
+        "region_code": 990
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region_code": 991
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region_code": 993
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Пиренеи Восточные",
+        "region_code": 703
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Биледжик",
+        "region_code": 349
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Бискайя",
+        "region_code": 350
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Луар и Шер",
+        "region_code": 566
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Marlborough",
+        "region_code": 207
+    },
+    {
+        "country_code": "NO",
+        "country": "Норвегия",
+        "region": "Нордланд",
+        "region_code": 648
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "Трентино-Альто-Адидже",
+        "region_code": 827
+    },
+    {
+        "country_code": "NL",
+        "country": "Нидерланды",
+        "region": "СеверныйБрабант",
+        "region_code": 762
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Коррез",
+        "region_code": 530
     },
     {
         "country_code": "DE",
-        "region": "Нижняя Саксония",
-        "region_code": 641,
-        "country": "Германия"
-    },
-    {
-        "country_code": "TR",
-        "region": "Бартын",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Калифорния",
-        "region_code": 495,
-        "country": "США"
-    },
-    {
-        "country_code": "UA",
-        "region": "Хмельницкая область",
-        "region_code": 873,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Новгородская",
-        "region_code": 31,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "53",
-        "fias_region_guid": "e5a84b81-8ea1-49e3-b3c4-0528651be129"
-    },
-    {
-        "country_code": "CN",
-        "region": "Тибетский автономный район",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "UA",
-        "region": "Закарпатская область",
-        "region_code": 459,
-        "country": "Украина"
-    },
-    {
-        "country_code": "RU",
-        "region": "Оренбургская",
-        "region_code": 5,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "56",
-        "fias_region_guid": "8bcec9d6-05bc-4e53-b45c-ba0c6f3a5c44"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Наманганская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "TR",
-        "region": "Невшехир",
-        "country": "Турция"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Хэбэй",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "TR",
-        "region": "Хаккяри",
-        "country": "Турция"
-    },
-    {
-        "country_code": "CN",
-        "region": "провинция Цзянсу",
-        "country": "Китай (КНР)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Коми",
-        "region_code": 1,
-        "country": "Россия",
-        "prefix": "республика",
-        "kladr_region_code": "11",
-        "fias_region_guid": "c20180d9-ad9c-46d1-9eff-d60bc424592a"
-    },
-    {
-        "country_code": "RU",
-        "region": "Тульская",
-        "region_code": 37,
-        "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "71",
-        "fias_region_guid": "d028ec4f-f6da-4843-ada6-b68b3e0efa3d"
-    },
-    {
-        "country_code": "UZ",
-        "region": "Хорезмская область",
-        "country": "Узбекистан"
-    },
-    {
-        "country_code": "TR",
-        "region": "Эрзинджан",
-        "country": "Турция"
-    },
-    {
-        "country_code": "TR",
-        "region": "Аксарай",
-        "country": "Турция"
-    },
-    {
-        "country_code": "US",
-        "region": "Небраска",
-        "region_code": 634,
-        "country": "США"
-    },
-    {
-        "country_code": "UA",
-        "region": "Ровненская область",
-        "region_code": 720,
-        "country": "Украина"
-    },
-    {
-        "country_code": "KR",
-        "region": "город-метрополия Тэджон",
-        "country": "Южная Корея (Республика Корея)"
-    },
-    {
-        "country_code": "RU",
-        "region": "Приморский",
-        "region_code": 18,
-        "country": "Россия",
-        "prefix": "край",
-        "kladr_region_code": "25",
-        "fias_region_guid": "43909681-d6e1-432d-b61f-ddac393cb5da"
+        "country": "Германия",
+        "region": "Бремен",
+        "region_code": 355
     },
     {
         "country_code": "CZ",
-        "region": "Среднечешский край",
-        "country": "Чехия"
+        "country": "Чехия",
+        "region": "Jihomoravsky",
+        "region_code": 176
+    },
+    {
+        "country_code": "BE",
+        "country": "Бельгия",
+        "region": "Брюссель",
+        "region_code": 358
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Бургос",
+        "region_code": 361
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Будапешт",
+        "region_code": 359
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Бурса",
+        "region_code": 362
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Шер",
+        "region_code": 913
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Pohjanmaa",
+        "region_code": 227
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Вакаяма",
+        "region_code": 368
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Manawatu-Wanganui",
+        "region_code": 205
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Northland",
+        "region_code": 214
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Леон",
+        "region_code": 552
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Вестманланд",
+        "region_code": 389
+    },
+    {
+        "country_code": "AT",
+        "country": "Австрия",
+        "region": "Вена",
+        "region_code": 379
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Веспрем",
+        "region_code": 385
+    },
+    {
+        "country_code": "CM",
+        "country": "Камерун",
+        "region": "Sudouest",
+        "region_code": 253
     },
     {
         "country_code": "RU",
-        "region": "Челябинская",
-        "region_code": 3,
         "country": "Россия",
-        "prefix": "область",
-        "kladr_region_code": "74",
-        "fias_region_guid": "27eb7c10-a234-44da-a59c-8b1f864966de"
+        "region": "Севастополь",
+        "region_code": 975
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Видин",
+        "region_code": 390
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Текирдаг",
+        "region_code": 1003
+    },
+    {
+        "country_code": "CA",
+        "country": "Канада",
+        "region": "Манитоба",
+        "region_code": 587
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Магаданская обл.",
+        "region_code": 59
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Magnisia",
+        "region_code": 203
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Верхняя Савойя",
+        "region_code": 732
+    },
+    {
+        "country_code": "CH",
+        "country": "Швейцария",
+        "region": "Аргау",
+        "region_code": 319
+    },
+    {
+        "country_code": "VN",
+        "country": "Вьетнам",
+        "region": "DongNam",
+        "region_code": 151
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Газиантеп",
+        "region_code": 408
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "Абруцци",
+        "region_code": 280
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Уаза",
+        "region_code": 831
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Приморская Сена",
+        "region_code": 768
+    },
+    {
+        "country_code": "CU",
+        "country": "Куба",
+        "region": "Гавана",
+        "region_code": 407
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Евлеборг",
+        "region_code": 450
+    },
+    {
+        "country_code": "BM",
+        "country": "Бермуды",
+        "region": "Hamilton",
+        "region_code": 167
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Waikato",
+        "region_code": 271
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Верхние Альпы",
+        "region_code": 305
+    },
+    {
+        "country_code": "CM",
+        "country": "Камерун",
+        "region": "Северная",
+        "region_code": 756
+    },
+    {
+        "country_code": "CY",
+        "country": "Кипр",
+        "region": "Turkishcontrolledarea",
+        "region_code": 265
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Gisborne",
+        "region_code": 159
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Хевеш",
+        "region_code": 868
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "VastraGotaland",
+        "region_code": 270
+    },
+    {
+        "country_code": "HT",
+        "country": "Гаити",
+        "region": "Artibonite",
+        "region_code": 122
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Аомори",
+        "region_code": 317
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Гояс",
+        "region_code": 422
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "WestCoast",
+        "region_code": 275
+    },
+    {
+        "country_code": "NL",
+        "country": "Нидерланды",
+        "region": "Гронинген",
+        "region_code": 424
+    },
+    {
+        "country_code": "SY",
+        "country": "Сирия",
+        "region": "Дамаск",
+        "region_code": 432
+    },
+    {
+        "country_code": "NL",
+        "country": "Нидерланды",
+        "region": "Оверэйсел",
+        "region_code": 665
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Хайду-Бихар",
+        "region_code": 859
+    },
+    {
+        "country_code": "AU",
+        "country": "Австралия",
+        "region": "СевернаяТерритория",
+        "region_code": 761
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Денизли",
+        "region_code": 434
+    },
+    {
+        "country_code": "NL",
+        "country": "Нидерланды",
+        "region": "СевернаяГолландия",
+        "region_code": 757
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Uttaranchal",
+        "region_code": 268
+    },
+    {
+        "country_code": "GE",
+        "country": "Грузия",
+        "region": "ЮжнаяОсетия",
+        "region_code": 941
+    },
+    {
+        "country_code": "ID",
+        "country": "Индонезия",
+        "region": "Индонезия",
+        "region_code": 479
+    },
+    {
+        "country_code": "HT",
+        "country": "Гаити",
+        "region": "Sud-Est",
+        "region_code": 252
+    },
+    {
+        "country_code": "DE",
+        "country": "Германия",
+        "region": "Гамбург",
+        "region_code": 409
+    },
+    {
+        "country_code": "HT",
+        "country": "Гаити",
+        "region": "Grand`Anse",
+        "region_code": 164
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Кот-д`Ор",
+        "region_code": 535
+    },
+    {
+        "country_code": "IE",
+        "country": "Ирландия",
+        "region": "Dublin",
+        "region_code": 153
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Drama",
+        "region_code": 152
+    },
+    {
+        "country_code": "CM",
+        "country": "Камерун",
+        "region": "Littoral",
+        "region_code": 201
+    },
+    {
+        "country_code": "AE",
+        "country": "ОАЭ",
+        "region": "Дубаи",
+        "region_code": 446
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Chhattisgarh",
+        "region_code": 140
+    },
+    {
+        "country_code": "EG",
+        "country": "Египет",
+        "region": "Думьят",
+        "region_code": 447
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Фейер",
+        "region_code": 843
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Otago",
+        "region_code": 219
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Эскишехир",
+        "region_code": 930
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Сёдерманланд",
+        "region_code": 770
+    },
+    {
+        "country_code": "AM",
+        "country": "Армения",
+        "region": "Армения",
+        "region_code": 323
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Ла-Пампа",
+        "region_code": 546
+    },
+    {
+        "country_code": "AT",
+        "country": "Австрия",
+        "region": "Зальцбург",
+        "region_code": 461
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Ваш",
+        "region_code": 375
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Сакатекас",
+        "region_code": 736
+    },
+    {
+        "country_code": "SV",
+        "country": "Сальвадор",
+        "region": "LaPaz",
+        "region_code": 195
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Sistan-eBaluches",
+        "region_code": 245
+    },
+    {
+        "country_code": "NL",
+        "country": "Нидерланды",
+        "region": "Утрехт",
+        "region_code": 837
+    },
+    {
+        "country_code": "SK",
+        "country": "Словакия",
+        "region": "Жилина",
+        "region_code": 455
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Кески-Суоми",
+        "region_code": 513
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Идальго",
+        "region_code": 472
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Yazd",
+        "region_code": 278
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Герреро",
+        "region_code": 416
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Измир",
+        "region_code": 474
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Southland",
+        "region_code": 249
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Испарта",
+        "region_code": 483
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Iraklion",
+        "region_code": 173
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Incheon",
+        "region_code": 171
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Ioannina",
+        "region_code": 172
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Ямагата",
+        "region_code": 944
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Хунань",
+        "region_code": 881
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Баия",
+        "region_code": 335
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Пуэбла",
+        "region_code": 711
+    },
+    {
+        "country_code": "KG",
+        "country": "Киргизия",
+        "region": "Баткенская обл.",
+        "region_code": 1015
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Kavala",
+        "region_code": 183
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Жиронда",
+        "region_code": 456
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Йёнчёпинг",
+        "region_code": 487
+    },
+    {
+        "country_code": "ZA",
+        "country": "ЮАР (Южно-Африканская Республика)",
+        "region": "Йоханесбург",
+        "region_code": 488
+    },
+    {
+        "country_code": "UG",
+        "country": "Уганда",
+        "region": "Jinja",
+        "region_code": 177
+    },
+    {
+        "country_code": "EG",
+        "country": "Египет",
+        "region": "Аль-Кахира",
+        "region_code": 300
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Параиба",
+        "region_code": 690
+    },
+    {
+        "country_code": "BE",
+        "country": "Бельгия",
+        "region": "Восточная Фландрия",
+        "region_code": 401
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "Фриули-Венеция-Джулия",
+        "region_code": 852
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Gerona",
+        "region_code": 158
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Шаньдун",
+        "region_code": 907
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "О.Сардиния",
+        "region_code": 661
+    },
+    {
+        "country_code": "SK",
+        "country": "Словакия",
+        "region": "Братислава",
+        "region_code": 354
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Хорезмская обл.",
+        "region_code": 877
+    },
+    {
+        "country_code": "HR",
+        "country": "Хорватия",
+        "region": "Хорватия",
+        "region_code": 876
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Тояма",
+        "region_code": 825
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Стокгольм",
+        "region_code": 790
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Seoul",
+        "region_code": 244
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Кампече",
+        "region_code": 497
+    },
+    {
+        "country_code": "UG",
+        "country": "Уганда",
+        "region": "Kampala",
+        "region_code": 178
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Kyeonggi",
+        "region_code": 191
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Ингушетия респ.",
+        "region_code": 72
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Дуранго",
+        "region_code": 448
+    },
+    {
+        "country_code": "AU",
+        "country": "Австралия",
+        "region": "ТерриторияФедеральнойстолицы",
+        "region_code": 816
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Kangweon",
+        "region_code": 179
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Karabuk",
+        "region_code": 180
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Бухарская обл.",
+        "region_code": 364
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Сага",
+        "region_code": 733
+    },
+    {
+        "country_code": "CZ",
+        "country": "Чехия",
+        "region": "Karlovarsky",
+        "region_code": 181
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Од",
+        "region_code": 667
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Вермланд",
+        "region_code": 382
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Карс",
+        "region_code": 503
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Сурхандарьинская обл.",
+        "region_code": 792
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Мараньян",
+        "region_code": 588
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Катамарка",
+        "region_code": 505
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Kwangju",
+        "region_code": 190
+    },
+    {
+        "country_code": "",
+        "country": "Теркс и Кайкос",
+        "region": "GrandTurk",
+        "region_code": 163
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Esfahan",
+        "region_code": 155
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Ташкентская обл.",
+        "region_code": 809
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Финистер",
+        "region_code": 845
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Изер",
+        "region_code": 973
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region_code": 987
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Мияги",
+        "region_code": 610
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Керман",
+        "region_code": 511
+    },
+    {
+        "country_code": "IR",
+        "country": "Иран",
+        "region": "Керманшахан",
+        "region_code": 512
+    },
+    {
+        "country_code": "GR",
+        "country": "Греция",
+        "region": "Корфу",
+        "region_code": 534
+    },
+    {
+        "country_code": "KR",
+        "country": "Южная Корея (Республика Корея)",
+        "region": "Kyeongsangbuk",
+        "region_code": 192
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Кыркларели",
+        "region_code": 544
+    },
+    {
+        "country_code": "JM",
+        "country": "Ямайка",
+        "region": "Ямайка",
+        "region_code": 946
+    },
+    {
+        "country_code": "KP",
+        "country": "КНДР (Корейская Народно-Демократическая Республика)",
+        "region": "ЮжнаяКорея",
+        "region_code": 940
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Чукотский авт. округ",
+        "region_code": 83
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "Марке",
+        "region_code": 589
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Луго",
+        "region_code": 568
+    },
+    {
+        "country_code": "SE",
+        "country": "Швеция",
+        "region": "Норрботтен",
+        "region_code": 649
+    },
+    {
+        "country_code": "PT",
+        "country": "Португалия",
+        "region": "O-ваМадейра",
+        "region_code": 215
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Анталья",
+        "region_code": 315
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Аньхой",
+        "region_code": 984
+    },
+    {
+        "country_code": "CL",
+        "country": "Чили",
+        "region": "Сантьяго",
+        "region_code": 750
+    },
+    {
+        "country_code": "IL",
+        "country": "Израиль",
+        "region": "Хадаром",
+        "region_code": 858
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Хубэй",
+        "region_code": 879
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Синьцзян-Уйгурский автономный район",
+        "region_code": 971
+    },
+    {
+        "country_code": "EC",
+        "country": "Эквадор",
+        "region": "Пичинча",
+        "region_code": 704
+    },
+    {
+        "country_code": "TM",
+        "country": "Туркменистан (Туркмения)",
+        "region": "Ашхабадская обл.",
+        "region_code": 330
+    },
+    {
+        "country_code": "PH",
+        "country": "Филиппины",
+        "region": "Филиппины",
+        "region_code": 999
+    },
+    {
+        "country_code": "ME",
+        "country": "Черногория",
+        "region": "Черногория",
+        "region_code": 1002
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Бач-Кишкун",
+        "region_code": 341
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Кашкадарьинскаяобл.",
+        "region_code": 506
+    },
+    {
+        "country_code": "AT",
+        "country": "Австрия",
+        "region": "Каринтия",
+        "region_code": 502
+    },
+    {
+        "country_code": "CZ",
+        "country": "Чехия",
+        "region": "Stredochesky",
+        "region_code": 250
+    },
+    {
+        "country_code": "CA",
+        "country": "Канада",
+        "region": "НоваяШотландия",
+        "region_code": 644
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Гуандон",
+        "region_code": 427
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Джизакская обл.",
+        "region_code": 439
+    },
+    {
+        "country_code": "GE",
+        "country": "Грузия",
+        "region": "Аджария",
+        "region_code": 285
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Коджаэли",
+        "region_code": 520
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Karnataka",
+        "region_code": 182
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Эспириту-Санту",
+        "region_code": 931
+    },
+    {
+        "country_code": "DK",
+        "country": "Дания",
+        "region": "Baйле",
+        "region_code": 130
+    },
+    {
+        "country_code": "KZ",
+        "country": "Казахстан",
+        "region": "Кокчетавская обл.",
+        "region_code": 521
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Чьяпас",
+        "region_code": 905
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Наярит",
+        "region_code": 633
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Конья",
+        "region_code": 526
+    },
+    {
+        "country_code": "CH",
+        "country": "Швейцария",
+        "region": "Берн",
+        "region_code": 348
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Чубут",
+        "region_code": 904
+    },
+    {
+        "country_code": "CA",
+        "country": "Канада",
+        "region": "Ньюфаундленд",
+        "region_code": 658
+    },
+    {
+        "country_code": "IE",
+        "country": "Ирландия",
+        "region": "Cork",
+        "region_code": 145
+    },
+    {
+        "country_code": "DK",
+        "country": "Дания",
+        "region": "Копенгаген",
+        "region_code": 527
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Фукусима",
+        "region_code": 855
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Кордоба",
+        "region_code": 528
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Энтре-Риос",
+        "region_code": 925
+    },
+    {
+        "country_code": "SI",
+        "country": "Словения",
+        "region": "Словения",
+        "region_code": 782
+    },
+    {
+        "country_code": "DE",
+        "country": "Германия",
+        "region": "Бранденбург",
+        "region_code": 133
+    },
+    {
+        "country_code": "AR",
+        "country": "Аргентина",
+        "region": "Корриентес",
+        "region_code": 531
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Чорум",
+        "region_code": 903
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Мату-Гросу-ду-Сул",
+        "region_code": 594
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Яманаси",
+        "region_code": 947
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "Калабрия",
+        "region_code": 494
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Сахалинская обл.",
+        "region_code": 20
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Калмыкия респ.",
+        "region_code": 46
+    },
+    {
+        "country_code": "SV",
+        "country": "Сальвадор",
+        "region": "Cuscatlan",
+        "region_code": 147
+    },
+    {
+        "country_code": "CH",
+        "country": "Швейцария",
+        "region": "Женева",
+        "region_code": 454
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Самаркандская обл.",
+        "region_code": 738
+    },
+    {
+        "country_code": "NZ",
+        "country": "Новая Зеландия",
+        "region": "Canterbury",
+        "region_code": 135
+    },
+    {
+        "country_code": "PL",
+        "country": "Польша",
+        "region": "Западно-Поморское воеводство",
+        "region_code": 279
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Хакасия респ.",
+        "region_code": 74
+    },
+    {
+        "country_code": "NO",
+        "country": "Норвегия",
+        "region": "Вестагдер",
+        "region_code": 386
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Сырдарьинская обл.",
+        "region_code": 794
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Ханты-Мансийский авт. округ",
+        "region_code": 11
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Сеара",
+        "region_code": 755
+    },
+    {
+        "country_code": "MY",
+        "country": "Малайзия",
+        "region": "Малайзия",
+        "region_code": 581
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Ямало-Ненецкий авт. округ",
+        "region_code": 6
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Риу-Гранди-ду-Сул",
+        "region_code": 719
+    },
+    {
+        "country_code": "UZ",
+        "country": "Узбекистан",
+        "region": "Навоийская обл.",
+        "region_code": 625
+    },
+    {
+        "country_code": "BR",
+        "country": "Бразилия",
+        "region": "Мату-Гросу",
+        "region_code": 593
+    },
+    {
+        "country_code": "PT",
+        "country": "Португалия",
+        "region": "Португалия",
+        "region_code": 136
+    },
+    {
+        "country_code": "BE",
+        "country": "Бельгия",
+        "region": "ЗападнаяФландрия",
+        "region_code": 464
+    },
+    {
+        "country_code": "TM",
+        "country": "Туркменистан (Туркмения)",
+        "region": "Ташаузская обл.",
+        "region_code": 808
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Pohjois-Savo",
+        "region_code": 230
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Усима",
+        "region_code": 836
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Карачаево-Черкесская респ.",
+        "region_code": 80
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Тоттори",
+        "region_code": 824
+    },
+    {
+        "country_code": "HU",
+        "country": "Венгрия",
+        "region": "Пешт",
+        "region_code": 699
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Мордовия респ.",
+        "region_code": 68
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Кабардино-Балкарская респ.",
+        "region_code": 78
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Астраханская обл.",
+        "region_code": 34
+    },
+    {
+        "country_code": "CZ",
+        "country": "Чехия",
+        "region": "Чехия",
+        "region_code": 898
+    },
+    {
+        "country_code": "JP",
+        "country": "Япония",
+        "region": "Сайтама",
+        "region_code": 734
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Кютахья",
+        "region_code": 545
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Франция",
+        "region_code": 692
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Барселона",
+        "region_code": 338
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Тамбовская обл.",
+        "region_code": 58
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Сливен",
+        "region_code": 781
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Софияград",
+        "region_code": 787
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Марий Эл респ.",
+        "region_code": 32
+    },
+    {
+        "country_code": "IL",
+        "country": "Израиль",
+        "region": "Тель-Авив",
+        "region_code": 813
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Дагестан респ.",
+        "region_code": 21
+    },
+    {
+        "country_code": "TH",
+        "country": "Таиланд",
+        "region": "Тайланд",
+        "region_code": 800
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Калужская обл.",
+        "region_code": 33
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Варна",
+        "region_code": 374
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Габрово",
+        "region_code": 405
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Харьяна",
+        "region_code": 864
+    },
+    {
+        "country_code": "DE",
+        "country": "Германия",
+        "region": "Берлин",
+        "region_code": 132
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Керетаро",
+        "region_code": 510
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Чандигарх",
+        "region_code": 893
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Ассам",
+        "region_code": 325
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Джамму и Кашмир",
+        "region_code": 437
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Орисса",
+        "region_code": 676
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Керала",
+        "region_code": 509
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Манипур",
+        "region_code": 585
+    },
+    {
+        "country_code": "BO",
+        "country": "Боливия",
+        "region": "Боливия",
+        "region_code": 1004
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Плевен",
+        "region_code": 705
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Силистра",
+        "region_code": 775
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Русе",
+        "region_code": 727
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Шумен",
+        "region_code": 917
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Пловдив",
+        "region_code": 706
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "СтараЗагора",
+        "region_code": 789
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Пазарджик",
+        "region_code": 686
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Великотырново",
+        "region_code": 378
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Морелос",
+        "region_code": 619
+    },
+    {
+        "country_code": "VN",
+        "country": "Вьетнам",
+        "region": "DongBangSongCuuLong",
+        "region_code": 149
+    },
+    {
+        "country_code": "VN",
+        "country": "Вьетнам",
+        "region": "ThaiNguyen",
+        "region_code": 260
+    },
+    {
+        "country_code": "VN",
+        "country": "Вьетнам",
+        "region": "KhuBon",
+        "region_code": 184
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Адыгея респ.",
+        "region_code": 61
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Перник",
+        "region_code": 697
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Стамбул",
+        "region_code": 788
+    },
+    {
+        "country_code": "KG",
+        "country": "Киргизия",
+        "region": "Иссык-Кульская обл.",
+        "region_code": 484
+    },
+    {
+        "country_code": "TR",
+        "country": "Турция",
+        "region": "Кайсери",
+        "region_code": 493
+    },
+    {
+        "country_code": "SV",
+        "country": "Сальвадор",
+        "region": "LaUnion",
+        "region_code": 197
+    },
+    {
+        "country_code": "IT",
+        "country": "Италия",
+        "region": "Венеция",
+        "region_code": 380
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Северная Осетия респ.",
+        "region_code": 79
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Забайкальский край",
+        "region_code": 49
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Чувашия респ.",
+        "region_code": 64
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Хасково",
+        "region_code": 865
+    },
+    {
+        "country_code": "IN",
+        "country": "Индия",
+        "region": "Раджастхан",
+        "region_code": 713
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Смоленская обл.",
+        "region_code": 65
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Валенсия",
+        "region_code": 369
+    },
+    {
+        "country_code": "RU",
+        "country": "Россия",
+        "region": "Москва",
+        "region_code": 81
+    },
+    {
+        "country_code": "GB",
+        "country": "Великобритания",
+        "region": "Великобритания",
+        "region_code": 377
+    },
+    {
+        "country_code": "BG",
+        "country": "Болгария",
+        "region": "Бургас",
+        "region_code": 360
+    },
+    {
+        "country_code": "KZ",
+        "country": "Казахстан",
+        "region": " Туркестанская обл.",
+        "region_code": 900
+    },
+    {
+        "country_code": "TJ",
+        "country": "Таджикистан",
+        "region": "Кулябская обл.",
+        "region_code": 539
+    },
+    {
+        "country_code": "KG",
+        "country": "Киргизия",
+        "region": "Таласская обл.",
+        "region_code": 801
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Па-де-Кале",
+        "region_code": 684
+    },
+    {
+        "country_code": "AT",
+        "country": "Австрия",
+        "region": "Штирия",
+        "region_code": 916
+    },
+    {
+        "country_code": "MX",
+        "country": "Мексика",
+        "region": "Гуанахуато",
+        "region_code": 426
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Лерида",
+        "region_code": 553
+    },
+    {
+        "country_code": "HT",
+        "country": "Гаити",
+        "region": "Sud",
+        "region_code": 251
+    },
+    {
+        "country_code": "CN",
+        "country": "Китай (КНР)",
+        "region": "Цзилинь",
+        "region_code": 888
+    },
+    {
+        "country_code": "CZ",
+        "country": "Чехия",
+        "region": "Liberecky",
+        "region_code": 198
+    },
+    {
+        "country_code": "PE",
+        "country": "Перу",
+        "region": "Перу",
+        "region_code": 698
+    },
+    {
+        "country_code": "CY",
+        "country": "Кипр",
+        "region": "Governmentcontrolledarea",
+        "region_code": 160
+    },
+    {
+        "country_code": "IE",
+        "country": "Ирландия",
+        "region": "Limerick",
+        "region_code": 199
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Верхняя Вьенна",
+        "region_code": 404
+    },
+    {
+        "country_code": "CR",
+        "country": "Коста-Рика",
+        "region": "Guanacaste",
+        "region_code": 165
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Нор",
+        "region_code": 647
+    },
+    {
+        "country_code": "FR",
+        "country": "Франция",
+        "region": "Верхняя Луара",
+        "region_code": 564
+    },
+    {
+        "country_code": "NL",
+        "country": "Нидерланды",
+        "region": "Фрисландия",
+        "region_code": 851
+    },
+    {
+        "country_code": "FI",
+        "country": "Финляндия",
+        "region": "Etela-Karjala",
+        "region_code": 156
+    },
+    {
+        "country_code": "ES",
+        "country": "Испания",
+        "region": "Лас-Пальмас",
+        "region_code": 549
+    },
+    {
+        "country_code": "AU",
+        "country": "Австралия",
+        "region": "Тасмания",
+        "region_code": 807
     }
 ]
