@@ -244,7 +244,7 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 	 * @return bool
 	 */
 	public function check_condition_for_disable( $package ) {
-		$total_val = WC()->cart->get_cart_subtotal();
+		$total_val = WC()->cart->get_cart_contents_total();
 		$weight    = wc_get_weight( WC()->cart->get_cart_contents_weight(), 'g' );
 
 		// check if cost is less than provided in options.
@@ -477,9 +477,9 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 		$defaults       = CDEKFW_Helper::get_default_dimensions();
 		$goods          = array();
 		$cart_weight    = wc_get_weight( WC()->cart->get_cart_contents_weight(), 'g' );
-		$package_length = ceil( $this->package_length );
-		$package_width  = ceil( $this->package_width );
-		$package_height = ceil( $this->package_height );
+		$package_length = ceil( $this->package_length ? $this->package_length : 0 );
+		$package_width  = ceil( $this->package_width ? $this->package_width : 0 );
+		$package_height = ceil( $this->package_height ? $this->package_height : 0 );
 
 		// If package selected in services.
 		if ( in_array( '24', $services, true ) && ! $package_length ) {
