@@ -29,6 +29,9 @@ class CDEKFW_Client {
 	 * @return bool|mixed|null
 	 */
 	public static function calculate_rate( $args ) {
+		// Allow developers to filter args before call api.
+		$args = apply_filters( 'cdekfw_filter_api_args', $args, 'v2/calculator/tarifflist' );
+
 		return self::get_data_from_api( 'v2/calculator/tarifflist', $args, 'POST', false );
 	}
 
@@ -126,6 +129,9 @@ class CDEKFW_Client {
 
 			$args['city_code'] = $to_code;
 		}
+
+		// Allow developers to filter args before call api.
+		$args = apply_filters( 'cdekfw_filter_api_args', $args, 'v2/deliverypoints' );
 
 		$items = self::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET', false );
 
