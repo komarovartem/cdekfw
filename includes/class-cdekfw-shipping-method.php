@@ -125,6 +125,9 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 		$shipping_rates = CDEKFW_Client::calculate_rate( $args );
 
+		// Allow developers to filter shipping rates
+		$shipping_rates = apply_filters( 'cdekfw_filter_shipping_rates', $shipping_rates );
+
 		if ( ! $shipping_rates ) {
 			$this->maybe_print_error();
 
@@ -136,6 +139,9 @@ class CDEKFW_Shipping_Method extends WC_Shipping_Method {
 
 			return;
 		}
+
+		// Allow developers to filter tariff list
+		$tariff_list = apply_filters( 'cdekfw_filter_tariff_list', $tariff_list );
 
 		foreach ( $tariff_list as $tariff ) {
 			foreach ( $shipping_rates['tariff_codes'] as $shipping_rate ) {
