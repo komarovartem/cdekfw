@@ -127,6 +127,9 @@ class CDEKFW_Client {
 			$args['city_code'] = $to_code;
 		}
 
+		// Allow developers to filter args before call api.
+		$args = apply_filters( 'cdekfw_filter_api_args', $args, 'v2/deliverypoints' );
+
 		$items = self::get_data_from_api( add_query_arg( $args, 'v2/deliverypoints' ), array(), 'GET', false );
 
 		if ( ! $items ) {
